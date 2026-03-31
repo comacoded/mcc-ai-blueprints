@@ -1,0 +1,338 @@
+  <section id="ca-domain" class="domain-divider">
+    <div class="domain-header">
+      <h2>Corporate Affairs Workflow Mapping</h2>
+      <p>Mapping 33 Corporate Affairs workflows from 30 iX discovery PDFs to 8 AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
+    </div>
+
+    <div class="content">
+      <!-- Dashboard -->
+      <div class="dashboard">
+        <div class="dash-card neutral">
+          <div class="label">Total iX Processes</div>
+          <div class="value">33</div>
+          <div class="detail">From 30 PDFs (2 duplicates removed)</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Blueprint Initiatives</div>
+          <div class="value">8</div>
+          <div class="detail">5 sub-domains covered</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Mapped Processes</div>
+          <div class="value">16</div>
+          <div class="detail">Strong or medium confidence</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Gap Processes</div>
+          <div class="value">17</div>
+          <div class="detail">No initiative or weak match</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Coverage Rate</div>
+          <div class="value">48%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 22 pts</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Needed to Hit 70%</div>
+          <div class="value">+7</div>
+          <div class="detail">Additional processes must be covered</div>
+        </div>
+      </div>
+
+      <!-- Coverage bar -->
+      <div class="coverage-bar-container">
+        <h3>Coverage vs. 70% Agentification Target</h3>
+        <div class="coverage-bar-track">
+          <div class="coverage-bar-fill below" style="width: 48%;"></div>
+          <div class="target-marker" style="left: 70%;"></div>
+        </div>
+        <div class="coverage-label">
+          <span>0%</span>
+          <span>16 of 33 processes mapped (48%)</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- Initiatives Overview -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Blueprint Initiatives</h3>
+          <span class="count">8 Corporate Affairs initiatives</span>
+        </div>
+        <div class="initiative-grid">
+          <div class="initiative-card">
+            <h4>RFI Ninja</h4>
+            <div class="id">CA-AR-15 &bull; Analyst Relations</div>
+            <div class="desc">Automates end-to-end analyst RFI response lifecycle: assembles knowledge from governed repositories, generates analyst-ready first drafts with rubric logic and word-count constraints, orchestrates SME review.</div>
+            <div class="mapped-count">1 process mapped (direct match)</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Trigger-Based Activation of Thought Leadership &amp; Analyst Reports</h4>
+            <div class="id">CA-AR-16 &bull; Analyst Relations (home in PMM)</div>
+            <div class="desc">Monitors newly published analyst reports, thought leadership, and market events to automatically generate and route activation-ready assets and messaging to marketing and sales teams.</div>
+            <div class="mapped-count">1 process partially mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Executive Narrative Intelligence &amp; Communications Platform</h4>
+            <div class="id">CA-IC-13 &bull; IBMer Comms</div>
+            <div class="desc">Curates and indexes executive content assets (speeches, presentations, media appearances) into an AI-powered intelligence repository with retrieval and reuse recommendations.</div>
+            <div class="mapped-count">3 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Automated CEO Office Hours Reporting</h4>
+            <div class="id">CA-IC-14 &bull; IBMer Comms</div>
+            <div class="desc">Ingests session recordings, transcripts, and attendee metadata. Applies AI analysis to extract themes, decisions, action items, and sentiment. Produces structured post-session reports.</div>
+            <div class="mapped-count">1 process mapped (direct match)</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Media Monitoring &mdash; Automate Meltwater/Bloomberg</h4>
+            <div class="id">CA-IEC-11 &bull; International &amp; External Comms</div>
+            <div class="desc">Monitors global media coverage, tracks press release performance, orchestrates distribution across regions. Integrates media intelligence platforms and editorial calendars. Real-time dashboards and crisis escalation.</div>
+            <div class="mapped-count">5 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Press Release Orchestration Agent</h4>
+            <div class="id">CA-IEC-12 &bull; International &amp; External Comms</div>
+            <div class="desc">Orchestrates end-to-end press release development from news discovery through legal clearance and distribution. Replaces fragmented email, Slack, and Box-based coordination.</div>
+            <div class="mapped-count">5 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Social Media Advocacy Agent</h4>
+            <div class="id">CA-SM-17 &bull; Social Media</div>
+            <div class="desc">Monitors IBM's priority media in Meltwater, matches coverage to relevant executives, generates personalized LinkedIn content tailored to each executive's voice. Integrates with Sprinklr.</div>
+            <div class="mapped-count">2 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>V2 Content + Paid Media POC</h4>
+            <div class="id">CA-SM-18 &bull; Social Media (home in C&amp;C)</div>
+            <div class="desc">Extends V1 Creative Assistant POC to next-priority paid media formats &mdash; LinkedIn in-feed, DCO banners, static banners, OOH. Produces brand-validated, legally cleared creative assets.</div>
+            <div class="mapped-count">1 process mapped</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Mapping Table -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Complete Process-to-Initiative Mapping</h3>
+          <span class="count">33 iX processes</span>
+        </div>
+        <div class="filter-bar" id="ca-filter-bar">
+          <button class="filter-tab active" onclick="filterTableCA('quickwins',this)">Best to Start With (8)</button>
+          <button class="filter-tab" onclick="filterTableCA('all',this)">All (33)</button>
+          <button class="filter-tab" onclick="filterTableCA('mapped',this)">Mapped (16)</button>
+          <button class="filter-tab" onclick="filterTableCA('gap',this)">Gaps (17)</button>
+          <button class="filter-tab" onclick="filterTableCA('sm',this)">Social Media (9)</button>
+          <button class="filter-tab" onclick="filterTableCA('iec',this)">Intl &amp; Ext Comms (7)</button>
+          <button class="filter-tab" onclick="filterTableCA('ic',this)">IBMer Comms (5)</button>
+          <button class="filter-tab" onclick="filterTableCA('other',this)">Other (12)</button>
+        </div>
+        <table id="ca-mapping-table">
+          <thead>
+            <tr>
+              <th style="width:3%">#</th>
+              <th style="width:8%">Sub-domain</th>
+              <th style="width:17%">iX Process</th>
+              <th style="width:18%">Maps To</th>
+              <th style="width:6%">Conf.</th>
+              <th style="width:5%">Status</th>
+              <th style="width:43%">Rationale &amp; Process Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- MAPPED -->
+            <tr data-sub="sm" data-status="mapped" data-quickwin="true"><td>1</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">AI for Business Social Monitoring</td><td><span class="tag tag-initiative">CA-IEC-11</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Ad-hoc, market moments, and always-on monitoring via Sprinklr, Brandwatch, Meltwater. KPI setup, dashboard creation, insights reports. Tools: Sprinklr, Airtable, Monday.com.</div><div class="mapping-rationale">Direct match to CA-IEC-11's media monitoring and real-time insights scope. The social monitoring feeds are a primary input to the unified monitoring layer.</div></td></tr>
+
+            <tr data-sub="sm" data-status="mapped" data-quickwin="true"><td>2</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Crisis Social Listening &amp; Response</td><td><span class="tag tag-initiative">CA-IEC-11</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">ICUC team real-time monitoring (Meltwater). Triggers: conversation spikes, alerts, physical harm. Impact assessment, escalation to Issues &amp; Policy team/CCO/CEO. Reports generated from Meltwater extracts.</div><div class="mapping-rationale">Crisis detection and escalation is core to CA-IEC-11's real-time pattern recognition, anomaly detection, and crisis escalation capabilities.</div></td></tr>
+
+            <tr data-sub="sm" data-status="mapped"><td>3</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Monthly SM &amp; Influence Metrics</td><td><span class="tag tag-initiative">CA-IEC-11</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">8-10 day cycle. Data from Sprinklr, Datorama, Reddit, LinkedIn. Paid, organic, executive, influencer, advocate streams. Manual cleaning/normalization (4-5 days). PowerPoint output.</div><div class="mapping-rationale">Metrics aggregation and insights are within CA-IEC-11's dashboards and reporting scope, though this is more periodic than real-time. Medium because the heavy data cleaning work isn't specifically addressed.</div></td></tr>
+
+            <tr data-sub="sm" data-status="mapped"><td>4</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Demand Paid Social Briefing &amp; Intake</td><td><span class="tag tag-initiative">CA-SM-18</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Paid Social Request Form &rarr; review &rarr; strategy/brainstorm &rarr; creative brief &rarr; legal review &rarr; PMM approval &rarr; globalization &rarr; DAM/AMAL upload &rarr; paid media notification. Tools: Monday.com, Workfront, DAM.</div><div class="mapping-rationale">Paid social creative pipeline maps to CA-SM-18's paid media creative generation scope. Medium because the intake/orchestration workflow is broader than just asset creation.</div></td></tr>
+
+            <tr data-sub="iec" data-status="mapped" data-quickwin="true"><td>5</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Daily Media Tracking</td><td><span class="tag tag-initiative">CA-IEC-11</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Twice daily scan of Bloomberg, Factiva, Meltwater, MuckRack. Find IBM coverage, post to Slack, flag sensitive items. Report potential issues to Adam Pratt. Weekday/US hours only.</div><div class="mapping-rationale">Daily media monitoring is the core use case for CA-IEC-11. Automating the multi-tool scan and pre-flagging is exactly what this initiative does.</div></td></tr>
+
+            <tr data-sub="iec" data-status="mapped"><td>6</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Issues Management</td><td><span class="tag tag-initiative">CA-IEC-11</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Issue &rarr; triage &rarr; shepherd assigned &rarr; risk level (H/M/L) &rarr; RIB via Nova AI Agent &rarr; leadership notification. Weekly/quarterly/annual reports. Already uses Nova AI for bulletin generation. Monday + Meltwater.</div><div class="mapping-rationale">Monitoring and detection feeds into issues management. CA-IEC-11's anomaly detection supports the trigger, but the response orchestration (shepherding, RIB, stakeholder coordination) extends beyond monitoring. Already partially AI-enabled via Nova.</div></td></tr>
+
+            <tr data-sub="iec" data-status="mapped" data-quickwin="true"><td>7</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Announcement Approval Process</td><td><span class="tag tag-initiative">CA-IEC-12</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Global-led and market-led announcements. Airtable-based workflow: draft &rarr; geo review (2 days) &rarr; global review &rarr; legal clearance &rarr; SVP approval &rarr; client approval &rarr; publish on newswire. All approvals stored as PDF/screenshots with timestamps.</div><div class="mapping-rationale">End-to-end press release orchestration is the exact scope of CA-IEC-12. Replaces fragmented email/Slack/Box coordination with unified AI-managed workflow.</div></td></tr>
+
+            <tr data-sub="iec" data-status="mapped" data-quickwin="true"><td>8</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Global Press Room / PR Newswire</td><td><span class="tag tag-initiative">CA-IEC-12</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Airtable submission &rarr; approvals &rarr; content check (SEO, boilerplate) &rarr; prepare for 21 Cision newsrooms &rarr; PR Newswire proof &rarr; final publish (global/US/single country). Pain: last-minute changes, 4-hour publish cycle.</div><div class="mapping-rationale">Distribution end of press release lifecycle is directly within CA-IEC-12's scope &mdash; from review to distribution across regions.</div></td></tr>
+
+            <tr data-sub="ic" data-status="mapped" data-quickwin="true"><td>9</td><td><span class="tag tag-ic">IBMer</span></td><td class="process-name">CEO Office Hours</td><td><span class="tag tag-initiative">CA-IC-14</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Full lifecycle: promotion &rarr; 3 prep docs (Friday, day-before, day-of) &rarr; Q&amp;A collection from Slack (#join-arvind) &rarr; live production via IBM Video Streaming &rarr; recap &rarr; blog/email drafting &rarr; replay with captions/chapters &rarr; 24-hour report (sentiment, themes, metrics) &rarr; optional 1-week report.</div><div class="mapping-rationale">Direct 1:1 match with CA-IC-14. The initiative specifically targets this process &mdash; ingesting recordings/transcripts, extracting themes/decisions/action items, producing structured reports.</div></td></tr>
+
+            <tr data-sub="ic" data-status="mapped"><td>10</td><td><span class="tag tag-ic">IBMer</span></td><td class="process-name">Executive Comms Prep</td><td><span class="tag tag-initiative">CA-IC-13</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Event calendar management (Box/Monday/Airtable). Agenda/speaker coordination. Briefing document preparation. PowerPoint aggregation. Q&amp;A research. Run of show. Post-event reporting (sentiment, unanswered questions). Pain: finding SMEs on short notice.</div><div class="mapping-rationale">Executive content preparation and retrieval of past messaging/positioning maps to CA-IC-13's intelligence repository. The briefing prep especially benefits from on-demand retrieval of relevant past content.</div></td></tr>
+
+            <tr data-sub="other" data-status="mapped"><td>11</td><td><span class="tag tag-di">Data</span></td><td class="process-name">Comms Data &amp; Insights (Monthly/Market Moment/Alert)</td><td><span class="tag tag-initiative">CA-IEC-11</span> <span class="tag tag-initiative">CA-SM-17</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Three streams: Monthly CA report (Meltwater data + team submissions), Market Moment insights (pre/post event, Meltwater templates), Morning/Afternoon media alerts (Meltwater auto-draft &rarr; human QA &rarr; 2,000 employees via Marketo). Pain: AI misreads context in alerts.</div><div class="mapping-rationale">Media alerts and insights analysis map to CA-IEC-11 (monitoring/dashboards). Executive advocacy content from media moments touches CA-SM-17. Medium because the multi-team report assembly isn't fully addressed.</div></td></tr>
+
+            <tr data-sub="other" data-status="mapped" data-quickwin="true"><td>12</td><td><span class="tag tag-ar">AR</span></td><td class="process-name">RFI Automation</td><td><span class="tag tag-initiative">CA-AR-15</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Ranking provider notifies &rarr; receive RFI &rarr; update Monday table &rarr; assign owner &rarr; coordinate with multiple teams if needed &rarr; complete RFI &rarr; vendor clarifications loop &rarr; submit to vendor. Pain: very time consuming, diverse formats, wide question spectrum.</div><div class="mapping-rationale">Direct 1:1 match with CA-AR-15 RFI Ninja. The initiative automates exactly this: assembling knowledge, generating first drafts, orchestrating SME review.</div></td></tr>
+
+            <tr data-sub="other" data-status="mapped"><td>13</td><td><span class="tag tag-iec">IntComms</span></td><td class="process-name">Content Approval Process (Int. Comms)</td><td><span class="tag tag-initiative">CA-IEC-12</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Content request &rarr; alignment with manager &rarr; determine reviewers &rarr; upload to Box &rarr; claims certification if needed &rarr; review cycles (may be multiple rounds) &rarr; legal review via Workfront &rarr; stakeholder approval &rarr; publish to Workfront &rarr; notify &rarr; compliance tracking.</div><div class="mapping-rationale">Content review and approval orchestration maps to CA-IEC-12's unified review/approval workflow, though this is broader than press releases alone.</div></td></tr>
+
+            <tr data-sub="other" data-status="mapped"><td>14</td><td><span class="tag tag-iec">IntComms</span></td><td class="process-name">Press Release Content Creation (JPN)</td><td><span class="tag tag-initiative">CA-IEC-12</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Japan-specific: requester contacts (Japanese) &rarr; meeting (recorded) &rarr; business leader approval &rarr; first draft &rarr; review cycles (2-3x) &rarr; internal stakeholder approvals &rarr; customer approval &rarr; global approval &rarr; translation (CoPilot/DeepL based on confidentiality) &rarr; legal/AI ethics/healthcare PMO reviews &rarr; publish. Press conference follows.</div><div class="mapping-rationale">Press release creation is within CA-IEC-12's scope. Medium because the JPN-specific translation and regulatory reviews add complexity not explicitly in the initiative.</div></td></tr>
+
+            <tr data-sub="other" data-status="mapped"><td>15</td><td><span class="tag tag-iec">IntComms</span></td><td class="process-name">Text Content Creation (Local Language)</td><td><span class="tag tag-initiative">CA-IEC-12</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Opportunity &rarr; alignment &rarr; first draft &rarr; stakeholder identification &rarr; local review chain (SME &rarr; NCEE &rarr; EMEA &rarr; Legal &rarr; GRA) &rarr; global review (Global Comms &rarr; Global Legal) &rarr; client versions (max 3) &rarr; translation subprocess (DeepL/CoPilot/manual by confidentiality level) &rarr; publish local or global announcement.</div><div class="mapping-rationale">Content creation with multi-stakeholder review maps to CA-IEC-12's orchestration scope. The translation sub-process is a significant extension not fully in scope.</div></td></tr>
+
+            <tr data-sub="other" data-status="mapped"><td>16</td><td><span class="tag tag-ic">IBMer</span></td><td class="process-name">Exec Comms Creation (Geo)</td><td><span class="tag tag-initiative">CA-IC-13</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Deirdre's process for Adam Lawrence. Planned/ad-hoc activity &rarr; solicit input &rarr; script/draft in Box &rarr; alignment with marketing/global comms &rarr; review rounds (1-2 days to 2 weeks) &rarr; Marketo distribution (recipient list from HR, import, send) &rarr; video via Blue Studio/Workfront &rarr; post-production &rarr; feedback.</div><div class="mapping-rationale">Executive content creation and reuse maps to CA-IC-13's intelligence repository &mdash; past speeches, messaging, and positioning retrieval. Distribution automation is a downstream benefit.</div></td></tr>
+
+            <!-- GAPS -->
+            <tr data-sub="sm" data-status="gap"><td>17</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Internal Social Listening</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Internal channel monitoring (Slack, W3, Fishbowl, Reddit). Manual extraction of bulk comments. Employee sentiment reports/trending topics. AI Copilot used for sentiment but needs validation. KPIs: comments across platforms, volume, unique IBMers, sentiment split.</div><div class="mapping-rationale">CA-IEC-11 covers external media monitoring but does NOT cover internal employee listening (Slack, W3, Fishbowl). This is a distinct internal comms intelligence workflow.</div></td></tr>
+
+            <tr data-sub="sm" data-status="gap"><td>18</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Social &amp; Influence Editorial Calendar</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Airtable-based editorial calendar. Vertical leads create posts/projects, complete details (publish date, status, campaign, assets). Quality check. Airtable-Airshow integration for sharing. Pain: tagging/labeling could be automated.</div><div class="mapping-rationale">Editorial calendar management and content scheduling is not covered by any initiative. This is a coordination/planning tool, not monitoring or content creation.</div></td></tr>
+
+            <tr data-sub="sm" data-status="gap"><td>19</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Social Media Channel Access &amp; Governance</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Access requests via Slack/email &rarr; manager approval &rarr; screenshots for audit (Word doc in OneDrive). Access review: every 6 months (employees), 3 months (agency). Manual platform-by-platform access checks. Key for crisis management (centralized list needed).</div><div class="mapping-rationale">Governance and access management is operational/compliance work. No initiative covers social media account provisioning, audit trails, or access governance.</div></td></tr>
+
+            <tr data-sub="sm" data-status="gap"><td>20</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">The Social League Communications</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">LinkedIn analytics for ~7 of 40 channels (IBM Data AI, Hybrid Infra, Cloud, Watson, Research, Quantum, PartnerPlus). Sprinklr analytics. Marketo newsletter. Monthly performance review. KPIs: impressions, engagement, video views, newsletter open/click rates.</div><div class="mapping-rationale">Channel-specific analytics and newsletter distribution for IBM's social league. Not covered by any initiative &mdash; falls between monitoring (CA-IEC-11) and advocacy (CA-SM-17).</div></td></tr>
+
+            <tr data-sub="sm" data-status="gap"><td>21</td><td><span class="tag tag-sm">SM&amp;I</span></td><td class="process-name">Influencer Campaign Intake Brief</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">W3 brief &rarr; review &rarr; budget check (often non-existent, alternatives: internal/unpaid influencers) &rarr; agency send &rarr; Monday board &rarr; influencer list/pricing &rarr; approval &rarr; campaign execution &rarr; bi-weekly reports &rarr; wrap-up. Pain: large incomplete briefs.</div><div class="mapping-rationale">Influencer campaign management (intake, agency coordination, execution, reporting) is not covered by any initiative. CA-SM-17 focuses on executive advocacy, not influencer campaigns.</div></td></tr>
+
+            <tr data-sub="iec" data-status="gap"><td>22</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Client Partner Story Tracking</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Story opportunity from multiple sources &rarr; qualification (challenge, solution, outcomes) &rarr; decide type (announcement, case study, blog, social, event) &rarr; route to appropriate workflow &rarr; Monday board tracking &rarr; prioritization &rarr; coordination with global client stories &rarr; promotion planning &rarr; timing/release management &rarr; close-out.</div><div class="mapping-rationale">Story tracking and promotion orchestration is not covered. CA-IEC-12 handles press releases but not the upstream story identification, qualification, and cross-format promotion lifecycle.</div></td></tr>
+
+            <tr data-sub="iec" data-status="gap"><td>23</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Major Media Relationships Tracking</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Team flags top-tier corporate comms request &rarr; evaluate suitability for outlet &rarr; evaluate alignment with IBM Comms strategy &rarr; approve and route to appropriate outlet/reporter. Airtable-based. Highly subjective, involves multiple teams.</div><div class="mapping-rationale">Relationship management and strategic routing of top-tier media opportunities is a human-judgment-heavy process not addressed by any initiative.</div></td></tr>
+
+            <tr data-sub="iec" data-status="gap"><td>24</td><td><span class="tag tag-iec">IEC</span></td><td class="process-name">Week Ahead Tracking</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Wednesday reminder &rarr; team submissions in Airtable &rarr; Thursday validation/tagging &rarr; first draft &rarr; Friday media relations call &rarr; changes &rarr; final draft to CCO (Sarah Meron) &rarr; Saturday CCO review &rarr; SVP (Jonathan Adashek) approval &rarr; distribute to ~3,000 people. Multi-day cycle.</div><div class="mapping-rationale">Weekly communications planning and executive distribution is a coordination workflow. Not covered by any initiative, though CA-IEC-11's editorial calendar integration could partially address it.</div></td></tr>
+
+            <tr data-sub="ic" data-status="gap"><td>25</td><td><span class="tag tag-ic">IBMer</span></td><td class="process-name">Distribution List Creation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">12 lists for all IBM, monthly maintenance. EPM Cognos &rarr; Excel &rarr; CSV &rarr; manual upload to Marketo (~1hr/list). On-demand: custom filtering, headcount by BU/location (~2 days). Entirely manual export/clean/upload cycle.</div><div class="mapping-rationale">Distribution list management is operational/infrastructure. No initiative covers automated list generation, synchronization, or Marketo integration.</div></td></tr>
+
+            <tr data-sub="ic" data-status="gap"><td>26</td><td><span class="tag tag-ic">IBMer</span></td><td class="process-name">Newsletter + w3 Pages</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Daily content meeting &rarr; Wednesday newsletter selection &rarr; content creation (90% internal) &rarr; 4-layer approval (SME &rarr; Director/VP &rarr; SVP) &rarr; Marketo test drafts &rarr; review &rarr; send every Thursday afternoon. W3: Headlines tool &rarr; Publisher &rarr; publish. Pain: approvals take too long.</div><div class="mapping-rationale">Newsletter production and w3 publishing is not covered by any initiative. It's a recurring content assembly and multi-approval workflow. Could potentially extend CA-IC-13 for content reuse.</div></td></tr>
+
+            <tr data-sub="ic" data-status="gap"><td>27</td><td><span class="tag tag-ic">IBMer</span></td><td class="process-name">Virtual IBMer Events</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Event frequency varies by BU. SVP calendar securing, speaker coordination, content workstream (3 checkpoints), production (IBM Video Streaming), post-event analytics (views, replay, engagement survey). Pain: planning close to event, diverse speakers, content timing.</div><div class="mapping-rationale">Virtual event lifecycle (planning, production, analytics) is not covered. CA-IC-14 covers post-session reporting for CEO Office Hours specifically but doesn't generalize to all virtual events.</div></td></tr>
+
+            <tr data-sub="other" data-status="gap"><td>28</td><td><span class="tag tag-di">Data</span></td><td class="process-name">Data Insights (Internal Comms)</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Data capture (Slack/email) &rarr; categorization (HR, campaigns, regional, financials) &rarr; channel selection &rarr; content creation/validation &rarr; multi-channel publishing &rarr; Airtable reporting &rarr; manual data loading &rarr; insights (ad-hoc/quarterly/annually). KPI: Awareness = reach/potential reach.</div><div class="mapping-rationale">Internal comms performance tracking and reporting across multiple channels. Not covered &mdash; CA-IEC-11 is external-focused. This needs internal comms analytics capabilities.</div></td></tr>
+
+            <tr data-sub="other" data-status="gap"><td>29</td><td><span class="tag tag-iec">IntComms</span></td><td class="process-name">Content Forecast Process</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Fall Plan &rarr; Word doc &rarr; W3 page &rarr; team presentation &rarr; each team forecasts activities &rarr; add to shared editorial calendar (Airtable) &rarr; larger initiatives get comms plans in Box &rarr; ongoing alignment. Pain: calendar adoption, reorg KT loss, teams not using Airtable.</div><div class="mapping-rationale">Strategic planning and editorial calendar management. Not covered by any initiative &mdash; it's a coordination/planning process, not content creation or monitoring.</div></td></tr>
+
+            <tr data-sub="other" data-status="gap"><td>30</td><td><span class="tag tag-bm">Brand</span></td><td class="process-name">Advertising Campaign Development</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Annual priorities &rarr; agency briefing &rarr; creative strategy review &rarr; idea presentation &rarr; approval cycles &rarr; channel-specific asset development (film, audio, OOH, social) &rarr; production &rarr; legal review &rarr; assets live. 2x/year major + ad-hoc. Pain: audience insight is manual and time-consuming.</div><div class="mapping-rationale">Brand advertising creative development is outside all CA initiative scopes. This is a Creative &amp; Content domain workflow, not addressed in Corporate Affairs blueprints.</div></td></tr>
+
+            <tr data-sub="other" data-status="gap"><td>31</td><td><span class="tag tag-bm">Brand</span></td><td class="process-name">Advertising Globalization (Transcreation)</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">English assets &rarr; review with global teams &rarr; geo teams select for paid media &rarr; agency transcreation/resizing &rarr; approvals &rarr; DAM/Media Center &rarr; trafficking &rarr; live in market. Pain: script rewrites and cultural adaptations.</div><div class="mapping-rationale">Transcreation/localization of advertising assets. Not in CA scope &mdash; may belong in Creative &amp; Content domain. CA-SM-18 covers paid media creative but not the globalization pipeline.</div></td></tr>
+
+            <tr data-sub="other" data-status="gap"><td>32</td><td><span class="tag tag-bm">Brand</span></td><td class="process-name">Smart Talks with IBM Podcast</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Season strategy (8 episodes, 3-month planning) &rarr; episode direction &rarr; client coordination &rarr; guest scheduling &rarr; interview materials &rarr; recording (studio/Riverside) &rarr; script/video review &rarr; legal + stakeholder approval &rarr; distribution strategy &rarr; go live. Pain: client sensitivities, timely review.</div><div class="mapping-rationale">Podcast production lifecycle is not covered. Could benefit from CA-IC-13 for guest research/messaging but the production workflow is distinct.</div></td></tr>
+
+            <tr data-sub="other" data-status="gap"><td>33</td><td><span class="tag tag-ev">Events</span></td><td class="process-name">Translations and Captions</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Live events: 3rd party captioning &rarr; transcript &rarr; review/edit. Non-live: auto-caption or manual (NDA if confidential). If translation needed: request to IBM translation team (5 business days for 9 languages). SRT (Media Center) and VTT (IVS) formats. Pain: 4-5 day turnaround.</div><div class="mapping-rationale">Translation and captioning is a cross-functional production service. Not addressed by any CA initiative. Automation opportunity for caption file translation and video integration.</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gap Analysis -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Gap Analysis</h3>
+          <span class="count">17 uncovered processes in 5 clusters</span>
+        </div>
+
+        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 1: Social Media Operations &amp; Governance (5 processes)</h4>
+        <div class="gap-grid" style="margin-bottom:1.5rem;">
+          <div class="gap-card"><h4>Internal Social Listening</h4><div class="source-tag"><span class="tag tag-sm">SM&amp;I</span></div><p>Employee sentiment tracking across Slack, W3, Fishbowl, Reddit. Manual bulk comment extraction. AI Copilot used but needs validation. Distinct from external monitoring.</p></div>
+          <div class="gap-card"><h4>Editorial Calendar (Airtable)</h4><div class="source-tag"><span class="tag tag-sm">SM&amp;I</span></div><p>Post/project creation, detail completion, quality checks, Airtable-Airshow integration. Tagging/labeling automation opportunity.</p></div>
+          <div class="gap-card"><h4>Channel Access &amp; Governance</h4><div class="source-tag"><span class="tag tag-sm">SM&amp;I</span></div><p>Access provisioning across TikTok, LinkedIn, Instagram, YouTube, X. Manual screenshots for audit. 6-month/3-month review cycles. Crisis management dependency on centralized list.</p></div>
+          <div class="gap-card"><h4>Social League Communications</h4><div class="source-tag"><span class="tag tag-sm">SM&amp;I</span></div><p>Channel-specific analytics (~7 of 40 channels), Sprinklr dashboards, Marketo newsletter, monthly performance reviews for Social Media directors/managers.</p></div>
+          <div class="gap-card"><h4>Influencer Campaign Intake</h4><div class="source-tag"><span class="tag tag-sm">SM&amp;I</span></div><p>W3 brief intake, budget validation (often non-existent), agency coordination via Monday, campaign execution, bi-weekly reporting, wrap-up.</p></div>
+        </div>
+
+        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 2: Comms Planning &amp; Coordination (4 processes)</h4>
+        <div class="gap-grid" style="margin-bottom:1.5rem;">
+          <div class="gap-card"><h4>Week Ahead Tracking</h4><div class="source-tag"><span class="tag tag-iec">IEC</span></div><p>Multi-day cycle (Wed-Sat) for weekly comms note. Airtable submissions, validation, CCO/SVP review, distributed to ~3,000 people. High-visibility executive workflow.</p></div>
+          <div class="gap-card"><h4>Content Forecast Process</h4><div class="source-tag"><span class="tag tag-iec">IntComms</span></div><p>Fall Plan &rarr; editorial calendar (Airtable) &rarr; comms plans in Box. Pain: adoption gaps, KT during reorgs, teams not using Airtable.</p></div>
+          <div class="gap-card"><h4>Client Partner Story Tracking</h4><div class="source-tag"><span class="tag tag-iec">IEC</span></div><p>Story identification &rarr; qualification &rarr; type decision &rarr; routing to appropriate workflow &rarr; Monday tracking &rarr; prioritization &rarr; promotion planning &rarr; release management.</p></div>
+          <div class="gap-card"><h4>Major Media Relationships</h4><div class="source-tag"><span class="tag tag-iec">IEC</span></div><p>Top-tier request flagging, outlet/reporter suitability evaluation, strategy alignment. Highly subjective. Airtable-based.</p></div>
+        </div>
+
+        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 3: IBMer Comms Production (3 processes)</h4>
+        <div class="gap-grid" style="margin-bottom:1.5rem;">
+          <div class="gap-card"><h4>Distribution List Creation</h4><div class="source-tag"><span class="tag tag-ic">IBMer</span></div><p>12 lists, monthly. EPM Cognos &rarr; Excel &rarr; CSV &rarr; Marketo upload. ~1hr/list. On-demand custom filtering (2 days). Pure automation candidate.</p></div>
+          <div class="gap-card"><h4>Newsletter + w3 Pages</h4><div class="source-tag"><span class="tag tag-ic">IBMer</span></div><p>Daily content meeting &rarr; selection &rarr; 4-layer approval &rarr; Marketo template &rarr; Thursday send. W3 publishing. Pain: approvals take too long.</p></div>
+          <div class="gap-card"><h4>Virtual IBMer Events</h4><div class="source-tag"><span class="tag tag-ic">IBMer</span></div><p>Event planning, SVP calendar, speaker coordination, IBM Video Streaming production, post-event analytics. Varies by BU.</p></div>
+        </div>
+
+        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 4: Brand &amp; Content Production (3 processes)</h4>
+        <div class="gap-grid" style="margin-bottom:1.5rem;">
+          <div class="gap-card"><h4>Advertising Campaign Development</h4><div class="source-tag"><span class="tag tag-bm">Brand</span></div><p>Agency briefing &rarr; creative strategy &rarr; idea presentation &rarr; channel-specific assets (film, audio, OOH, social) &rarr; legal &rarr; production &rarr; live. 2x/year. Pain: manual audience insight.</p></div>
+          <div class="gap-card"><h4>Advertising Globalization</h4><div class="source-tag"><span class="tag tag-bm">Brand</span></div><p>English assets &rarr; geo selection &rarr; agency transcreation/resizing &rarr; approvals &rarr; DAM &rarr; trafficking &rarr; live. Pain: script rewrites, cultural adaptations.</p></div>
+          <div class="gap-card"><h4>Smart Talks Podcast</h4><div class="source-tag"><span class="tag tag-bm">Brand</span></div><p>8-episode seasons, 3-month planning. Client coordination, recording (studio/Riverside), review, legal, distribution. Pain: timely reviews, client sensitivities.</p></div>
+        </div>
+
+        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 5: Cross-functional Services (2 processes)</h4>
+        <div class="gap-grid" style="margin-bottom:1.5rem;">
+          <div class="gap-card"><h4>Data Insights (Internal Comms)</h4><div class="source-tag"><span class="tag tag-di">Data</span></div><p>Internal comms performance tracking. Multi-channel publishing metrics. Manual data loading to Airtable. KPI: awareness (reach/potential), engagement. Strategy adjustment.</p></div>
+          <div class="gap-card"><h4>Translations and Captions</h4><div class="source-tag"><span class="tag tag-ev">Events</span></div><p>Live/non-live captioning, 3rd party or in-house. 9-language translation (5 business days). SRT/VTT formats. Turnaround improvement from 4-5 days to 24-48 hours is desired.</p></div>
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Recommendations to Reach 70%</h3>
+          <span class="count">Need +7 processes covered (from 16 to 23 of 33)</span>
+        </div>
+        <ol class="reco-list">
+          <li><div>
+            <strong>New Initiative: Internal Comms Intelligence Agent</strong>
+            <div class="reco-detail">Covers internal social listening (Slack/W3/Fishbowl employee sentiment), data insights (internal comms performance), and newsletter content assembly. Extends CA-IEC-11's monitoring into internal channels and CA-IC-13's intelligence into internal comms analytics. Addresses 3 gap processes.</div>
+            <div class="reco-impact">+3 processes &rarr; 58% coverage</div>
+          </div></li>
+          <li><div>
+            <strong>New Initiative: Comms Planning &amp; Coordination Agent</strong>
+            <div class="reco-detail">Automates Week Ahead Tracking (Airtable &rarr; draft &rarr; review &rarr; distribution), Content Forecast alignment, editorial calendar management, and client story tracking/routing. These are high-frequency coordination workflows with clear AI opportunities (auto-drafting weekly notes, calendar reconciliation, story routing). Addresses 4 gap processes.</div>
+            <div class="reco-impact">+4 processes &rarr; 70% coverage (hits target)</div>
+          </div></li>
+          <li><div>
+            <strong>Alternative: Expand Existing Initiatives</strong>
+            <div class="reco-detail">Broaden CA-IEC-11 to include internal listening (+1), extend CA-IC-14 beyond CEO Office Hours to all virtual events (+1), expand CA-SM-17 to cover influencer campaigns (+1), and add editorial calendar automation to CA-IEC-12 (+1). This avoids new initiative IDs but requires updating Blueprint definitions.</div>
+            <div class="reco-impact">+4 processes &rarr; 61% coverage (still short)</div>
+          </div></li>
+          <li><div>
+            <strong>Note: Brand Marketing may belong in Creative &amp; Content domain</strong>
+            <div class="reco-detail">The 3 Brand Marketing processes (advertising, globalization, podcast) are arguably Creative &amp; Content domain workflows that happen to sit under Corporate Affairs organizationally. If reassigned to C&amp;C, the denominator drops from 33 to 30, and coverage jumps from 48% to 53%. Combined with options 1+2, this reaches 77%.</div>
+            <div class="reco-impact">Reclassification alone: 53%. With Options 1+2: 77%.</div>
+          </div></li>
+        </ol>
+        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-success);padding:1rem;margin-top:1rem;">
+          <strong style="font-size:0.875rem;">Fastest path to 70%:</strong>
+          <span style="font-size:0.875rem;color:var(--cds-text-secondary);"> Options 1+2 together cover +7 gap processes, bringing Corporate Affairs from 48% to 70% &mdash; exactly on target. If Brand Marketing is reclassified to C&amp;C, it reaches 77%.</span>
+        </div>
+      </div>
+
+      <!-- Initiative Coverage Depth -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Initiative Coverage Depth</h3>
+          <span class="count">Process count per initiative</span>
+        </div>
+        <table>
+          <thead><tr><th>Initiative</th><th>ID</th><th>Mapped</th><th>Depth</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="process-name">Media Monitoring &amp; Activation</td><td>CA-IEC-11</td><td>5</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Highest: Business Social Monitoring, Crisis Listening, Monthly Metrics, Daily Media, Issues Mgmt, Comms Data &amp; Insights</td></tr>
+            <tr><td class="process-name">Press Release Orchestration</td><td>CA-IEC-12</td><td>5</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Announcement Approval, Global Press Room, Content Approval, Press Release JPN, Local Language Content</td></tr>
+            <tr><td class="process-name">Executive Narrative Intelligence</td><td>CA-IC-13</td><td>3</td><td><div style="background:#a7f0ba;height:12px;width:60%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Exec Comms Prep, Exec Comms Creation (Geo), content retrieval</td></tr>
+            <tr><td class="process-name">Social Media Advocacy</td><td>CA-SM-17</td><td>2</td><td><div style="background:#fddc69;height:12px;width:40%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Comms Data &amp; Insights (media moment advocacy), partial</td></tr>
+            <tr><td class="process-name">RFI Ninja</td><td>CA-AR-15</td><td>1</td><td><div style="background:#fddc69;height:12px;width:20%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Direct 1:1 match with RFI Automation</td></tr>
+            <tr><td class="process-name">CEO Office Hours Reporting</td><td>CA-IC-14</td><td>1</td><td><div style="background:#fddc69;height:12px;width:20%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Direct 1:1 match with CEO Office Hours process</td></tr>
+            <tr><td class="process-name">Trigger-Based Activation</td><td>CA-AR-16</td><td>1</td><td><div style="background:#fddc69;height:12px;width:20%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partial overlap with content distribution workflows</td></tr>
+            <tr><td class="process-name">V2 Content + Paid Media POC</td><td>CA-SM-18</td><td>1</td><td><div style="background:#ffd7d9;height:12px;width:20%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Paid Social Briefing &amp; Intake process</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+<script>
+function filterTableCA(filter, el) {
+  const rows = document.querySelectorAll('#ca-mapping-table tbody tr');
+  const tabs = document.querySelectorAll('#ca-filter-bar .filter-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  rows.forEach(row => {
+    const sub = row.dataset.sub || '';
+    const status = row.dataset.status || '';
+    const qw = row.dataset.quickwin === 'true';
+    if (filter === 'all') row.style.display = '';
+    else if (filter === 'quickwins') row.style.display = qw ? '' : 'none';
+    else if (filter === 'mapped') row.style.display = status === 'mapped' ? '' : 'none';
+    else if (filter === 'gap') row.style.display = status === 'gap' ? '' : 'none';
+    else if (filter === 'sm') row.style.display = sub === 'sm' ? '' : 'none';
+    else if (filter === 'iec') row.style.display = sub === 'iec' ? '' : 'none';
+    else if (filter === 'ic') row.style.display = sub === 'ic' ? '' : 'none';
+    else if (filter === 'other') row.style.display = !['sm','iec','ic'].includes(sub) ? '' : 'none';
+  });
+}
+setTimeout(() => filterTableCA('quickwins'), 0);
+</script>

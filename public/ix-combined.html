@@ -1,0 +1,456 @@
+  <section id="overview">
+    <div class="domain-header">
+      <h2>iX Workflow Mapping &mdash; Combined View</h2>
+      <p>Mapping 122 workflows across T&amp;O, Corporate Affairs, MMAPI, and Named Account Marketing domains to 38 AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
+    </div>
+
+    <div class="content">
+      <!-- Combined Dashboard -->
+      <div class="dashboard">
+        <div class="dash-card neutral">
+          <div class="label">Total iX Processes</div>
+          <div class="value">122</div>
+          <div class="detail">27 T&amp;O + 33 CA + 32 MMAPI + 30 Named Account</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Blueprint Initiatives</div>
+          <div class="value">38</div>
+          <div class="detail">8 T&amp;O + 8 CA + 7 MMAPI + 15 Named Account</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Mapped Processes</div>
+          <div class="value">69</div>
+          <div class="detail">15 T&amp;O + 16 CA + 18 MMAPI + 20 Named Account</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Gap Processes</div>
+          <div class="value">53</div>
+          <div class="detail">12 T&amp;O + 17 CA + 14 MMAPI + 10 Named Account</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Coverage Rate</div>
+          <div class="value">57%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 13 pts</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Needed to Hit 70%</div>
+          <div class="value">+17</div>
+          <div class="detail">Additional processes must be covered</div>
+        </div>
+      </div>
+
+      <!-- Side-by-side coverage bars -->
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>T&amp;O Coverage</h4>
+            <button class="info-btn" onclick="openModal('to-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill below" style="width: 56%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>15 of 27 (56%)</span>
+            <span>100%</span>
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>Corporate Affairs Coverage</h4>
+            <button class="info-btn" onclick="openModal('ca-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill below" style="width: 48%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>16 of 33 (48%)</span>
+            <span>100%</span>
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>MMAPI Coverage</h4>
+            <button class="info-btn" onclick="openModal('mmapi-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill below" style="width: 56%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>18 of 32 (56%)</span>
+            <span>100%</span>
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>Named Account Coverage</h4>
+            <button class="info-btn" onclick="openModal('na-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill below" style="width: 67%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>20 of 30 (67%)</span>
+            <span>100%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Domain Comparison</h3>
+          <span class="count">4 domains, 38 initiatives, 122 processes</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>iX Processes</th>
+              <th>Initiatives</th>
+              <th>Mapped</th>
+              <th>Gaps</th>
+              <th>Coverage %</th>
+              <th>Target Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" onclick="openModal('to-breakdown')">
+              <td class="process-name">T&amp;O</td>
+              <td>27</td>
+              <td>8</td>
+              <td>15</td>
+              <td>12</td>
+              <td><span class="tag tag-gap">56%</span></td>
+              <td>-14 pts</td>
+            </tr>
+            <tr class="clickable-row" onclick="openModal('ca-breakdown')">
+              <td class="process-name">Corporate Affairs</td>
+              <td>33</td>
+              <td>8</td>
+              <td>16</td>
+              <td>17</td>
+              <td><span class="tag tag-gap">48%</span></td>
+              <td>-22 pts</td>
+            </tr>
+            <tr class="clickable-row" onclick="openModal('mmapi-breakdown')">
+              <td class="process-name">MMAPI</td>
+              <td>32</td>
+              <td>7</td>
+              <td>18</td>
+              <td>14</td>
+              <td><span class="tag tag-gap">56%</span></td>
+              <td>-14 pts</td>
+            </tr>
+            <tr class="clickable-row" onclick="openModal('na-breakdown')">
+              <td class="process-name">Named Account</td>
+              <td>30</td>
+              <td>15</td>
+              <td>20</td>
+              <td>10</td>
+              <td><span class="tag tag-gap">67%</span></td>
+              <td>-3 pts</td>
+            </tr>
+            <tr class="clickable-row" onclick="openModal('combined-breakdown')" style="font-weight: 600; background: var(--cds-layer-02);">
+              <td>Combined</td>
+              <td>122</td>
+              <td>38</td>
+              <td>69</td>
+              <td>53</td>
+              <td><span class="tag tag-gap">57%</span></td>
+              <td>-13 pts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal-backdrop')) {
+    e.target.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-backdrop.open').forEach(m => {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+<!-- ===== MODALS ===== -->
+
+<!-- T&O Breakdown Modal -->
+<div class="modal-backdrop" id="to-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>T&amp;O &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('to-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">27</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">15</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">12</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">56%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-14 pts (need +4 processes)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:56%"></div><div class="mini-target"></div></div>
+
+      <h4>How Coverage Is Calculated</h4>
+      <p>Coverage = Mapped Processes &divide; Total iX Processes = 15 &divide; 27 = <strong>55.6% &asymp; 56%</strong></p>
+      <p>To reach 70%: 27 &times; 0.70 = 18.9 &rarr; need 19 mapped. Currently 15, so <strong>+4 more processes</strong> must be covered.</p>
+
+      <h4>What's Mapped (15 processes)</h4>
+      <ul>
+        <li><span class="reco-tag">TO-41</span> Budgeting &amp; Planning covers 5: Quarterly Planning, Budget M1+M2, Budget M3, Fall Plan, Incremental Budget</li>
+        <li><span class="reco-tag">TO-43</span> HC Optimization covers 5: Workforce Strategy, HC Verification, Hiring, ELH Cycle, Resource Mgmt</li>
+        <li><span class="reco-tag">TO-40</span> Spend Foundation covers 3: PO-Setup/APU, Program Spending Review, Quarter Closing</li>
+        <li><span class="reco-tag">TO-42</span> Scenario Planning supplements 3 (shared with TO-41)</li>
+        <li><span class="reco-tag">TO-47</span> Risk Mgmt covers 2: Tax Process, Quarter Closing (compliance)</li>
+        <li><span class="reco-tag">TO-46</span> IPVN Testing covers 1: within PO/Invoice process</li>
+        <li><span class="reco-tag">TO-44</span> Tech Capability covers 1: CapEx (partial)</li>
+      </ul>
+
+      <h4>What's Not Covered (12 gap processes)</h4>
+      <ul>
+        <li><strong>People/HR cluster (5):</strong> Quarterly Recognition, Intern Recruiting, Intern Program, New Hire Onboarding, Job Role Descriptions</li>
+        <li><strong>Travel cluster (2):</strong> Travel Approval (Ops), Travel Process (Investment) &mdash; 300 ppl/quarter, high volume</li>
+        <li><strong>Specialized Investment (5):</strong> Wimbledon, Canada S&amp;E, Procurement, Skills Prep &amp; Delivery, Ambassador Program</li>
+      </ul>
+
+      <h4>Fastest Path to 70%</h4>
+      <ul>
+        <li><strong>Option A:</strong> New "People Ops Lifecycle" initiative (+5 processes) &rarr; 74% <span style="color:var(--cds-support-success);font-weight:600;">exceeds target</span></li>
+        <li><strong>Option B:</strong> New "Travel &amp; Approval Automation" initiative (+2 processes) &rarr; 63%</li>
+        <li><strong>Options A+B together</strong> &rarr; 81%</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Corporate Affairs Breakdown Modal -->
+<div class="modal-backdrop" id="ca-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Corporate Affairs &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('ca-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">33</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">16</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">17</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">48%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-22 pts (need +7 processes)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:48%"></div><div class="mini-target"></div></div>
+
+      <h4>How Coverage Is Calculated</h4>
+      <p>Coverage = Mapped Processes &divide; Total iX Processes = 16 &divide; 33 = <strong>48.5% &asymp; 48%</strong></p>
+      <p>To reach 70%: 33 &times; 0.70 = 23.1 &rarr; need 23 mapped. Currently 16, so <strong>+7 more processes</strong> must be covered.</p>
+
+      <h4>What's Mapped (16 processes)</h4>
+      <ul>
+        <li><span class="reco-tag">CA-IEC-11</span> Media Monitoring covers 5: Business Social Monitoring, Crisis Listening, Monthly SM Metrics, Daily Media Tracking, Issues Management</li>
+        <li><span class="reco-tag">CA-IEC-12</span> Press Release Orchestration covers 5: Announcement Approval, Global Press Room, Content Approval, PR Creation (JPN), Local Language Content</li>
+        <li><span class="reco-tag">CA-IC-13</span> Exec Narrative Intelligence covers 3: Exec Comms Prep, Exec Comms Creation (Geo), Comms Data &amp; Insights (partial)</li>
+        <li><span class="reco-tag">CA-SM-17</span> Social Media Advocacy covers 1: Comms Data &amp; Insights (media moments)</li>
+        <li><span class="reco-tag">CA-IC-14</span> CEO Office Hours Reporting covers 1: CEO Office Hours</li>
+        <li><span class="reco-tag">CA-AR-15</span> RFI Ninja covers 1: RFI Automation</li>
+        <li><span class="reco-tag">CA-SM-18</span> V2 Content + Paid Media covers 1: Demand Paid Social Intake</li>
+      </ul>
+
+      <h4>What's Not Covered (17 gap processes)</h4>
+      <ul>
+        <li><strong>Social Media Ops &amp; Governance (5):</strong> Internal Social Listening, Editorial Calendar, Channel Access &amp; Governance, Social League Communications, Influencer Campaign Intake</li>
+        <li><strong>Comms Planning &amp; Coordination (4):</strong> Week Ahead Tracking, Content Forecast, Client Partner Story Tracking, Major Media Relationships</li>
+        <li><strong>IBMer Comms Production (3):</strong> Distribution List Creation, Newsletter + w3, Virtual IBMer Events</li>
+        <li><strong>Brand &amp; Content Production (3):</strong> Ad Campaign Development, Ad Globalization, Smart Talks Podcast</li>
+        <li><strong>Cross-functional (2):</strong> Data Insights (Internal Comms), Translations &amp; Captions</li>
+      </ul>
+
+      <h4>Fastest Path to 70%</h4>
+      <ul>
+        <li><strong>Option 1:</strong> New "Internal Comms Intelligence Agent" (+3 processes) &rarr; 58%</li>
+        <li><strong>Option 2:</strong> New "Comms Planning &amp; Coordination Agent" (+4 processes) &rarr; 61%</li>
+        <li><strong>Options 1+2 together</strong> &rarr; 70% <span style="color:var(--cds-support-success);font-weight:600;">hits target exactly</span></li>
+        <li><strong>If Brand Marketing reclassified to C&amp;C domain:</strong> denominator drops to 30, coverage with Options 1+2 &rarr; 77%</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MMAPI Breakdown Modal -->
+<div class="modal-backdrop" id="mmapi-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>MMAPI &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('mmapi-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">32</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">18</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">14</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">56%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-14 pts (need +5 processes)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:56%"></div><div class="mini-target"></div></div>
+
+      <h4>How Coverage Is Calculated</h4>
+      <p>Coverage = Mapped Processes &divide; Total iX Processes = 18 &divide; 32 = <strong>56.3% &asymp; 56%</strong></p>
+      <p>To reach 70%: 32 &times; 0.70 = 22.4 &rarr; need 23 mapped. Currently 18, so <strong>+5 more processes</strong> must be covered.</p>
+
+      <h4>What's Mapped (18 processes)</h4>
+      <ul>
+        <li><span class="reco-tag">MMAPI-29</span> Reporting &amp; Data covers 7: Weekly Reporting, Ad-hoc Analytics, Data Science, Named Accounts Integrated Insights, Brand Insights, Named Accounts Analytics, Measurement (shared)</li>
+        <li><span class="reco-tag">MMAPI-31</span> Ad Ops &amp; Trafficking covers 7: CS, Custom Content, Display, OOH, Paid Social, Print creative activation + Paid Search activation</li>
+        <li><span class="reco-tag">MMAPI-32</span> Response Optimization covers 4: Audience Strategy, Paid Search Planning, CS Planning + Measurement (shared)</li>
+        <li><span class="reco-tag">MMAPI-35</span> Data Quality covers 1: Data Integrity (Datorama QA)</li>
+      </ul>
+
+      <h4>What's Not Covered (14 gap processes)</h4>
+      <ul>
+        <li><strong>Media Planning &amp; Strategy (7):</strong> Channel tactical planning for Audio, Custom Content Programs, Display, OOH, Paid Social, Video + base Strategic Planning</li>
+        <li><strong>Governance &amp; Compliance (3):</strong> Adtech supplier management, tools management, brand safety standards</li>
+        <li><strong>Financial Operations (2):</strong> Media PO and Retainer PO reconciliation</li>
+        <li><strong>Strategic Planning Variants (2):</strong> OOH and Paid Search strategic planning extensions</li>
+      </ul>
+
+      <h4>Fastest Path to 70%</h4>
+      <ul>
+        <li><strong>Option 1:</strong> New "Media Planning &amp; Strategy Agent" (+7 processes) &rarr; 78% <span style="color:var(--cds-support-success);font-weight:600;">exceeds target</span></li>
+        <li><strong>Option 2:</strong> Expand MMAPI-35 to cover Brand Safety (+1) &rarr; 59%</li>
+        <li><strong>Option 3:</strong> New "Media Governance &amp; Compliance Agent" (+3) &rarr; 66%. With Option 1 &rarr; 84%</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Named Account Breakdown Modal -->
+<div class="modal-backdrop" id="na-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Named Account &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('na-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">30</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">20</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">10</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">67%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-3 pts (need +1 process)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:67%"></div><div class="mini-target"></div></div>
+
+      <h4>How Coverage Is Calculated</h4>
+      <p>Coverage = Mapped Processes &divide; Total iX Processes = 20 &divide; 30 = <strong>66.7% &asymp; 67%</strong></p>
+      <p>To reach 70%: 30 &times; 0.70 = 21 mapped needed. Currently 20, so <strong>+1 more process</strong> must be covered.</p>
+
+      <h4>What's Mapped (20 processes)</h4>
+      <ul>
+        <li><span class="reco-tag">EVT-06</span> Event Orchestration covers 6: Strategy, Budget, Space/Vendor, CTEBA, Logistics, Innovation Studio event</li>
+        <li><span class="reco-tag">SDS-25</span> Co-Marketing covers 4: Budget/MDF Mgmt, MDF Dissemination, MDF Lifecycle, Tech Partner (shared)</li>
+        <li><span class="reco-tag">SDS-24</span> Partner Performance covers 3: Strategic Partner GTM, Tech Partner (shared), Partner KPI</li>
+        <li><span class="reco-tag">CSABM-02</span> Engagement Playbook covers 3: C-Suite Program, Account Experience Planning</li>
+        <li><span class="reco-tag">CSABM-07</span> Executive Briefer covers 2: Industry Content/POV, Senior Leadership Exchange</li>
+        <li>1 each: DS-01, DS-03, EVT-05, EVT-09, INVS-04, SDS-23, CSABM-08</li>
+      </ul>
+
+      <h4>What's Not Covered (10 gap processes)</h4>
+      <ul>
+        <li><strong>Client Experience &amp; Advocacy (7):</strong> Voice Matchmaking, Advocacy Plans, Story Governance, Consent, Evangelization, Peer Reviews, Story Production</li>
+        <li><strong>Specialized (3):</strong> Innovation Squad Attack Plans, Partner Narrative Development, Event Technology/Lead Retrieval</li>
+      </ul>
+
+      <h4>Fastest Path to 70%</h4>
+      <ul>
+        <li><strong>Quick Win:</strong> Expand EVT-06 to include event tech/lead retrieval (+1) &rarr; 70% <span style="color:var(--cds-support-success);font-weight:600;">hits target exactly</span></li>
+        <li><strong>Full Coverage:</strong> New "Client Experience &amp; Advocacy Agent" (+7) &rarr; 90%</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Combined Breakdown Modal -->
+<div class="modal-backdrop" id="combined-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Combined &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('combined-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">122</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">69</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">53</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">57%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-13 pts (need +17 processes)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:57%"></div><div class="mini-target"></div></div>
+
+      <h4>How Combined Coverage Is Calculated</h4>
+      <p>Combined = Total Mapped &divide; Total Processes = (15 + 16 + 18 + 20) &divide; (27 + 33 + 32 + 30) = 69 &divide; 122 = <strong>56.6% &asymp; 57%</strong></p>
+      <p>To reach 70%: 122 &times; 0.70 = 85.4 &rarr; need 86 mapped. Currently 69, so <strong>+17 more processes</strong> across all domains.</p>
+
+      <h4>Domain Breakdown</h4>
+      <div class="stat-line"><span class="sl-label">T&amp;O</span><span class="sl-value red">15/27 = 56% (need +4)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:56%"></div><div class="mini-target"></div></div>
+      <div class="stat-line"><span class="sl-label">Corporate Affairs</span><span class="sl-value red">16/33 = 48% (need +7)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:48%"></div><div class="mini-target"></div></div>
+      <div class="stat-line"><span class="sl-label">MMAPI</span><span class="sl-value red">18/32 = 56% (need +5)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:56%"></div><div class="mini-target"></div></div>
+      <div class="stat-line"><span class="sl-label">Named Account</span><span class="sl-value red">20/30 = 67% (need +1)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:67%"></div><div class="mini-target"></div></div>
+
+      <h4>Total Gap Processes by Theme (53)</h4>
+      <ul>
+        <li><strong>T&amp;O People/HR (5):</strong> Recognition, Intern Recruiting, Intern Program, Onboarding, Job Descriptions</li>
+        <li><strong>T&amp;O Travel (2):</strong> Travel Approval (Ops + Investment)</li>
+        <li><strong>T&amp;O Specialized Investment (5):</strong> Wimbledon, Canada S&amp;E, Procurement, Skills Prep, Ambassador</li>
+        <li><strong>CA Social Media Ops (5):</strong> Internal Listening, Editorial Calendar, Channel Governance, Social League, Influencer Intake</li>
+        <li><strong>CA Comms Planning (4):</strong> Week Ahead, Content Forecast, Client Story Tracking, Media Relationships</li>
+        <li><strong>CA IBMer Production (3):</strong> Distribution Lists, Newsletter + w3, Virtual Events</li>
+        <li><strong>CA Brand &amp; Content (3):</strong> Ad Campaign, Globalization, Smart Talks Podcast</li>
+        <li><strong>CA Cross-functional (2):</strong> Data Insights, Translations &amp; Captions</li>
+        <li><strong>MMAPI Media Planning (7):</strong> Channel tactical planning for Audio, Custom Content, Display, OOH, Social, Video + base Strategic Planning</li>
+        <li><strong>MMAPI Governance (3):</strong> Adtech supplier/tools management, Brand Safety</li>
+        <li><strong>MMAPI Finance (2):</strong> Media PO &amp; Retainer PO reconciliation</li>
+        <li><strong>MMAPI Strategic Planning (2):</strong> OOH and Paid Search strategic planning variants</li>
+        <li><strong>NA Client Experience (7):</strong> Voice Matchmaking, Advocacy Plans, Story Governance, Consent, Evangelization, Peer Reviews, Story Production</li>
+        <li><strong>NA Specialized (3):</strong> Innovation Squad, Partner Narrative, Event Technology</li>
+      </ul>
+
+      <h4>Fastest Combined Path to 70%</h4>
+      <p>6 actions across all 4 domains would cover +17 processes:</p>
+      <ul>
+        <li><span class="reco-tag">T&amp;O</span> People Ops Lifecycle Agent (+5) &rarr; T&amp;O hits 74%</li>
+        <li><span class="reco-tag">CA</span> Internal Comms Intelligence Agent (+3) &rarr; CA at 58%</li>
+        <li><span class="reco-tag">CA</span> Comms Planning &amp; Coordination Agent (+4) &rarr; CA hits 70%</li>
+        <li><span class="reco-tag">MMAPI</span> Media Planning &amp; Strategy Agent (+7) &rarr; MMAPI hits 78%</li>
+        <li><span class="reco-tag">NA</span> Expand EVT-06 for event tech (+1) &rarr; NA hits 70%</li>
+        <li><strong>Combined result:</strong> 86/122 = <strong>70%</strong> <span style="color:var(--cds-support-success);font-weight:600;">target met</span></li>
+      </ul>
+      <p style="margin-top:0.75rem;">Adding T&amp;O Travel Automation (+2) and MMAPI Governance Agent (+3) would push combined to <strong>74%</strong>.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
