@@ -1,0 +1,12 @@
+{
+  "name": "mcc-ai-blueprints",
+  "version": "1.0.0",
+  "description": "MCC AI Blueprint Heatmaps & Workflow Mapping",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "compression": "^1.7.4"
+  }
+}
