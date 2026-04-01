@@ -2079,6 +2079,48 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 
+  /* ===== ONLOAD ANIMATIONS ===== */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .anim-ready {
+    opacity: 0;
+    transform: translateY(16px);
+    will-change: opacity, transform;
+  }
+  .anim-ready.anim-visible {
+    animation: fadeSlideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  /* Coverage bars start at 0 width until animated */
+  .anim-bar-ready {
+    width: 0 !important;
+    transition: none !important;
+  }
+  .anim-bar-ready.anim-bar-go {
+    transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+  /* Rank bar fills */
+  .anim-rankbar-ready {
+    width: 0 !important;
+    transition: none !important;
+  }
+  .anim-rankbar-ready.anim-rankbar-go {
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+  /* Bar segments in composite chart */
+  .anim-segment-ready {
+    width: 0 !important;
+    transition: none !important;
+  }
+  .anim-segment-ready.anim-segment-go {
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
 </style>
 </head>
 <body>
@@ -2125,6 +2167,11 @@
     Named Account
     <span class="nav-meta">67%</span>
   </a>
+  <a href="#" data-page="ix-sm">
+    <span class="nav-dot" style="background:#24a148"></span>
+    Select Marketing
+    <span class="nav-meta">95%</span>
+  </a>
 </nav>
 
 <!-- Main Content -->
@@ -2167,6 +2214,7 @@
   <div class="page page-ix" id="page-ix-ca"></div>
   <div class="page page-ix" id="page-ix-mmapi"></div>
   <div class="page page-ix" id="page-ix-na"></div>
+  <div class="page page-ix" id="page-ix-sm"></div>
 
 </div><!-- end .main -->
 
@@ -2178,7 +2226,7 @@
 
 <!-- ===== SIDEBAR NAVIGATION ===== -->
 <script>
-const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na'];
+const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm'];
 const ixCache = {};
 
 document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
@@ -4598,6 +4646,339 @@ renderRankings();
 </script>
 
 <!-- Old iX scripts removed — now loaded via fragments -->
+
+<!-- ===== ONLOAD ANIMATIONS ===== -->
+<script>
+(function() {
+  // ---- Count-up animation for numeric values ----
+  function animateNumber(el) {
+    if (el.dataset.animated) return;
+    el.dataset.animated = '1';
+    const raw = el.textContent.trim();
+
+    // Parse formats: "122", "57%", "+17", "38", "69"
+    const match = raw.match(/^([+\-]?)(\d+)(%?)$/);
+    if (!match) return;
+
+    const prefix = match[1];
+    const target = parseInt(match[2], 10);
+    const suffix = match[3];
+    if (target === 0) return;
+
+    const duration = 800;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    el.textContent = prefix + '0' + suffix;
+    requestAnimationFrame(tick);
+  }
+
+  // ---- IntersectionObserver for fade-in elements ----
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = parseFloat(el.dataset.animDelay || 0);
+        setTimeout(() => el.classList.add('anim-visible'), delay);
+        fadeObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // ---- IntersectionObserver for coverage bars ----
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const targetWidth = el.dataset.targetWidth;
+        el.classList.add('anim-bar-go');
+        // Set width after class is added so transition fires
+        requestAnimationFrame(() => {
+          el.style.width = targetWidth;
+        });
+        barObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // ---- IntersectionObserver for rank bar fills ----
+  const rankBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = parseFloat(el.dataset.animDelay || 0);
+        setTimeout(() => {
+          el.classList.add('anim-rankbar-go');
+          requestAnimationFrame(() => {
+            el.style.width = el.dataset.targetWidth;
+          });
+        }, delay);
+        rankBarObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  // ---- IntersectionObserver for bar segments (composite chart) ----
+  const segmentObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const row = entry.target;
+        const segments = row.querySelectorAll('.anim-segment-ready');
+        const delay = parseFloat(row.dataset.animDelay || 0);
+        setTimeout(() => {
+          segments.forEach((seg, i) => {
+            setTimeout(() => {
+              seg.classList.add('anim-segment-go');
+              requestAnimationFrame(() => {
+                seg.style.width = seg.dataset.targetWidth;
+              });
+            }, i * 60);
+          });
+        }, delay);
+        segmentObserver.unobserve(row);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  // ---- IntersectionObserver for number count-ups ----
+  const numObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = parseFloat(el.dataset.animDelay || 0);
+        setTimeout(() => animateNumber(el), delay);
+        numObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // ---- Main initialization function ----
+  function initAnimations(root) {
+    if (!root) root = document;
+
+    // 1. Dashboard cards — staggered fade + number count-up
+    root.querySelectorAll('.dash-card').forEach((card, i) => {
+      if (!card.classList.contains('anim-ready')) {
+        card.classList.add('anim-ready');
+        card.dataset.animDelay = String(i * 80);
+        fadeObserver.observe(card);
+      }
+      const val = card.querySelector('.value');
+      if (val && !val.dataset.animated) {
+        val.dataset.animDelay = String(i * 80 + 200);
+        numObserver.observe(val);
+      }
+    });
+
+    // 2. Coverage bar fills — grow from 0
+    root.querySelectorAll('.coverage-bar-fill').forEach(bar => {
+      if (bar.classList.contains('anim-bar-ready')) return;
+      const currentWidth = bar.style.width || bar.getAttribute('style')?.match(/width:\s*([^;]+)/)?.[1];
+      if (currentWidth) {
+        bar.dataset.targetWidth = currentWidth;
+        bar.classList.add('anim-bar-ready');
+        barObserver.observe(bar);
+      }
+    });
+
+    // 3. Mini bar fills in modals
+    root.querySelectorAll('.mini-bar-fill').forEach(bar => {
+      if (bar.classList.contains('anim-bar-ready')) return;
+      const currentWidth = bar.style.width;
+      if (currentWidth) {
+        bar.dataset.targetWidth = currentWidth;
+        bar.classList.add('anim-bar-ready');
+        barObserver.observe(bar);
+      }
+    });
+
+    // 4. Compare cards (combined view)
+    root.querySelectorAll('.compare-card').forEach((card, i) => {
+      if (!card.classList.contains('anim-ready')) {
+        card.classList.add('anim-ready');
+        card.dataset.animDelay = String(i * 100);
+        fadeObserver.observe(card);
+      }
+    });
+
+    // 5. Initiative cards
+    root.querySelectorAll('.initiative-card').forEach((card, i) => {
+      if (!card.classList.contains('anim-ready')) {
+        card.classList.add('anim-ready');
+        card.dataset.animDelay = String(i * 60);
+        fadeObserver.observe(card);
+      }
+    });
+
+    // 6. Gap cards
+    root.querySelectorAll('.gap-card').forEach((card, i) => {
+      if (!card.classList.contains('anim-ready')) {
+        card.classList.add('anim-ready');
+        card.dataset.animDelay = String(i * 60);
+        fadeObserver.observe(card);
+      }
+    });
+
+    // 7. Recommendation list items
+    root.querySelectorAll('.reco-list li').forEach((li, i) => {
+      if (!li.classList.contains('anim-ready')) {
+        li.classList.add('anim-ready');
+        li.dataset.animDelay = String(i * 80);
+        fadeObserver.observe(li);
+      }
+    });
+
+    // 8. Section headers
+    root.querySelectorAll('.section-header').forEach(sh => {
+      if (!sh.classList.contains('anim-ready')) {
+        sh.classList.add('anim-ready');
+        sh.dataset.animDelay = '0';
+        fadeObserver.observe(sh);
+      }
+    });
+
+    // 9. Domain headers / page title bars
+    root.querySelectorAll('.domain-header, .page-title-bar').forEach(el => {
+      if (!el.classList.contains('anim-ready')) {
+        el.classList.add('anim-ready');
+        el.dataset.animDelay = '0';
+        fadeObserver.observe(el);
+      }
+    });
+
+    // 10. Table rows — staggered (limit to first 30 per table for perf)
+    root.querySelectorAll('tbody').forEach(tbody => {
+      const rows = tbody.querySelectorAll('tr');
+      rows.forEach((row, i) => {
+        if (i >= 30 || row.classList.contains('anim-ready')) return;
+        row.classList.add('anim-ready');
+        row.dataset.animDelay = String(i * 30);
+        fadeObserver.observe(row);
+      });
+    });
+
+    // 11. Coverage bar containers
+    root.querySelectorAll('.coverage-bar-container').forEach(el => {
+      if (!el.classList.contains('anim-ready')) {
+        el.classList.add('anim-ready');
+        el.dataset.animDelay = '100';
+        fadeObserver.observe(el);
+      }
+    });
+  }
+
+  // ---- Animate blueprint rankings (JS-rendered content) ----
+  function initRankingsAnimations() {
+    // Composite rows
+    document.querySelectorAll('.composite-row').forEach((row, i) => {
+      if (!row.classList.contains('anim-ready')) {
+        row.classList.add('anim-ready');
+        row.dataset.animDelay = String(i * 60);
+        fadeObserver.observe(row);
+      }
+      // Bar segments
+      row.querySelectorAll('.bar-segment').forEach(seg => {
+        if (!seg.classList.contains('anim-segment-ready')) {
+          const w = seg.style.width;
+          if (w) {
+            seg.dataset.targetWidth = w;
+            seg.classList.add('anim-segment-ready');
+          }
+        }
+      });
+      if (row.querySelector('.anim-segment-ready')) {
+        row.dataset.animDelay = String(i * 60 + 100);
+        segmentObserver.observe(row);
+      }
+    });
+
+    // Ranking cards
+    document.querySelectorAll('.ranking-card').forEach((card, i) => {
+      if (!card.classList.contains('anim-ready')) {
+        card.classList.add('anim-ready');
+        card.dataset.animDelay = String(i * 120);
+        fadeObserver.observe(card);
+      }
+      // Rank bar fills inside
+      card.querySelectorAll('.rank-bar-fill').forEach((bar, j) => {
+        if (!bar.classList.contains('anim-rankbar-ready')) {
+          const w = bar.style.width;
+          if (w) {
+            bar.dataset.targetWidth = w;
+            bar.classList.add('anim-rankbar-ready');
+            bar.dataset.animDelay = String(i * 120 + j * 50 + 200);
+            rankBarObserver.observe(bar);
+          }
+        }
+      });
+    });
+
+    // Legend
+    const legend = document.querySelector('.page-bp .legend');
+    if (legend && !legend.classList.contains('anim-ready')) {
+      legend.classList.add('anim-ready');
+      legend.dataset.animDelay = '0';
+      fadeObserver.observe(legend);
+    }
+
+    // Panel headers
+    document.querySelectorAll('.panel-header').forEach(ph => {
+      if (!ph.classList.contains('anim-ready')) {
+        ph.classList.add('anim-ready');
+        ph.dataset.animDelay = '0';
+        fadeObserver.observe(ph);
+      }
+    });
+  }
+
+  // ---- Hook into fragment loading for iX pages ----
+  const origIxCache = window.ixCache;
+  // Patch: after iX fragment is injected, run animations on it
+  const origFetch = window.fetch;
+  // We'll use a MutationObserver on the main container instead
+  const mainEl = document.querySelector('.main');
+  if (mainEl) {
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach(m => {
+        m.addedNodes.forEach(node => {
+          if (node.nodeType === 1) {
+            // Small delay to let fragment scripts execute first
+            setTimeout(() => initAnimations(node.parentElement || node), 50);
+          }
+        });
+      });
+    });
+    mo.observe(mainEl, { childList: true, subtree: true });
+  }
+
+  // ---- Init on page load ----
+  // Use requestAnimationFrame to ensure DOM paint before we measure
+  requestAnimationFrame(() => {
+    initAnimations(document);
+    // Rankings are rendered synchronously in a <script>, so init after a tick
+    setTimeout(initRankingsAnimations, 50);
+  });
+
+  // Also re-init when sidebar nav switches pages (for already-loaded pages)
+  document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => {
+        initAnimations(document);
+        initRankingsAnimations();
+      }, 100);
+    });
+  });
+
+})();
+</script>
 
 </body>
 </html>
