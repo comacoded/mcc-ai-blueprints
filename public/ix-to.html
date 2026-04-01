@@ -136,8 +136,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">13-week cycle driven by Ops. Involves planning/budget upload in IPA, GEO CMO priorities, market plan templates, Uptempo planning, Airtable execution plans. Pain points: lots of admin work, meetings to share changes, lack of function-specific views.</div>
-                <div class="mapping-rationale">Direct match: TO-41 automates budget/plan development; TO-42 enables what-if scenario modeling that replaces the manual quarterly replanning cycle.</div>
+                <div class="process-detail">Covered by TO-41 because it automates the 13-week budget cycle that currently runs through IPA, Uptempo, and Airtable execution plans. TO-42 adds scenario modeling for the quarterly replanning decisions that today require multiple alignment meetings and manual template updates.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -148,8 +147,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Major investment process covering budget setup, quarterly planning cycles (spring plan, October budget for Q1), cross-function alignment, baseline evaluation. Multiple planning cycles with quarterly adjustments.</div>
-                <div class="mapping-rationale">Core budget management is directly addressed by TO-41's predictive budget modeling and recommended allocations.</div>
+                <div class="process-detail">Covered by TO-41 because it directly addresses the spring plan, October Q1 budget, and quarterly adjustment cycles with predictive budget modeling. The cross-function alignment and baseline evaluation steps are replaced by TO-41's recommended allocations with supporting insights.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -160,8 +158,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Extension of budget management for Month 3 cycle. Documented in Blueworks Live (ibm.blueworkslive.com). Involves budget-to-plan alignment, functional direction, content strategy adjustments.</div>
-                <div class="mapping-rationale">Same budget lifecycle as M1+M2, directly within TO-41 scope.</div>
+                <div class="process-detail">Covered by TO-41 because it is the same budget lifecycle as M1+M2, extending into Month 3 for budget-to-plan alignment and content strategy adjustments. The Blueworks Live documentation confirms this follows the identical planning pattern that TO-41 automates.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -172,8 +169,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Annual planning process (Fall) owned by Mark M. Tied to Data Quality management. Sets priority areas and budget allocations for upcoming year. Linked to Spring Plan cycle.</div>
-                <div class="mapping-rationale">Major planning cycle covered by TO-41 (budget development) and TO-42 (scenario modeling for priority-setting).</div>
+                <div class="process-detail">Covered by TO-41 because it handles the annual Fall planning cycle that sets priority areas and budget allocations for the upcoming year. TO-42 adds scenario modeling for the priority-setting decisions that Mark M's team currently manages through Data Quality reviews and Spring Plan linkage.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -184,8 +180,7 @@
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Handles incremental free budget availability. GEO CMO reviews wishlist, MCC global approves. AI agent creates recommendations on distribution based on strategy, analyzes/ranks wishlist items. Leaders input value KPIs on execution. Produces reports on requests, approvals, and benefit.</div>
-                <div class="mapping-rationale">Budget distribution logic fits TO-41; what-if analysis on wishlist prioritization fits TO-42. Medium confidence because the wishlist/approval workflow is more specialized than general budgeting.</div>
+                <div class="process-detail">Covered by TO-41 because the incremental budget distribution logic (GEO CMO wishlist review, MCC global approval) fits its budget development scope. TO-42 handles the what-if analysis for ranking wishlist items, though the specialized approval chain with value KPI tracking makes this a medium-confidence match.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -196,8 +191,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Invoice raising process owned by Delta-Team (Suman, Koen, Estefano). SOW ingestion, IPA request creation, BETH item management, Ariba line items, IPVN creation, compliance checks (correct info, proof of evidence, PO amount matching). AI reads SOW, validates info, creates integrations across IPA/BETH/Ariba.</div>
-                <div class="mapping-rationale">Core match: TO-40 handles SOW/PO ingestion and data foundation. IPVN compliance checks within this process are covered by the data validation capabilities of the Spend and Performance Data Foundation.</div>
+                <div class="process-detail">Covered by TO-40 because it automates the SOW ingestion, IPA request creation, and BETH/Ariba line item management that the Delta-Team currently handles manually. TO-40's data validation capabilities also cover the IPVN compliance checks (proof of evidence, PO amount matching) that span the IPA/BETH/Ariba integration chain.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -208,8 +202,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Bi-weekly review of spend, compliance, POs, contract renewals (licenses, subscriptions). Investment lead tracks forecasts. Challenge: tracking impact/outcome of incremental budget. Question: "Why is Ops doing this?"</div>
-                <div class="mapping-rationale">Spend tracking and outcome correlation is the exact scope of TO-40's performance data foundation.</div>
+                <div class="process-detail">Covered by TO-40 because the bi-weekly spend review, PO compliance checks, and contract renewal tracking are exactly what the Spend and Performance Data Foundation automates. TO-40's outcome correlation capabilities also address the current challenge of tracking incremental budget impact.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -220,8 +213,7 @@
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Checks: Does IPA and BETH match? Does BETH and Ledger match? AI agent summarizes findings, creates reports, attaches to Workfront tasks. Includes in-depth quarterly reports, post-mortems comparing last 3 quarters, approval workflows. Investment team reviews and adjusts.</div>
-                <div class="mapping-rationale">Data reconciliation and spend tracking fit TO-40's performance data foundation scope. Medium because the quarter-close orchestration is broader than TO-40 alone.</div>
+                <div class="process-detail">Covered by TO-40 because the IPA-to-BETH and BETH-to-Ledger reconciliation checks are core spend data validation. Medium confidence because the broader quarter-close orchestration (Workfront task management, 3-quarter post-mortems, approval workflows) extends beyond TO-40's data foundation scope.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -232,8 +224,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Ops leaders' XLS is source of truth for MCC staffing. Consultation on banding, location (cost), span of control. Workfront tracks MCC org as a project &mdash; parent tasks = sub-functions, child tasks = roles. AI agent provides initial recommendations based on strategy. Issue status tracks extended leave, onboarding, departures.</div>
-                <div class="mapping-rationale">Direct match to TO-43's headcount planning, attrition tracking, and workforce mix optimization.</div>
+                <div class="process-detail">Covered by TO-43 because it replaces the Ops leaders' XLS staffing tracker with integrated headcount planning that handles banding, location cost analysis, and span of control. TO-43's single-view integration of hiring, attrition, and budget data directly addresses the Workfront org-tracking and leave/departure monitoring.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -244,8 +235,7 @@
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">RDB export triggers verification. Fusion creates project with action items. 2-week cadence of resource reporting. OPS finalizes adjustments and creates follow-up action requests. Sensitive information visible to select users. Dashboards present desired views. Recommends RDB modifications.</div>
-                <div class="mapping-rationale">HC verification and resource reporting are core TO-43 functions &mdash; integrating hiring, attrition, and budget data into a single view.</div>
+                <div class="process-detail">Covered by TO-43 because the RDB export verification, bi-weekly resource reporting, and follow-up action tracking are exactly what the HC Optimization Copilot consolidates into a single view. TO-43's integrated dashboard replaces the current Fusion-to-RDB workflow with role-based access controls for sensitive data.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -256,8 +246,7 @@
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Hiring manager creates request, consults on justification/band/location, enters in HTRT, Ops/GEO lead approval, MCC Hiring Board review, Avature request creation. Request copied to Boxnote. Jory extracts HTRT requests. Board approval triggers HTRT approval. Ops updates org chart and budgets.</div>
-                <div class="mapping-rationale">Workforce planning and hiring lifecycle fits TO-43's scope. Medium because TO-43 focuses more on planning/optimization than the hiring execution workflow itself.</div>
+                <div class="process-detail">Covered by TO-43 because the headcount justification, band/location planning, and budget impact analysis are core workforce optimization functions. Medium confidence because the execution steps (HTRT entry, Avature request creation, Boxnote copying, Hiring Board workflow) extend beyond TO-43's planning focus.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -268,8 +257,7 @@
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Functional leader determines need, Ops validates, consults on budget impact, collects all needs. Impacted by direction changes from Jonathan, Arvind, Paul, and HR strategy. Feeds into IBM Talent Acquisition process and demand planning.</div>
-                <div class="mapping-rationale">ELH planning and budget impact analysis fits TO-43. Medium because the execution (posting, interviewing) extends beyond TO-43's optimization scope.</div>
+                <div class="process-detail">Covered by TO-43 because the needs validation, budget impact consulting, and demand planning are workforce optimization activities. Medium confidence because the downstream IBM Talent Acquisition execution (posting, interviewing) and frequent direction changes from leadership fall outside TO-43's scope.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -280,8 +268,7 @@
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Owned by Mark M and Mayra. Manages resource allocation and workforce planning across the investment function.</div>
-                <div class="mapping-rationale">Resource management is within TO-43's workforce planning scope. Medium because details are less documented than other processes.</div>
+                <div class="process-detail">Covered by TO-43 because resource allocation and workforce planning across the investment function are core HC Optimization Copilot capabilities. Medium confidence because the process details (owned by Mark M and Mayra) are less documented than other T&O workflows, making the scope boundary uncertain.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="gap">
@@ -292,8 +279,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Owned by Estefano and Maria. Collects all taxes (ledger entries), creates IPA line ("Tax quarter"), submits as expense registration. Pain point: cannot validate tax amount upfront. Involves deferrals, ICAs, manual flow as actuals into IPA. Quarterly cadence, 3 months before quarter starts.</div>
-                <div class="mapping-rationale">Previously mapped to TO-47 (Risk Management Testing Automation), which is not in the 43-workflow Blueprints master deck. No remaining initiative covers tax accruals, deferrals, and compliance validation.</div>
+                <div class="process-detail">Gap because no initiative covers the quarterly tax accrual workflow that processes ledger entries, deferrals, and ICAs into IPA expense registrations. Previously mapped to TO-47 (Risk Management Testing Automation) which was cut from the 43-workflow master deck, leaving the upfront tax validation problem and manual actuals flow unaddressed.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -304,8 +290,7 @@
               <td><span class="tag tag-low">LOW</span></td>
               <td><span class="tag tag-partial">Partial</span></td>
               <td>
-                <div class="process-detail">Innovation Centres (owned by Alice Gomez). Capital Review Board (CRB) reviews capital investment budgets. Requests from global and studios. AI evaluates requests (ensuring only relevant ones need human review), integrated ecosystem (Workfront, IPA, CRB, WWCT, Buy@IBM). Metrics: 20-30% reduction in review time, approval time, and E2E process time.</div>
-                <div class="mapping-rationale">CapEx intake has some overlap with TO-44 (tech capability intake/governance) and TO-40 (spend tracking). Low confidence because CapEx is a distinct capital investment process not fully addressed by either initiative.</div>
+                <div class="process-detail">Covered partially by TO-44 because the CRB governance review overlaps with tech capability intake, and TO-40 handles the spend tracking across IPA and Workfront. Low confidence because CapEx is a distinct capital investment process (Innovation Centres, Buy@IBM, WWCT integration) that neither initiative fully addresses.</div>
               </td>
             </tr>
 
@@ -318,8 +303,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Appears in BOTH PDFs. ~300 people/quarter. Three categories: Group Travel, Individual, Event Travel. HTRT submissions, export to XLS, Ops screening, global approval chain. Pain points: missing automation for rules (IBM staff vs. client ratio, overseas vs. in-country flagging, YoY attendance tracking). Amanda Reidy working on AI approvals with Lucy (Hao Yan Xue). 4 reviewers (2 business, 2 Demand Strategy). Concur integration for booking.</div>
-                <div class="mapping-rationale">No dedicated initiative covers travel approval workflows. High volume and clear AI opportunities (rule-based approvals, attendee recommendations, compliance flagging) make this a significant gap.</div>
+                <div class="process-detail">Gap because no initiative covers the HTRT-to-Concur travel approval chain that processes 300+ requests per quarter across three categories (group, individual, event). Rule-based screening (staff:client ratios, overseas flagging, YoY attendance tracking) is a clear automation opportunity already being explored by Amanda Reidy with Lucy.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -330,8 +314,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Recognition budget owned by Jonathan. Leaders submit nominations as Workfront issues with suggested awards. OPS reviews, modifies awards to match budget, feedback window, finalization. Initial analysis: budget vs. awards total, weight of nomination. Exported to XLS for voting, then pushed to IBM Recognition tool. Pain: IBM tool gives manager view but not MCC-wide view. Monday had better sort/filter but poor UX. XLS used as workaround. Ideal: leadership dashboard, readable nominations, sum awards by function/dept/all, approver workflow.</div>
-                <div class="mapping-rationale">People recognition is entirely outside the scope of all 8 initiatives. No budget, workforce, or technology initiative addresses nomination, award, and recognition workflows.</div>
+                <div class="process-detail">Gap because no initiative covers the Workfront-to-IBM Recognition tool nomination workflow, including budget-to-award reconciliation, XLS voting exports, and the missing MCC-wide dashboard view. The current workaround chain (Workfront issues, XLS export, Monday.com, IBM Recognition tool) is entirely outside all initiative scopes.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -342,8 +325,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Ops leader: confirms role/location/requirements, develops job description, posts in Avature, manages resume pipeline with TAP, organizes interviewers, builds hiring tracker in Monday.com, conducts/coordinates interviews. Note: "Shouldn't be an OPS process." Impacted by direction changes from Jonathan, Paul, HR strategy.</div>
-                <div class="mapping-rationale">Recruiting execution (posting, pipeline management, interviewing) is outside TO-43's optimization scope. No initiative covers recruiting workflow automation.</div>
+                <div class="process-detail">Gap because the end-to-end recruiting execution (Avature posting, TAP resume pipeline, Monday.com tracker, interview coordination) is outside TO-43's workforce planning scope. Noted internally as "shouldn't be an OPS process" -- no initiative automates the recruiting workflow itself.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -354,8 +336,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Ops requests PMs and projects, mobilizes project managers, intern curriculum, timecard approval, intern check-ins, surveys, buddy program (US), conversion planning, budget/expense tracking, drive offer process with TAP. Note: "Shouldn't be an OPS process &mdash; Hiring managers should work with HR."</div>
-                <div class="mapping-rationale">Ongoing intern program management (timecards, surveys, curriculum, conversion) is outside all initiative scopes. Could partially benefit from TO-43 for conversion planning, but the execution workflow is uncovered.</div>
+                <div class="process-detail">Gap because the full intern program lifecycle (timecards, surveys, buddy program, curriculum, conversion planning with TAP) is outside all initiative scopes. TO-43 could partially help with conversion planning, but the day-to-day program execution and expense tracking are entirely uncovered.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -366,8 +347,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Report of new hires at IBM, manually filter to MCC, export to XLS. For each new hire: assign learning, add to Slack, add to distribution lists, facilitate onboarding sessions. Pain: new hire record should have appropriate metadata; learning/classes should be assigned automatically. HR should send new hire report to hiring managers and OPS. Learning assignments defined per role, done automatically. Hiring managers add to function-specific channels.</div>
-                <div class="mapping-rationale">Onboarding automation (auto-learning assignment, channel provisioning, metadata enrichment) is not addressed by any initiative. Clear automation opportunity with rule-based triggers.</div>
+                <div class="process-detail">Gap because no initiative automates the manual MCC filtering of IBM new-hire reports, XLS exports, per-role learning assignments, and Slack/distribution list provisioning. These are straightforward rule-based triggers (role determines learning path, function determines channels) that represent a clear automation opportunity.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -378,8 +358,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Triggered by Spring/Fall Plan completion. Create learning refresh project, kickoff call, leaders create input requests, AI agent suggests skill gaps, approve or create new requests, create Workfront task cadence, edit/source/create content, leader approval, publish content, monitor KPIs. Involves external research and 3rd-party content. KPIs described as "loose and changing."</div>
-                <div class="mapping-rationale">Learning content lifecycle (gap analysis, content creation, delivery, KPI monitoring) has no matching initiative. The AI gap-suggestion component exists in the process map but lacks a Blueprint initiative to formalize it.</div>
+                <div class="process-detail">Gap because the end-to-end learning content lifecycle (AI-suggested skill gaps, Workfront task cadence, 3rd-party content sourcing, KPI monitoring) has no matching initiative. The process already envisions AI gap analysis but lacks a Blueprint initiative to formalize it into a supported workflow.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -390,8 +369,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Half-year review cycle. Change/create role descriptions, working with LT, LT approves, update askHR. Note: "Not a real process &mdash; should be owned by function. Role descriptions could be managed in MCC-level tool (RDB, Workfront)."</div>
-                <div class="mapping-rationale">Role description maintenance is outside all initiative scopes. Low volume (semi-annual) but manual. Could be a simple automation add-on to TO-43.</div>
+                <div class="process-detail">Gap because no initiative covers the semi-annual role description updates that flow through LT approval into askHR. Low volume but entirely manual, and noted internally as "not a real process." Could be a simple automation add-on to TO-43's workforce planning scope using RDB or Workfront.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="gap">
@@ -402,8 +380,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Annual budget for each site. Ops spreadsheet tracks site budgets. Ambassador activities planned and executed. Ops follow-ups to track spend. Pain points: unclear how budget is decided, how changes are handled, no insight into individual activities, return on spend not clear, no tracking of activity impact.</div>
-                <div class="mapping-rationale">Site-level program management with budget tracking. Partially overlaps TO-40 spend tracking but the program management workflow is uncovered.</div>
+                <div class="process-detail">Gap because the site-level program management (activity planning, execution tracking, impact measurement) is uncovered despite partial overlap with TO-40's spend tracking. The core problem -- no visibility into individual activities or return on spend across sites -- requires program-level orchestration that no initiative provides.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="gap">
@@ -414,8 +391,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Specialized event investment. Owned by Maria B. Investment manager handles forecast file (Excel), quarterly planning (~900k total), PO support, IPA/Ledger checks, invoice management. Bi-weekly meetings, technological interlock meetings (monthly). 15 POs + 8 APUs. Kiosk fees, partnership fees, hospitality. Deferrals and amortization in Ledger. Manual forecast file maintenance.</div>
-                <div class="mapping-rationale">Specialized event investment management. TO-45 (Agency Briefing) is too narrow to cover the full Wimbledon lifecycle. Could benefit from TO-40 for spend tracking but the event-specific orchestration is a gap.</div>
+                <div class="process-detail">Gap because the ~900k Wimbledon lifecycle (15 POs, 8 APUs, kiosk/partnership/hospitality fees, deferrals and amortization in Ledger) requires specialized event investment orchestration. TO-45 (Agency Briefing) is too narrow and TO-40 only covers the spend tracking portion, leaving the manual Excel forecast file, bi-weekly meetings, and invoice management uncovered.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="gap">
@@ -426,8 +402,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Sales-funded sponsorship process (Thays Michelle, Suman). Quarterly planning, PO support with Kelly Alguire (Sponsorship Lead), IPA/Ledger checks, line item reviews, automated journal recovery (25-30 items), overview file for operational POs. Kyndryl and Red Hat ticket handling, acquired company billing. Special handling for companies whose budget is not managed centrally.</div>
-                <div class="mapping-rationale">Specialized sponsorship/investment process. Similar to Wimbledon in being a niche event investment workflow not covered by any initiative.</div>
+                <div class="process-detail">Gap because the sales-funded sponsorship workflow (quarterly planning, 25-30 journal recovery items, Kyndryl/Red Hat ticket handling, acquired company billing edge cases) requires specialized investment management. No initiative covers the decentralized budget handling or the PO support chain with Kelly Alguire's sponsorship operations.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="gap">
@@ -438,8 +413,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Owned by Estefano. Vendor/procurement lifecycle including accredited vendor validation, SOW review, Buy@IBM integration. Referenced across multiple processes (PO-Setup, CapEx) but exists as its own distinct process.</div>
-                <div class="mapping-rationale">Procurement as a standalone process is not covered. Some procurement steps are captured within TO-40 (SOW ingestion) and TO-44 (tech intake), but the end-to-end procurement lifecycle is a gap.</div>
+                <div class="process-detail">Gap because the end-to-end procurement lifecycle (accredited vendor validation, SOW review, Buy@IBM integration) exists as a standalone process despite fragments appearing in TO-40 (SOW ingestion) and TO-44 (tech intake). Neither initiative covers vendor qualification, contract negotiation, or the full Buy@IBM workflow that Estefano manages.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="gap">
@@ -450,8 +424,7 @@
               <td><span class="tag tag-gap">GAP</span></td>
               <td><span class="tag tag-gap">Gap</span></td>
               <td>
-                <div class="process-detail">Incremental funding plus cross-company funding process. Owned by Katarina, Simon, Mike Golas. Currently ON HOLD. Also includes Re-Org Process (Mark M) marked as needed but non-existent.</div>
-                <div class="mapping-rationale">On hold / non-existent process. No initiative coverage, but also not actively running. Could be relevant if reactivated.</div>
+                <div class="process-detail">Gap because no initiative covers cross-company funding mechanisms or the re-org process (Mark M). Currently on hold, but the incremental funding and cross-company budget transfers managed by Katarina, Simon, and Mike Golas would need dedicated tooling if reactivated.</div>
               </td>
             </tr>
           </tbody>
