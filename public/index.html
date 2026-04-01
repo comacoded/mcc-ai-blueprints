@@ -1065,6 +1065,14 @@
   .page-ix .tag-demand { background: #a7f0ba; color: #044317; }
   .page-ix .tag-is { background: #fddc69; color: #483700; }
   .page-ix .tag-event { background: #ffd7d9; color: #750e13; }
+  /* CSR sub-domain tags */
+  .page-ix .tag-gp { background: #a7f0ba; color: #044317; }
+  .page-ix .tag-sb { background: #d0e2ff; color: #002d9c; }
+  .page-ix .tag-lx { background: #e8daff; color: #491d8b; }
+  .page-ix .tag-ra { background: #bae6ff; color: #003a6d; }
+  .page-ix .tag-cs { background: #ffd6e8; color: #740937; }
+  .page-ix .tag-vg { background: #d9fbfb; color: #004144; }
+  .page-ix .tag-of { background: #fff1c5; color: #502600; }
   .page-ix .reco-tag { display: inline-block; font-size: 0.6875rem; padding: 2px 8px; border-radius: 100px; background: #d0e2ff; color: #002d9c; margin-right: 0.25rem; }
   .page-ix .process-name { font-weight: 600; color: var(--cds-text-primary); }
   .page-ix .process-detail { font-size: 0.8125rem; color: var(--cds-text-secondary); line-height: 1.5; margin-top: 0.25rem; }
@@ -2094,30 +2102,18 @@
     animation: fadeSlideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
-  /* Coverage bars start at 0 width until animated */
-  .anim-bar-ready {
-    width: 0 !important;
-    transition: none !important;
-  }
-  .anim-bar-ready.anim-bar-go {
+  /* Coverage bars — hide initially, JS controls animation */
+  .anim-bar-zero {
     transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
 
   /* Rank bar fills */
-  .anim-rankbar-ready {
-    width: 0 !important;
-    transition: none !important;
-  }
-  .anim-rankbar-ready.anim-rankbar-go {
+  .anim-rankbar-zero {
     transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
 
   /* Bar segments in composite chart */
-  .anim-segment-ready {
-    width: 0 !important;
-    transition: none !important;
-  }
-  .anim-segment-ready.anim-segment-go {
+  .anim-segment-zero {
     transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
 
@@ -2145,7 +2141,7 @@
   <a href="#" data-page="ix-combined">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
-    <span class="nav-meta">62%</span>
+    <span class="nav-meta">44%</span>
   </a>
   <a href="#" data-page="ix-to">
     <span class="nav-dot" style="background:#009d9a"></span>
@@ -2171,6 +2167,11 @@
     <span class="nav-dot" style="background:#24a148"></span>
     Select Marketing
     <span class="nav-meta">95%</span>
+  </a>
+  <a href="#" data-page="ix-csr">
+    <span class="nav-dot" style="background:#da1e28"></span>
+    CSR
+    <span class="nav-meta">19%</span>
   </a>
 </nav>
 
@@ -2215,6 +2216,7 @@
   <div class="page page-ix" id="page-ix-mmapi"></div>
   <div class="page page-ix" id="page-ix-na"></div>
   <div class="page page-ix" id="page-ix-sm"></div>
+  <div class="page page-ix" id="page-ix-csr"></div>
 
 </div><!-- end .main -->
 
@@ -2226,7 +2228,7 @@
 
 <!-- ===== SIDEBAR NAVIGATION ===== -->
 <script>
-const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm'];
+const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr'];
 const ixCache = {};
 
 document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
@@ -4698,11 +4700,9 @@ renderRankings();
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const targetWidth = el.dataset.targetWidth;
-        el.classList.add('anim-bar-go');
-        // Set width after class is added so transition fires
+        el.classList.add('anim-bar-zero');
         requestAnimationFrame(() => {
-          el.style.width = targetWidth;
+          el.style.width = el.dataset.targetWidth;
         });
         barObserver.unobserve(el);
       }
@@ -4716,7 +4716,7 @@ renderRankings();
         const el = entry.target;
         const delay = parseFloat(el.dataset.animDelay || 0);
         setTimeout(() => {
-          el.classList.add('anim-rankbar-go');
+          el.classList.add('anim-rankbar-zero');
           requestAnimationFrame(() => {
             el.style.width = el.dataset.targetWidth;
           });
@@ -4731,12 +4731,11 @@ renderRankings();
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const row = entry.target;
-        const segments = row.querySelectorAll('.anim-segment-ready');
+        const segments = row.querySelectorAll('.anim-segment-zero');
         const delay = parseFloat(row.dataset.animDelay || 0);
         setTimeout(() => {
           segments.forEach((seg, i) => {
             setTimeout(() => {
-              seg.classList.add('anim-segment-go');
               requestAnimationFrame(() => {
                 seg.style.width = seg.dataset.targetWidth;
               });
@@ -4780,22 +4779,24 @@ renderRankings();
 
     // 2. Coverage bar fills — grow from 0
     root.querySelectorAll('.coverage-bar-fill').forEach(bar => {
-      if (bar.classList.contains('anim-bar-ready')) return;
+      if (bar.dataset.animBarDone) return;
+      bar.dataset.animBarDone = '1';
       const currentWidth = bar.style.width || bar.getAttribute('style')?.match(/width:\s*([^;]+)/)?.[1];
       if (currentWidth) {
         bar.dataset.targetWidth = currentWidth;
-        bar.classList.add('anim-bar-ready');
+        bar.style.width = '0%';
         barObserver.observe(bar);
       }
     });
 
     // 3. Mini bar fills in modals
     root.querySelectorAll('.mini-bar-fill').forEach(bar => {
-      if (bar.classList.contains('anim-bar-ready')) return;
+      if (bar.dataset.animBarDone) return;
+      bar.dataset.animBarDone = '1';
       const currentWidth = bar.style.width;
       if (currentWidth) {
         bar.dataset.targetWidth = currentWidth;
-        bar.classList.add('anim-bar-ready');
+        bar.style.width = '0%';
         barObserver.observe(bar);
       }
     });
@@ -4886,15 +4887,18 @@ renderRankings();
       }
       // Bar segments
       row.querySelectorAll('.bar-segment').forEach(seg => {
-        if (!seg.classList.contains('anim-segment-ready')) {
+        if (!seg.dataset.animSegDone) {
+          seg.dataset.animSegDone = '1';
           const w = seg.style.width;
           if (w) {
             seg.dataset.targetWidth = w;
-            seg.classList.add('anim-segment-ready');
+            seg.style.width = '0px';
+            seg.classList.add('anim-segment-zero');
           }
         }
       });
-      if (row.querySelector('.anim-segment-ready')) {
+      if (row.querySelector('.anim-segment-zero') && !row.dataset.animSegObserved) {
+        row.dataset.animSegObserved = '1';
         row.dataset.animDelay = String(i * 60 + 100);
         segmentObserver.observe(row);
       }
@@ -4909,11 +4913,12 @@ renderRankings();
       }
       // Rank bar fills inside
       card.querySelectorAll('.rank-bar-fill').forEach((bar, j) => {
-        if (!bar.classList.contains('anim-rankbar-ready')) {
+        if (!bar.dataset.animRankDone) {
+          bar.dataset.animRankDone = '1';
           const w = bar.style.width;
           if (w) {
             bar.dataset.targetWidth = w;
-            bar.classList.add('anim-rankbar-ready');
+            bar.style.width = '0%';
             bar.dataset.animDelay = String(i * 120 + j * 50 + 200);
             rankBarObserver.observe(bar);
           }
