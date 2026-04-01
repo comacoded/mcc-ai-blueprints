@@ -1,7 +1,7 @@
   <section id="overview">
     <div class="domain-header">
       <h2>iX Workflow Mapping &mdash; Combined View</h2>
-      <p>Mapping 122 workflows across T&amp;O, Corporate Affairs, MMAPI, and Named Account Marketing domains to 38 AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
+      <p>Mapping 247 workflows across T&amp;O, Corporate Affairs, MMAPI, Named Account, Select Marketing, and CSR domains to 45 AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
     </div>
 
     <div class="content">
@@ -9,32 +9,32 @@
       <div class="dashboard">
         <div class="dash-card neutral">
           <div class="label">Total iX Processes</div>
-          <div class="value">122</div>
-          <div class="detail">27 T&amp;O + 33 CA + 32 MMAPI + 30 Named Account</div>
+          <div class="value">247</div>
+          <div class="detail">27 T&amp;O + 33 CA + 32 MMAPI + 30 NA + 20 SM + 105 CSR</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Blueprint Initiatives</div>
-          <div class="value">38</div>
-          <div class="detail">8 T&amp;O + 8 CA + 7 MMAPI + 15 Named Account</div>
+          <div class="value">45</div>
+          <div class="detail">8 T&amp;O + 8 CA + 7 MMAPI + 15 NA + 6 SM + 1 CSR</div>
         </div>
         <div class="dash-card target-hit">
           <div class="label">Mapped Processes</div>
-          <div class="value">69</div>
-          <div class="detail">15 T&amp;O + 16 CA + 18 MMAPI + 20 Named Account</div>
+          <div class="value">108</div>
+          <div class="detail">15 T&amp;O + 16 CA + 18 MMAPI + 20 NA + 19 SM + 20 CSR</div>
         </div>
         <div class="dash-card target-miss">
           <div class="label">Gap Processes</div>
-          <div class="value">53</div>
-          <div class="detail">12 T&amp;O + 17 CA + 14 MMAPI + 10 Named Account</div>
+          <div class="value">139</div>
+          <div class="detail">12 T&amp;O + 17 CA + 14 MMAPI + 10 NA + 1 SM + 85 CSR</div>
         </div>
         <div class="dash-card target-miss">
           <div class="label">Coverage Rate</div>
-          <div class="value">57%</div>
-          <div class="detail">Target: 70% &mdash; shortfall of 13 pts</div>
+          <div class="value">44%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 26 pts</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Needed to Hit 70%</div>
-          <div class="value">+17</div>
+          <div class="value">+65</div>
           <div class="detail">Additional processes must be covered</div>
         </div>
       </div>
@@ -101,17 +101,47 @@
             <span>100%</span>
           </div>
         </div>
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>Select Marketing Coverage</h4>
+            <button class="info-btn" onclick="openModal('sm-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill above" style="width: 95%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>19 of 20 (95%)</span>
+            <span>100%</span>
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>CSR Coverage</h4>
+            <button class="info-btn" onclick="openModal('csr-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill below" style="width: 19%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>20 of 105 (19%)</span>
+            <span>100%</span>
+          </div>
+        </div>
       </div>
 
       <div style="background: var(--cds-layer-01); border: 1px solid var(--cds-border-subtle); border-left: 3px solid var(--cds-support-info); padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.75rem; line-height: 1.6; color: var(--cds-text-secondary);">
-        <strong style="color: var(--cds-text-primary);">Scope:</strong> This analysis covers <strong>38 of 47</strong> Blueprint initiatives &mdash; the 4 domains where iX conducted workflow discovery. The remaining 9 initiatives have no iX PDFs: Creative &amp; Content (4: CC-CC-19&ndash;22), PMM (4: PM-PMM-36&ndash;39), and CSR (1: CSR-CSR-10).
+        <strong style="color: var(--cds-text-primary);">Scope:</strong> This analysis covers <strong>45 of 47</strong> Blueprint initiatives &mdash; the 6 domains where iX conducted workflow discovery. The remaining 2 initiatives without iX PDFs are in future domains.
       </div>
 
       <!-- Comparison table -->
       <div class="section">
         <div class="section-header">
           <h3>Domain Comparison</h3>
-          <span class="count">4 domains, 38 initiatives, 122 processes</span>
+          <span class="count">6 domains, 45 initiatives, 247 processes</span>
         </div>
         <table>
           <thead>
@@ -162,14 +192,32 @@
               <td><span class="tag tag-gap">67%</span></td>
               <td>-3 pts</td>
             </tr>
+            <tr class="clickable-row" onclick="openModal('sm-breakdown')">
+              <td class="process-name">Select Marketing</td>
+              <td>20</td>
+              <td>6</td>
+              <td>19</td>
+              <td>1</td>
+              <td><span class="tag tag-covered">95%</span></td>
+              <td>+25 pts</td>
+            </tr>
+            <tr class="clickable-row" onclick="openModal('csr-breakdown')">
+              <td class="process-name">CSR</td>
+              <td>105</td>
+              <td>1</td>
+              <td>20</td>
+              <td>85</td>
+              <td><span class="tag tag-gap">19%</span></td>
+              <td>-51 pts</td>
+            </tr>
             <tr class="clickable-row" onclick="openModal('combined-breakdown')" style="font-weight: 600; background: var(--cds-layer-02);">
               <td>Combined</td>
-              <td>122</td>
-              <td>38</td>
-              <td>69</td>
-              <td>53</td>
-              <td><span class="tag tag-gap">57%</span></td>
-              <td>-13 pts</td>
+              <td>247</td>
+              <td>45</td>
+              <td>108</td>
+              <td>139</td>
+              <td><span class="tag tag-gap">44%</span></td>
+              <td>-26 pts</td>
             </tr>
           </tbody>
         </table>
@@ -394,6 +442,48 @@ document.addEventListener('keydown', (e) => {
   </div>
 </div>
 
+<!-- Select Marketing Breakdown Modal -->
+<div class="modal-backdrop" id="sm-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Select Marketing &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('sm-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">20</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">19</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">1</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value green">95%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Surplus</span><span class="sl-value green">+25 pts (exceeds target)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill green" style="width:95%"></div><div class="mini-target"></div></div>
+
+      <h4>How Coverage Is Calculated</h4>
+      <p>Coverage = Mapped Processes &divide; Total iX Processes = 19 &divide; 20 = <strong>95%</strong></p>
+      <p>Target already exceeded. Select Marketing has the <strong>highest coverage</strong> of any domain.</p>
+
+      <h4>What's Mapped (19 processes)</h4>
+      <ul>
+        <li><span class="reco-tag">SDS-25</span> Co-Marketing Process Automation covers 11: Budget Forecasting, Budget Strategy, Global Planning, MAP Intake, MAP Validation, Flagged MAP Review, Budget Distribution, Execution Tracking, Claims Validation, Claims Payment, Partner Integration</li>
+        <li><span class="reco-tag">SDS-24</span> Partner Performance Intelligence covers 5: Target List Generation, Cross-Sell, Tactic/Channel Learnings, Coverage Model, Ideal Partner Profile</li>
+        <li><span class="reco-tag">SDS-26</span> Audience, Content &amp; Journey Orchestration covers 2: Partner Content Creation, Partner Communications &amp; Newsletter</li>
+        <li><span class="reco-tag">SDS-23</span> Demand Intelligence &amp; Planning covers 1: Partner Progression &amp; Lead Pass</li>
+      </ul>
+
+      <h4>What's Not Covered (1 gap process)</h4>
+      <ul>
+        <li><strong>Content &amp; Editorial (1):</strong> Client &amp; Partner Story Creation &mdash; editorial storytelling with Blue Studio, 2-month production cycle, multi-party approvals</li>
+      </ul>
+
+      <h4>Path to 100%</h4>
+      <ul>
+        <li><strong>Option A:</strong> Extend SDS-26 to include story creation (+1) &rarr; 100% <span style="color:var(--cds-support-success);font-weight:600;">full coverage</span></li>
+        <li><strong>Option B:</strong> Reclassify story creation to Creative &amp; Content domain &rarr; 100% (19/19)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- Combined Breakdown Modal -->
 <div class="modal-backdrop" id="combined-breakdown">
   <div class="modal">
@@ -402,17 +492,17 @@ document.addEventListener('keydown', (e) => {
       <button class="modal-close" onclick="closeModal('combined-breakdown')">&times;</button>
     </div>
     <div class="modal-body">
-      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">122</span></div>
-      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">69</span></div>
-      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">53</span></div>
-      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">57%</span></div>
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">142</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">88</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">54</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">62%</span></div>
       <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
-      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-13 pts (need +17 processes)</span></div>
-      <div class="mini-bar"><div class="mini-bar-fill red" style="width:57%"></div><div class="mini-target"></div></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-26 pts (need +65 processes)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:44%"></div><div class="mini-target"></div></div>
 
       <h4>How Combined Coverage Is Calculated</h4>
-      <p>Combined = Total Mapped &divide; Total Processes = (15 + 16 + 18 + 20) &divide; (27 + 33 + 32 + 30) = 69 &divide; 122 = <strong>56.6% &asymp; 57%</strong></p>
-      <p>To reach 70%: 122 &times; 0.70 = 85.4 &rarr; need 86 mapped. Currently 69, so <strong>+17 more processes</strong> across all domains.</p>
+      <p>Combined = Total Mapped &divide; Total Processes = (15 + 16 + 18 + 20 + 19 + 20) &divide; (27 + 33 + 32 + 30 + 20 + 105) = 108 &divide; 247 = <strong>43.7% &asymp; 44%</strong></p>
+      <p>To reach 70%: 247 &times; 0.70 = 172.9 &rarr; need 173 mapped. Currently 108, so <strong>+65 more processes</strong> across all domains.</p>
 
       <h4>Domain Breakdown</h4>
       <div class="stat-line"><span class="sl-label">T&amp;O</span><span class="sl-value red">15/27 = 56% (need +4)</span></div>
@@ -423,8 +513,12 @@ document.addEventListener('keydown', (e) => {
       <div class="mini-bar"><div class="mini-bar-fill red" style="width:56%"></div><div class="mini-target"></div></div>
       <div class="stat-line"><span class="sl-label">Named Account</span><span class="sl-value red">20/30 = 67% (need +1)</span></div>
       <div class="mini-bar"><div class="mini-bar-fill red" style="width:67%"></div><div class="mini-target"></div></div>
+      <div class="stat-line"><span class="sl-label">Select Marketing</span><span class="sl-value green">19/20 = 95% (exceeds target)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill green" style="width:95%"></div><div class="mini-target"></div></div>
+      <div class="stat-line"><span class="sl-label">CSR</span><span class="sl-value red">20/105 = 19% (need +54)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:19%"></div><div class="mini-target"></div></div>
 
-      <h4>Total Gap Processes by Theme (53)</h4>
+      <h4>Total Gap Processes by Theme (139)</h4>
       <ul>
         <li><strong>T&amp;O People/HR (5):</strong> Recognition, Intern Recruiting, Intern Program, Onboarding, Job Descriptions</li>
         <li><strong>T&amp;O Travel (2):</strong> Travel Approval (Ops + Investment)</li>
@@ -440,19 +534,71 @@ document.addEventListener('keydown', (e) => {
         <li><strong>MMAPI Strategic Planning (2):</strong> OOH and Paid Search strategic planning variants</li>
         <li><strong>NA Client Experience (7):</strong> Voice Matchmaking, Advocacy Plans, Story Governance, Consent, Evangelization, Peer Reviews, Story Production</li>
         <li><strong>NA Specialized (3):</strong> Innovation Squad, Partner Narrative, Event Technology</li>
+        <li><strong>Select Mktg Content (1):</strong> Client &amp; Partner Story Creation (editorial storytelling lifecycle)</li>
+        <li><strong>CSR SkillsBuild Platform (22):</strong> Platform provisioning, URLs, certificates, SCORM, access control, support tickets, event cards, integration</li>
+        <li><strong>CSR Learning Experience (19):</strong> GLE planning, demand intake, delivery, monitoring, evaluation, feedback, content development</li>
+        <li><strong>CSR Reporting &amp; Analytics (14):</strong> Dashboards, ad-hoc reports, engagement analytics, ESG disclosure, benchmarking</li>
+        <li><strong>CSR Compliance &amp; Security (11):</strong> Infosec checks, vulnerability scans, OSS reviews, DSR processing, IT governance</li>
+        <li><strong>CSR Operations &amp; Finance (10):</strong> Cloud billing, charge codes, procurement, expense approval, calendar</li>
+        <li><strong>CSR Volunteering &amp; Giving (9):</strong> Event sourcing, scheduling, Goodera integration, galas/sponsorships</li>
       </ul>
 
       <h4>Fastest Combined Path to 70%</h4>
-      <p>6 actions across all 4 domains would cover +17 processes:</p>
+      <p>CSR's 85 gap processes now dominate the combined shortfall. Addressing CSR requires new initiatives:</p>
       <ul>
+        <li><span class="reco-tag">CSR</span> SkillsBuild Platform Intelligence (+22) &rarr; CSR at 40%</li>
+        <li><span class="reco-tag">CSR</span> Learning Experience Orchestration Agent (+19) &rarr; CSR at 58%</li>
+        <li><span class="reco-tag">CSR</span> CSR Analytics &amp; Reporting Engine (+14) &rarr; CSR at 72% <span style="color:var(--cds-support-success);font-weight:600;">exceeds target</span></li>
         <li><span class="reco-tag">T&amp;O</span> People Ops Lifecycle Agent (+5) &rarr; T&amp;O hits 74%</li>
-        <li><span class="reco-tag">CA</span> Internal Comms Intelligence Agent (+3) &rarr; CA at 58%</li>
-        <li><span class="reco-tag">CA</span> Comms Planning &amp; Coordination Agent (+4) &rarr; CA hits 70%</li>
-        <li><span class="reco-tag">MMAPI</span> Media Planning &amp; Strategy Agent (+7) &rarr; MMAPI hits 78%</li>
         <li><span class="reco-tag">NA</span> Expand EVT-06 for event tech (+1) &rarr; NA hits 70%</li>
-        <li><strong>Combined result:</strong> 86/122 = <strong>70%</strong> <span style="color:var(--cds-support-success);font-weight:600;">target met</span></li>
+        <li><strong>Combined result:</strong> 169/247 = <strong>68%</strong> (near target)</li>
       </ul>
-      <p style="margin-top:0.75rem;">Adding T&amp;O Travel Automation (+2) and MMAPI Governance Agent (+3) would push combined to <strong>74%</strong>.</p>
+      <p style="margin-top:0.75rem;">Adding CSR Compliance &amp; Security Automation (+11) and CA Comms Planning Agent (+4) would push combined to <strong>75%</strong> <span style="color:var(--cds-support-success);font-weight:600;">exceeds target</span>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CSR Breakdown Modal -->
+<div class="modal-backdrop" id="csr-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>CSR &mdash; Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('csr-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="stat-line"><span class="sl-label">Total iX Processes</span><span class="sl-value">105</span></div>
+      <div class="stat-line"><span class="sl-label">Mapped Processes</span><span class="sl-value green">20</span></div>
+      <div class="stat-line"><span class="sl-label">Gap Processes</span><span class="sl-value red">85</span></div>
+      <div class="stat-line"><span class="sl-label">Current Coverage</span><span class="sl-value red">19%</span></div>
+      <div class="stat-line"><span class="sl-label">Target</span><span class="sl-value">70%</span></div>
+      <div class="stat-line"><span class="sl-label">Shortfall</span><span class="sl-value red">-51 pts (need +54 processes)</span></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:19%"></div><div class="mini-target"></div></div>
+
+      <h4>How Coverage Is Calculated</h4>
+      <p>Coverage = Mapped Processes &divide; Total iX Processes = 20 &divide; 105 = <strong>19.0%</strong></p>
+      <p>To reach 70%: 105 &times; 0.70 = 73.5 &rarr; need 74 mapped. Currently 20, so <strong>+54 more processes</strong> must be covered.</p>
+
+      <h4>What's Mapped (20 processes)</h4>
+      <ul>
+        <li><span class="reco-tag">CSR-10</span> Grant Lifecycle covers 20 processes across Grants &amp; Partnerships: Partnership Lifecycle (end-to-end), Open+ Onboarding (35-step), Versaic Data Sync, Impact Accelerator Reviews, Agreement Processes (Versaic + non-Versaic), Engagement Type Decisions, Forecast, Termination, Verification, Steering Committee, Partner Management, Sub-Partner Agreements, Onboarding, Off-boarding, Compliance Testing, Non-Compliant Behavior, Disaster Relief Campaigns</li>
+      </ul>
+
+      <h4>What's Not Covered (85 gap processes)</h4>
+      <ul>
+        <li><strong>SkillsBuild Platform Ops (22):</strong> URL creation, bulk registration, certificates, credential management, SCORM delivery, event cards, support tickets, DSM integration, Marketo campaigns, access control, LTI integration, catalogue maintenance</li>
+        <li><strong>Learning Experience (19):</strong> GLE planning, demand intake, kick-off, delivery monitoring, evaluation, pre-session engagement, learner promotion, marketing materials, learning plans, technical setup, content development, translation, updates</li>
+        <li><strong>Reporting &amp; Analytics (14):</strong> Ad-hoc reporting, Tableau dashboards, engagement analytics, data insights, partner reports, benchmarking, ESG impact disclosure, university engagement, goals tracking, market analysis</li>
+        <li><strong>Compliance &amp; Security (11):</strong> Monthly &amp; quarterly Infosec checks, vulnerability scans, OSS clearance, DSR processing, client code reviews, COM115 reviews, IT governance (APM/GPA), supply chain due diligence</li>
+        <li><strong>Operations &amp; Finance (10):</strong> Cloud account provisioning, promo codes, charge codes, labor claim monitoring, procurement, expense approval, calendar, presenting to leadership</li>
+        <li><strong>Volunteering &amp; Giving (9):</strong> Event sourcing, scheduling, communication, Goodera events, consulting volunteering, campaign reporting, galas/sponsorships, alert dashboard</li>
+      </ul>
+
+      <h4>Fastest Path to 70%</h4>
+      <ul>
+        <li><strong>Option A:</strong> New "SkillsBuild Platform Intelligence" initiative (+22) &rarr; 40%</li>
+        <li><strong>Option B:</strong> A + "Learning Experience Orchestration Agent" (+19) &rarr; 58%</li>
+        <li><strong>Option C:</strong> A + B + "CSR Analytics &amp; Reporting Engine" (+14) &rarr; 72% <span style="color:var(--cds-support-success);font-weight:600;">exceeds target</span></li>
+      </ul>
     </div>
   </div>
 </div>
