@@ -1,7 +1,7 @@
   <section id="overview">
     <div class="domain-header">
       <h2>iX Workflow Mapping &mdash; Combined View</h2>
-      <p>Mapping 247 workflows across T&amp;O, Corporate Affairs, MMAPI, Named Account, Select Marketing, and CSR domains to 43 AI Blueprint initiatives (35 in iX-mapped domains) &mdash; measuring coverage against JA's 70% agentification target</p>
+      <p>Mapping 266 workflows across T&amp;O, Corporate Affairs, MMAPI, Named Account, Select Marketing, CSR, and Content &amp; Creative domains to 43 AI Blueprint initiatives (39 in iX-mapped domains) &mdash; measuring coverage against JA's 70% agentification target</p>
     </div>
 
     <div class="content">
@@ -9,33 +9,33 @@
       <div class="dashboard">
         <div class="dash-card neutral">
           <div class="label">Total iX Processes</div>
-          <div class="value">247</div>
-          <div class="detail">27 T&amp;O + 33 CA + 32 MMAPI + 30 NA + 20 SM + 105 CSR</div>
+          <div class="value">266</div>
+          <div class="detail">27 T&amp;O + 33 CA + 32 MMAPI + 30 NA + 20 SM + 105 CSR + 19 C&amp;C</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Blueprint Initiatives</div>
           <div class="value">43</div>
-          <div class="detail">6 T&amp;O + 7 CA + 6 MMAPI + 9 NA + 6 SM + 1 CSR + 8 without iX</div>
+          <div class="detail">6 T&amp;O + 7 CA + 6 MMAPI + 9 NA + 6 SM + 1 CSR + 4 C&amp;C + 4 without iX</div>
         </div>
         <div class="dash-card target-hit">
           <div class="label">Mapped Processes</div>
-          <div class="value">106</div>
-          <div class="detail">14 T&amp;O + 15 CA + 18 MMAPI + 20 NA + 19 SM + 20 CSR</div>
+          <div class="value">124</div>
+          <div class="detail">14 T&amp;O + 15 CA + 18 MMAPI + 20 NA + 19 SM + 20 CSR + 18 C&amp;C</div>
         </div>
         <div class="dash-card target-miss">
           <div class="label">Gap Processes</div>
-          <div class="value">141</div>
-          <div class="detail">13 T&amp;O + 18 CA + 14 MMAPI + 10 NA + 1 SM + 85 CSR</div>
+          <div class="value">142</div>
+          <div class="detail">13 T&amp;O + 18 CA + 14 MMAPI + 10 NA + 1 SM + 85 CSR + 1 C&amp;C</div>
         </div>
         <div class="dash-card target-miss">
           <div class="label">Coverage Rate</div>
-          <div class="value">43%</div>
-          <div class="detail">Target: 70% &mdash; shortfall of 27 pts</div>
+          <div class="value">47%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 23 pts</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Needed to Hit 70%</div>
-          <div class="value">+67</div>
-          <div class="detail">70% &times; 247 = 173 needed &minus; 106 mapped = +67</div>
+          <div class="value">+63</div>
+          <div class="detail">70% &times; 266 = 187 needed &minus; 124 mapped = +63</div>
         </div>
       </div>
 
@@ -131,17 +131,32 @@
             <span>100%</span>
           </div>
         </div>
+        <div class="compare-card">
+          <div class="coverage-bar-wrapper">
+            <h4>Content &amp; Creative Coverage</h4>
+            <button class="info-btn" onclick="openModal('cc-breakdown')" title="View breakdown">i</button>
+          </div>
+          <div class="coverage-bar-track">
+            <div class="coverage-bar-fill above" style="width: 95%;"></div>
+            <div class="target-marker" style="left: 70%;"></div>
+          </div>
+          <div class="coverage-label">
+            <span>0%</span>
+            <span>18 of 19 (95%)</span>
+            <span>100%</span>
+          </div>
+        </div>
       </div>
 
       <div style="background: var(--cds-layer-01); border: 1px solid var(--cds-border-subtle); border-left: 3px solid var(--cds-support-info); padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.75rem; line-height: 1.6; color: var(--cds-text-secondary);">
-        <strong style="color: var(--cds-text-primary);">Scope:</strong> This analysis covers <strong>35 of 43</strong> Blueprint initiatives &mdash; the 6 domains where iX conducted workflow discovery. The remaining 8 initiatives (Creative &amp; Content and PMM) do not have iX discovery PDFs.
+        <strong style="color: var(--cds-text-primary);">Scope:</strong> This analysis covers <strong>39 of 43</strong> Blueprint initiatives &mdash; the 7 domains where iX conducted workflow discovery. The remaining 4 initiatives (PMM) do not have iX discovery PDFs.
       </div>
 
       <!-- Comparison table -->
       <div class="section">
         <div class="section-header">
           <h3>Domain Comparison</h3>
-          <span class="count">6 domains, 35 initiatives, 247 processes</span>
+          <span class="count">7 domains, 39 initiatives, 266 processes</span>
         </div>
         <table>
           <thead>
@@ -210,14 +225,23 @@
               <td><span class="tag tag-gap">19%</span></td>
               <td>-51 pts</td>
             </tr>
+            <tr class="clickable-row" onclick="openModal('cc-breakdown')">
+              <td class="process-name">Content &amp; Creative</td>
+              <td>19</td>
+              <td>4</td>
+              <td>18</td>
+              <td>1</td>
+              <td><span class="tag tag-covered">95%</span></td>
+              <td>+25 pts</td>
+            </tr>
             <tr class="clickable-row" onclick="openModal('combined-breakdown')" style="font-weight: 600; background: var(--cds-layer-02);">
               <td>Combined</td>
-              <td>247</td>
-              <td>35</td>
-              <td>106</td>
-              <td>141</td>
-              <td><span class="tag tag-gap">43%</span></td>
-              <td>-27 pts</td>
+              <td>266</td>
+              <td>39</td>
+              <td>124</td>
+              <td>142</td>
+              <td><span class="tag tag-gap">47%</span></td>
+              <td>-23 pts</td>
             </tr>
           </tbody>
         </table>
@@ -526,6 +550,48 @@ document.addEventListener('keydown', (e) => {
   </div>
 </div>
 
+<!-- Content & Creative Breakdown Modal -->
+<div class="modal-backdrop" id="cc-breakdown">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Content &amp; Creative Coverage Breakdown</h3>
+      <button class="modal-close" onclick="closeModal('cc-breakdown')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-hero">
+        <div class="modal-hero-stat">
+          <div class="hero-pct green">95%</div>
+          <div class="hero-sub">Coverage</div>
+        </div>
+        <div class="modal-hero-text">
+          <p>CC-CC-21 (Content Creation incl localisation) dominates with 12 of 18 mapped processes, spanning the entire production lifecycle from web pages through video, animation, photography, and 4 globalization/translation workflows. CC-CC-20 covers 3 processes (budget planning, content repository, performance monitoring), CC-CC-19 handles 2 paid media workflows, and CC-CC-22 maps to creative brief &amp; resource allocation. The sole gap is Content Distribution &amp; Channel Delivery &mdash; the multi-channel routing step after publish.</p>
+          <div class="hero-formula">18 mapped &divide; 19 total = 95% &bull; exceeds 70% target by 25 pts</div>
+        </div>
+      </div>
+      <div class="mini-bar"><div class="mini-bar-fill green" style="width:95%"></div><div class="mini-target"></div></div>
+
+      <div class="modal-stats">
+        <div class="modal-stat-card"><div class="msc-value">19</div><div class="msc-label">Processes</div></div>
+        <div class="modal-stat-card"><div class="msc-value green">18</div><div class="msc-label">Mapped</div></div>
+        <div class="modal-stat-card"><div class="msc-value">1</div><div class="msc-label">Gap</div></div>
+      </div>
+
+      <div class="modal-section-title">What's covered</div>
+      <div class="modal-initiative-row"><span class="mir-tag">CC-21</span><span class="mir-name">Content Creation (incl localisation)</span><span class="mir-count">12</span></div>
+      <div class="modal-initiative-row"><span class="mir-tag">CC-20</span><span class="mir-name">Strategic Planning &amp; Source of Truth</span><span class="mir-count">3</span></div>
+      <div class="modal-initiative-row"><span class="mir-tag">CC-19</span><span class="mir-name">GenStudio Expansion</span><span class="mir-count">2</span></div>
+      <div class="modal-initiative-row"><span class="mir-tag">CC-22</span><span class="mir-name">Resource &amp; Capacity Planning</span><span class="mir-count">1</span></div>
+
+      <div class="modal-section-title">What's not covered (1 gap)</div>
+      <div class="modal-gap-row"><span class="mgr-count">1</span><span class="mgr-label">Distribution</span> Content Distribution &amp; Channel Delivery &mdash; multi-channel routing to AEM, Marketo, AMAL, Media Center, Seismic</div>
+
+      <div class="modal-section-title">Path to 100%</div>
+      <div class="modal-reco"><div class="mr-text"><strong>Extend CC-CC-21</strong> to include distribution orchestration (+1)</div><div class="mr-result green">100%</div></div>
+      <div class="modal-reco"><div class="mr-text"><strong>Highest ROI:</strong> Automate multi-round review cycles across 8 production processes</div><div class="mr-result green">Reduces avg 2-month production cycle</div></div>
+    </div>
+  </div>
+</div>
+
 <!-- Combined Breakdown Modal -->
 <div class="modal-backdrop" id="combined-breakdown">
   <div class="modal">
@@ -536,27 +602,28 @@ document.addEventListener('keydown', (e) => {
     <div class="modal-body">
       <div class="modal-hero">
         <div class="modal-hero-stat">
-          <div class="hero-pct red">43%</div>
+          <div class="hero-pct red">47%</div>
           <div class="hero-sub">Coverage</div>
         </div>
         <div class="modal-hero-text">
-          <p>Of the 247 iX-discovered processes, 106 map to one of 35 Blueprint initiatives. CSR's 85 uncovered processes account for 61% of the total gap, but four other domains also fall short: T&amp;O at 52% (people ops and travel), Corporate Affairs at 45% (internal comms and social governance), MMAPI at 56% (channel planning layer), and Named Account at 67% (client experience). Only Select Marketing exceeds the target at 95%. Closing the combined gap to 70% requires addressing CSR first, then T&amp;O's people ops cluster.</p>
-          <div class="hero-formula">106 mapped &divide; 247 total = 43% &bull; need 173 for 70% (+67 more)</div>
+          <p>Of the 266 iX-discovered processes, 124 map to one of 39 Blueprint initiatives. CSR's 85 uncovered processes account for 60% of the total gap, but four other domains also fall short: T&amp;O at 52% (people ops and travel), Corporate Affairs at 45% (internal comms and social governance), MMAPI at 56% (channel planning layer), and Named Account at 67% (client experience). Select Marketing and Content &amp; Creative both exceed the target at 95%. Closing the combined gap to 70% requires addressing CSR first, then T&amp;O's people ops cluster.</p>
+          <div class="hero-formula">124 mapped &divide; 266 total = 47% &bull; need 187 for 70% (+63 more)</div>
         </div>
       </div>
-      <div class="mini-bar"><div class="mini-bar-fill red" style="width:43%"></div><div class="mini-target"></div></div>
+      <div class="mini-bar"><div class="mini-bar-fill red" style="width:47%"></div><div class="mini-target"></div></div>
 
       <div class="modal-stats">
-        <div class="modal-stat-card"><div class="msc-value">247</div><div class="msc-label">Processes</div></div>
-        <div class="modal-stat-card"><div class="msc-value green">106</div><div class="msc-label">Mapped</div></div>
-        <div class="modal-stat-card"><div class="msc-value red">141</div><div class="msc-label">Gaps</div></div>
+        <div class="modal-stat-card"><div class="msc-value">266</div><div class="msc-label">Processes</div></div>
+        <div class="modal-stat-card"><div class="msc-value green">124</div><div class="msc-label">Mapped</div></div>
+        <div class="modal-stat-card"><div class="msc-value red">142</div><div class="msc-label">Gaps</div></div>
       </div>
 
       <div class="modal-section-title">Coverage by domain</div>
       <div class="modal-domain-row"><span class="mdr-name">Select Mktg</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:95%;background:var(--cds-support-success);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct green">95%</span></div>
+      <div class="modal-domain-row"><span class="mdr-name">Content &amp; Creative</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:95%;background:var(--cds-support-success);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct green">95%</span></div>
       <div class="modal-domain-row"><span class="mdr-name">Named Account</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:67%;background:var(--cds-support-error);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct red">67%</span></div>
-      <div class="modal-domain-row"><span class="mdr-name">T&amp;O</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:52%;background:var(--cds-support-error);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct red">52%</span></div>
       <div class="modal-domain-row"><span class="mdr-name">MMAPI</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:56%;background:var(--cds-support-error);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct red">56%</span></div>
+      <div class="modal-domain-row"><span class="mdr-name">T&amp;O</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:52%;background:var(--cds-support-error);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct red">52%</span></div>
       <div class="modal-domain-row"><span class="mdr-name">Corp. Affairs</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:45%;background:var(--cds-support-error);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct red">45%</span></div>
       <div class="modal-domain-row"><span class="mdr-name">CSR</span><div class="mdr-bar"><div class="mdr-bar-fill" style="width:19%;background:var(--cds-support-error);border-radius:3px"></div><div class="mdr-target"></div></div><span class="mdr-pct red">19%</span></div>
 
@@ -566,6 +633,7 @@ document.addEventListener('keydown', (e) => {
       <div class="modal-gap-row"><span class="mgr-count">14</span><span class="mgr-label">MMAPI</span> Media planning, governance, finance, strategic planning</div>
       <div class="modal-gap-row"><span class="mgr-count">13</span><span class="mgr-label">T&amp;O</span> People/HR, travel, specialized investment</div>
       <div class="modal-gap-row"><span class="mgr-count">10</span><span class="mgr-label">Named Account</span> Client experience, specialized workflows</div>
+      <div class="modal-gap-row"><span class="mgr-count">1</span><span class="mgr-label">C&amp;C</span> Content distribution &amp; channel delivery</div>
       <div class="modal-gap-row"><span class="mgr-count">1</span><span class="mgr-label">Select Mktg</span> Story creation only</div>
 
       <div class="modal-section-title">How to reach 70%</div>
@@ -573,7 +641,7 @@ document.addEventListener('keydown', (e) => {
       <div class="modal-reco"><div class="mr-text"><strong>T&amp;O: People Ops Lifecycle</strong> (+5)</div><div class="mr-result green">T&amp;O 70%</div></div>
       <div class="modal-reco"><div class="mr-text"><strong>NA: Expand EVT-06</strong> (+1)</div><div class="mr-result">NA 70%</div></div>
       <div class="modal-reco"><div class="mr-text"><strong>MMAPI: Media Planning Agent</strong> (+7)</div><div class="mr-result green">MMAPI 78%</div></div>
-      <div class="modal-reco"><div class="mr-text"><strong>Combined with all above</strong> &rarr; 174/247</div><div class="mr-result green">71%</div></div>
+      <div class="modal-reco"><div class="mr-text"><strong>Combined with all above</strong> &rarr; 192/266</div><div class="mr-result green">72%</div></div>
     </div>
   </div>
 </div>

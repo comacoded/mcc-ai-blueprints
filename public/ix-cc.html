@@ -1,0 +1,443 @@
+  <section id="cc-domain" class="domain-divider">
+    <div class="domain-header">
+      <h2>Content &amp; Creative Workflow Mapping</h2>
+      <p>Mapping 19 Content &amp; Creative workflows from 1 iX discovery PDF (CSC E2E Process Flow) to 4 AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
+    </div>
+
+    <div class="content">
+      <!-- Dashboard -->
+      <div class="dashboard">
+        <div class="dash-card neutral">
+          <div class="label">Total iX Processes</div>
+          <div class="value">19</div>
+          <div class="detail">8 Create + 4 Localize + 3 Deliver + 2 Plan + 2 Manage</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Blueprint Initiatives</div>
+          <div class="value">4</div>
+          <div class="detail">CC-CC-19 through CC-CC-22</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Mapped Processes</div>
+          <div class="value">18</div>
+          <div class="detail">Strong or medium confidence match</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Gap Processes</div>
+          <div class="value">1</div>
+          <div class="detail">No initiative or weak match only</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Coverage Rate</div>
+          <div class="value">95%</div>
+          <div class="detail">Target: 70% &mdash; exceeds by 25 pts</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Needed to Hit 70%</div>
+          <div class="value">0</div>
+          <div class="detail">Target already exceeded</div>
+        </div>
+      </div>
+
+      <!-- Coverage bar -->
+      <div class="coverage-bar-container">
+        <h3>Coverage vs. 70% Agentification Target</h3>
+        <div class="coverage-bar-track">
+          <div class="coverage-bar-fill above" style="width: 95%;"></div>
+          <div class="target-marker" style="left: 70%;"></div>
+        </div>
+        <div class="coverage-label">
+          <span>0%</span>
+          <span>18 of 19 processes mapped (95%)</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- Blueprint Initiatives Overview -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Blueprint Initiatives</h3>
+          <span class="count">4 Content &amp; Creative initiatives from Master Excel</span>
+        </div>
+        <div class="initiative-grid">
+          <div class="initiative-card">
+            <h4>Content Creation (incl localisation)</h4>
+            <div class="id">CC-CC-21</div>
+            <div class="desc">AI-assisted content production across copywriting, design, video, and inbound teams, with expanded scope for localized, market-centric content creation.</div>
+            <div class="mapped-count">12 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Strategic Planning &amp; Source of Truth</h4>
+            <div class="id">CC-CC-20</div>
+            <div class="desc">Centralizes positioning, competitive intelligence, market research, and campaign performance into a governed, queryable platform. Produces validated campaign MRDs and briefs.</div>
+            <div class="mapped-count">3 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>GenStudio Expansion</h4>
+            <div class="id">CC-CC-19</div>
+            <div class="desc">Expands GenStudio POC to additional ad formats, automating the paid media content production pipeline with brand/creative guideline checks and compliance scans.</div>
+            <div class="mapped-count">2 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Resource &amp; Capacity Planning</h4>
+            <div class="id">CC-CC-22</div>
+            <div class="desc">Queries Workfront to match project skill requirements against team capacity and agency capabilities, surfacing automated resource recommendations.</div>
+            <div class="mapped-count">1 process mapped</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Mapping Table -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Complete Process-to-Initiative Mapping</h3>
+          <span class="count">19 iX processes</span>
+        </div>
+
+        <div class="filter-bar" id="cc-filter-bar">
+          <button class="filter-tab active" onclick="filterTableCC('all',this)">All (19)</button>
+          <button class="filter-tab" onclick="filterTableCC('mapped',this)">Mapped (18)</button>
+          <button class="filter-tab" onclick="filterTableCC('gap',this)">Gaps (1)</button>
+          <button class="filter-tab" onclick="filterTableCC('plan',this)">Plan (2)</button>
+          <button class="filter-tab" onclick="filterTableCC('create',this)">Create (8)</button>
+          <button class="filter-tab" onclick="filterTableCC('manage',this)">Manage (2)</button>
+          <button class="filter-tab" onclick="filterTableCC('localize',this)">Localize (4)</button>
+          <button class="filter-tab" onclick="filterTableCC('deliver',this)">Deliver (3)</button>
+        </div>
+
+        <table id="cc-mapping-table">
+          <thead>
+            <tr>
+              <th style="width:3%">#</th>
+              <th style="width:5%">Phase</th>
+              <th style="width:18%">iX Process</th>
+              <th style="width:20%">Maps To</th>
+              <th style="width:7%">Confidence</th>
+              <th style="width:5%">Status</th>
+              <th style="width:42%">Rationale &amp; Process Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Plan -->
+            <tr data-sub="plan" data-status="mapped">
+              <td>1</td>
+              <td><span class="tag tag-plan">Plan</span></td>
+              <td class="process-name">Budget Provisioning &amp; Campaign Planning</td>
+              <td><span class="tag tag-initiative">CC-CC-20</span> Strategic Planning &amp; Source of Truth</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Budget Provision &rarr; Budget Allocation to Marketing Activities &rarr; Budget Approval &rarr; Campaign Planning &rarr; Tactic/Asset Approvals. Tools: IPA/Allocadia, Uptempo, Workfront. Campaign performance data centralized in CC-CC-20's governed platform informs budget allocation decisions.</div>
+              </td>
+            </tr>
+            <tr data-sub="plan" data-status="mapped">
+              <td>2</td>
+              <td><span class="tag tag-plan">Plan</span></td>
+              <td class="process-name">Creative Brief Creation &amp; Resource Allocation</td>
+              <td><span class="tag tag-initiative">CC-CC-22</span> Resource &amp; Capacity Planning</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Creative Brief Creation &rarr; Workload Prioritization &rarr; Resource Planning &amp; Workload Allocation &rarr; Asset Type routing (40+ types). CC-CC-22 directly automates Workfront skill matching against team capacity and agency capabilities, replacing manual prioritization meetings.</div>
+              </td>
+            </tr>
+            <!-- Create -->
+            <tr data-sub="create" data-status="mapped">
+              <td>3</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Web Page Creation &amp; Publishing (ibm.com)</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">6 Ruby intake forms &rarr; auto-Jira with story points &rarr; PM vetting &rarr; sprint mapping &rarr; SEO/IA review &rarr; AEM page build &rarr; UX/Copy QA &rarr; Stakeholder Review &rarr; TQA &rarr; Publish &rarr; Globalization notification. CC-CC-21 accelerates copywriting and design QA with AI-assisted production.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>4</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Campaign Asset Production</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Blue Studio/Workfront &rarr; PM brief review &rarr; cross-discipline collaboration &rarr; SME/PMM interview &rarr; Director Review &rarr; Legal &rarr; Requestor Review &rarr; Final QA &rarr; Stakeholder Approval &rarr; DAM upload. Covers eBook, Web Banner, Client Story (5 variants), Express Template. CC-CC-21 provides AI-assisted production across copywriting and design.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>5</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Data Sheet / Solution Brief Production</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Workfront request &rarr; Content team review &rarr; cross-discipline creative collaboration &rarr; development cycle &rarr; Legal &rarr; Requestor Review &rarr; Final Review &rarr; Stakeholder Approval &rarr; DAM upload. Tools: Workfront, Figma, Adobe CC. CC-CC-21 accelerates the content ideation and design review cycles.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>6</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Smart Paper Production</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">PM &rarr; cross-discipline team &rarr; content collaboration cycle &rarr; Legal &rarr; design creative cycle &rarr; stakeholder review &rarr; Digital Experiences Alignment &rarr; Smart Paper Meta Data &rarr; Digital QA &rarr; Staging Review &rarr; Publish. Extra gates (Digital Experiences, DQ) vs. standard assets. CC-CC-21 covers both content and design production.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>7</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Product Content Team (PCT) Asset Development</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Blue Studio/Workfront intake for 13 asset types (Data Sheet, Solution Brief, Client One Pager, Client Presentation, Seller Email, Sales Loft Cadence, Social Tiles, Nurture Emails, Entry Point Demo, Paid Media, Overview Demo, White Paper). Most input pre-populated via Self Serve. CC-CC-21 automates template generation across asset types.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>8</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Video Internal Production</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">PM brief &rarr; team assignment &rarr; Script Dev &rarr; Mood Board &rarr; Storyboard &rarr; R1 Edit (Assembly) &rarr; R1 Review &rarr; Voiceover &rarr; Audio Mix &rarr; R2 Edit (Fine Cut) &rarr; R2 Review &rarr; R3 Final Approval &rarr; .SRT Creation &rarr; Publish &rarr; Media Center upload. Tools: Premiere, Frame.io, Da Vinci Resolve. CC-CC-21 covers video production with AI assistance.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>9</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Video Animation Production</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">PM/Engagement Partner brief &rarr; External Vendor Bid &rarr; SOW &rarr; Animation Calendar &rarr; Design Boards &rarr; Animatic &rarr; Pre-Vis Review &rarr; Clay 1/2 Reviews &rarr; Lighting Render R1/R2 &rarr; Post Production &rarr; Close out. Tools: After Effects, Animate, Unreal, Frame.io. 8+ review gates. CC-CC-21 covers animation as content creation.</div>
+              </td>
+            </tr>
+            <tr data-sub="create" data-status="mapped">
+              <td>10</td>
+              <td><span class="tag tag-create">Create</span></td>
+              <td class="process-name">Imagery &mdash; Portrait Photography</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Scope &rarr; Image team review &rarr; budget &rarr; photographer selection &rarr; Agency SOW &rarr; location visit &rarr; Photography Day 1-2 &rarr; Photo Selection (3 iterations) &rarr; Retouching (3 iterations) &rarr; File transfer &rarr; DAM prep &rarr; sizing/tagging &rarr; Upload. Heavily physical but CC-CC-21 can accelerate retouching and DAM metadata. MEDIUM due to physical logistics.</div>
+              </td>
+            </tr>
+            <!-- Manage -->
+            <tr data-sub="manage" data-status="mapped">
+              <td>11</td>
+              <td><span class="tag tag-manage">Manage</span></td>
+              <td class="process-name">Image Collection Creation &amp; DAM Management</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Check DAM finalization &rarr; validate metadata (Title, Description, Keywords in binary file) &rarr; Batch Metadata update &rarr; wait for librarian publish &rarr; locate approved images &rarr; add to collection. Manual Photoshop metadata entry for binary files. CC-CC-21 can automate metadata tagging and collection organization.</div>
+              </td>
+            </tr>
+            <tr data-sub="manage" data-status="mapped">
+              <td>12</td>
+              <td><span class="tag tag-manage">Manage</span></td>
+              <td class="process-name">Content Repository &amp; Collection Management</td>
+              <td><span class="tag tag-initiative">CC-CC-20</span> Strategic Planning &amp; Source of Truth</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Platform agnostic view: Content created &rarr; standards compliance &rarr; metadata capture &rarr; Enterprise content repository &rarr; Librarian approval &rarr; collection creation &rarr; findable via search/filtering. CC-CC-20's governed queryable platform directly addresses the source of truth for content assets.</div>
+              </td>
+            </tr>
+            <!-- Localize -->
+            <tr data-sub="localize" data-status="mapped">
+              <td>13</td>
+              <td><span class="tag tag-localize">Localize</span></td>
+              <td class="process-name">Globalization &amp; Translation (Non-Web)</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation (incl localisation)</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Workfront request &rarr; Globalization Manager collects info &rarr; Smartling CAT tool validates and creates Translation Order &rarr; language tasks &rarr; translation &rarr; post-edit &rarr; files posted back to Workfront &rarr; GM review &rarr; Requestor notification. 8 translation types (Asset, Video, eNurture, PPT, Branded, Social/Paid, AML, Web). CC-CC-21 explicitly includes localisation.</div>
+              </td>
+            </tr>
+            <tr data-sub="localize" data-status="mapped">
+              <td>14</td>
+              <td><span class="tag tag-localize">Localize</span></td>
+              <td class="process-name">Video Translation</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation (incl localisation)</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">GM notifies Media Center contact &rarr; SRT files published for English video &rarr; upload new local versions &rarr; add metadata &rarr; note new URLs &rarr; GM updates Workfront &rarr; completes task. Open question: "Where does this happen for languages in different alphabets?" CC-CC-21's localisation scope covers video translation.</div>
+              </td>
+            </tr>
+            <tr data-sub="localize" data-status="mapped">
+              <td>15</td>
+              <td><span class="tag tag-localize">Localize</span></td>
+              <td class="process-name">Paid Media / AML Translation</td>
+              <td><span class="tag tag-initiative">CC-CC-19</span> GenStudio Expansion</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">AMAL tool &rarr; Export Records for Workfront Translation Process &rarr; submit Excel (do not modify) &rarr; Import translated file back &rarr; translations auto-added to ad lines. DAM URLs required (Box links banned since Dec 2023). CC-CC-19 automates the paid media content pipeline including localized ad format production.</div>
+              </td>
+            </tr>
+            <tr data-sub="localize" data-status="mapped">
+              <td>16</td>
+              <td><span class="tag tag-localize">Localize</span></td>
+              <td class="process-name">Translation Creative Adaptation (DTP/Layout)</td>
+              <td><span class="tag tag-initiative">CC-CC-21</span> Content Creation (incl localisation)</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Blue Studio Design Lead downloads translated files &rarr; creative adaptation for layout/spacing of translated text &rarr; uploads to Workfront with comments &rarr; flags for TVT with Smartling. Manual layout reflow for text expansion/contraction. CC-CC-21 covers localised content creation including design adaptation.</div>
+              </td>
+            </tr>
+            <!-- Deliver -->
+            <tr data-sub="deliver" data-status="mapped">
+              <td>17</td>
+              <td><span class="tag tag-deliver">Deliver</span></td>
+              <td class="process-name">Branded Assets / Paid Media (AML Workflow)</td>
+              <td><span class="tag tag-initiative">CC-CC-19</span> GenStudio Expansion</td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Identify creative need &rarr; create copy (ad specs) &rarr; source imagery &rarr; DAM link &rarr; AMAL record fields &rarr; export for legal &rarr; update legal copy &rarr; export for translation &rarr; import translations &rarr; prioritization. CC-CC-19 directly automates the paid media content production pipeline with brand/creative guideline checks and compliance scans.</div>
+              </td>
+            </tr>
+            <tr data-sub="deliver" data-status="gap">
+              <td>18</td>
+              <td><span class="tag tag-deliver">Deliver</span></td>
+              <td class="process-name">Content Distribution &amp; Channel Delivery</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td>
+                <div class="process-detail">After legal/compliance approval &rarr; route by asset type to: Web (AEM/ibm.com), Email (Marketo), Social Media, Paid Media (AML), Events, Seismic. Each channel has distinct format requirements and publishing tools. No initiative addresses multi-channel distribution automation or centralized delivery orchestration.</div>
+              </td>
+            </tr>
+            <tr data-sub="deliver" data-status="mapped">
+              <td>19</td>
+              <td><span class="tag tag-deliver">Deliver</span></td>
+              <td class="process-name">Content Performance Monitoring &amp; Analytics</td>
+              <td><span class="tag tag-initiative">CC-CC-20</span> Strategic Planning &amp; Source of Truth</td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Performance feedback to support planning &rarr; Monitoring and Analysis of asset use &rarr; feeds back to Budget Provisioning (closing the loop). Tool: EPM. CC-CC-20 centralizes campaign performance into the governed, queryable platform that content strategists and copywriters use for planning.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gap Analysis -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Gap Analysis</h3>
+          <span class="count">1 uncovered process</span>
+        </div>
+
+        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Gap: Content Distribution &amp; Channel Delivery</h4>
+        <div class="gap-grid" style="margin-bottom: 1.5rem;">
+          <div class="gap-card">
+            <h4>Content Distribution &amp; Channel Delivery</h4>
+            <div class="source-tag"><span class="tag tag-deliver">Deliver</span></div>
+            <p>Multi-channel distribution workflow: after legal/compliance approval, assets are routed by type to Web (AEM/ibm.com), Email (Marketo), Social Media, Paid Media (AML), Events, and Seismic. Each channel has distinct format requirements, scheduling, and publishing tools. No initiative directly addresses the orchestration of content delivery across channels or centralized distribution dashboards. DAM does not notify stakeholders when assets are published (noted as open question in the process).</p>
+          </div>
+        </div>
+        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-info);padding:0.75rem 1rem;font-size:0.8125rem;color:var(--cds-text-secondary);line-height:1.6;">
+          <strong style="color:var(--cds-text-primary);">Note:</strong> This gap could be addressed by extending <strong>CC-CC-21</strong> (Content Creation) to include the final delivery stage of the content lifecycle, or by creating a dedicated <strong>Content Distribution Orchestration</strong> initiative covering multi-channel scheduling, format adaptation, and publish notification.
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Recommendations</h3>
+          <span class="count">Domain already exceeds 70% target</span>
+        </div>
+
+        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-success);padding:1rem;margin-bottom:1rem;">
+          <strong style="font-size:0.875rem;color:var(--cds-support-success);">Target exceeded:</strong>
+          <span style="font-size:0.875rem;color:var(--cds-text-secondary);"> Content &amp; Creative achieves 95% coverage (18 of 19 processes mapped) &mdash; tied with Select Marketing for the highest coverage of any domain. CC-CC-21 (Content Creation) alone covers 12 processes spanning the entire production lifecycle.</span>
+        </div>
+
+        <ol class="reco-list">
+          <li>
+            <div>
+              <strong>Close the final gap: Extend CC-CC-21 to include distribution orchestration</strong>
+              <div class="reco-detail">Content Distribution is the natural next step after content creation. Expanding CC-CC-21's scope to include multi-channel delivery orchestration (AEM, Marketo, AMAL, Media Center, Seismic routing) would achieve 100% coverage.</div>
+              <div class="reco-impact">+1 process covered &rarr; 100%</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Prioritize review cycle automation within CC-CC-21</strong>
+              <div class="reco-detail">The largest pain point across all content production processes is multi-round review cycles. Video Internal alone has 6 review gates for editing. Campaign Assets have 5+ sequential review stages. AI-assisted review consolidation, automated brand compliance checking, and smart routing could dramatically reduce the avg 2-month production cycle.</div>
+              <div class="reco-impact">Highest ROI AI intervention across 8 production processes</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Leverage CC-CC-22 to solve the 40+ asset type routing problem</strong>
+              <div class="reco-detail">The Creative Brief Creation process routes to 40+ asset types through manual prioritization meetings. CC-CC-22's automated skill-matching against Workfront capacity data could replace the manual "What type of Asset is approved?" decision tree with intelligent workload allocation.</div>
+              <div class="reco-impact">Strategic: automates the critical routing bottleneck at the start of every production workflow</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Initiative Coverage Depth -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Initiative Coverage Depth</h3>
+          <span class="count">Process count per initiative</span>
+        </div>
+        <table>
+          <thead><tr><th>Initiative</th><th>ID</th><th>Mapped</th><th>Depth</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="process-name">Content Creation (incl localisation)</td><td>CC-CC-21</td><td>12</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Highest: web, campaign, data sheet, smart paper, PCT, video (2), imagery, collections, translation (3)</td></tr>
+            <tr><td class="process-name">Strategic Planning &amp; Source of Truth</td><td>CC-CC-20</td><td>3</td><td><div style="background:#a7f0ba;height:12px;width:25%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Budget planning, content repository, performance monitoring</td></tr>
+            <tr><td class="process-name">GenStudio Expansion</td><td>CC-CC-19</td><td>2</td><td><div style="background:#a7f0ba;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Branded assets/paid media + AML translation</td></tr>
+            <tr><td class="process-name">Resource &amp; Capacity Planning</td><td>CC-CC-22</td><td>1</td><td><div style="background:#fddc69;height:12px;width:8%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Creative brief &amp; resource allocation (Workfront skill matching)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+<style>
+.tag-plan { background: #d0e2ff; color: #002d9c; }
+.tag-create { background: #a7f0ba; color: #044317; }
+.tag-manage { background: #e8daff; color: #491d8b; }
+.tag-localize { background: #9ef0f0; color: #004144; }
+.tag-deliver { background: #ffd6e8; color: #740937; }
+</style>
+
+<script>
+function filterTableCC(filter, el) {
+  const rows = document.querySelectorAll('#cc-mapping-table tbody tr');
+  const tabs = document.querySelectorAll('#cc-filter-bar .filter-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  rows.forEach(row => {
+    const sub = row.dataset.sub || '';
+    const status = row.dataset.status || '';
+    if (filter === 'all') row.style.display = '';
+    else if (filter === 'mapped') row.style.display = status === 'mapped' ? '' : 'none';
+    else if (filter === 'gap') row.style.display = status === 'gap' ? '' : 'none';
+    else if (filter === 'plan') row.style.display = sub === 'plan' ? '' : 'none';
+    else if (filter === 'create') row.style.display = sub === 'create' ? '' : 'none';
+    else if (filter === 'manage') row.style.display = sub === 'manage' ? '' : 'none';
+    else if (filter === 'localize') row.style.display = sub === 'localize' ? '' : 'none';
+    else if (filter === 'deliver') row.style.display = sub === 'deliver' ? '' : 'none';
+  });
+}
+</script>

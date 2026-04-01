@@ -887,18 +887,20 @@
   /* Dashboard cards */
   .page-ix .dashboard {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1px;
-    background: var(--cds-border-subtle);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
     margin-bottom: 2rem;
   }
   .page-ix .dash-card {
     background: var(--cds-layer-01);
     padding: 1rem;
-    height: 120px;
+    min-height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid var(--cds-border-subtle);
+    margin-top: -1px;
+    margin-left: -1px;
   }
   .page-ix .dash-card .label {
     font-size: 0.75rem;
@@ -918,9 +920,6 @@
     font-size: 0.75rem;
     color: var(--cds-text-secondary);
     margin-top: 0.25rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .page-ix .dash-card.target-miss .value, .page-ix .dash-card.miss .value { color: var(--cds-support-error); }
   .page-ix .dash-card.target-hit .value, .page-ix .dash-card.hit .value { color: var(--cds-support-success); }
@@ -2047,7 +2046,7 @@
     line-height: 1.6;
     color: #161616;
     width: 380px;
-    z-index: 100;
+    z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     cursor: default;
   }
@@ -2247,14 +2246,15 @@
   .page-bp .peer-chip {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 3px 10px;
-    border-radius: 16px;
-    font-size: 11px;
-    margin: 2px;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 3px;
     background: var(--layer-01);
     border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    white-space: nowrap;
   }
 
   .page-bp .peer-chip .peer-shared {
@@ -2264,6 +2264,14 @@
 
   .page-bp .info-icon:hover .info-tip {
     display: block;
+  }
+
+  .modal-info-icon:hover .modal-info-tip {
+    display: block !important;
+  }
+  .modal-info-icon:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
   }
 
   .page-bp .info-tip {
@@ -2603,7 +2611,7 @@
   <a href="#" data-page="ix-combined">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
-    <span class="nav-meta">43%</span>
+    <span class="nav-meta">47%</span>
   </a>
   <a href="#" data-page="ix-to">
     <span class="nav-dot" style="background:#009d9a"></span>
@@ -2634,6 +2642,11 @@
     <span class="nav-dot" style="background:#da1e28"></span>
     CSR
     <span class="nav-meta">19%</span>
+  </a>
+  <a href="#" data-page="ix-cc">
+    <span class="nav-dot" style="background:#24a148"></span>
+    Content &amp; Creative
+    <span class="nav-meta">95%</span>
   </a>
 </nav>
 
@@ -2685,6 +2698,7 @@
   <div class="page page-ix" id="page-ix-na"></div>
   <div class="page page-ix" id="page-ix-sm"></div>
   <div class="page page-ix" id="page-ix-csr"></div>
+  <div class="page page-ix" id="page-ix-cc"></div>
 
 </div><!-- end .main -->
 
@@ -2696,7 +2710,7 @@
 
 <!-- ===== SIDEBAR NAVIGATION ===== -->
 <script>
-const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr'];
+const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr','ix-cc'];
 const ixCache = {};
 
 document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
@@ -4708,6 +4722,7 @@ function showRankingBreakdown(w, rank) {
       color: '#ff832b',
       score: w.techFeasScore,
       weight: 25,
+      equation: `(Platform ${w.platNorm.toFixed(1)} × 25%) + (Data ${w.drNorm.toFixed(1)} × 25%) + (Deploy ${w.deployNorm.toFixed(1)} × 20%) + (Deps ${w.foundInv.toFixed(1)} × 15%) + (Risk ${w.riskInv.toFixed(1)} × 15%) = ${w.techFeasScore.toFixed(1)}`,
       items: [
         { label: 'Platform', value: w.platformReadiness || 'N/A' },
         { label: 'Data Readiness', value: w.dataReadiness || 'N/A' },
@@ -4721,6 +4736,7 @@ function showRankingBreakdown(w, rank) {
       color: '#0f62fe',
       score: w.feasNorm,
       weight: 15,
+      equation: `${w.feasibilityLabel} (${w.feasibility}/3) × 5 = ${w.feasNorm.toFixed(1)}`,
       summary: w.feasibilityLabel + (w.complexity ? ` · ${w.complexity} complexity` : '')
     },
     {
@@ -4728,6 +4744,7 @@ function showRankingBreakdown(w, rank) {
       color: '#24a148',
       score: w.bizImpact,
       weight: 20,
+      equation: `Raw score from blueprint assessment = ${w.bizImpact}/5`,
       summary: w.bizImpact >= 4 ? 'High strategic value' : w.bizImpact >= 3 ? 'Moderate value' : 'Lower priority'
     },
     {
@@ -4735,6 +4752,7 @@ function showRankingBreakdown(w, rank) {
       color: '#009d9a',
       score: w.techNorm,
       weight: 12,
+      equation: `Jaccard similarity sum ${w.techRaw.toFixed(1)} / max ${((WORKFLOWS.length - 1) * 5).toFixed(0)} × 5 = ${w.techNorm.toFixed(1)}`,
       summary: w.techs.length > 0 ? w.techs.slice(0, 5).join(', ') + (w.techs.length > 5 ? ` +${w.techs.length - 5} more` : '') : 'No shared tech extracted'
     },
     {
@@ -4742,6 +4760,7 @@ function showRankingBreakdown(w, rank) {
       color: '#8a3ffc',
       score: w.dataNorm,
       weight: 12,
+      equation: `Jaccard similarity sum ${w.dataRaw.toFixed(1)} / max ${((WORKFLOWS.length - 1) * 5).toFixed(0)} × 5 = ${w.dataNorm.toFixed(1)}`,
       summary: w.dataSources.length > 0 ? w.dataSources.slice(0, 5).join(', ') + (w.dataSources.length > 5 ? ` +${w.dataSources.length - 5} more` : '') : 'No shared data sources extracted'
     },
     {
@@ -4749,6 +4768,7 @@ function showRankingBreakdown(w, rank) {
       color: '#d02670',
       score: w.extensionScore,
       weight: 16,
+      equation: `(Growth ${pct(w.harveyGrowth)} + Productivity ${pct(w.harveyProductivity)}) / 2 × 5 = ${w.extensionScore.toFixed(1)}`,
       summary: `Growth: ${pct(w.harveyGrowth)} · Productivity: ${pct(w.harveyProductivity)}`
     }
   ];
@@ -4764,58 +4784,58 @@ function showRankingBreakdown(w, rank) {
     const growthPct = Math.round(w.harveyGrowth * 100);
     const prodPct = Math.round(w.harveyProductivity * 100);
 
-    // Sentence 1: Ground in specifics — what this workflow actually does and why it ranks here
-    let s1;
+    let parts = [];
+
+    // Why it ranks where it does
     if (rank < 3) {
       if (w.bizImpact >= 4 && w.techFeasScore >= 3) {
-        s1 = `Ranks #${rank+1} because it combines a ${w.bizImpact}/5 business impact score with ${w.feasibilityLabel} feasibility — ${w.techs.length > 0 ? `the stack (${techList}) is already in use across MCC` : 'the technical requirements align with existing infrastructure'}.`;
+        parts.push(`This lands at #${rank+1} for a straightforward reason: high business impact (${w.bizImpact}/5) and the tech is ready to go. ${w.techs.length > 0 ? `The stack — ${techList} — is already running across MCC, so there's no greenfield buildout here.` : 'The infrastructure is already in place.'}`);
       } else if (w.bizImpact >= 4) {
-        s1 = `Ranks #${rank+1} driven by a ${w.bizImpact}/5 business impact score. ${w.dataReadiness === 'HIGH' ? 'Data readiness is high, so the agent can start producing value quickly' : w.dataReadiness === 'MEDIUM' ? 'Data readiness is moderate — some pipeline work is needed but the core sources (' + dataList + ') are accessible' : 'Data foundations need investment, but the business case justifies it'}.`;
+        parts.push(`At #${rank+1}, this is one of the highest-impact workflows in the portfolio (${w.bizImpact}/5). ${w.dataReadiness === 'HIGH' ? 'The data is accessible and ready, which means an agent could start delivering value without months of pipeline work.' : w.dataReadiness === 'MEDIUM' ? `The data situation is workable — core sources like ${dataList} are accessible, though some pipeline work is still needed.` : 'The data foundations need some investment, but the business case more than justifies it.'}`);
       } else {
-        s1 = `Ranks #${rank+1} because its technical foundation scores ${w.techFeasScore.toFixed(1)}/5 — ${w.deployment === 'Production candidate' ? 'it\'s already a production candidate' : w.deployment === 'Pilot candidate' ? 'it\'s ready for a pilot' : 'the path to deployment is clear'} with ${w.complexity} complexity.`;
+        parts.push(`#${rank+1} here is driven by technical readiness — it scores ${w.techFeasScore.toFixed(1)}/5 on feasibility. ${w.deployment === 'Production candidate' ? 'This is already a production candidate,' : w.deployment === 'Pilot candidate' ? 'It\'s ready for a pilot,' : 'The path to deployment is clear,'} and ${w.complexity} complexity means it won't bog down the team.`);
       }
     } else if (rank < 10) {
       if (w.techNorm >= 2 || w.dataNorm >= 2) {
         const overlapCount = (w.techOverlaps || []).length;
-        s1 = `Ranks #${rank+1} because it shares ${w.techs.length > 0 ? `key infrastructure (${techList})` : 'data pipelines'} with ${overlapCount > 0 ? overlapCount + ' other workflows' : 'multiple initiatives'} — building this unlocks reuse across the portfolio.`;
+        parts.push(`At #${rank+1}, this one is a platform play. It shares ${w.techs.length > 0 ? `infrastructure (${techList})` : 'data pipelines'} with ${overlapCount > 0 ? overlapCount + ' other workflows' : 'several other initiatives'}, so the integration work you do here pays dividends across the portfolio.`);
       } else if (w.extensionScore >= 3) {
-        s1 = `Ranks #${rank+1} with ${growthPct}% growth potential and ${prodPct}% productivity impact. ${w.agentMode === 'Analyze / Recommend' ? 'As an advisory copilot, it can operate with minimal approval overhead' : w.agentMode === 'Draft' ? 'It drafts outputs for human review, keeping risk low while accelerating throughput' : w.agentMode === 'Execute with Approval' ? 'It executes with human approval gates, balancing automation with control' : 'Its agent mode allows meaningful automation from day one'}.`;
+        parts.push(`#${rank+1} reflects strong long-term potential — ${growthPct}% growth and ${prodPct}% productivity scores. ${w.agentMode === 'Analyze / Recommend' ? 'As an advisory copilot, it runs with minimal approval overhead.' : w.agentMode === 'Draft' ? 'It drafts for human review, so the risk stays low while throughput goes up.' : w.agentMode === 'Execute with Approval' ? 'Human approval gates keep it controlled while still meaningfully automating the work.' : 'The agent mode supports real automation from day one.'}`);
       } else {
-        s1 = `Ranks #${rank+1} with a balanced profile: ${w.bizImpact}/5 business impact, ${w.feasibilityLabel} feasibility, and ${w.dataReadiness || 'moderate'} data readiness${w.techs.length > 0 ? ' across ' + techList : ''}.`;
+        parts.push(`At #${rank+1}, this workflow has a solid all-around profile: ${w.bizImpact}/5 impact, ${w.feasibilityLabel} feasibility, ${w.dataReadiness || 'moderate'} data readiness${w.techs.length > 0 ? ', running on ' + techList : ''}. No single dimension is carrying the score — it's consistently strong.`);
       }
     } else {
       if (w.bizImpact >= 4) {
-        s1 = `Despite a ${w.bizImpact}/5 business impact score, this ranks #${rank+1} because ${weakest.label.toLowerCase()} scores only ${weakest.score.toFixed(1)}/5 — ${w.entityClarity === 'Fragmented' ? 'entity semantics are fragmented and need alignment before the agent can operate reliably' : w.deployment === 'POC only' ? 'it\'s limited to POC until foundational dependencies are resolved' : 'some prerequisites need to be in place first'}.`;
+        parts.push(`This has real business value (${w.bizImpact}/5 impact), but it sits at #${rank+1} because ${weakest.label.toLowerCase()} is a bottleneck at just ${weakest.score.toFixed(1)}/5. ${w.entityClarity === 'Fragmented' ? 'The entity model needs alignment work before an agent can operate reliably here.' : w.deployment === 'POC only' ? 'It\'s limited to POC until some foundational dependencies get resolved.' : 'A few prerequisites need to land first before this becomes a good candidate.'}`);
       } else {
-        s1 = `Ranks #${rank+1} — a ${w.wave || 'later-wave'} workflow where ${w.dataReadiness === 'LOW' ? 'data readiness is the primary bottleneck' : weakest.label.toLowerCase() + ' at ' + weakest.score.toFixed(1) + '/5 is the limiting factor'}. ${w.techs.length > 0 ? 'The stack (' + techList + ') is viable' : 'Technical requirements are manageable'} but the business case (${w.bizImpact}/5) suggests this is better sequenced after higher-impact work.`;
+        parts.push(`At #${rank+1}, this is a ${w.wave || 'later-wave'} workflow. ${w.dataReadiness === 'LOW' ? 'Data readiness is the main blocker — ' : `${weakest.label} at ${weakest.score.toFixed(1)}/5 is holding it back, and `}the business impact (${w.bizImpact}/5) suggests sequencing it after higher-priority work. ${w.techs.length > 0 ? `The tech (${techList}) is viable` : 'Technical requirements are manageable'}, so this is more about timing than capability.`);
       }
     }
 
-    // Sentence 2: What's distinctive about this specific workflow
-    let s2;
+    // What's distinctive — pick the most interesting trait
     if (w.techNorm >= 2.5 && w.dataNorm >= 2.5) {
-      s2 = `What makes this distinctive is the overlap — ${w.techs.length} shared technologies and ${w.dataSources.length} shared data sources mean most of the integration work benefits other initiatives too.`;
+      parts.push(`The real story here is reuse — ${w.techs.length} shared technologies and ${w.dataSources.length} shared data sources mean the integration work benefits other initiatives too, not just this one.`);
     } else if (w.extensionScore >= 4) {
-      s2 = `Growth and productivity scores are both in the top tier (${growthPct}% and ${prodPct}%), meaning this agent compounds value over time rather than delivering a one-time fix.`;
+      parts.push(`Worth noting: this isn't a one-and-done efficiency gain. With ${growthPct}% growth and ${prodPct}% productivity potential, the value compounds as the agent matures.`);
     } else if (w.bizImpact >= 5) {
-      s2 = `With a perfect 5/5 business impact, this is one of the highest-value workflows in the portfolio — the kind of initiative that leadership will notice.`;
+      parts.push(`At 5/5 business impact, this is one of the highest-value workflows in the entire portfolio.`);
     } else if (w.agentMode === 'Execute Autonomously') {
-      s2 = `This is one of the few workflows scoped for autonomous execution, which means higher upfront control design but significantly lower ongoing human effort once deployed.`;
+      parts.push(`This is one of the few workflows scoped for full autonomous execution — more upfront design work for controls, but significantly less human effort once it's running.`);
     } else if (w.dataSensitivity === 'PI' || w.dataSensitivity === 'SPI / Restricted') {
-      s2 = `Note: this workflow handles ${w.dataSensitivity} data, which requires restricted logging and additional approval gates — factor this into timeline estimates.`;
+      parts.push(`One thing to flag: this handles ${w.dataSensitivity} data, so expect restricted logging requirements and additional approval gates that will affect the timeline.`);
     } else if (w.techs.length >= 5) {
-      s2 = `The tech stack spans ${w.techs.length} systems (${w.techs.slice(0, 4).join(', ')}${w.techs.length > 4 ? ', +' + (w.techs.length - 4) + ' more' : ''}), so integration testing will be the critical path item.`;
+      parts.push(`The stack touches ${w.techs.length} systems (${w.techs.slice(0, 4).join(', ')}${w.techs.length > 4 ? ', and ' + (w.techs.length - 4) + ' more' : ''}), so plan for integration testing to be the critical path.`);
     } else if (w.opRisk >= 4) {
-      s2 = `Operational risk is elevated (${w.opRisk}/5), so plan for a controlled pilot with clear rollback criteria before scaling.`;
+      parts.push(`Operational risk is on the higher side (${w.opRisk}/5) — worth running a controlled pilot with clear rollback criteria before scaling up.`);
     } else if (prodPct >= 75 && growthPct <= 25) {
-      s2 = `This is primarily a productivity play (${prodPct}% productivity vs. ${growthPct}% growth) — expect time savings and cost reduction rather than new revenue.`;
+      parts.push(`This is a pure efficiency play — ${prodPct}% productivity vs. ${growthPct}% growth. Think time savings and cost reduction, not new revenue.`);
     } else if (growthPct >= 75 && prodPct <= 25) {
-      s2 = `This leans heavily toward growth (${growthPct}% growth vs. ${prodPct}% productivity) — the value shows up in pipeline and market impact rather than headcount efficiency.`;
+      parts.push(`This leans toward growth (${growthPct}%) over productivity (${prodPct}%), so the value shows up in pipeline and market impact rather than headcount efficiency.`);
     } else {
-      s2 = `It scores ${w.composite.toFixed(1)}/5 composite with its strongest dimension being ${top.label.toLowerCase()} (${top.score.toFixed(1)}/5) and room to improve in ${weakest.label.toLowerCase()} (${weakest.score.toFixed(1)}/5).`;
+      parts.push(`Its strongest dimension is ${top.label.toLowerCase()} (${top.score.toFixed(1)}/5), with the most room to improve in ${weakest.label.toLowerCase()} (${weakest.score.toFixed(1)}/5).`);
     }
 
-    return `${s1} ${s2}`;
+    return parts.join(' ');
   }
 
   const synopsis = buildSynopsis(w, rank, dimensions);
@@ -4846,6 +4866,7 @@ function showRankingBreakdown(w, rank) {
               <div style="width:3px;height:14px;border-radius:2px;background:${d.color}"></div>
               <span style="font-size:13px;font-weight:600;color:var(--text-primary)">${d.label}</span>
               <span style="font-size:11px;color:var(--text-placeholder)">${d.weight}%</span>
+              <span class="modal-info-icon" style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1px solid var(--border-strong);font-size:10px;font-weight:600;color:var(--text-placeholder);cursor:help;flex-shrink:0">i<span class="modal-info-tip" style="display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--bg-elevated);border:1px solid var(--border-strong);border-radius:6px;padding:10px 14px;font-size:11px;font-weight:400;color:var(--text-secondary);white-space:normal;width:320px;z-index:9999;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,0.15);text-align:left">${d.equation}</span></span>
             </div>
             <div style="display:flex;align-items:baseline;gap:4px">
               <span style="font-size:18px;font-weight:600;color:${d.color}">${d.score.toFixed(1)}</span>
@@ -4873,11 +4894,11 @@ function showRankingBreakdown(w, rank) {
     const topTech = w.techOverlaps.sort((a, b) => b.score - a.score).slice(0, 6);
     html += `
       <div style="margin-top:20px">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-placeholder);margin-bottom:8px">Related by Technology</div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-placeholder);margin-bottom:10px">Related by Technology</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
         ${topTech.map(p => {
           const pc = DOMAIN_COLORS[p.domain] || '#525252';
-          return `<span class="peer-chip"><span class="domain-badge" style="background:${pc}"></span>${p.name}</span>`;
+          return `<span class="peer-chip"><span style="width:8px;height:8px;border-radius:50%;background:${pc};flex-shrink:0"></span>${p.name}</span>`;
         }).join('')}
         </div>
       </div>`;
@@ -4888,11 +4909,11 @@ function showRankingBreakdown(w, rank) {
     const topData = w.dataOverlaps.sort((a, b) => b.score - a.score).slice(0, 6);
     html += `
       <div style="margin-top:16px">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-placeholder);margin-bottom:8px">Related by Data Sources</div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-placeholder);margin-bottom:10px">Related by Data Sources</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
         ${topData.map(p => {
           const pc = DOMAIN_COLORS[p.domain] || '#525252';
-          return `<span class="peer-chip"><span class="domain-badge" style="background:${pc}"></span>${p.name}</span>`;
+          return `<span class="peer-chip"><span style="width:8px;height:8px;border-radius:50%;background:${pc};flex-shrink:0"></span>${p.name}</span>`;
         }).join('')}
         </div>
       </div>`;
