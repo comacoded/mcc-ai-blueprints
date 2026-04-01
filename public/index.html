@@ -4483,37 +4483,67 @@ function showRankingBreakdown(w, rank) {
 
   const compositeQuality = qualityLabel(w.composite, 5);
 
-  // Build a conversational 2-sentence synopsis based on the workflow's strengths
+  // Build a conversational synopsis grounded in this workflow's specific attributes
   function buildSynopsis(w, rank, dims) {
-    // Find the top 2 scoring dimensions
     const sorted = [...dims].sort((a, b) => b.score - a.score);
-    const top1 = sorted[0], top2 = sorted[1];
+    const top = sorted[0], second = sorted[1], weakest = sorted[sorted.length - 1];
+    const techList = w.techs.slice(0, 3).join(', ');
+    const dataList = w.dataSources.slice(0, 3).join(', ');
+    const growthPct = Math.round(w.harveyGrowth * 100);
+    const prodPct = Math.round(w.harveyProductivity * 100);
 
-    // Sentence 1: Why this ranks where it does
-    const rankWord = rank < 3 ? 'one of the strongest candidates' : rank < 8 ? 'a solid candidate' : 'a reasonable candidate';
-    const feasPhrase = w.techFeasScore >= 3.5 ? 'the tech is largely in place already' :
-      w.techFeasScore >= 2.5 ? 'the technical foundation needs some extension but is workable' :
-      'there are some technical gaps to address, but they\'re manageable';
-
-    // Sentence 2: What makes it stand out
-    const strengths = [];
-    if (w.bizImpact >= 4) strengths.push('high business impact');
-    if (w.techFeasScore >= 3.5) strengths.push('strong platform readiness');
-    if (w.extensionScore >= 3.5) strengths.push('strong growth and productivity potential');
-    if (w.techNorm >= 2) strengths.push('significant tech overlap with other workflows');
-    if (w.dataNorm >= 2) strengths.push('shared data pipelines across the portfolio');
-    if (w.feasNorm >= 4) strengths.push('high overall feasibility');
-
-    let sentence2;
-    if (strengths.length >= 2) {
-      sentence2 = `It stands out for ${strengths[0]} and ${strengths[1]}, which means investing here pays dividends across the portfolio.`;
-    } else if (strengths.length === 1) {
-      sentence2 = `Its biggest strength is ${strengths[0]}, making it a smart place to focus early effort.`;
+    // Sentence 1: Ground in specifics — what this workflow actually does and why it ranks here
+    let s1;
+    if (rank < 3) {
+      if (w.bizImpact >= 4 && w.techFeasScore >= 3) {
+        s1 = `Ranks #${rank+1} because it combines a ${w.bizImpact}/5 business impact score with ${w.feasibilityLabel} feasibility — ${w.techs.length > 0 ? `the stack (${techList}) is already in use across MCC` : 'the technical requirements align with existing infrastructure'}.`;
+      } else if (w.bizImpact >= 4) {
+        s1 = `Ranks #${rank+1} driven by a ${w.bizImpact}/5 business impact score. ${w.dataReadiness === 'HIGH' ? 'Data readiness is high, so the agent can start producing value quickly' : w.dataReadiness === 'MEDIUM' ? 'Data readiness is moderate — some pipeline work is needed but the core sources (' + dataList + ') are accessible' : 'Data foundations need investment, but the business case justifies it'}.`;
+      } else {
+        s1 = `Ranks #${rank+1} because its technical foundation scores ${w.techFeasScore.toFixed(1)}/5 — ${w.deployment === 'Production candidate' ? 'it\'s already a production candidate' : w.deployment === 'Pilot candidate' ? 'it\'s ready for a pilot' : 'the path to deployment is clear'} with ${w.complexity} complexity.`;
+      }
+    } else if (rank < 10) {
+      if (w.techNorm >= 2 || w.dataNorm >= 2) {
+        const overlapCount = (w.techOverlaps || []).length;
+        s1 = `Ranks #${rank+1} because it shares ${w.techs.length > 0 ? `key infrastructure (${techList})` : 'data pipelines'} with ${overlapCount > 0 ? overlapCount + ' other workflows' : 'multiple initiatives'} — building this unlocks reuse across the portfolio.`;
+      } else if (w.extensionScore >= 3) {
+        s1 = `Ranks #${rank+1} with ${growthPct}% growth potential and ${prodPct}% productivity impact. ${w.agentMode === 'Analyze / Recommend' ? 'As an advisory copilot, it can operate with minimal approval overhead' : w.agentMode === 'Draft' ? 'It drafts outputs for human review, keeping risk low while accelerating throughput' : w.agentMode === 'Execute with Approval' ? 'It executes with human approval gates, balancing automation with control' : 'Its agent mode allows meaningful automation from day one'}.`;
+      } else {
+        s1 = `Ranks #${rank+1} with a balanced profile: ${w.bizImpact}/5 business impact, ${w.feasibilityLabel} feasibility, and ${w.dataReadiness || 'moderate'} data readiness${w.techs.length > 0 ? ' across ' + techList : ''}.`;
+      }
     } else {
-      sentence2 = `While no single dimension dominates, it scores consistently across the board — a balanced starting point.`;
+      if (w.bizImpact >= 4) {
+        s1 = `Despite a ${w.bizImpact}/5 business impact score, this ranks #${rank+1} because ${weakest.label.toLowerCase()} scores only ${weakest.score.toFixed(1)}/5 — ${w.entityClarity === 'Fragmented' ? 'entity semantics are fragmented and need alignment before the agent can operate reliably' : w.deployment === 'POC only' ? 'it\'s limited to POC until foundational dependencies are resolved' : 'some prerequisites need to be in place first'}.`;
+      } else {
+        s1 = `Ranks #${rank+1} — a ${w.wave || 'later-wave'} workflow where ${w.dataReadiness === 'LOW' ? 'data readiness is the primary bottleneck' : weakest.label.toLowerCase() + ' at ' + weakest.score.toFixed(1) + '/5 is the limiting factor'}. ${w.techs.length > 0 ? 'The stack (' + techList + ') is viable' : 'Technical requirements are manageable'} but the business case (${w.bizImpact}/5) suggests this is better sequenced after higher-impact work.`;
+      }
     }
 
-    return `This workflow is ${rankWord} to start with because ${feasPhrase}. ${sentence2}`;
+    // Sentence 2: What's distinctive about this specific workflow
+    let s2;
+    if (w.techNorm >= 2.5 && w.dataNorm >= 2.5) {
+      s2 = `What makes this distinctive is the overlap — ${w.techs.length} shared technologies and ${w.dataSources.length} shared data sources mean most of the integration work benefits other initiatives too.`;
+    } else if (w.extensionScore >= 4) {
+      s2 = `Growth and productivity scores are both in the top tier (${growthPct}% and ${prodPct}%), meaning this agent compounds value over time rather than delivering a one-time fix.`;
+    } else if (w.bizImpact >= 5) {
+      s2 = `With a perfect 5/5 business impact, this is one of the highest-value workflows in the portfolio — the kind of initiative that leadership will notice.`;
+    } else if (w.agentMode === 'Execute Autonomously') {
+      s2 = `This is one of the few workflows scoped for autonomous execution, which means higher upfront control design but significantly lower ongoing human effort once deployed.`;
+    } else if (w.dataSensitivity === 'PI' || w.dataSensitivity === 'SPI / Restricted') {
+      s2 = `Note: this workflow handles ${w.dataSensitivity} data, which requires restricted logging and additional approval gates — factor this into timeline estimates.`;
+    } else if (w.techs.length >= 5) {
+      s2 = `The tech stack spans ${w.techs.length} systems (${w.techs.slice(0, 4).join(', ')}${w.techs.length > 4 ? ', +' + (w.techs.length - 4) + ' more' : ''}), so integration testing will be the critical path item.`;
+    } else if (w.opRisk >= 4) {
+      s2 = `Operational risk is elevated (${w.opRisk}/5), so plan for a controlled pilot with clear rollback criteria before scaling.`;
+    } else if (prodPct >= 75 && growthPct <= 25) {
+      s2 = `This is primarily a productivity play (${prodPct}% productivity vs. ${growthPct}% growth) — expect time savings and cost reduction rather than new revenue.`;
+    } else if (growthPct >= 75 && prodPct <= 25) {
+      s2 = `This leans heavily toward growth (${growthPct}% growth vs. ${prodPct}% productivity) — the value shows up in pipeline and market impact rather than headcount efficiency.`;
+    } else {
+      s2 = `It scores ${w.composite.toFixed(1)}/5 composite with its strongest dimension being ${top.label.toLowerCase()} (${top.score.toFixed(1)}/5) and room to improve in ${weakest.label.toLowerCase()} (${weakest.score.toFixed(1)}/5).`;
+    }
+
+    return `${s1} ${s2}`;
   }
 
   const synopsis = buildSynopsis(w, rank, dimensions);
@@ -4534,16 +4564,6 @@ function showRankingBreakdown(w, rank) {
     </div>
 
     <div style="font-size:13px;line-height:1.55;color:var(--text-secondary);margin-bottom:20px;padding:12px 14px;background:var(--layer-01);border-radius:6px;border-left:3px solid ${c}">${synopsis}</div>
-
-    ${(w.wave || w.deliveryPattern || w.controlPattern || w.agentMode) ? `
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px">
-      ${w.wave ? `<span class="tag" style="border-color:#0f62fe;color:#0f62fe">${w.wave}</span>` : ''}
-      ${w.deliveryPattern ? `<span class="tag">${w.deliveryPattern}</span>` : ''}
-      ${w.controlPattern ? `<span class="tag">${w.controlPattern}</span>` : ''}
-      ${w.agentMode ? `<span class="tag" style="border-color:#009d9a;color:#009d9a">${w.agentMode}</span>` : ''}
-      ${w.dataSensitivity ? `<span class="tag">${w.dataSensitivity}</span>` : ''}
-      ${w.entityClarity ? `<span class="tag">${w.entityClarity}</span>` : ''}
-    </div>` : ''}
 
     <div style="display:flex;flex-direction:column;gap:0">
       ${dimensions.map(d => {
