@@ -2313,6 +2313,269 @@
     transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
 
+  /* ===== TOOL OVERLAP TAB ===== */
+  .page-bp .tool-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .page-bp .tool-summary-card {
+    background: var(--layer-01);
+    border-radius: 6px;
+    padding: 16px;
+    border-top: 3px solid var(--border-subtle);
+  }
+  .page-bp .tool-summary-card .tsc-value {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text-primary);
+  }
+  .page-bp .tool-summary-card .tsc-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  .page-bp .tool-summary-card .tsc-sub {
+    font-size: 11px;
+    color: var(--text-placeholder);
+    margin-top: 2px;
+  }
+
+  .page-bp .tool-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .page-bp .tool-search {
+    padding: 6px 12px;
+    font-size: 13px;
+    background: var(--layer-01);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--text-primary);
+    width: 200px;
+  }
+  .page-bp .tool-search:focus {
+    outline: none;
+    border-color: var(--carbon-blue-60);
+  }
+  .page-bp .tool-filter-chip {
+    padding: 3px 10px;
+    font-size: 11px;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .page-bp .tool-filter-chip:hover {
+    background: var(--layer-01);
+  }
+  .page-bp .tool-filter-chip.active {
+    background: var(--carbon-blue-60);
+    color: #fff;
+    border-color: var(--carbon-blue-60);
+  }
+
+  .page-bp .tool-bar-section {
+    margin-bottom: 32px;
+  }
+  .page-bp .tool-bar-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+  .page-bp .tool-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.1s;
+  }
+  .page-bp .tool-bar-row:hover {
+    background: rgba(255,255,255,0.03);
+  }
+  .page-bp .tool-bar-row.active {
+    background: rgba(15,98,254,0.08);
+  }
+  .page-bp .tool-bar-label {
+    width: 140px;
+    font-size: 12px;
+    text-align: right;
+    flex-shrink: 0;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .page-bp .tool-bar-track {
+    flex: 1;
+    height: 20px;
+    background: var(--layer-01);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .page-bp .tool-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .page-bp .tool-bar-count {
+    width: 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .page-bp .tool-matrix-wrap {
+    overflow: auto;
+    max-height: calc(100vh - 200px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    background: var(--bg-elevated);
+  }
+  .page-bp .tool-matrix-table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .page-bp .tool-matrix-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-elevated);
+    padding: 4px;
+    height: 120px;
+    min-width: 26px;
+    max-width: 26px;
+    border: 1px solid var(--border-subtle);
+  }
+  .page-bp .tool-matrix-table thead th .rotated {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    max-height: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--text-secondary);
+  }
+  .page-bp .tool-matrix-table thead th:first-child {
+    z-index: 20;
+    left: 0;
+    min-width: 140px;
+    max-width: 140px;
+  }
+  .page-bp .tool-matrix-table thead th.domain-sep {
+    border-left: 2px solid var(--text-placeholder);
+  }
+  .page-bp .tool-matrix-table tbody th {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: var(--bg-elevated);
+    text-align: left;
+    padding: 2px 8px;
+    min-width: 140px;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+  }
+  .page-bp .tool-matrix-table tbody th:hover {
+    background: rgba(15,98,254,0.06);
+  }
+  .page-bp .tool-matrix-table td {
+    width: 26px;
+    height: 22px;
+    min-width: 26px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid var(--border-subtle);
+    transition: opacity 0.15s;
+  }
+  .page-bp .tool-matrix-table td.domain-sep {
+    border-left: 2px solid var(--text-placeholder);
+  }
+  .page-bp .tool-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: transform 0.1s;
+  }
+  .page-bp .tool-dot:hover {
+    transform: scale(1.6);
+  }
+  .page-bp .tool-matrix-table tr.dimmed td {
+    opacity: 0.15;
+  }
+  .page-bp .tool-matrix-table tr.dimmed th {
+    opacity: 0.4;
+  }
+  .page-bp .tool-matrix-table tr.tool-highlight td {
+    opacity: 1;
+  }
+  .page-bp .tool-matrix-table tr.tool-highlight th {
+    opacity: 1;
+    background: rgba(15,98,254,0.06);
+    font-weight: 600;
+  }
+  .page-bp .tool-matrix-table td.wf-highlight {
+    opacity: 1 !important;
+    background: rgba(15,98,254,0.04);
+  }
+  .page-bp .tool-matrix-table thead th.wf-highlight {
+    background: rgba(15,98,254,0.06);
+  }
+
+  .page-bp .tool-detail-bar {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--layer-01);
+    border-radius: 6px;
+    border-left: 3px solid var(--carbon-blue-60);
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: none;
+  }
+  .page-bp .tool-detail-bar.visible { display: block; }
+  .page-bp .tool-detail-bar strong { color: var(--text-primary); }
+  .page-bp .tool-detail-bar .detail-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .page-bp .tool-detail-bar .detail-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+
 </style>
 </head>
 <body>
@@ -2331,6 +2594,7 @@
   <a href="#" data-page="extensions">Future Extensions</a>
   <a href="#" data-page="tech">Tech Stack Overlap</a>
   <a href="#" data-page="data">Data Source Overlap</a>
+  <a href="#" data-page="tools">Tool Overlap</a>
 
   <div class="sidebar-divider"></div>
   <div class="sidebar-section-label">iX Workflow Mapping</div>
@@ -2402,6 +2666,12 @@
   <div class="page page-bp" id="page-data">
     <div class="bp-content" style="padding:24px 32px;">
       <div class="tab-panel active" id="panel-data"></div>
+    </div>
+  </div>
+
+  <div class="page page-bp" id="page-tools">
+    <div class="bp-content" style="padding:24px 32px;">
+      <div class="tab-panel active" id="panel-tools"></div>
     </div>
   </div>
 
@@ -4871,6 +5141,309 @@ function renderRankingCard(title, items, labelFn, color, infoText, scoreFn) {
 
 // Tab switching handled by sidebar nav
 
+// ============== TOOL OVERLAP TAB ==============
+
+function renderToolOverlap() {
+  const panel = document.getElementById('panel-tools');
+
+  // Build tool frequency map
+  const toolMap = {};
+  WORKFLOWS.forEach((w, idx) => {
+    w.techs.forEach(t => {
+      if (!toolMap[t]) toolMap[t] = { count: 0, workflows: [], domains: {} };
+      toolMap[t].count++;
+      toolMap[t].workflows.push(idx);
+      toolMap[t].domains[w.domain] = (toolMap[t].domains[w.domain] || 0) + 1;
+    });
+  });
+
+  const toolList = Object.keys(toolMap).sort((a, b) =>
+    toolMap[b].count - toolMap[a].count || a.localeCompare(b)
+  );
+
+  // Dominant domain color per tool
+  toolList.forEach(t => {
+    const entry = toolMap[t];
+    entry.dominantDomain = Object.keys(entry.domains)
+      .sort((a, b) => entry.domains[b] - entry.domains[a])[0];
+    entry.color = DOMAIN_COLORS[entry.dominantDomain] || '#525252';
+  });
+
+  // Sort workflows by domain for matrix columns
+  const domainOrder = Object.keys(DOMAIN_COLORS);
+  const sortedWfIndices = WORKFLOWS.map((w, i) => i).sort((a, b) => {
+    const da = domainOrder.indexOf(WORKFLOWS[a].domain);
+    const db = domainOrder.indexOf(WORKFLOWS[b].domain);
+    if (da !== db) return da - db;
+    return WORKFLOWS[a].shortName.localeCompare(WORKFLOWS[b].shortName);
+  });
+
+  // Stats
+  const maxCount = toolList.length > 0 ? toolMap[toolList[0]].count : 0;
+  const totalTools = toolList.length;
+  const sharedTools = toolList.filter(t => toolMap[t].count >= 2).length;
+  const singletonTools = totalTools - sharedTools;
+  const avgPerWf = (WORKFLOWS.reduce((s, w) => s + w.techs.length, 0) / WORKFLOWS.length).toFixed(1);
+  const topTool = toolList[0] || 'N/A';
+
+  // Unique domains used
+  const allDomains = [...new Set(WORKFLOWS.map(w => w.domain))].sort();
+
+  // Identify domain boundaries for separator lines
+  const domainBoundaries = new Set();
+  for (let i = 1; i < sortedWfIndices.length; i++) {
+    if (WORKFLOWS[sortedWfIndices[i]].domain !== WORKFLOWS[sortedWfIndices[i - 1]].domain) {
+      domainBoundaries.add(i);
+    }
+  }
+
+  let html = `
+    <div class="panel-header">
+      <h2>Tool Overlap Explorer</h2>
+      <p>Tool-centric view across all ${WORKFLOWS.length} workflows. The bar chart shows which tools are most prevalent. The matrix below reveals exactly which workflows share each tool. <strong>Click any tool or workflow</strong> to explore connections.</p>
+    </div>
+
+    <div class="tool-summary">
+      <div class="tool-summary-card" style="border-color:var(--carbon-blue-60)">
+        <div class="tsc-value">${totalTools}</div>
+        <div class="tsc-label">Unique Tools</div>
+        <div class="tsc-sub">Across all workflows</div>
+      </div>
+      <div class="tool-summary-card" style="border-color:var(--carbon-green-50)">
+        <div class="tsc-value">${sharedTools}</div>
+        <div class="tsc-label">Shared Tools</div>
+        <div class="tsc-sub">Used by 2+ workflows</div>
+      </div>
+      <div class="tool-summary-card" style="border-color:#ff832b">
+        <div class="tsc-value">${avgPerWf}</div>
+        <div class="tsc-label">Avg Tools / Workflow</div>
+        <div class="tsc-sub">${singletonTools} tools unique to one workflow</div>
+      </div>
+      <div class="tool-summary-card" style="border-color:var(--carbon-purple-60)">
+        <div class="tsc-value" style="font-size:18px;padding-top:4px">${topTool}</div>
+        <div class="tsc-label">Most Prevalent Tool</div>
+        <div class="tsc-sub">Used by ${maxCount} workflows</div>
+      </div>
+    </div>
+
+    <div class="tool-controls">
+      <input type="text" class="tool-search" id="tool-search" placeholder="Filter tools...">
+      <button class="tool-filter-chip active" data-filter="all">All</button>
+      <button class="tool-filter-chip" data-filter="shared">Shared only (2+)</button>
+      ${allDomains.map(d => `<button class="tool-filter-chip" data-filter="domain:${d}" style="border-color:${DOMAIN_COLORS[d] || '#525252'}"><span class="domain-badge" style="background:${DOMAIN_COLORS[d] || '#525252'}"></span>${d}</button>`).join('')}
+    </div>
+
+    <div class="tool-detail-bar" id="tool-detail-bar"></div>
+
+    <div class="tool-bar-section">
+      <h3>Tool Prevalence</h3>
+      <div id="tool-bars">
+      ${toolList.map(t => {
+        const entry = toolMap[t];
+        const pctW = (entry.count / maxCount * 100).toFixed(1);
+        return `<div class="tool-bar-row" data-tool="${t}" data-domains="${Object.keys(entry.domains).join(',')}" data-count="${entry.count}">
+          <div class="tool-bar-label" title="${t}">${t}</div>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width:${pctW}%;background:${entry.color}"></div></div>
+          <div class="tool-bar-count">${entry.count}</div>
+        </div>`;
+      }).join('')}
+      </div>
+    </div>
+
+    <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;color:var(--text-primary)">Tool × Workflow Matrix</h3>
+    <div class="tool-matrix-wrap">
+      <table class="tool-matrix-table">
+        <thead><tr>
+          <th></th>
+          ${sortedWfIndices.map((wi, col) => {
+            const w = WORKFLOWS[wi];
+            const dc = DOMAIN_COLORS[w.domain] || '#525252';
+            const sepClass = domainBoundaries.has(col) ? ' domain-sep' : '';
+            return `<th class="wf-col${sepClass}" data-wf-idx="${wi}"><div class="rotated"><span class="domain-badge" style="background:${dc}"></span>${w.shortName}</div></th>`;
+          }).join('')}
+        </tr></thead>
+        <tbody>
+          ${toolList.map(t => {
+            const entry = toolMap[t];
+            const wfSet = new Set(entry.workflows);
+            return `<tr data-tool="${t}" data-domains="${Object.keys(entry.domains).join(',')}" data-count="${entry.count}">
+              <th title="${t} (${entry.count})">${t} <span style="color:var(--text-placeholder);font-size:10px">${entry.count}</span></th>
+              ${sortedWfIndices.map((wi, col) => {
+                const dc = DOMAIN_COLORS[WORKFLOWS[wi].domain] || '#525252';
+                const sepClass = domainBoundaries.has(col) ? ' domain-sep' : '';
+                if (wfSet.has(wi)) {
+                  return `<td class="wf-col${sepClass}" data-wf-idx="${wi}"><span class="tool-dot" style="background:${dc}"></span></td>`;
+                }
+                return `<td class="wf-col${sepClass}" data-wf-idx="${wi}"></td>`;
+              }).join('')}
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>`;
+
+  panel.innerHTML = html;
+
+  // --- INTERACTIVITY ---
+
+  let activeTool = null;
+  let activeWf = null;
+  const detailBar = document.getElementById('tool-detail-bar');
+  const table = panel.querySelector('.tool-matrix-table');
+  const barRows = panel.querySelectorAll('.tool-bar-row');
+  const matrixRows = table.querySelectorAll('tbody tr');
+
+  function clearSelection() {
+    activeTool = null;
+    activeWf = null;
+    barRows.forEach(r => r.classList.remove('active'));
+    matrixRows.forEach(r => { r.classList.remove('dimmed', 'tool-highlight'); });
+    table.querySelectorAll('th.wf-highlight, td.wf-highlight').forEach(el => el.classList.remove('wf-highlight'));
+    detailBar.classList.remove('visible');
+  }
+
+  function selectTool(toolName) {
+    if (activeTool === toolName) { clearSelection(); return; }
+    clearSelection();
+    activeTool = toolName;
+    const entry = toolMap[toolName];
+
+    // Highlight bar
+    barRows.forEach(r => {
+      if (r.dataset.tool === toolName) r.classList.add('active');
+    });
+
+    // Highlight matrix
+    matrixRows.forEach(r => {
+      if (r.dataset.tool === toolName) {
+        r.classList.add('tool-highlight');
+      } else {
+        r.classList.add('dimmed');
+      }
+    });
+
+    // Detail bar
+    const wfNames = entry.workflows.map(i => {
+      const w = WORKFLOWS[i];
+      const dc = DOMAIN_COLORS[w.domain] || '#525252';
+      return `<span class="detail-chip"><span class="domain-badge" style="background:${dc}"></span>${w.shortName}</span>`;
+    });
+    detailBar.innerHTML = `<strong>${toolName}</strong> is used by <strong>${entry.count}</strong> workflow${entry.count > 1 ? 's' : ''}:
+      <div class="detail-chips">${wfNames.join('')}</div>`;
+    detailBar.classList.add('visible');
+  }
+
+  function selectWorkflow(wfIdx) {
+    if (activeWf === wfIdx) { clearSelection(); return; }
+    clearSelection();
+    activeWf = wfIdx;
+    const w = WORKFLOWS[wfIdx];
+    const techSet = new Set(w.techs);
+
+    // Highlight matrix column
+    table.querySelectorAll(`[data-wf-idx="${wfIdx}"]`).forEach(el => el.classList.add('wf-highlight'));
+
+    // Dim rows that don't include this workflow
+    matrixRows.forEach(r => {
+      if (techSet.has(r.dataset.tool)) {
+        r.classList.add('tool-highlight');
+      } else {
+        r.classList.add('dimmed');
+      }
+    });
+
+    // Detail bar
+    const dc = DOMAIN_COLORS[w.domain] || '#525252';
+    const toolChips = w.techs.map(t => {
+      const tc = toolMap[t]?.color || '#525252';
+      return `<span class="detail-chip" style="border-color:${tc}"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${tc};margin-right:4px"></span>${t}</span>`;
+    });
+    detailBar.innerHTML = `<strong><span class="domain-badge" style="background:${dc}"></span>${w.name}</strong> (${w.domain}) uses <strong>${w.techs.length}</strong> tools:
+      <div class="detail-chips">${toolChips.join('')}</div>`;
+    detailBar.classList.add('visible');
+  }
+
+  // Bar click
+  barRows.forEach(row => {
+    row.addEventListener('click', () => selectTool(row.dataset.tool));
+  });
+
+  // Matrix row header click
+  table.querySelectorAll('tbody th').forEach(th => {
+    th.addEventListener('click', () => {
+      const tr = th.closest('tr');
+      if (tr?.dataset.tool) selectTool(tr.dataset.tool);
+    });
+  });
+
+  // Matrix column header click
+  table.querySelectorAll('thead th.wf-col').forEach(th => {
+    th.addEventListener('click', () => {
+      const idx = +th.dataset.wfIdx;
+      if (!isNaN(idx)) selectWorkflow(idx);
+    });
+  });
+
+  // Search filter
+  const searchInput = document.getElementById('tool-search');
+  const filterChips = panel.querySelectorAll('.tool-filter-chip');
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const q = searchInput.value.toLowerCase().trim();
+    const filterBarRows = panel.querySelectorAll('#tool-bars .tool-bar-row');
+    const filterMatrixRows = table.querySelectorAll('tbody tr');
+
+    function shouldShow(toolName, domains, count) {
+      if (q && !toolName.includes(q)) return false;
+      if (activeFilter === 'shared' && count < 2) return false;
+      if (activeFilter.startsWith('domain:')) {
+        const fd = activeFilter.replace('domain:', '');
+        if (!domains.includes(fd)) return false;
+      }
+      return true;
+    }
+
+    filterBarRows.forEach(r => {
+      r.style.display = shouldShow(r.dataset.tool, r.dataset.domains, +r.dataset.count) ? '' : 'none';
+    });
+    filterMatrixRows.forEach(r => {
+      r.style.display = shouldShow(r.dataset.tool, r.dataset.domains, +r.dataset.count) ? '' : 'none';
+    });
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeFilter = chip.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  // Tooltip on dot hover
+  const tooltip = document.getElementById('bp-tooltip');
+  table.querySelectorAll('.tool-dot').forEach(dot => {
+    dot.addEventListener('mouseenter', (e) => {
+      const td = dot.closest('td');
+      const tr = dot.closest('tr');
+      const wfIdx = +td.dataset.wfIdx;
+      const toolName = tr.dataset.tool;
+      const w = WORKFLOWS[wfIdx];
+      tooltip.innerHTML = `<strong>${w.shortName}</strong> uses <strong>${toolName}</strong>`;
+      tooltip.style.display = 'block';
+      const rect = dot.getBoundingClientRect();
+      tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+      tooltip.style.top = (rect.top - 30) + 'px';
+      tooltip.style.transform = 'translateX(-50%)';
+    });
+    dot.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  });
+}
+
 // ============== INIT ==============
 
 renderHeatmap('panel-feasibility', feasibilityScore,
@@ -4900,6 +5473,7 @@ renderHeatmap('panel-data',
 );
 
 renderRankings();
+renderToolOverlap();
 
 </script>
 
