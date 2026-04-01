@@ -4653,128 +4653,42 @@ renderRankings();
 <script>
 (function() {
   // ---- Count-up animation for numeric values ----
-  function animateNumber(el) {
+  function animateNumber(el, delay) {
     if (el.dataset.animated) return;
     el.dataset.animated = '1';
     const raw = el.textContent.trim();
-
-    // Parse formats: "122", "57%", "+17", "38", "69"
     const match = raw.match(/^([+\-]?)(\d+)(%?)$/);
     if (!match) return;
-
     const prefix = match[1];
     const target = parseInt(match[2], 10);
     const suffix = match[3];
     if (target === 0) return;
-
     const duration = 800;
-    const start = performance.now();
-
-    function tick(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * target);
-      el.textContent = prefix + current + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
-    }
     el.textContent = prefix + '0' + suffix;
-    requestAnimationFrame(tick);
+    setTimeout(() => {
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = prefix + Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }, delay);
   }
 
-  // ---- IntersectionObserver for fade-in elements ----
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const delay = parseFloat(el.dataset.animDelay || 0);
-        setTimeout(() => el.classList.add('anim-visible'), delay);
-        fadeObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  // ---- IntersectionObserver for coverage bars ----
-  const barObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        el.classList.add('anim-bar-zero');
-        requestAnimationFrame(() => {
-          el.style.width = el.dataset.targetWidth;
-        });
-        barObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  // ---- IntersectionObserver for rank bar fills ----
-  const rankBarObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const delay = parseFloat(el.dataset.animDelay || 0);
-        setTimeout(() => {
-          el.classList.add('anim-rankbar-zero');
-          requestAnimationFrame(() => {
-            el.style.width = el.dataset.targetWidth;
-          });
-        }, delay);
-        rankBarObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.05 });
-
-  // ---- IntersectionObserver for bar segments (composite chart) ----
-  const segmentObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const row = entry.target;
-        const segments = row.querySelectorAll('.anim-segment-zero');
-        const delay = parseFloat(row.dataset.animDelay || 0);
-        setTimeout(() => {
-          segments.forEach((seg, i) => {
-            setTimeout(() => {
-              requestAnimationFrame(() => {
-                seg.style.width = seg.dataset.targetWidth;
-              });
-            }, i * 60);
-          });
-        }, delay);
-        segmentObserver.unobserve(row);
-      }
-    });
-  }, { threshold: 0.05 });
-
-  // ---- IntersectionObserver for number count-ups ----
-  const numObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const delay = parseFloat(el.dataset.animDelay || 0);
-        setTimeout(() => animateNumber(el), delay);
-        numObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  // ---- Main initialization function ----
+  // ---- Animate everything in a container immediately (no scroll trigger) ----
   function initAnimations(root) {
     if (!root) root = document;
 
     // 1. Dashboard cards — staggered fade + number count-up
     root.querySelectorAll('.dash-card').forEach((card, i) => {
-      if (!card.classList.contains('anim-ready')) {
-        card.classList.add('anim-ready');
-        card.dataset.animDelay = String(i * 80);
-        fadeObserver.observe(card);
-      }
+      if (card.classList.contains('anim-ready')) return;
+      card.classList.add('anim-ready');
+      card.style.animationDelay = (i * 80) + 'ms';
+      card.classList.add('anim-visible');
       const val = card.querySelector('.value');
-      if (val && !val.dataset.animated) {
-        val.dataset.animDelay = String(i * 80 + 200);
-        numObserver.observe(val);
-      }
+      if (val) animateNumber(val, i * 80 + 200);
     });
 
     // 2. Coverage bar fills — grow from 0
@@ -4783,145 +4697,133 @@ renderRankings();
       bar.dataset.animBarDone = '1';
       const currentWidth = bar.style.width || bar.getAttribute('style')?.match(/width:\s*([^;]+)/)?.[1];
       if (currentWidth) {
-        bar.dataset.targetWidth = currentWidth;
         bar.style.width = '0%';
-        barObserver.observe(bar);
+        bar.classList.add('anim-bar-zero');
+        requestAnimationFrame(() => {
+          bar.style.width = currentWidth;
+        });
       }
     });
 
-    // 3. Mini bar fills in modals
+    // 3. Mini bar fills
     root.querySelectorAll('.mini-bar-fill').forEach(bar => {
       if (bar.dataset.animBarDone) return;
       bar.dataset.animBarDone = '1';
       const currentWidth = bar.style.width;
       if (currentWidth) {
-        bar.dataset.targetWidth = currentWidth;
         bar.style.width = '0%';
-        barObserver.observe(bar);
+        bar.classList.add('anim-bar-zero');
+        requestAnimationFrame(() => {
+          bar.style.width = currentWidth;
+        });
       }
     });
 
-    // 4. Compare cards (combined view)
+    // 4. Compare cards
     root.querySelectorAll('.compare-card').forEach((card, i) => {
-      if (!card.classList.contains('anim-ready')) {
-        card.classList.add('anim-ready');
-        card.dataset.animDelay = String(i * 100);
-        fadeObserver.observe(card);
-      }
+      if (card.classList.contains('anim-ready')) return;
+      card.classList.add('anim-ready');
+      card.style.animationDelay = (i * 100) + 'ms';
+      card.classList.add('anim-visible');
     });
 
     // 5. Initiative cards
     root.querySelectorAll('.initiative-card').forEach((card, i) => {
-      if (!card.classList.contains('anim-ready')) {
-        card.classList.add('anim-ready');
-        card.dataset.animDelay = String(i * 60);
-        fadeObserver.observe(card);
-      }
+      if (card.classList.contains('anim-ready')) return;
+      card.classList.add('anim-ready');
+      card.style.animationDelay = (i * 40) + 'ms';
+      card.classList.add('anim-visible');
     });
 
     // 6. Gap cards
     root.querySelectorAll('.gap-card').forEach((card, i) => {
-      if (!card.classList.contains('anim-ready')) {
-        card.classList.add('anim-ready');
-        card.dataset.animDelay = String(i * 60);
-        fadeObserver.observe(card);
-      }
+      if (card.classList.contains('anim-ready')) return;
+      card.classList.add('anim-ready');
+      card.style.animationDelay = (i * 40) + 'ms';
+      card.classList.add('anim-visible');
     });
 
     // 7. Recommendation list items
     root.querySelectorAll('.reco-list li').forEach((li, i) => {
-      if (!li.classList.contains('anim-ready')) {
-        li.classList.add('anim-ready');
-        li.dataset.animDelay = String(i * 80);
-        fadeObserver.observe(li);
-      }
+      if (li.classList.contains('anim-ready')) return;
+      li.classList.add('anim-ready');
+      li.style.animationDelay = (i * 60) + 'ms';
+      li.classList.add('anim-visible');
     });
 
     // 8. Section headers
     root.querySelectorAll('.section-header').forEach(sh => {
-      if (!sh.classList.contains('anim-ready')) {
-        sh.classList.add('anim-ready');
-        sh.dataset.animDelay = '0';
-        fadeObserver.observe(sh);
-      }
+      if (sh.classList.contains('anim-ready')) return;
+      sh.classList.add('anim-ready');
+      sh.classList.add('anim-visible');
     });
 
     // 9. Domain headers / page title bars
     root.querySelectorAll('.domain-header, .page-title-bar').forEach(el => {
-      if (!el.classList.contains('anim-ready')) {
-        el.classList.add('anim-ready');
-        el.dataset.animDelay = '0';
-        fadeObserver.observe(el);
-      }
+      if (el.classList.contains('anim-ready')) return;
+      el.classList.add('anim-ready');
+      el.classList.add('anim-visible');
     });
 
-    // 10. Table rows — staggered (limit to first 30 per table for perf)
+    // 10. Table rows — staggered (cap delay so it doesn't take forever)
     root.querySelectorAll('tbody').forEach(tbody => {
-      const rows = tbody.querySelectorAll('tr');
-      rows.forEach((row, i) => {
-        if (i >= 30 || row.classList.contains('anim-ready')) return;
+      tbody.querySelectorAll('tr').forEach((row, i) => {
+        if (row.classList.contains('anim-ready')) return;
         row.classList.add('anim-ready');
-        row.dataset.animDelay = String(i * 30);
-        fadeObserver.observe(row);
+        row.style.animationDelay = Math.min(i * 20, 400) + 'ms';
+        row.classList.add('anim-visible');
       });
     });
 
     // 11. Coverage bar containers
     root.querySelectorAll('.coverage-bar-container').forEach(el => {
-      if (!el.classList.contains('anim-ready')) {
-        el.classList.add('anim-ready');
-        el.dataset.animDelay = '100';
-        fadeObserver.observe(el);
-      }
+      if (el.classList.contains('anim-ready')) return;
+      el.classList.add('anim-ready');
+      el.style.animationDelay = '100ms';
+      el.classList.add('anim-visible');
     });
   }
 
   // ---- Animate blueprint rankings (JS-rendered content) ----
   function initRankingsAnimations() {
-    // Composite rows
+    // Composite rows + bar segments
     document.querySelectorAll('.composite-row').forEach((row, i) => {
       if (!row.classList.contains('anim-ready')) {
         row.classList.add('anim-ready');
-        row.dataset.animDelay = String(i * 60);
-        fadeObserver.observe(row);
+        row.style.animationDelay = (i * 40) + 'ms';
+        row.classList.add('anim-visible');
       }
-      // Bar segments
-      row.querySelectorAll('.bar-segment').forEach(seg => {
-        if (!seg.dataset.animSegDone) {
-          seg.dataset.animSegDone = '1';
-          const w = seg.style.width;
-          if (w) {
-            seg.dataset.targetWidth = w;
-            seg.style.width = '0px';
-            seg.classList.add('anim-segment-zero');
-          }
+      row.querySelectorAll('.bar-segment').forEach((seg, j) => {
+        if (seg.dataset.animSegDone) return;
+        seg.dataset.animSegDone = '1';
+        const w = seg.style.width;
+        if (w) {
+          seg.style.width = '0px';
+          seg.classList.add('anim-segment-zero');
+          setTimeout(() => {
+            seg.style.width = w;
+          }, i * 40 + j * 40 + 100);
         }
       });
-      if (row.querySelector('.anim-segment-zero') && !row.dataset.animSegObserved) {
-        row.dataset.animSegObserved = '1';
-        row.dataset.animDelay = String(i * 60 + 100);
-        segmentObserver.observe(row);
-      }
     });
 
-    // Ranking cards
+    // Ranking cards + rank bar fills
     document.querySelectorAll('.ranking-card').forEach((card, i) => {
       if (!card.classList.contains('anim-ready')) {
         card.classList.add('anim-ready');
-        card.dataset.animDelay = String(i * 120);
-        fadeObserver.observe(card);
+        card.style.animationDelay = (i * 80) + 'ms';
+        card.classList.add('anim-visible');
       }
-      // Rank bar fills inside
       card.querySelectorAll('.rank-bar-fill').forEach((bar, j) => {
-        if (!bar.dataset.animRankDone) {
-          bar.dataset.animRankDone = '1';
-          const w = bar.style.width;
-          if (w) {
-            bar.dataset.targetWidth = w;
-            bar.style.width = '0%';
-            bar.dataset.animDelay = String(i * 120 + j * 50 + 200);
-            rankBarObserver.observe(bar);
-          }
+        if (bar.dataset.animRankDone) return;
+        bar.dataset.animRankDone = '1';
+        const w = bar.style.width;
+        if (w) {
+          bar.style.width = '0%';
+          bar.classList.add('anim-rankbar-zero');
+          setTimeout(() => {
+            bar.style.width = w;
+          }, i * 80 + j * 30 + 200);
         }
       });
     });
@@ -4930,28 +4832,24 @@ renderRankings();
     const legend = document.querySelector('.page-bp .legend');
     if (legend && !legend.classList.contains('anim-ready')) {
       legend.classList.add('anim-ready');
-      legend.dataset.animDelay = '0';
-      fadeObserver.observe(legend);
+      legend.classList.add('anim-visible');
     }
 
     // Panel headers
     document.querySelectorAll('.panel-header').forEach(ph => {
       if (!ph.classList.contains('anim-ready')) {
         ph.classList.add('anim-ready');
-        ph.dataset.animDelay = '0';
-        fadeObserver.observe(ph);
+        ph.classList.add('anim-visible');
       }
     });
   }
 
   // ---- Hook into fragment loading for iX pages ----
-  // After each sidebar nav click, poll until fragment content appears, then animate
   document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
     link.addEventListener('click', () => {
       const pageId = link.dataset.page;
       const target = document.getElementById('page-' + pageId);
       if (!target) return;
-      // Poll for content (fragments load async)
       let attempts = 0;
       const check = setInterval(() => {
         attempts++;
