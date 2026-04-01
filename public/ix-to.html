@@ -108,8 +108,8 @@
 
         <div class="filter-bar" id="to-filter-bar">
           <button class="filter-tab active" onclick="filterTableTO('all',this)">All (27)</button>
-          <button class="filter-tab" onclick="filterTableTO('mapped',this)">Mapped (14)</button>
-          <button class="filter-tab" onclick="filterTableTO('gap',this)">Gaps (13)</button>
+          <button class="filter-tab" onclick="filterTableTO('mapped',this)">Mapped (13)</button>
+          <button class="filter-tab" onclick="filterTableTO('gap',this)">Gaps (14)</button>
           <button class="filter-tab" onclick="filterTableTO('ops',this)">Operations (15)</button>
           <button class="filter-tab" onclick="filterTableTO('inv',this)">Investment (12)</button>
         </div>
@@ -192,12 +192,12 @@
               <td>6</td>
               <td><span class="tag tag-inv">INV</span></td>
               <td class="process-name">PO-Setup / APU Process</td>
-              <td><span class="tag tag-initiative">Spend and Performance Data Foundation</span> <span class="tag tag-initiative">IPVN Testing Automation</span></td>
+              <td><span class="tag tag-initiative">Spend and Performance Data Foundation</span></td>
               <td><span class="tag tag-high">HIGH</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
                 <div class="process-detail">Invoice raising process owned by Delta-Team (Suman, Koen, Estefano). SOW ingestion, IPA request creation, BETH item management, Ariba line items, IPVN creation, compliance checks (correct info, proof of evidence, PO amount matching). AI reads SOW, validates info, creates integrations across IPA/BETH/Ariba.</div>
-                <div class="mapping-rationale">Core match: TO-40 handles SOW/PO ingestion and data foundation; TO-46 handles the IPVN testing/compliance checks within this process.</div>
+                <div class="mapping-rationale">Core match: TO-40 handles SOW/PO ingestion and data foundation. IPVN compliance checks within this process are covered by the data validation capabilities of the Spend and Performance Data Foundation.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -216,12 +216,12 @@
               <td>8</td>
               <td><span class="tag tag-inv">INV</span></td>
               <td class="process-name">Quarter Closing Process</td>
-              <td><span class="tag tag-initiative">Spend and Performance Data Foundation</span> <span class="tag tag-initiative">Risk Management Testing Automation</span></td>
+              <td><span class="tag tag-initiative">Spend and Performance Data Foundation</span></td>
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
                 <div class="process-detail">Checks: Does IPA and BETH match? Does BETH and Ledger match? AI agent summarizes findings, creates reports, attaches to Workfront tasks. Includes in-depth quarterly reports, post-mortems comparing last 3 quarters, approval workflows. Investment team reviews and adjusts.</div>
-                <div class="mapping-rationale">Data reconciliation aspect fits TO-40; accruals/deferrals compliance checks fit TO-47. Medium because the quarter-close orchestration is broader than either initiative alone.</div>
+                <div class="mapping-rationale">Data reconciliation and spend tracking fit TO-40's performance data foundation scope. Medium because the quarter-close orchestration is broader than TO-40 alone.</div>
               </td>
             </tr>
             <tr data-source="ops" data-status="mapped">
@@ -284,16 +284,16 @@
                 <div class="mapping-rationale">Resource management is within TO-43's workforce planning scope. Medium because details are less documented than other processes.</div>
               </td>
             </tr>
-            <tr data-source="inv" data-status="mapped">
+            <tr data-source="inv" data-status="gap">
               <td>14</td>
               <td><span class="tag tag-inv">INV</span></td>
               <td class="process-name">Tax Process</td>
-              <td><span class="tag tag-initiative">Risk Management Testing Automation</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
               <td>
                 <div class="process-detail">Owned by Estefano and Maria. Collects all taxes (ledger entries), creates IPA line ("Tax quarter"), submits as expense registration. Pain point: cannot validate tax amount upfront. Involves deferrals, ICAs, manual flow as actuals into IPA. Quarterly cadence, 3 months before quarter starts.</div>
-                <div class="mapping-rationale">Accruals, deferrals, and compliance validation fit TO-47's risk management and compliance automation scope.</div>
+                <div class="mapping-rationale">Previously mapped to TO-47 (Risk Management Testing Automation), which is not in the 43-workflow Blueprints master deck. No remaining initiative covers tax accruals, deferrals, and compliance validation.</div>
               </td>
             </tr>
             <tr data-source="inv" data-status="mapped">
@@ -462,7 +462,7 @@
       <div class="section">
         <div class="section-header">
           <h3>Gap Analysis</h3>
-          <span class="count">12 uncovered processes clustered into 3 themes</span>
+          <span class="count">13 uncovered processes clustered into 3 themes</span>
         </div>
 
         <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 1: People Operations &amp; HR Lifecycle (5 processes)</h4>
@@ -508,7 +508,7 @@
           </div>
         </div>
 
-        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 3: Specialized Investment &amp; Programs (5 processes)</h4>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 3: Specialized Investment &amp; Programs (6 processes)</h4>
         <div class="gap-grid" style="margin-bottom: 1.5rem;">
           <div class="gap-card">
             <h4>Wimbledon Process</h4>
@@ -535,6 +535,11 @@
             <div class="source-tag"><span class="tag tag-ops">OPS</span></div>
             <p>Site-level budgets, activity planning/execution, spend tracking. No visibility into individual activities or return on spend.</p>
           </div>
+          <div class="gap-card">
+            <h4>Tax Process</h4>
+            <div class="source-tag"><span class="tag tag-inv">INV</span></div>
+            <p>Quarterly tax collection, ledger entries, IPA expense registration. Deferrals, ICAs, manual actuals flow. Cannot validate tax amount upfront. Previously mapped to TO-47 (Risk Management Testing Automation), which is not in the 43-workflow Blueprints master deck.</p>
+          </div>
         </div>
       </div>
 
@@ -542,7 +547,7 @@
       <div class="section">
         <div class="section-header">
           <h3>Recommendations to Reach 70%</h3>
-          <span class="count">3 options to close the 14-point gap</span>
+          <span class="count">3 options to close the 22-point gap</span>
         </div>
 
         <ol class="reco-list">
@@ -550,28 +555,28 @@
             <div>
               <strong>New Initiative: Travel &amp; Approval Automation</strong>
               <div class="reco-detail">Consolidate Operations and Investment travel processes into a single AI-driven approval workflow. Rule-based screening (staff:client ratio, overseas flagging, YoY attendance), AI-recommended attendees, automated HTRT-to-Concur flow. Builds on Amanda Reidy's existing AI approval work with Lucy. Covers 2 gap processes.</div>
-              <div class="reco-impact">+2 processes covered &rarr; 63% coverage</div>
+              <div class="reco-impact">+2 processes covered &rarr; 56% coverage</div>
             </div>
           </li>
           <li>
             <div>
               <strong>New Initiative: People Ops Lifecycle Agent</strong>
               <div class="reco-detail">Covers onboarding automation (auto-learning assignment, channel provisioning), recognition workflow (nomination dashboard, budget reconciliation), and intern program coordination. Addresses 5 gap processes &mdash; the largest uncovered cluster. Low technical complexity (mostly rule-based triggers and workflow orchestration).</div>
-              <div class="reco-impact">+5 processes covered &rarr; 81% coverage (exceeds 70% target)</div>
+              <div class="reco-impact">+5 processes covered &rarr; 74% coverage (exceeds 70% target)</div>
             </div>
           </li>
           <li>
             <div>
               <strong>Alternative: Expand Existing Initiatives</strong>
               <div class="reco-detail">Instead of new initiatives, broaden scope of TO-43 (HC Optimization) to include recruiting execution and onboarding, and expand TO-40 (Spend Foundation) to cover Wimbledon/Canada/Ambassador spend tracking. This avoids adding new initiative IDs but requires updating the Blueprint definitions. Could partially close the gap (+3-4 processes).</div>
-              <div class="reco-impact">+3-4 processes covered &rarr; 67-70% coverage (borderline)</div>
+              <div class="reco-impact">+3-4 processes covered &rarr; 59-63% coverage (still below target)</div>
             </div>
           </li>
         </ol>
 
         <div style="background: var(--cds-layer-01); border: 1px solid var(--cds-border-subtle); border-left: 3px solid var(--cds-support-success); padding: 1rem; margin-top: 1rem;">
           <strong style="font-size: 0.875rem;">Fastest path to 70%:</strong>
-          <span style="font-size: 0.875rem; color: var(--cds-text-secondary);"> Options 1 + 2 together cover +7 gap processes, bringing T&amp;O from 56% to 81% &mdash; well above target. Even Option 2 alone (+5) reaches 74%.</span>
+          <span style="font-size: 0.875rem; color: var(--cds-text-secondary);"> Options 1 + 2 together cover +7 gap processes, bringing T&amp;O from 48% to 74% &mdash; above target. Even Option 2 alone (+5) reaches 67%.</span>
         </div>
       </div>
 
@@ -621,25 +626,11 @@
               <td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Shared coverage with TO-41 (Quarterly Planning, Fall Plan, Incremental Budget)</td>
             </tr>
             <tr>
-              <td class="process-name">Risk Management Testing Automation</td>
-              <td>TO-TO-47</td>
-              <td>2</td>
-              <td><div style="background:#fddc69;height:12px;width:40%;border-radius:2px;"></div></td>
-              <td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Tax Process, Quarter Closing (compliance checks)</td>
-            </tr>
-            <tr>
               <td class="process-name">Tech Capability Intake</td>
               <td>TO-TO-44</td>
               <td>1</td>
               <td><div style="background:#fddc69;height:12px;width:20%;border-radius:2px;"></div></td>
               <td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partial: CapEx process (governance/intake aspect only)</td>
-            </tr>
-            <tr>
-              <td class="process-name">IPVN Testing Automation</td>
-              <td>TO-TO-46</td>
-              <td>1</td>
-              <td><div style="background:#fddc69;height:12px;width:20%;border-radius:2px;"></div></td>
-              <td style="font-size:0.8125rem;color:var(--cds-text-secondary);">PO-Setup/APU (IPVN compliance checks within the PO process)</td>
             </tr>
             <tr>
               <td class="process-name">Agency Briefing Agent</td>

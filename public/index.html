@@ -2337,17 +2337,17 @@
   <a href="#" data-page="ix-combined">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
-    <span class="nav-meta">44%</span>
+    <span class="nav-meta">43%</span>
   </a>
   <a href="#" data-page="ix-to">
     <span class="nav-dot" style="background:#009d9a"></span>
     T&amp;O
-    <span class="nav-meta">56%</span>
+    <span class="nav-meta">52%</span>
   </a>
   <a href="#" data-page="ix-ca">
     <span class="nav-dot" style="background:#da1e28"></span>
     Corporate Affairs
-    <span class="nav-meta">48%</span>
+    <span class="nav-meta">45%</span>
   </a>
   <a href="#" data-page="ix-mmapi">
     <span class="nav-dot" style="background:#8a3ffc"></span>
@@ -4413,89 +4413,93 @@ function showModal(a, b, m) {
 
 function showRankingBreakdown(w, rank) {
   const c = DOMAIN_COLORS[w.domain] || '#525252';
-  const labels = { 0: 'N/A', 1: 'LOW', 2: 'MEDIUM', 3: 'HIGH' };
-  const n = WORKFLOWS.length - 1;
 
-  const cards = [
+  // Helper: render a score bar
+  function scoreBar(score, maxVal, color) {
+    const pctW = Math.min((score / maxVal) * 100, 100);
+    return `<div style="height:6px;background:var(--border-subtle);border-radius:3px;flex:1">
+      <div style="height:100%;width:${pctW}%;background:${color};border-radius:3px;transition:width 0.3s ease"></div>
+    </div>`;
+  }
+
+  // Helper: score quality label
+  function qualityLabel(score, max) {
+    const ratio = score / max;
+    if (ratio >= 0.75) return { text: 'Strong', color: 'var(--carbon-green-50)' };
+    if (ratio >= 0.5) return { text: 'Moderate', color: '#ff832b' };
+    return { text: 'Low', color: 'var(--cds-support-error, #da1e28)' };
+  }
+
+  const dimensions = [
     {
       label: 'Tech Feasibility',
       color: '#ff832b',
-      score: w.techFeasScore.toFixed(2),
-      contrib: w.techFeasContrib.toFixed(2),
-      weight: '25%',
-      detail: `Platform: ${w.platformReadiness || 'N/A'} (${w.platNorm.toFixed(1)}), Data Readiness: ${w.dataReadiness || 'N/A'} (${w.drNorm.toFixed(1)}), Deployment: ${w.deployment || 'N/A'} (${w.deployNorm.toFixed(1)}), Foundation Dep: ${w.foundationDep}/5 (inv: ${w.foundInv.toFixed(1)}), Op Risk: ${w.opRisk}/5 (inv: ${w.riskInv.toFixed(1)})`,
-      equation: `(${w.platNorm.toFixed(1)}×.25 + ${w.drNorm.toFixed(1)}×.25 + ${w.deployNorm.toFixed(1)}×.20 + ${w.foundInv.toFixed(1)}×.15 + ${w.riskInv.toFixed(1)}×.15) = ${w.techFeasScore.toFixed(2)}`,
-      subScores: [
-        { label: 'Platform Readiness', raw: w.platformReadiness || 'N/A', norm: w.platNorm, weight: '25%' },
-        { label: 'Data Readiness', raw: w.dataReadiness || 'N/A', norm: w.drNorm, weight: '25%' },
-        { label: 'Deployment Suitability', raw: w.deployment || 'N/A', norm: w.deployNorm, weight: '20%' },
-        { label: 'Foundation Dep (inv)', raw: `${w.foundationDep}/5`, norm: w.foundInv, weight: '15%' },
-        { label: 'Op Risk (inv)', raw: `${w.opRisk}/5`, norm: w.riskInv, weight: '15%' },
+      score: w.techFeasScore,
+      weight: 25,
+      items: [
+        { label: 'Platform', value: w.platformReadiness || 'N/A' },
+        { label: 'Data Readiness', value: w.dataReadiness || 'N/A' },
+        { label: 'Deployment', value: w.deployment || 'N/A' },
+        { label: 'Dependencies', value: w.foundationDep != null ? (w.foundationDep <= 1 ? 'Minimal' : w.foundationDep <= 3 ? 'Moderate' : 'Heavy') : 'N/A' },
+        { label: 'Op Risk', value: w.opRisk != null ? (w.opRisk <= 1 ? 'Low' : w.opRisk <= 3 ? 'Moderate' : 'High') : 'N/A' },
       ]
     },
     {
       label: 'Feasibility',
       color: '#0f62fe',
-      score: w.feasNorm.toFixed(2),
-      contrib: w.feasContrib.toFixed(2),
-      weight: '15%',
-      detail: `Raw: ${w.feasibilityLabel} (${w.feasibility}/3)${w.complexity ? `, Complexity: ${w.complexity}` : ''}`,
-      equation: `(${w.feasibility} / 3) × 5 = ${w.feasNorm.toFixed(2)}`
+      score: w.feasNorm,
+      weight: 15,
+      summary: w.feasibilityLabel + (w.complexity ? ` · ${w.complexity} complexity` : '')
     },
     {
       label: 'Business Impact',
       color: '#24a148',
-      score: w.bizImpact.toFixed(2),
-      contrib: w.bizContrib.toFixed(2),
-      weight: '20%',
-      detail: `Raw score: ${w.bizImpact}/5 from blueprint assessment`,
-      equation: `${w.bizImpact} (raw, already 0–5)`
+      score: w.bizImpact,
+      weight: 20,
+      summary: w.bizImpact >= 4 ? 'High strategic value' : w.bizImpact >= 3 ? 'Moderate value' : 'Lower priority'
     },
     {
       label: 'Tech Stack Overlap',
       color: '#009d9a',
-      score: w.techNorm.toFixed(2),
-      contrib: w.techContrib.toFixed(2),
-      weight: '12%',
-      detail: `Summed Jaccard overlap with all ${n} other workflows. Raw total: ${w.techRaw}/${n * 5}. Tech: ${w.techs.length > 0 ? w.techs.join(', ') : 'none extracted'}`,
-      equation: `(${w.techRaw} / ${n * 5}) × 5 = ${w.techNorm.toFixed(2)}`
+      score: w.techNorm,
+      weight: 12,
+      summary: w.techs.length > 0 ? w.techs.slice(0, 5).join(', ') + (w.techs.length > 5 ? ` +${w.techs.length - 5} more` : '') : 'No shared tech extracted'
     },
     {
       label: 'Data Source Overlap',
       color: '#8a3ffc',
-      score: w.dataNorm.toFixed(2),
-      contrib: w.dataContrib.toFixed(2),
-      weight: '12%',
-      detail: `Summed Jaccard overlap with all ${n} other workflows. Raw total: ${w.dataRaw}/${n * 5}. Sources: ${w.dataSources.length > 0 ? w.dataSources.join(', ') : 'none extracted'}`,
-      equation: `(${w.dataRaw} / ${n * 5}) × 5 = ${w.dataNorm.toFixed(2)}`
+      score: w.dataNorm,
+      weight: 12,
+      summary: w.dataSources.length > 0 ? w.dataSources.slice(0, 5).join(', ') + (w.dataSources.length > 5 ? ` +${w.dataSources.length - 5} more` : '') : 'No shared data sources extracted'
     },
     {
       label: 'Future Extensions',
       color: '#d02670',
-      score: w.extensionScore.toFixed(2),
-      contrib: w.extContrib.toFixed(2),
-      weight: '16%',
-      detail: `Growth Harvey Ball: ${pct(w.harveyGrowth)}, Productivity Harvey Ball: ${pct(w.harveyProductivity)}`,
-      equation: `((${w.harveyGrowth} + ${w.harveyProductivity}) / 2) × 5 = ${w.extensionScore.toFixed(2)}`
+      score: w.extensionScore,
+      weight: 16,
+      summary: `Growth: ${pct(w.harveyGrowth)} · Productivity: ${pct(w.harveyProductivity)}`
     }
   ];
 
+  const compositeQuality = qualityLabel(w.composite, 5);
+
   let html = `
     <button class="close-btn" onclick="closeModal()">&times;</button>
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-      <div style="font-size:28px;font-weight:700;color:var(--carbon-blue-60)">#${rank + 1}</div>
-      <div>
-        <h3 style="margin:0"><span class="domain-badge" style="background:${c}"></span>${w.name}</h3>
-        <div style="font-size:12px;color:var(--text-secondary)">${w.domain}</div>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:20px">
+      <div style="width:44px;height:44px;border-radius:8px;background:${c};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0">${rank + 1}</div>
+      <div style="flex:1;min-width:0">
+        <h3 style="margin:0;font-size:16px;line-height:1.3">${w.name}</h3>
+        <div style="font-size:12px;color:var(--text-secondary);margin-top:2px">${w.domain}</div>
       </div>
-      <div style="margin-left:auto;text-align:right">
-        <div style="font-size:28px;font-weight:700;color:var(--text-primary)">${w.composite.toFixed(2)}</div>
-        <div style="font-size:11px;color:var(--text-secondary)">Composite Score</div>
+      <div style="text-align:right;flex-shrink:0">
+        <div style="font-size:32px;font-weight:300;line-height:1;color:${compositeQuality.color}">${w.composite.toFixed(1)}</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:2px">out of 5.0 · ${compositeQuality.text}</div>
       </div>
     </div>
 
     ${(w.wave || w.deliveryPattern || w.controlPattern || w.agentMode) ? `
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px">
       ${w.wave ? `<span class="tag" style="border-color:#0f62fe;color:#0f62fe">${w.wave}</span>` : ''}
       ${w.deliveryPattern ? `<span class="tag">${w.deliveryPattern}</span>` : ''}
       ${w.controlPattern ? `<span class="tag">${w.controlPattern}</span>` : ''}
@@ -4504,65 +4508,64 @@ function showRankingBreakdown(w, rank) {
       ${w.entityClarity ? `<span class="tag">${w.entityClarity}</span>` : ''}
     </div>` : ''}
 
-    <div class="breakdown-grid">
-      ${cards.map(c => `
-        <div class="breakdown-card" style="border-color:${c.color};background:${c.color}08">
-          <div class="bc-label" style="color:${c.color}">${c.label} <span style="color:var(--text-placeholder);font-weight:400">(${c.weight})</span></div>
-          <div style="display:flex;align-items:baseline;gap:8px">
-            <div class="bc-score" style="color:${c.color}">${c.score}</div>
-            <div style="font-size:12px;color:var(--text-secondary)">× ${c.weight} = <strong>${c.contrib}</strong></div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      ${dimensions.map(d => {
+        return `
+        <div style="padding:14px 0;border-bottom:1px solid var(--border-subtle)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:3px;height:14px;border-radius:2px;background:${d.color}"></div>
+              <span style="font-size:13px;font-weight:600;color:var(--text-primary)">${d.label}</span>
+              <span style="font-size:11px;color:var(--text-placeholder)">${d.weight}%</span>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:4px">
+              <span style="font-size:18px;font-weight:600;color:${d.color}">${d.score.toFixed(1)}</span>
+              <span style="font-size:11px;color:var(--text-placeholder)">/5</span>
+            </div>
           </div>
-          ${c.subScores ? `
-            <div style="margin:6px 0 2px">
-              ${c.subScores.map(s => `
-                <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0;border-bottom:1px solid var(--border-subtle)">
-                  <span style="color:var(--text-secondary)">${s.label} <span style="color:var(--text-placeholder)">(${s.weight})</span></span>
-                  <span><strong>${s.raw}</strong> → ${s.norm.toFixed(1)}</span>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+            ${scoreBar(d.score, 5, d.color)}
+          </div>
+          ${d.items ? `
+            <div style="display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:8px">
+              ${d.items.map(item => `
+                <div style="font-size:11px;color:var(--text-secondary)">
+                  <span style="color:var(--text-placeholder)">${item.label}:</span> <strong>${item.value}</strong>
                 </div>
               `).join('')}
             </div>
-          ` : `<div class="bc-detail">${c.detail}</div>`}
-          <div class="bc-equation">${c.equation}</div>
-        </div>
-      `).join('')}
-    </div>
-
-    <div class="breakdown-equation-summary">
-      <h4>Composite Calculation</h4>
-      ${cards.map(c => `
-        <div class="equation-line">
-          <span style="color:${c.color};font-weight:600">${c.label}</span>:
-          <span class="eq-val">${c.score}</span> × ${c.weight} = <span class="eq-val">${c.contrib}</span>
-        </div>
-      `).join('')}
-      <div class="equation-total">
-        Total: ${cards.map(c => c.contrib).join(' + ')} = ${w.composite.toFixed(2)}
-      </div>
+          ` : `<div style="font-size:12px;color:var(--text-secondary)">${d.summary}</div>`}
+        </div>`;
+      }).join('')}
     </div>`;
 
   // Tech overlap peers
   if (w.techOverlaps.length > 0) {
-    const topTech = w.techOverlaps.sort((a, b) => b.score - a.score).slice(0, 8);
+    const topTech = w.techOverlaps.sort((a, b) => b.score - a.score).slice(0, 6);
     html += `
-      <div class="overlap-peers">
-        <h4>Highest Tech Overlap Peers</h4>
+      <div style="margin-top:20px">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-placeholder);margin-bottom:8px">Related by Technology</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px">
         ${topTech.map(p => {
           const pc = DOMAIN_COLORS[p.domain] || '#525252';
-          return `<span class="peer-chip"><span class="domain-badge" style="background:${pc}"></span>${p.name} <span class="peer-shared">${p.shared.join(', ')}</span></span>`;
+          return `<span class="peer-chip"><span class="domain-badge" style="background:${pc}"></span>${p.name}</span>`;
         }).join('')}
+        </div>
       </div>`;
   }
 
   // Data overlap peers
   if (w.dataOverlaps.length > 0) {
-    const topData = w.dataOverlaps.sort((a, b) => b.score - a.score).slice(0, 8);
+    const topData = w.dataOverlaps.sort((a, b) => b.score - a.score).slice(0, 6);
     html += `
-      <div class="overlap-peers">
-        <h4>Highest Data Source Overlap Peers</h4>
+      <div style="margin-top:16px">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-placeholder);margin-bottom:8px">Related by Data Sources</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px">
         ${topData.map(p => {
           const pc = DOMAIN_COLORS[p.domain] || '#525252';
-          return `<span class="peer-chip"><span class="domain-badge" style="background:${pc}"></span>${p.name} <span class="peer-shared">${p.shared.join(', ')}</span></span>`;
+          return `<span class="peer-chip"><span class="domain-badge" style="background:${pc}"></span>${p.name}</span>`;
         }).join('')}
+        </div>
       </div>`;
   }
 
