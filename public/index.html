@@ -2145,7 +2145,7 @@
   <a href="#" data-page="ix-combined">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
-    <span class="nav-meta">57%</span>
+    <span class="nav-meta">62%</span>
   </a>
   <a href="#" data-page="ix-to">
     <span class="nav-dot" style="background:#009d9a"></span>
@@ -4940,41 +4940,31 @@ renderRankings();
   }
 
   // ---- Hook into fragment loading for iX pages ----
-  const origIxCache = window.ixCache;
-  // Patch: after iX fragment is injected, run animations on it
-  const origFetch = window.fetch;
-  // We'll use a MutationObserver on the main container instead
-  const mainEl = document.querySelector('.main');
-  if (mainEl) {
-    const mo = new MutationObserver((mutations) => {
-      mutations.forEach(m => {
-        m.addedNodes.forEach(node => {
-          if (node.nodeType === 1) {
-            // Small delay to let fragment scripts execute first
-            setTimeout(() => initAnimations(node.parentElement || node), 50);
-          }
-        });
-      });
-    });
-    mo.observe(mainEl, { childList: true, subtree: true });
-  }
-
-  // ---- Init on page load ----
-  // Use requestAnimationFrame to ensure DOM paint before we measure
-  requestAnimationFrame(() => {
-    initAnimations(document);
-    // Rankings are rendered synchronously in a <script>, so init after a tick
-    setTimeout(initRankingsAnimations, 50);
-  });
-
-  // Also re-init when sidebar nav switches pages (for already-loaded pages)
+  // After each sidebar nav click, poll until fragment content appears, then animate
   document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
     link.addEventListener('click', () => {
-      setTimeout(() => {
-        initAnimations(document);
-        initRankingsAnimations();
+      const pageId = link.dataset.page;
+      const target = document.getElementById('page-' + pageId);
+      if (!target) return;
+      // Poll for content (fragments load async)
+      let attempts = 0;
+      const check = setInterval(() => {
+        attempts++;
+        if (target.querySelector('.dash-card, .domain-header, .panel-header') || attempts > 30) {
+          clearInterval(check);
+          if (attempts <= 30) {
+            initAnimations(target);
+            initRankingsAnimations();
+          }
+        }
       }, 100);
     });
+  });
+
+  // ---- Init on page load ----
+  requestAnimationFrame(() => {
+    initAnimations(document);
+    setTimeout(initRankingsAnimations, 50);
   });
 
 })();
