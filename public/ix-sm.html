@@ -1,0 +1,484 @@
+  <section id="sm-domain" class="domain-divider">
+    <div class="domain-header">
+      <h2>Select Marketing Workflow Mapping</h2>
+      <p>Mapping 20 Select Marketing workflows from 20 iX discovery PDFs to 6 Select Demand Strategy AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
+    </div>
+
+    <div class="content">
+      <!-- Dashboard -->
+      <div class="dashboard">
+        <div class="dash-card neutral">
+          <div class="label">Total iX Processes</div>
+          <div class="value">20</div>
+          <div class="detail">10 Co-Mktg Ops + 5 Partner Intel + 3 Content + 2 Demand</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Blueprint Initiatives</div>
+          <div class="value">6</div>
+          <div class="detail">SDS-SDS-23 through SDS-SDS-28</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Mapped Processes</div>
+          <div class="value">19</div>
+          <div class="detail">Strong or medium confidence match</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Gap Processes</div>
+          <div class="value">1</div>
+          <div class="detail">No initiative or weak match only</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Coverage Rate</div>
+          <div class="value">95%</div>
+          <div class="detail">Target: 70% &mdash; exceeds by 25 pts</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Needed to Hit 70%</div>
+          <div class="value">0</div>
+          <div class="detail">Target already exceeded</div>
+        </div>
+      </div>
+
+      <!-- Coverage bar -->
+      <div class="coverage-bar-container">
+        <h3>Coverage vs. 70% Agentification Target</h3>
+        <div class="coverage-bar-track">
+          <div class="coverage-bar-fill above" style="width: 95%;"></div>
+          <div class="target-marker" style="left: 70%;"></div>
+        </div>
+        <div class="coverage-label">
+          <span>0%</span>
+          <span>19 of 20 processes mapped (95%)</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- Blueprint Initiatives Overview -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Blueprint Initiatives</h3>
+          <span class="count">6 Select Demand Strategy initiatives from Master Excel</span>
+        </div>
+        <div class="initiative-grid">
+          <div class="initiative-card">
+            <h4>Co-Marketing Process Automation</h4>
+            <div class="id">SDS-SDS-25</div>
+            <div class="desc">Scalable, auditable co-marketing system of record with accurate revenue ingestion, consistent earnings calculations, real-time partner visibility, and streamlined partner support.</div>
+            <div class="mapped-count">11 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Partner Performance Intelligence</h4>
+            <div class="id">SDS-SDS-24</div>
+            <div class="desc">Holistic, real-time visibility into partner performance by unifying data across systems, surfacing trends and co-visibility across all partner types.</div>
+            <div class="mapped-count">5 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Audience, Content &amp; Journey Orchestration</h4>
+            <div class="id">SDS-SDS-26</div>
+            <div class="desc">Unified workflow combining audience segmentation, journey, and content orchestration. Maps content to buyer-journey stages driven by audience and taxonomy.</div>
+            <div class="mapped-count">2 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Demand Intelligence &amp; Planning</h4>
+            <div class="id">SDS-SDS-23</div>
+            <div class="desc">Combines demand planning with funnel analysis into a single intelligence layer. Monitors pipeline health and marketing performance.</div>
+            <div class="mapped-count">1 process mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>AI Taxonomy Tagging &amp; Metadata Generation</h4>
+            <div class="id">SDS-SDS-27</div>
+            <div class="desc">Analyzes content assets in AEM and auto-generates structured taxonomy tags, metadata classifications, and content attributes.</div>
+            <div class="mapped-count">0 processes mapped</div>
+          </div>
+          <div class="initiative-card">
+            <h4>Chatbot Expansion (Next Agents)</h4>
+            <div class="id">SDS-SDS-28</div>
+            <div class="desc">Adds domain-specific agents (training, checkout, community, contact/support) under a single chat experience across all digital channels.</div>
+            <div class="mapped-count">0 processes mapped</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Mapping Table -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Complete Process-to-Initiative Mapping</h3>
+          <span class="count">20 iX processes</span>
+        </div>
+
+        <div class="filter-bar" id="sm-filter-bar">
+          <button class="filter-tab active" onclick="filterTableSM('all',this)">All (20)</button>
+          <button class="filter-tab" onclick="filterTableSM('mapped',this)">Mapped (19)</button>
+          <button class="filter-tab" onclick="filterTableSM('gap',this)">Gaps (1)</button>
+          <button class="filter-tab" onclick="filterTableSM('comktg',this)">Co-Mktg Ops (10)</button>
+          <button class="filter-tab" onclick="filterTableSM('intel',this)">Partner Intel (5)</button>
+          <button class="filter-tab" onclick="filterTableSM('content',this)">Content &amp; Comms (3)</button>
+          <button class="filter-tab" onclick="filterTableSM('demand',this)">Demand (2)</button>
+        </div>
+
+        <table id="sm-mapping-table">
+          <thead>
+            <tr>
+              <th style="width:3%">#</th>
+              <th style="width:5%">Sub-domain</th>
+              <th style="width:18%">iX Process</th>
+              <th style="width:20%">Maps To</th>
+              <th style="width:7%">Confidence</th>
+              <th style="width:5%">Status</th>
+              <th style="width:42%">Rationale &amp; Process Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Co-Marketing Ops — Mapped -->
+            <tr data-sub="comktg" data-status="mapped">
+              <td>1</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Co-Marketing Budget Forecasting</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Monthly forecasting cycle: review current forecast, gather local team input, create new forecast in spreadsheets, save/share via BOX.</div>
+                <div class="mapping-rationale">Budget forecasting is core co-marketing operations. SDS-25 provides automated, auditable budget management.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>2</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Budget Strategy &amp; Program Framework</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Cross-functional budget strategy: stakeholder meetings, program framework, eligibility criteria, governance approvals, revenue-based eligibility processing, MAP requirements definition.</div>
+                <div class="mapping-rationale">Program framework and eligibility automation are the foundation of SDS-25's system of record.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>3</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Global Co-Marketing Planning Process</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">End-to-end CMC workflow: partner access setup, IO creation (checklist, Ts/Cs), fund allocation, MAP submission, budget validation, approval.</div>
+                <div class="mapping-rationale">Direct 1:1 match &mdash; this is the core process SDS-25 automates. IO setup, MAP intake, and approval are all in scope.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>4</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">MAP Intake &amp; Initial Review</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Intake MAPs from BPs/VADs, validate completeness (budget, eligibility, tactic/product rules), provide guidance, approve, enable execution, begin tracking.</div>
+                <div class="mapping-rationale">MAP intake and validation are core sub-processes of co-marketing automation.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>5</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">MAP Completeness Validation</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Validate MAPs against budget limits, confirm partner/tactic eligibility, validate tactic/product rules, flag non-compliant MAPs.</div>
+                <div class="mapping-rationale">Automated validation rules are a key feature of the co-marketing system of record.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>6</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Flagged MAP Review &amp; Governance</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Review flagged MAPs, approve or provide adjustment recommendations, ensure updates follow rules, conduct audits, track KPIs.</div>
+                <div class="mapping-rationale">Governance and exception handling are within the auditable system of record scope.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>7</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Co-Marketing Budget Distribution &amp; Compliance</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Manage GEO allocation, monitor utilisation/pacing, rebalance underspend, compliance oversight, audits, KPI dashboards, management reviews.</div>
+                <div class="mapping-rationale">Budget distribution, compliance, and real-time visibility are core SDS-25 capabilities.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>8</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Activity Execution Tracking</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Track execution progress, monitor deliverables, update budgets/spend during execution, ensure compliance, performance reporting.</div>
+                <div class="mapping-rationale">Execution tracking and spend monitoring are part of the automated co-marketing lifecycle.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>9</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Claims Eligibility Validation</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Validate claims for eligibility, check available budget, review proof-of-performance, approve/reject, communicate remediation steps.</div>
+                <div class="mapping-rationale">Claims validation with consistent earnings calculations and audit trail is a core SDS-25 deliverable.</div>
+              </td>
+            </tr>
+            <tr data-sub="comktg" data-status="mapped">
+              <td>10</td>
+              <td><span class="tag tag-comktg">Co-Mktg</span></td>
+              <td class="process-name">Claims Payment Processing</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Receive approved claims, send to payment system, update claim status for partner visibility, notify partners of outcomes.</div>
+                <div class="mapping-rationale">Payment processing and partner visibility are final steps in the co-marketing automation pipeline.</div>
+              </td>
+            </tr>
+            <!-- Partner Intelligence — Mapped -->
+            <tr data-sub="intel" data-status="mapped">
+              <td>11</td>
+              <td><span class="tag tag-intel">Intel</span></td>
+              <td class="process-name">Partner Target List Generation</td>
+              <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">End-to-end target list creation: pull partner data from PRM/ISC, map authorizations, score product-partner fit, analyze intent data, propensity scoring, conflict checking, tier definition, deliver ranked list.</div>
+                <div class="mapping-rationale">Direct match &mdash; partner scoring, propensity analysis, and performance visibility are the core of SDS-24.</div>
+              </td>
+            </tr>
+            <tr data-sub="intel" data-status="mapped">
+              <td>12</td>
+              <td><span class="tag tag-intel">Intel</span></td>
+              <td class="process-name">Cross-Sell Identification</td>
+              <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Triggered on close-won: aggregate account data, match clients via vector embeddings, detect expansion trends, filter by authorization, deliver explainable recommendations, monitor pipeline expansion.</div>
+                <div class="mapping-rationale">Cross-sell analytics and partner-product intelligence feed directly into SDS-24's unified performance layer.</div>
+              </td>
+            </tr>
+            <tr data-sub="intel" data-status="mapped">
+              <td>13</td>
+              <td><span class="tag tag-intel">Intel</span></td>
+              <td class="process-name">Tactic/Channel Performance Learnings</td>
+              <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Ingest partner oppty/sales/MAP data, normalize taxonomy, build benchmarks, cluster partners by performance, analyze tactic-pipeline correlation, generate channel guidance.</div>
+                <div class="mapping-rationale">Tactic performance analytics and partner clustering are core SDS-24 intelligence capabilities.</div>
+              </td>
+            </tr>
+            <tr data-sub="intel" data-status="mapped">
+              <td>14</td>
+              <td><span class="tag tag-intel">Intel</span></td>
+              <td class="process-name">Partner Coverage Model Development</td>
+              <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Monthly VAD reporting: extract tiering/proficiency/pipeline data, create reports, review skill gaps, co-marketing allocation, demand generation KPIs, carrying capacity analysis.</div>
+                <div class="mapping-rationale">Partner proficiency tracking, co-marketing utilization, and KPI comparison are SDS-24 performance intelligence features.</div>
+              </td>
+            </tr>
+            <tr data-sub="intel" data-status="mapped">
+              <td>15</td>
+              <td><span class="tag tag-intel">Intel</span></td>
+              <td class="process-name">Ideal Partner Profile Building</td>
+              <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Define business objectives, create segmentation criteria, validate with SME, collect EPM data, upload to CMDP, transfer to Tableau, extract segmented partner CSV.</div>
+                <div class="mapping-rationale">Partner segmentation and profiling are foundational to SDS-24's partner intelligence layer.</div>
+              </td>
+            </tr>
+            <!-- Content & Comms — Mapped + Gap -->
+            <tr data-sub="content" data-status="mapped">
+              <td>16</td>
+              <td><span class="tag tag-content">Content</span></td>
+              <td class="process-name">Partner Content Creation Process</td>
+              <td><span class="tag tag-initiative">Audience, Content &amp; Journey Orchestration</span></td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Content request intake, brief creation, Workfront tactic, Blue Studio production, legal review, Author Certification, iteration, DAM/Media Center publishing.</div>
+                <div class="mapping-rationale">Partner content creation is part of the broader content orchestration workflow. SDS-26 covers the content-to-journey pipeline.</div>
+              </td>
+            </tr>
+            <tr data-sub="content" data-status="mapped">
+              <td>17</td>
+              <td><span class="tag tag-content">Content</span></td>
+              <td class="process-name">Partner Communications &amp; Newsletter</td>
+              <td><span class="tag tag-initiative">Audience, Content &amp; Journey Orchestration</span></td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Workfront editorial board request, newsletter/newsflash planning, Marketo content creation, KNAK test emails, audience segmentation, scheduling &amp; delivery.</div>
+                <div class="mapping-rationale">Newsletter orchestration with audience segmentation and Marketo delivery maps to SDS-26's audience and journey orchestration scope.</div>
+              </td>
+            </tr>
+            <tr data-sub="content" data-status="gap">
+              <td>18</td>
+              <td><span class="tag tag-content">Content</span></td>
+              <td class="process-name">Client &amp; Partner Story Creation</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td>
+                <div class="process-detail">Story request via Workfront, scoring against criteria, background collection, legal/brand approvals, Blue Studio production (avg 2 months), IBM.com publishing, social amplification, event reuse.</div>
+                <div class="mapping-rationale">Editorial storytelling workflow with multi-party approvals and long production cycle. No initiative directly addresses story creation governance.</div>
+              </td>
+            </tr>
+            <!-- Demand & Progression — Mapped -->
+            <tr data-sub="demand" data-status="mapped">
+              <td>19</td>
+              <td><span class="tag tag-demand">Demand</span></td>
+              <td class="process-name">Integration of Partners in Demand</td>
+              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Partner responds to program comms, fills request form (Airtable), scored against IPP, 3-5 partners selected, outreach, kickoff, tactic alignment, post-event feedback.</div>
+                <div class="mapping-rationale">Partner integration into IBM campaigns is part of the co-marketing orchestration pipeline. Selection and governance fit SDS-25's system of record.</div>
+              </td>
+            </tr>
+            <tr data-sub="demand" data-status="mapped">
+              <td>20</td>
+              <td><span class="tag tag-demand">Demand</span></td>
+              <td class="process-name">Partner Progression &amp; Lead Pass</td>
+              <td><span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+              <td><span class="tag tag-medium">MEDIUM</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td>
+                <div class="process-detail">Weekly pipeline review: EPM insights, blocked deal analysis by Geo, historical analysis, identify common blockers, update progression framework, distribute kits to partners.</div>
+                <div class="mapping-rationale">Pipeline health monitoring, root cause analysis of blocked deals, and stakeholder reporting map to SDS-23's demand intelligence scope.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gap Analysis -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Gap Analysis</h3>
+          <span class="count">1 uncovered process</span>
+        </div>
+
+        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Gap: Client &amp; Partner Story Creation</h4>
+        <div class="gap-grid" style="margin-bottom: 1.5rem;">
+          <div class="gap-card">
+            <h4>Client &amp; Partner Story Creation</h4>
+            <div class="source-tag"><span class="tag tag-content">Content</span></div>
+            <p>Editorial storytelling workflow: Workfront request, criteria scoring, multi-party background collection, legal/brand approvals, Blue Studio production (avg 2-month cycle), IBM.com publishing, LinkedIn/social amplification, event reuse. No initiative directly addresses the editorial story creation and governance lifecycle.</p>
+          </div>
+        </div>
+        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-info);padding:0.75rem 1rem;font-size:0.8125rem;color:var(--cds-text-secondary);line-height:1.6;">
+          <strong style="color:var(--cds-text-primary);">Note:</strong> This gap could be addressed by extending <strong>SDS-SDS-26</strong> (Audience, Content &amp; Journey Orchestration) to include story creation workflows, or by the <strong>Creative &amp; Content</strong> domain initiatives (CC-CC-19&ndash;22) if story production is classified under that domain.
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Recommendations</h3>
+          <span class="count">Domain already exceeds 70% target</span>
+        </div>
+
+        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-success);padding:1rem;margin-bottom:1rem;">
+          <strong style="font-size:0.875rem;color:var(--cds-support-success);">Target exceeded:</strong>
+          <span style="font-size:0.875rem;color:var(--cds-text-secondary);"> Select Marketing achieves 95% coverage (19 of 20 processes mapped) &mdash; the highest coverage of any domain. The co-marketing lifecycle is exceptionally well-addressed by SDS-SDS-25.</span>
+        </div>
+
+        <ol class="reco-list">
+          <li>
+            <div>
+              <strong>Close the final gap: Extend SDS-SDS-26 to cover story creation</strong>
+              <div class="reco-detail">The Client &amp; Partner Story Creation process involves content orchestration with multi-party approvals. Expanding SDS-26's scope to include editorial story workflows would achieve 100% coverage.</div>
+              <div class="reco-impact">+1 process covered &rarr; 100%</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Alternative: Classify story creation under Creative &amp; Content domain</strong>
+              <div class="reco-detail">If story production is reclassified to the Creative &amp; Content domain (CC-CC-19&ndash;22), Select Marketing achieves 100% with no changes needed. The story process has stronger affinity with Blue Studio creative workflows than with partner demand operations.</div>
+              <div class="reco-impact">Reclassification &rarr; 100% (19 of 19)</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Leverage high coverage for cross-domain lessons</strong>
+              <div class="reco-detail">SDS-SDS-25 covers 11 processes alone &mdash; the highest initiative-to-process density. This initiative's co-marketing automation patterns (budget &rarr; MAP &rarr; execution &rarr; claims) could serve as a template for lifecycle automation in other domains.</div>
+              <div class="reco-impact">Strategic insight: use Select Marketing as the reference model for lifecycle coverage</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Initiative Coverage Depth -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Initiative Coverage Depth</h3>
+          <span class="count">Process count per initiative</span>
+        </div>
+        <table>
+          <thead><tr><th>Initiative</th><th>ID</th><th>Mapped</th><th>Depth</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="process-name">Co-Marketing Process Automation</td><td>SDS-SDS-25</td><td>11</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Highest: full co-marketing lifecycle (budget, MAP, execution, claims)</td></tr>
+            <tr><td class="process-name">Partner Performance Intelligence</td><td>SDS-SDS-24</td><td>5</td><td><div style="background:#a7f0ba;height:12px;width:45%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Target lists, cross-sell, tactic learnings, coverage model, ideal profile</td></tr>
+            <tr><td class="process-name">Audience, Content &amp; Journey Orchestration</td><td>SDS-SDS-26</td><td>2</td><td><div style="background:#a7f0ba;height:12px;width:18%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partner content creation + newsletter orchestration</td></tr>
+            <tr><td class="process-name">Demand Intelligence &amp; Planning</td><td>SDS-SDS-23</td><td>1</td><td><div style="background:#fddc69;height:12px;width:9%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partner progression &amp; lead pass (pipeline intelligence)</td></tr>
+            <tr><td class="process-name">AI Taxonomy Tagging &amp; Metadata</td><td>SDS-SDS-27</td><td>0</td><td><div style="background:#ffd7d9;height:12px;width:5%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">No direct match in iX workflows</td></tr>
+            <tr><td class="process-name">Chatbot Expansion</td><td>SDS-SDS-28</td><td>0</td><td><div style="background:#ffd7d9;height:12px;width:5%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">No direct match in iX workflows</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+<style>
+.tag-comktg { background: #d0e2ff; color: #002d9c; }
+.tag-intel { background: #e8daff; color: #491d8b; }
+.tag-content { background: #d9fbfb; color: #004144; }
+.tag-demand { background: #ffd6e8; color: #740937; }
+</style>
+
+<script>
+function filterTableSM(filter, el) {
+  const rows = document.querySelectorAll('#sm-mapping-table tbody tr');
+  const tabs = document.querySelectorAll('#sm-filter-bar .filter-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  rows.forEach(row => {
+    const sub = row.dataset.sub || '';
+    const status = row.dataset.status || '';
+    if (filter === 'all') row.style.display = '';
+    else if (filter === 'mapped') row.style.display = status === 'mapped' ? '' : 'none';
+    else if (filter === 'gap') row.style.display = status === 'gap' ? '' : 'none';
+    else if (filter === 'comktg') row.style.display = sub === 'comktg' ? '' : 'none';
+    else if (filter === 'intel') row.style.display = sub === 'intel' ? '' : 'none';
+    else if (filter === 'content') row.style.display = sub === 'content' ? '' : 'none';
+    else if (filter === 'demand') row.style.display = sub === 'demand' ? '' : 'none';
+  });
+}
+</script>
