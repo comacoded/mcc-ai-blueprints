@@ -2587,6 +2587,7 @@
   }
 
 </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
 
@@ -2598,55 +2599,46 @@
 
 <!-- Left Sidebar -->
 <nav class="sidebar">
-  <div class="sidebar-section-label">Comparison & Feasibility</div>
-  <a href="#" data-page="rankings" class="active">Best to Start With</a>
-  <a href="#" data-page="feasibility">Feasibility Comparison</a>
-  <a href="#" data-page="extensions">Future Extensions</a>
-  <a href="#" data-page="tech">Tech Stack Overlap</a>
-  <a href="#" data-page="data">Data Source Overlap</a>
-  <a href="#" data-page="tools">Tool Overlap</a>
-
-  <div class="sidebar-divider"></div>
   <div class="sidebar-section-label">iX Workflow Mapping</div>
-  <a href="#" data-page="ix-combined">
+  <a href="#" data-page="ix-combined" class="active">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
-    <span class="nav-meta">47%</span>
+    <span class="nav-meta">68%</span>
   </a>
   <a href="#" data-page="ix-to">
     <span class="nav-dot" style="background:#009d9a"></span>
     T&amp;O
-    <span class="nav-meta">52%</span>
+    <span class="nav-meta">100%</span>
   </a>
   <a href="#" data-page="ix-ca">
     <span class="nav-dot" style="background:#da1e28"></span>
     Corporate Affairs
-    <span class="nav-meta">45%</span>
+    <span class="nav-meta">57%</span>
   </a>
   <a href="#" data-page="ix-mmapi">
     <span class="nav-dot" style="background:#8a3ffc"></span>
     MMAPI
-    <span class="nav-meta">56%</span>
+    <span class="nav-meta">63%</span>
   </a>
   <a href="#" data-page="ix-na">
     <span class="nav-dot" style="background:#f1c21b"></span>
     Named Account
-    <span class="nav-meta">67%</span>
+    <span class="nav-meta">95%</span>
   </a>
   <a href="#" data-page="ix-sm">
     <span class="nav-dot" style="background:#24a148"></span>
     Select Marketing
-    <span class="nav-meta">95%</span>
+    <span class="nav-meta">100%</span>
   </a>
   <a href="#" data-page="ix-csr">
     <span class="nav-dot" style="background:#da1e28"></span>
     CSR
-    <span class="nav-meta">19%</span>
+    <span class="nav-meta">33%</span>
   </a>
   <a href="#" data-page="ix-cc">
     <span class="nav-dot" style="background:#24a148"></span>
     Content &amp; Creative
-    <span class="nav-meta">95%</span>
+    <span class="nav-meta">100%</span>
   </a>
 </nav>
 
@@ -2654,7 +2646,7 @@
 <div class="main">
 
   <!-- ===== COMPARISON PAGES ===== -->
-  <div class="page page-bp active" id="page-rankings">
+  <div class="page page-bp" id="page-rankings">
     <div class="bp-content" style="padding:24px 32px;">
       <div class="tab-panel active" id="panel-rankings"></div>
     </div>
@@ -2691,7 +2683,7 @@
   </div>
 
   <!-- ===== iX PAGES (lazy loaded) ===== -->
-  <div class="page page-ix" id="page-ix-combined"></div>
+  <div class="page page-ix active" id="page-ix-combined"></div>
   <div class="page page-ix" id="page-ix-to"></div>
   <div class="page page-ix" id="page-ix-ca"></div>
   <div class="page page-ix" id="page-ix-mmapi"></div>
@@ -2754,6 +2746,18 @@ document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
     window.scrollTo(0, 0);
   });
 });
+
+// Auto-navigate via ?page= query param (for Figma capture)
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const autoPage = params.get('page');
+  if (autoPage) {
+    setTimeout(() => {
+      const link = document.querySelector('.sidebar a[data-page="' + autoPage + '"]');
+      if (link) link.click();
+    }, 500);
+  }
+})();
 </script>
 
 <!-- ===== BLUEPRINT COMPARISON SCRIPTS ===== -->
@@ -2766,8 +2770,8 @@ const WORKFLOWS = [
     "name": "Grant Lifecycle Orchestrator Agent",
     "shortName": "Grant Lifecycle Orchestrator Agent",
     "bizImpact": 2,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 0.25,
     "harveyProductivity": 0.5,
     "techs": [
@@ -2805,8 +2809,8 @@ const WORKFLOWS = [
     "name": "RFI Ninja",
     "shortName": "RFI Ninja",
     "bizImpact": 5,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 1,
     "harveyProductivity": 0.75,
     "techs": [
@@ -2844,8 +2848,8 @@ const WORKFLOWS = [
     "name": "Press Release Orchestration Agent",
     "shortName": "Press Release Orchestration Agent",
     "bizImpact": 2,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.25,
     "techs": [
@@ -2995,8 +2999,8 @@ const WORKFLOWS = [
     "name": "Trigger-Based Content Activation (Starting with Thought Leadership and Analyst Reports)",
     "shortName": "Trigger-Based Content Activation (S...",
     "bizImpact": 4,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.75,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3082,8 +3086,8 @@ const WORKFLOWS = [
     "name": "Strategic Planning & Source of Truth (including MRD + Campaign Briefs)",
     "shortName": "Strategic Planning & Source of Trut...",
     "bizImpact": 5,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 1,
     "harveyProductivity": 1,
     "techs": [
@@ -3116,8 +3120,8 @@ const WORKFLOWS = [
     "name": "GenStudio\u00a0Content & Creative Expansion to All Supported Ad Formats",
     "shortName": "GenStudio\u00a0Content & Creative Expans...",
     "bizImpact": 5,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 3,
+    "feasibilityLabel": "HIGH",
     "harveyGrowth": 1,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3156,8 +3160,8 @@ const WORKFLOWS = [
     "name": "Content Creation (incl Localisation)",
     "shortName": "Content Creation (incl Localisation...",
     "bizImpact": 5,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 0.75,
     "harveyProductivity": 1,
     "techs": [
@@ -3276,8 +3280,8 @@ const WORKFLOWS = [
     "name": "Adobe POC Scaling: Ad Ops & Creative/Content Trafficking",
     "shortName": "Adobe POC Scaling: Ad Ops & Creativ...",
     "bizImpact": 4,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 1,
     "harveyProductivity": 0.5,
     "techs": [
@@ -3395,8 +3399,8 @@ const WORKFLOWS = [
     "name": "Workflow Automation From Thought Leadership to Marketo Activation",
     "shortName": "Workflow Automation From Thought Le...",
     "bizImpact": 3,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [
@@ -3439,8 +3443,8 @@ const WORKFLOWS = [
     "name": "Content & Forms Creation, QA, and Dynamic Content Optimization",
     "shortName": "Content & Forms Creation, QA, and D...",
     "bizImpact": 3,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [
@@ -3518,8 +3522,8 @@ const WORKFLOWS = [
     "name": "Client Engagement Playbook",
     "shortName": "Client Engagement Playbook",
     "bizImpact": 5,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 3,
+    "feasibilityLabel": "HIGH",
     "harveyGrowth": 1,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3606,8 +3610,8 @@ const WORKFLOWS = [
     "name": "Unified Agent (Innovation Studio)",
     "shortName": "Unified Agent (Innovation Studio)",
     "bizImpact": 5,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 1,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3645,6 +3649,7 @@ const WORKFLOWS = [
     "bizImpact": 3,
     "feasibility": 3,
     "feasibilityLabel": "HIGH",
+
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [
@@ -3677,8 +3682,8 @@ const WORKFLOWS = [
     "name": "Event Strategy & Workflow Orchestration",
     "shortName": "Event Strategy & Workflow Orchestra...",
     "bizImpact": 4,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 0.75,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3716,8 +3721,8 @@ const WORKFLOWS = [
     "name": "Executive & Account Leader Briefer",
     "shortName": "Executive & Account Leader Briefer",
     "bizImpact": 3,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [],
@@ -3750,8 +3755,8 @@ const WORKFLOWS = [
     "name": "Buying Group Contact Accuracy",
     "shortName": "Buying Group Contact Accuracy",
     "bizImpact": 3,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3786,11 +3791,11 @@ const WORKFLOWS = [
   },
   {
     "domain": "Named Account Marketing",
-    "name": "Event Briefer (v2+)",
-    "shortName": "Event Briefer (v2+)",
+    "name": "Agency Briefing Agent",
+    "shortName": "Agency Briefing Agent",
     "bizImpact": 3,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [
@@ -3899,8 +3904,8 @@ const WORKFLOWS = [
     "name": "Client Engagement Insights and Actionable Patterns",
     "shortName": "Client Engagement Insights and Acti...",
     "bizImpact": 5,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
+    "feasibility": 2,
+    "feasibilityLabel": "MEDIUM",
     "harveyGrowth": 1,
     "harveyProductivity": 0.75,
     "techs": [
@@ -3994,8 +3999,8 @@ const WORKFLOWS = [
     "name": "Audience, Content & Journey Orchestration",
     "shortName": "Audience, Content & Journey Orchest...",
     "bizImpact": 3,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [
@@ -4190,8 +4195,8 @@ const WORKFLOWS = [
     "name": "Chatbot Expansion (Next Agents)",
     "shortName": "Chatbot Expansion (Next Agents)",
     "bizImpact": 3,
-    "feasibility": 2,
-    "feasibilityLabel": "MED",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.75,
     "harveyProductivity": 0.75,
     "techs": [
@@ -4254,8 +4259,8 @@ const WORKFLOWS = [
     "name": "Budgeting and Planning",
     "shortName": "Budgeting and Planning",
     "bizImpact": 3,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 3,
+    "feasibilityLabel": "HIGH",
     "harveyGrowth": 0.5,
     "harveyProductivity": 0.5,
     "techs": [
@@ -4354,8 +4359,8 @@ const WORKFLOWS = [
     "name": "Tech Capability Intake",
     "shortName": "Tech Capability Intake",
     "bizImpact": 3,
-    "feasibility": 2,
-    "feasibilityLabel": "MEDIUM",
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
     "harveyGrowth": 0.75,
     "harveyProductivity": 0.25,
     "techs": [
@@ -4382,19 +4387,44 @@ const WORKFLOWS = [
   },
   {
     "domain": "T&O",
-    "name": "Agency Briefing Agent",
-    "shortName": "Agency Briefing Agent",
-    "bizImpact": 5,
-    "feasibility": 3,
-    "feasibilityLabel": "HIGH",
-    "harveyGrowth": 0.75,
-    "harveyProductivity": 0.75,
-    "techs": [
-      "ipa"
-    ],
-    "dataSources": [
-      "ipa"
-    ],
+    "name": "IPVN Testing Automation",
+    "shortName": "IPVN Testing Automation",
+    "bizImpact": 2,
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
+    "harveyGrowth": 0.25,
+    "harveyProductivity": 0.5,
+    "techs": [],
+    "dataSources": [],
+    "complexity": "",
+    "dataReadiness": "",
+    "dataReadinessNum": 0,
+    "platformReadiness": "",
+    "platformReadinessNum": 0,
+    "agentMode": "",
+    "agentModeNum": 0,
+    "deployment": "",
+    "deploymentNum": 0,
+    "wave": "",
+    "foundationDep": 0,
+    "opRisk": 0,
+    "deliveryPattern": "",
+    "deliveryApproach": "",
+    "controlPattern": "",
+    "entityClarity": "",
+    "dataSensitivity": ""
+  },
+  {
+    "domain": "T&O",
+    "name": "Risk Management Testing Automation",
+    "shortName": "Risk Management Testing Automation",
+    "bizImpact": 2,
+    "feasibility": 1,
+    "feasibilityLabel": "LOW",
+    "harveyGrowth": 0.25,
+    "harveyProductivity": 0.5,
+    "techs": [],
+    "dataSources": [],
     "complexity": "",
     "dataReadiness": "",
     "dataReadinessNum": 0,

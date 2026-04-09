@@ -1,0 +1,202 @@
+  <section id="ma-domain" class="domain-divider">
+    <div class="domain-header">
+      <h2>Marketing &amp; Automation Workflow Mapping</h2>
+      <p>Mapping the 11 IBM Marketing &amp; Automation core workflows (martech, demand operations, campaign execution) to 7 adjacent Blueprint initiatives across MMAPI, Named Account, and Select Demand</p>
+    </div>
+
+    <div class="content">
+      <!-- Dashboard -->
+      <div class="dashboard">
+        <div class="dash-card neutral">
+          <div class="label">Core Workflows</div>
+          <div class="value">11</div>
+          <div class="detail">Defined for the M&A domain</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Blueprint Initiatives</div>
+          <div class="value">7</div>
+          <div class="detail">M&A initiatives in master deck</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Covered Workflows</div>
+          <div class="value">9</div>
+          <div class="detail">6 fully + 3 partial (0.5 credit)</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Gap Workflows</div>
+          <div class="value">2</div>
+          <div class="detail">No matching AI initiative yet</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Coverage Rate</div>
+          <div class="value">68%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 2 pts</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Needed to Hit 70%</div>
+          <div class="value">+0</div>
+          <div class="detail">0 more workflows needed to hit 70%</div>
+        </div>
+      </div>
+
+      <!-- Coverage bar -->
+      <div class="coverage-bar-container">
+        <h3>Coverage vs. 70% Agentification Target</h3>
+        <div class="coverage-bar-track">
+          <div class="coverage-bar-fill below" style="width: 68%;"></div>
+          <div class="target-marker" style="left: 70%;"></div>
+        </div>
+        <div class="coverage-label">
+          <span>0%</span>
+          <span>6 fully + 3 partial of 11 workflows (68%)</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- Blueprint Initiatives Overview -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Blueprint Initiatives</h3>
+          <span class="count">7 M&A initiatives</span>
+        </div>
+        <div class="initiative-grid">
+          <div class="initiative-card">
+            <h4>Workflow Automation Thought Leadership → Marketo</h4>
+            <div class="id">MA-MA-01</div>
+            <div class="desc">End-to-end automation from thought leadership content capture into Marketo programs, lists, and nurture activations.</div>
+            <div class="mapped-count">2 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Audience, Content &amp; Journey Orchestration</h4>
+            <div class="id">MA-MA-02</div>
+            <div class="desc">Orchestrates audience segmentation, content selection, and journey execution across email, web, and ABM channels.</div>
+            <div class="mapped-count">3 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Buying Group Contact Accuracy</h4>
+            <div class="id">MA-MA-03</div>
+            <div class="desc">Maintains accurate buying group / contact data via enrichment, dedupe, and intent signal enrichment from 6sense and Demandbase.</div>
+            <div class="mapped-count">3 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Chatbot Expansion (Next Agents)</h4>
+            <div class="id">MA-MA-04</div>
+            <div class="desc">Expands conversational AI footprint on ibm.com with Drift/Qualified and watsonx Assistant routing.</div>
+            <div class="mapped-count">1 workflow mapped</div>
+          </div><div class="initiative-card">
+            <h4>Response Optimization Across Channels</h4>
+            <div class="id">MA-MA-05</div>
+            <div class="desc">Optimizes engagement and response rates across paid, owned, earned channels with attribution feedback.</div>
+            <div class="mapped-count">2 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Spend &amp; Performance Data Foundation</h4>
+            <div class="id">MA-MA-06</div>
+            <div class="desc">Foundation layer for campaign spend, performance, and ROI data across martech systems.</div>
+            <div class="mapped-count">2 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Event Strategy &amp; Workflow Orchestration</h4>
+            <div class="id">MA-MA-07</div>
+            <div class="desc">Manages registration, reminders, and follow-ups for Think, Red Hat Summit, TechXchange, and the always-on webinar program.</div>
+            <div class="mapped-count">1 workflow mapped</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapping Table -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Complete Workflow-to-Initiative Mapping</h3>
+          <span class="count">11 workflows</span>
+        </div>
+        <table id="ma-mapping-table">
+          <thead>
+            <tr>
+              <th style="width:4%">#</th>
+              <th style="width:22%">Workflow</th>
+              <th style="width:22%">Maps To</th>
+              <th style="width:8%">Confidence</th>
+              <th style="width:8%">Status</th>
+              <th style="width:36%">Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-status="gap">
+              <td>1</td>
+              <td class="process-name">Martech Stack Architecture &amp; Governance</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No initiative governs the integration patterns, data flows, or ownership across AEM, Eloqua, Salesforce, 6sense, Demandbase, Tealium, and Drift.</div></td>
+            </tr><tr data-status="partial">
+              <td>2</td>
+              <td class="process-name">Lead Database &amp; System Integration</td>
+              <td><span class="tag tag-initiative">Buying Group Contact Accuracy</span> <span class="tag tag-initiative">Spend & Performance Data Foundation</span></td>
+              <td><span class="tag tag-medium">MED</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Buying Group Contact Accuracy handles the contact-side data quality and Spend &amp; Performance Data Foundation provides analogous data plumbing — but neither owns the bidirectional Eloqua ↔ SFDC ↔ 6sense ↔ Cognos sync.</div></td>
+            </tr><tr data-status="mapped">
+              <td>3</td>
+              <td class="process-name">Campaign Build &amp; QA</td>
+              <td><span class="tag tag-initiative">Workflow Automation Thought Leadership → Marketo</span> <span class="tag tag-initiative">Audience, Content & Journey Orchestration</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Workflow Automation Thought Leadership → Marketo and Audience, Content &amp; Journey Orchestration directly cover the campaign build, AEM landing page, and tagging QA cycle.</div></td>
+            </tr><tr data-status="partial">
+              <td>4</td>
+              <td class="process-name">Email Marketing Operations</td>
+              <td><span class="tag tag-initiative">Workflow Automation Thought Leadership → Marketo</span></td>
+              <td><span class="tag tag-medium">MED</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Workflow Automation TL → Marketo automates content-driven sends but does not manage the global send calendar, deliverability, or regional coordination across NA, EMEA, AP, LATAM, and Japan.</div></td>
+            </tr><tr data-status="gap">
+              <td>5</td>
+              <td class="process-name">Landing Page &amp; Form Operations</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No initiative manages templated AEM/Eloqua page and form production, progressive profiling, or trial/event registration plumbing.</div></td>
+            </tr><tr data-status="partial">
+              <td>6</td>
+              <td class="process-name">Lead Scoring &amp; Qualification</td>
+              <td><span class="tag tag-initiative">Buying Group Contact Accuracy</span></td>
+              <td><span class="tag tag-medium">MED</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Buying Group Contact Accuracy maintains the underlying contact data, but no initiative owns the global scoring model, MQL/SAL/SQL threshold tuning, or quarterly conversion analysis.</div></td>
+            </tr><tr data-status="mapped">
+              <td>7</td>
+              <td class="process-name">Nurture Program Management</td>
+              <td><span class="tag tag-initiative">Audience, Content & Journey Orchestration</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Audience, Content &amp; Journey Orchestration directly runs the always-on nurture streams by persona, industry, and product.</div></td>
+            </tr><tr data-status="mapped">
+              <td>8</td>
+              <td class="process-name">ABM Orchestration</td>
+              <td><span class="tag tag-initiative">Audience, Content & Journey Orchestration</span> <span class="tag tag-initiative">Buying Group Contact Accuracy</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Audience, Content &amp; Journey Orchestration plus Buying Group Contact Accuracy together cover the 6sense/Demandbase ABM motion across web, paid display, and BDR outreach.</div></td>
+            </tr><tr data-status="mapped">
+              <td>9</td>
+              <td class="process-name">Event &amp; Webinar Automation</td>
+              <td><span class="tag tag-initiative">Event Strategy & Workflow Orchestration</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Event Strategy &amp; Workflow Orchestration directly handles registration, reminder, and follow-up flows for Think, Red Hat Summit, TechXchange, and ON24/Zoom webinars.</div></td>
+            </tr><tr data-status="mapped">
+              <td>10</td>
+              <td class="process-name">Web Personalization &amp; Conversational</td>
+              <td><span class="tag tag-initiative">Chatbot Expansion (Next Agents)</span> <span class="tag tag-initiative">Response Optimization Across Channels</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Chatbot Expansion (Next Agents) plus Response Optimization Across Channels cover Drift/Qualified routing and ibm.com personalization tests.</div></td>
+            </tr><tr data-status="mapped">
+              <td>11</td>
+              <td class="process-name">Analytics, Privacy &amp; MA CoE</td>
+              <td><span class="tag tag-initiative">Response Optimization Across Channels</span> <span class="tag tag-initiative">Spend & Performance Data Foundation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Response Optimization Across Channels and Spend &amp; Performance Data Foundation provide attribution and reporting; the CoE governance and privacy layer wraps both.</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>

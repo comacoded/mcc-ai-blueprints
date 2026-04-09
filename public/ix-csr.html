@@ -1,41 +1,41 @@
   <section id="csr-domain" class="domain-divider">
     <div class="domain-header">
-      <h2>CSR Workflow Mapping</h2>
-      <p>Mapping 105 CSR workflows from 105 iX discovery PDFs to 1 AI Blueprint initiative &mdash; measuring coverage against JA's 70% agentification target</p>
+      <h2>CSR Workflow Mapping &mdash; v3 (Trimmed)</h2>
+      <p>Curated subset of 15 high-leverage workflows (down from 105 iX-discovered processes) mapped to the single existing CSR Blueprint initiative. Aligned to the 8-bucket normalization from the colleague tear-down.</p>
     </div>
 
     <div class="content">
       <!-- Dashboard -->
       <div class="dashboard">
         <div class="dash-card neutral">
-          <div class="label">Total iX Processes</div>
-          <div class="value">105</div>
-          <div class="detail">From 105 PDFs</div>
+          <div class="label">Total iX Workflows</div>
+          <div class="value">15</div>
+          <div class="detail">v3 trim from 105 (86% reduction)</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Blueprint Initiatives</div>
           <div class="value">1</div>
-          <div class="detail">CSR-CSR-10</div>
-        </div>
-        <div class="dash-card target-hit">
-          <div class="label">Mapped Processes</div>
-          <div class="value">20</div>
-          <div class="detail">Strong or medium confidence match</div>
+          <div class="detail">CSR-CSR-10 (Grant Lifecycle Orchestrator)</div>
         </div>
         <div class="dash-card target-miss">
-          <div class="label">Gap Processes</div>
-          <div class="value">85</div>
-          <div class="detail">No initiative or weak match only</div>
+          <div class="label">Mapped Workflows</div>
+          <div class="value">5</div>
+          <div class="detail">Grant + partner lifecycle steps</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Gap Workflows</div>
+          <div class="value">10</div>
+          <div class="detail">LX, content, reporting, volunteerism, impact</div>
         </div>
         <div class="dash-card target-miss">
           <div class="label">Coverage Rate</div>
-          <div class="value">19%</div>
-          <div class="detail">Target: 70% &mdash; shortfall of 51 pts</div>
+          <div class="value">33%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 37 pts</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Needed to Hit 70%</div>
-          <div class="value">+54</div>
-          <div class="detail">70% &times; 105 = 74 needed &minus; 20 mapped = +54</div>
+          <div class="value">+6</div>
+          <div class="detail">70% &times; 15 = 11 needed &minus; 5 mapped = +6</div>
         </div>
       </div>
 
@@ -43,14 +43,27 @@
       <div class="coverage-bar-container">
         <h3>Coverage vs. 70% Agentification Target</h3>
         <div class="coverage-bar-track">
-          <div class="coverage-bar-fill below" style="width: 19%;"></div>
+          <div class="coverage-bar-fill below" style="width: 33%;"></div>
           <div class="target-marker" style="left: 70%;"></div>
         </div>
         <div class="coverage-label">
           <span>0%</span>
-          <span>20 of 105 processes mapped (19%)</span>
+          <span>5 of 15 workflows mapped (33%)</span>
           <span>100%</span>
         </div>
+      </div>
+
+      <!-- Why v3 -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Why v3 trim</h3>
+          <span class="count">105 &rarr; 15</span>
+        </div>
+        <ul style="line-height:1.6;color:var(--cds-text-secondary);">
+          <li><strong>Removes noise.</strong> The 105-process iX list bundled together core program workflows (grants, partner lifecycle, learning experiences) with low-leverage admin (vulnerability scans, charge-code creation, COM115 reviews, SCORM settings). The v3 trim keeps only the workflows that actually move the agentification needle.</li>
+          <li><strong>Aligned to colleague's 8-bucket normalization.</strong> v3 preserves 7 of 8 buckets: <em>IBM SkillsBuild</em> (11), <em>Geos &amp; Markets</em>, <em>Giving &amp; Volunteerism</em>, <em>Grants Execution</em>, <em>Responsible Business</em>. Intentionally drops the <em>Marketing</em> (logo request) and <em>Platforms &amp; Technology</em> (site maintenance) buckets.</li>
+          <li><strong>Exposes the real gap.</strong> Coverage drops from an inflated 60% (where the denominator was padded by low-value admin) to an honest <strong>33%</strong>. The remaining 10 gaps now point clearly at the initiatives CSR is missing: LX orchestration, content lifecycle, reporting/insights, volunteerism, and impact disclosure.</li>
+        </ul>
       </div>
 
       <!-- Initiatives Overview -->
@@ -64,7 +77,7 @@
             <h4>Grant Lifecycle Orchestrator Agent</h4>
             <div class="id">CSR-CSR-10</div>
             <div class="desc">Manages the end-to-end grant lifecycle from partner identification and onboarding through intake, compliance, milestones, payments, and reporting. Automates compliance checks across BVD, DPL, Salesforce, RCI (currently 40-50% admin effort).</div>
-            <div class="mapped-count">20 processes mapped (11 HIGH, 9 MEDIUM)</div>
+            <div class="mapped-count">5 of 15 v3 workflows mapped</div>
           </div>
         </div>
       </div>
@@ -72,391 +85,70 @@
       <!-- Full Mapping Table -->
       <div class="section">
         <div class="section-header">
-          <h3>Complete Process-to-Initiative Mapping</h3>
-          <span class="count">105 iX processes</span>
+          <h3>v3 Trim &mdash; 15 Workflows</h3>
+          <span class="count">15 workflows</span>
         </div>
         <div class="filter-bar" id="csr-filter-bar">
-          <button class="filter-tab active" onclick="filterTableCSR('all',this)">All (105)</button>
-          <button class="filter-tab" onclick="filterTableCSR('mapped',this)">Mapped (20)</button>
-          <button class="filter-tab" onclick="filterTableCSR('gap',this)">Gaps (85)</button>
-          <button class="filter-tab" onclick="filterTableCSR('gp',this)">GP (17)</button>
-          <button class="filter-tab" onclick="filterTableCSR('sb',this)">SB (22)</button>
-          <button class="filter-tab" onclick="filterTableCSR('lx',this)">LX (19)</button>
-          <button class="filter-tab" onclick="filterTableCSR('ra',this)">RA (14)</button>
-          <button class="filter-tab" onclick="filterTableCSR('cs',this)">CS (13)</button>
-          <button class="filter-tab" onclick="filterTableCSR('vg',this)">VG (10)</button>
-          <button class="filter-tab" onclick="filterTableCSR('of',this)">OF (10)</button>
+          <button class="filter-tab active" onclick="filterTableCSR('all',this)">All (15)</button>
+          <button class="filter-tab" onclick="filterTableCSR('mapped',this)">Mapped (5)</button>
+          <button class="filter-tab" onclick="filterTableCSR('gap',this)">Gaps (10)</button>
         </div>
         <table id="csr-mapping-table">
           <thead>
             <tr>
               <th style="width:3%">#</th>
-              <th style="width:8%">Sub-domain</th>
-              <th style="width:17%">iX Process</th>
-              <th style="width:18%">Maps To</th>
-              <th style="width:6%">Conf.</th>
-              <th style="width:5%">Status</th>
-              <th style="width:43%">Rationale &amp; Process Details</th>
+              <th style="width:22%">iX Workflow</th>
+              <th style="width:22%">Bucket &rarr; Sub-grouping</th>
+              <th style="width:14%">Maps To</th>
+              <th style="width:7%">Status</th>
+              <th style="width:32%">Rationale</th>
             </tr>
           </thead>
           <tbody>
-            <!-- MAPPED (20) -->
-            <tr data-sub="gp" data-status="mapped"><td>1</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Accounting for Projects Under Incentive Laws (Brazil)</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because Brazil Incentive Law grant payments and compliance checks run through Versaic, which is the core system the Grant Lifecycle Orchestrator automates.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>2</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Account/Organization Workflow</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because partner identification, qualification, grant award, and renewal cycle management are the end-to-end lifecycle steps the agent orchestrates.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>3</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Ad-Hoc Reporting (Lyle)</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because ad-hoc data reporting and analysis infrastructure falls outside the grant lifecycle scope, and no CSR Blueprint initiative covers analytics or reporting workflows.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>4</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Add Metrics to Tableau Dashboard</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because Tableau dashboard development and metric configuration require an analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>5</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Alert Dashboard</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because volunteering and giving transaction monitoring is an employee engagement function entirely outside the grant lifecycle that Grant Lifecycle Orchestrator Agent covers.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>6</td><td><span class="tag tag-of">OF</span></td><td class="process-name">Annual Promo Credit Request</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because annual cloud promo credit budgeting is an operational finance process with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>7</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Annual Verification of Org (Before Grants)</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because annual compliance verification of grant recipients before renewal is a core compliance check the agent automates via BVD, DPL, and Salesforce.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>8</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">APM, GPA, RTA and DMG Creation/Maintenance</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because APM, GPA, RTA, and DMG documentation are IT governance artifacts with no connection to grant lifecycle operations.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>9</td><td><span class="tag tag-of">OF</span></td><td class="process-name">Applying for IBM Public Cloud PoC Account</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because IBM Public Cloud PoC account provisioning is operational infrastructure management, not grant lifecycle.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>10</td><td><span class="tag tag-of">OF</span></td><td class="process-name">Applying Promo Code</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because promo code application and cloud credit redemption are operational finance tasks outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>11</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Automated Grant Qualification in Versaic</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because automated grant qualification in Versaic is a direct function the Grant Lifecycle Orchestrator manages, including validation rules and eligibility checks.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>12</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Benchmarking Against Peers</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because ESG peer benchmarking and competitive analysis require a reporting and analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>13</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Bulk Registration</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because bulk learner registration is a SkillsBuild platform operation managing user accounts, not grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>14</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Client Code of Conducts</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because client code of conduct reviews are ESG compliance activities that operate independently of the grant lifecycle.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>15</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Client Inquiries</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because ESG and sustainability client inquiries are handled through a separate compliance function, not through grant lifecycle workflows.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>16</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Content Translation Process</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because multi-language course content translation is a learning experience operation with no touchpoint to grant compliance or partner management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>17</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Content Updates</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because course content maintenance and update cycles are learning experience operations managed outside the grant lifecycle.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>18</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Core SkillsBuild PM Systems from Versaic</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because weekly/monthly syncing of grant data from Versaic to Airtable and Monday is a core data orchestration step the agent automates to reduce manual reconciliation.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>19</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Corporate Instruction COM115 Reviews</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because COM115 corporate instruction reviews and ESG disclosure approvals are regulatory compliance activities independent of grant management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>20</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Course Selection for Partners/Students</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because course curation and selection for partners and students is a learning experience function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>21</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Creating Volunteer Opportunity for Large IBM Event</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because large-scale volunteer event creation is a volunteering operations function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="vg" data-status="mapped"><td>22</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Creation of Disaster Relief Campaigns</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because disaster relief campaigns require nonprofit pre-vetting through BVD/DPL and matching budget allocation, which touch the grant compliance check workflows the agent manages.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>23</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Creation of Japanese Impact Report</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because Japanese impact report translation and localization is an ESG reporting function with no analytics or reporting initiative in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>24</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Creation of Volunteer Events by CSRMs</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because CSRM-led volunteer event booking and coordination is a volunteering operations function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>25</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Credential Application Submission</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because badge and credential creation for SkillsBuild completions is a platform operation managed outside of grant lifecycle workflows.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>26</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">CSR Digital Offerings Requirements Intake</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because SDLC intake for CSR digital offerings is a SkillsBuild platform engineering process, not a grant lifecycle function.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>27</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">CSR Tech Team SDLC</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because the CSR tech team SDLC is a software engineering process for platform development, entirely separate from grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="cs" data-status="mapped"><td>28</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">CSR Testing (Risk Assessment)</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because quarterly grant compliance testing with risk-based sampling from Versaic is a core compliance automation the Grant Lifecycle Orchestrator handles.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>29</td><td><span class="tag tag-of">OF</span></td><td class="process-name">CSR Unified Calendar</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because unified calendar aggregation across CSR teams is operational coordination overhead with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>30</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Custom Self-Registration URL Creation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because custom self-registration URL provisioning is a SkillsBuild platform operation for partner access, not a grant lifecycle function.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>31</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Data Insights Analysis &amp; Consumption Report</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because engagement data insights and consumption reporting require an analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>32</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Decision Process for Engagement Type</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because the complex decision tree for selecting engagement types and agreement structures is a core intake function the Grant Lifecycle Orchestrator automates.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>33</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Digital Credential Update Process</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because digital credential updates and lifecycle management are SkillsBuild platform operations, not grant lifecycle functions.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>34</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Download Requests</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because academic software validation and download request processing are SkillsBuild platform operations outside the grant lifecycle.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>35</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Extracting Data for Volunteering Reports</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because extracting volunteering campaign data for reports is a volunteering operations function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>36</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Forecast Process</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because quarterly grant forecasting that reconciles data across Versaic, Monday, and Airtable is a key orchestration function the agent automates to eliminate manual cross-system reconciliation.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>37</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Formal Notification to Terminate Agreement</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because partnership termination requires coordinated updates across Versaic, Airtable, and platform systems &mdash; a multi-system lifecycle step the agent manages.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>38</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">General Process for Handling CSP Tickets</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because CSP support ticket handling is a SkillsBuild platform support function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>39</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Giving and Volunteerism Process Overall</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because the overall giving and volunteerism process is an employee engagement function operating independently of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>40</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">GLE/Webinar Promotion Process</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because GLE and webinar promotion is a learning experience marketing function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>41</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Global Test Plan for Offline Loaded Learners</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because testing offline-loaded learner data is a platform compliance function specific to SkillsBuild, not to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>42</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Group Engagement Activity</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because group engagement activity tracking and review require a reporting and analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>43</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">High School Setup (Non-FA)</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because non-fiscal-agent high school onboarding and validation is a SkillsBuild platform operation, not a grant lifecycle function.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>44</td><td><span class="tag tag-of">OF</span></td><td class="process-name">IBM Cloud Account Charge Monitoring</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because IBM Cloud account charge monitoring and billing reconciliation are operational finance tasks outside the grant lifecycle.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>45</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">IBM Consulting Volunteering with Clients</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because IBM Consulting client-facing volunteering engagements are a volunteering operations function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>46</td><td><span class="tag tag-of">OF</span></td><td class="process-name">IBM Consulting Labor Claim Charge Code Creation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because labor claim charge code creation is an IBM Consulting financial operations task outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>47</td><td><span class="tag tag-of">OF</span></td><td class="process-name">IBM Consulting Labor Claim Charge Monitoring</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because labor claim charge monitoring and hours reconciliation are IBM Consulting operational finance tasks, not grant lifecycle functions.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>48</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">IBM Impact Accelerator Proposal Reviews</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because the IBM Impact Accelerator annual RFP, Versaic-based proposal scoring, and stakeholder review are core grant intake functions the agent automates.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>49</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">IBM SkillsBuild Community Space Set-up</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because community space setup on SkillsBuild is a platform configuration task outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>50</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Impact Disclosure Creation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because ESG impact disclosure creation is a reporting function with no analytics or reporting initiative in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>51</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Inviting Students/Participants to Monthly Events</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because student and participant invitation for monthly events is a learning experience outreach function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>52</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learner Feedback</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because learner feedback analysis is a learning experience quality function that operates independently of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>53</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Final Evaluation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because post-event evaluation of guided learning experiences is a learning experience operations function outside the grant lifecycle.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>54</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Kick-off with Partners</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because GLE kick-off meetings and partner coordination are learning experience operations functions, not grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>55</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Learner Promotion &amp; Registration</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because learner promotion and registration tracking for learning experiences are learning experience operations outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>56</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Monitoring During Delivery</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because live session monitoring during learning experience delivery is a learning experience operations function, not a grant lifecycle step.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>57</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Planning</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because GLE planning and scheduling is a learning experience operations function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>58</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Pre-Session Engagement</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because pre-session communications and engagement activities are learning experience operations outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>59</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Receive &amp; Qualify Demand</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because demand intake and qualification for learning experiences is a learning experience operations function, not a grant lifecycle step.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>60</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Marketing Materials Creation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because marketing materials creation for learning experience promotion is a learning experience operations function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>61</td><td><span class="tag tag-of">OF</span></td><td class="process-name">Learning Experience Procurement CSR &amp; IIF</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because vendor procurement for CSR and IIF learning experiences is an operational finance function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>62</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Request &amp; Create Learning Plan</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because learning plan creation and request processing are learning experience operations functions, not grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>63</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Learning Experience Technical Setup</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because technical platform configuration for learning experience delivery is a learning experience operations function outside the grant lifecycle.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>64</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Logo Request</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because partner logo licensing requests are a SkillsBuild brand operations function, not a grant lifecycle step.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>65</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">LTI Content Integration</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because LTI content integration assessment is a SkillsBuild platform engineering task outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>66</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Maintain Airtable Catalogue &amp; Dashboard</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because Airtable catalogue maintenance and dashboard updates are SkillsBuild platform operations, not grant lifecycle functions.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>67</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Management of Galas, Benefits and Sponsorships</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because galas, benefits, and sponsorship management are corporate giving operations with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>68</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Market &amp; Competitive Analysis</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because CSR market research and competitive analysis require an analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>69</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Marketing Campaign Email Support</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because Marketo campaign email support for SkillsBuild marketing is a platform marketing function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>70</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Monthly Infosec Fraudulent Data Check</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because monthly infosec fraudulent data checks are a cybersecurity compliance function that operates independently of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>71</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">New Content Promotion</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because new content promotion for SkillsBuild launches is a learning experience marketing function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="cs" data-status="mapped"><td>72</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Non-Compliant Behavior for SkillsBuild</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because enforcing grant agreement compliance for SkillsBuild partners, including report review and remediation, is a core compliance function the Grant Lifecycle Orchestrator manages.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>73</td><td><span class="tag tag-of">OF</span></td><td class="process-name">Non-Travel Process (S&amp;O BU)</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because non-travel expense approval is an operational finance process for the S&amp;O business unit, not a grant lifecycle function.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>74</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Open+ Partnership Process &mdash; New Partners</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because the 35-step Open+ new partner onboarding through Versaic, including agreement signing and compliance pre-vetting, is a core lifecycle function the agent orchestrates.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>75</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Partner Off-boarding from Platform</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because multi-tenant platform deactivation after contract closure is a grant lifecycle offboarding step the agent coordinates across Versaic and partner systems.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>76</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Partner Onboarding</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because platform-level partner setup after contract execution is an onboarding step in the grant lifecycle the agent automates.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>77</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Partner Reports</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because partner performance reporting and analytics require a reporting initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>78</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Partner Service Center Revalidation</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because partner service center access revalidation is a SkillsBuild platform security function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>79</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">Partner Slack Channel Setup/Management</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because partner Slack channel setup and management is a SkillsBuild communications function, not a grant lifecycle step.</div></td></tr>
-
-            <tr data-sub="of" data-status="gap"><td>80</td><td><span class="tag tag-of">OF</span></td><td class="process-name">Presenting New Ideas to Leadership</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because presenting new ideas to leadership is an internal governance process with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>81</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Process SkillsBuild DSR</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because SkillsBuild data subject request processing is a privacy compliance function that operates independently of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>82</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">Program Partner Update &amp; Management</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because monthly partner meetings, milestone reviews, and annual report management are ongoing grant lifecycle touchpoints the agent tracks and automates.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>83</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Quarterly Infosec Fraudulent Data Check</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because quarterly infosec fraudulent data checks are a cybersecurity compliance function independent of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>84</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Quarterly Open Source Review</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because quarterly open source compliance reviews are a software governance function independent of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>85</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Raters/Rankers Submission</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because ESG submissions to rating and ranking organizations require a reporting initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>86</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Reporting Support (Lyle)</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because ad-hoc reporting support and analytics assistance require a reporting initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>87</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">Responsible Business Goals Tracking</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because board-level responsible business goals tracking requires a reporting and analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>88</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">SCORM 1.2 Setting Updates</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because SCORM 1.2 content delivery configuration is a SkillsBuild platform engineering task outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>89</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">SkillsBuild Agreements (Non-Versaic)</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because non-Versaic SkillsBuild agreements with pre-vetting, BVD/DPL compliance checks, and agreement execution are core grant lifecycle functions the agent automates.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>90</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">SkillsBuild Certificates</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because certificate generation for SkillsBuild completions is a platform operations function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>91</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">SkillsBuild Content Development</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because SkillsBuild content development is a learning experience creation function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>92</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">SkillsBuild Event Card</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because SkillsBuild event card creation and management is a web operations function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>93</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">SkillsBuild Participation Agreement (Sub-Partners)</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because three-party sub-partner participation agreements with pre-vetting are a grant lifecycle compliance step the agent manages alongside primary partner agreements.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>94</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">SkillsBuild Partnership/Opportunity Lifecycle</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-high">HIGH</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because the full SkillsBuild partnership lifecycle &mdash; from strategy through Versaic workflow, agreement execution, and ongoing monitoring &mdash; is the core use case the Grant Lifecycle Orchestrator was designed for.</div></td></tr>
-
-            <tr data-sub="gp" data-status="mapped"><td>95</td><td><span class="tag tag-gp">GP</span></td><td class="process-name">SkillsBuild Steering Committee Process</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-medium">MED</span></td><td><span class="tag tag-covered">Covered</span></td><td><div class="process-detail">Covered by Grant Lifecycle Orchestrator Agent because Steering Committee approval workflows for grant proposals are a governance step in the grant lifecycle the agent tracks and routes.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>96</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">SB Tech Access &mdash; Bulk Upload Webinar Participants</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because bulk uploading webinar participant records is a SkillsBuild data operations task outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>97</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">SB Tech Access &mdash; Reporting Engaged Learners</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because engaged learner metrics reporting requires an analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="ra" data-status="gap"><td>98</td><td><span class="tag tag-ra">RA</span></td><td class="process-name">SB Tech Access &mdash; University Engagement Reporting</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because university engagement reporting requires an analytics initiative that does not exist in the CSR Blueprint.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>99</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">SB Tech Access &mdash; Review New Institutions</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because reviewing new institution access requests is a SkillsBuild platform operations task outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="sb" data-status="gap"><td>100</td><td><span class="tag tag-sb">SB</span></td><td class="process-name">SkillsBuild Third-Party Offline Learning</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because third-party offline learning record management is a SkillsBuild data operations function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>101</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Sourcing Volunteer Activities</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because sourcing volunteer activities and identifying opportunities is a volunteering operations function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>102</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Supply Chain Due Diligence</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because supply chain due diligence is an ESG compliance function that operates independently of grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="lx" data-status="gap"><td>103</td><td><span class="tag tag-lx">LX</span></td><td class="process-name">Trending Content Report</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because trending content reporting is a learning experience marketing function outside the grant lifecycle scope.</div></td></tr>
-
-            <tr data-sub="vg" data-status="gap"><td>104</td><td><span class="tag tag-vg">VG</span></td><td class="process-name">Volunteerism Activities Scheduling</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because volunteer activity scheduling and coordination is a volunteering operations function with no connection to grant lifecycle management.</div></td></tr>
-
-            <tr data-sub="cs" data-status="gap"><td>105</td><td><span class="tag tag-cs">CS</span></td><td class="process-name">Weekly Vulnerability Scans</td><td>&mdash;</td><td><span class="tag tag-gap">GAP</span></td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Gap because weekly vulnerability scans are a cybersecurity compliance function that operates independently of grant lifecycle management.</div></td></tr>
-
+            <tr data-status="mapped"><td>1</td><td class="process-name">Automated Grant Qualification in Versaic</td><td>Grants Execution &rarr; validation &amp; approval</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">Direct: automated qualification in Versaic is the core function the Grant Lifecycle Orchestrator agent automates.</div></td></tr>
+            <tr data-status="mapped"><td>2</td><td class="process-name">SkillsBuild Partnership/Opportunity Lifecycle</td><td>SkillsBuild &rarr; partner: ident &amp; plan</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">End-to-end partner spine &mdash; the lifecycle the agent orchestrates.</div></td></tr>
+            <tr data-status="gap"><td>3</td><td class="process-name">LX Receive &amp; Qualify Demand</td><td>SkillsBuild &rarr; partner: ident &amp; plan</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">No initiative covers LX intake / demand qualification. New LX Orchestration initiative needed.</div></td></tr>
+            <tr data-status="gap"><td>4</td><td class="process-name">LX Planning</td><td>SkillsBuild &rarr; partner: ident &amp; plan</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">LX scoping and planning steps fall outside grant lifecycle scope.</div></td></tr>
+            <tr data-status="mapped"><td>5</td><td class="process-name">Partner Onboarding</td><td>SkillsBuild &rarr; partner: onboarding</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">Onboarding step is part of the grant lifecycle orchestration.</div></td></tr>
+            <tr data-status="mapped"><td>6</td><td class="process-name">Program Partner Update &amp; Mgmt</td><td>SkillsBuild &rarr; partner active: program mgmt</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">Steady-state partner ops touched by Versaic-Airtable-Monday data sync.</div></td></tr>
+            <tr data-status="gap"><td>7</td><td class="process-name">LX Learner Promotion &amp; Registration</td><td>SkillsBuild &rarr; partner active: engagement</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Highest-volume learner-touch step. No engagement initiative exists.</div></td></tr>
+            <tr data-status="gap"><td>8</td><td class="process-name">LX Final Evaluation</td><td>SkillsBuild &rarr; partner active: feedback</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Closes the LX loop and feeds reporting. Needs an LX feedback initiative.</div></td></tr>
+            <tr data-status="gap"><td>9</td><td class="process-name">SkillsBuild Content Development</td><td>SkillsBuild &rarr; content</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Source of all learning IP. Needs a content lifecycle initiative.</div></td></tr>
+            <tr data-status="gap"><td>10</td><td class="process-name">Content Translation</td><td>SkillsBuild &rarr; content</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Global scale multiplier with very high AI leverage &mdash; major missed initiative.</div></td></tr>
+            <tr data-status="gap"><td>11</td><td class="process-name">Data Insights &amp; Consumption Report</td><td>SkillsBuild &rarr; partner active: reporting</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Quarterly executive artifact. Needs a reporting/analytics initiative.</div></td></tr>
+            <tr data-status="gap"><td>12</td><td class="process-name">Partner Reports</td><td>SkillsBuild &rarr; partner active: reporting</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Recurring per-partner deliverable, no reporting initiative covers it.</div></td></tr>
+            <tr data-status="gap"><td>13</td><td class="process-name">GLE / Webinar Promotion Process &nbsp;&#9733;</td><td>Geos &amp; Markets &rarr; promote / invite</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Added in v3 to preserve Geos &amp; Markets bucket. 30 people involved &mdash; high manual lift.</div></td></tr>
+            <tr data-status="gap"><td>14</td><td class="process-name">Giving &amp; Volunteerism Overall</td><td>Giving &amp; Volunteerism &rarr; run and comms</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Anchors the volunteerism pillar. Needs a dedicated initiative.</div></td></tr>
+            <tr data-status="gap"><td>15</td><td class="process-name">Impact Disclosure Creation</td><td>Responsible Business &rarr; review &gt; report</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Board-level reporting artifact. Needs an impact reporting initiative.</div></td></tr>
           </tbody>
         </table>
-      </div>
-
-      <!-- Gap Analysis -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Gap Analysis</h3>
-          <span class="count">85 uncovered processes in 6 clusters</span>
-        </div>
-
-        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 1: SkillsBuild Platform Operations (22 gaps)</h4>
-        <div class="gap-grid" style="margin-bottom:1.5rem;">
-          <div class="gap-card"><h4>Bulk Registration</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Platform bulk learner registration for SkillsBuild partners and students.</p></div>
-          <div class="gap-card"><h4>Credential Application &amp; Updates</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Badge/credential creation and lifecycle management for SkillsBuild completions.</p></div>
-          <div class="gap-card"><h4>CSR Digital Offerings Intake &amp; SDLC</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Requirements intake and full software development lifecycle for CSR digital platform offerings.</p></div>
-          <div class="gap-card"><h4>Custom Self-Registration URLs</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>URL provisioning for partner self-registration on SkillsBuild platform.</p></div>
-          <div class="gap-card"><h4>CSP Ticket Handling</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>General support ticket handling for SkillsBuild platform issues and partner requests.</p></div>
-          <div class="gap-card"><h4>Community Space Setup</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Platform operations for creating and configuring community spaces on SkillsBuild.</p></div>
-          <div class="gap-card"><h4>High School Setup (Non-FA)</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>School onboarding validation for non-fiscal agent high schools joining SkillsBuild.</p></div>
-          <div class="gap-card"><h4>Logo Request &amp; LTI Integration</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Brand/logo licensing and LTI content integration assessment for partner organizations.</p></div>
-          <div class="gap-card"><h4>Airtable Catalogue Maintenance</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Catalogue maintenance and dashboard updates tracking SkillsBuild content inventory.</p></div>
-          <div class="gap-card"><h4>Marketing Campaign Email Support</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Marketo campaign setup and email support for SkillsBuild marketing initiatives.</p></div>
-          <div class="gap-card"><h4>Partner Service Center &amp; Slack</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Access control revalidation and Slack channel setup/management for partner communications.</p></div>
-          <div class="gap-card"><h4>Certificates, Event Cards &amp; SCORM</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Certificate generation, event card creation, and SCORM 1.2 setting configuration for content delivery.</p></div>
-          <div class="gap-card"><h4>Bulk Upload &amp; Offline Learning</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Webinar participant bulk uploads, third-party offline learning records, and new institution reviews.</p></div>
-          <div class="gap-card"><h4>Download Requests</h4><div class="source-tag"><span class="tag tag-sb">SB</span></div><p>Academic software validation and download request processing for SkillsBuild users.</p></div>
-        </div>
-
-        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 2: Learning Experience Delivery (19 gaps)</h4>
-        <div class="gap-grid" style="margin-bottom:1.5rem;">
-          <div class="gap-card"><h4>Content Translation &amp; Updates</h4><div class="source-tag"><span class="tag tag-lx">LX</span></div><p>Course translation for multi-language delivery and ongoing content maintenance cycles.</p></div>
-          <div class="gap-card"><h4>Course Selection &amp; Learning Plans</h4><div class="source-tag"><span class="tag tag-lx">LX</span></div><p>Course curation for partners/students and learning plan creation/request processing.</p></div>
-          <div class="gap-card"><h4>GLE Planning &amp; Demand Intake</h4><div class="source-tag"><span class="tag tag-lx">LX</span></div><p>Learning experience planning, scheduling, and demand qualification. Full planning lifecycle has no coverage.</p></div>
-          <div class="gap-card"><h4>GLE Delivery Lifecycle</h4><div class="source-tag"><span class="tag tag-lx">LX</span></div><p>Kick-off, pre-session engagement, delivery monitoring, final evaluation, and learner feedback. The entire delivery pipeline is uncovered.</p></div>
-          <div class="gap-card"><h4>Promotion &amp; Registration</h4><div class="source-tag"><span class="tag tag-lx">LX</span></div><p>GLE/webinar promotion, learner promotion and registration tracking, event invitations, and marketing materials creation.</p></div>
-          <div class="gap-card"><h4>Content Development &amp; Marketing</h4><div class="source-tag"><span class="tag tag-lx">LX</span></div><p>SkillsBuild content development, new content promotion, trending content reports, and technical setup.</p></div>
-        </div>
-
-        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 3: Reporting &amp; Analytics (14 gaps)</h4>
-        <div class="gap-grid" style="margin-bottom:1.5rem;">
-          <div class="gap-card"><h4>Ad-Hoc &amp; Dashboard Reporting</h4><div class="source-tag"><span class="tag tag-ra">RA</span></div><p>Ad-hoc reporting infrastructure and Tableau dashboard development. No analytics initiative exists in the Blueprint.</p></div>
-          <div class="gap-card"><h4>ESG &amp; Impact Reporting</h4><div class="source-tag"><span class="tag tag-ra">RA</span></div><p>Impact disclosure creation, Japanese impact report, raters/rankers submissions, and responsible business goals tracking for the board.</p></div>
-          <div class="gap-card"><h4>Engagement &amp; Partner Analytics</h4><div class="source-tag"><span class="tag tag-ra">RA</span></div><p>Group engagement activity, partner reports, data insights analysis, and consumption reporting.</p></div>
-          <div class="gap-card"><h4>Market Analysis &amp; Benchmarking</h4><div class="source-tag"><span class="tag tag-ra">RA</span></div><p>Competitive analysis, ESG peer benchmarking, and market research for CSR positioning.</p></div>
-          <div class="gap-card"><h4>SkillsBuild Analytics</h4><div class="source-tag"><span class="tag tag-ra">RA</span></div><p>Engaged learner reporting, university engagement reporting, and reporting support workflows.</p></div>
-        </div>
-
-        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 4: Compliance &amp; Security (11 gaps)</h4>
-        <div class="gap-grid" style="margin-bottom:1.5rem;">
-          <div class="gap-card"><h4>InfoSec &amp; Vulnerability</h4><div class="source-tag"><span class="tag tag-cs">CS</span></div><p>Monthly and quarterly fraudulent data checks, weekly vulnerability scans. Recurring security monitoring with no automation.</p></div>
-          <div class="gap-card"><h4>Privacy &amp; Open Source</h4><div class="source-tag"><span class="tag tag-cs">CS</span></div><p>SkillsBuild DSR processing, quarterly open source reviews, and platform compliance testing for offline learners.</p></div>
-          <div class="gap-card"><h4>ESG Compliance</h4><div class="source-tag"><span class="tag tag-cs">CS</span></div><p>Client code of conduct reviews, client inquiries, COM115 reviews, and supply chain due diligence.</p></div>
-          <div class="gap-card"><h4>IT Governance</h4><div class="source-tag"><span class="tag tag-cs">CS</span></div><p>APM, GPA, RTA and DMG documentation creation and maintenance.</p></div>
-        </div>
-
-        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 5: Volunteering &amp; Giving (9 gaps)</h4>
-        <div class="gap-grid" style="margin-bottom:1.5rem;">
-          <div class="gap-card"><h4>Volunteer Event Management</h4><div class="source-tag"><span class="tag tag-vg">VG</span></div><p>Creating volunteer opportunities for large IBM events, CSRM-led event booking, sourcing activities, and scheduling coordination.</p></div>
-          <div class="gap-card"><h4>Giving &amp; Sponsorships</h4><div class="source-tag"><span class="tag tag-vg">VG</span></div><p>Management of galas, benefits, and sponsorships. Overall giving and volunteerism process coordination.</p></div>
-          <div class="gap-card"><h4>Client Volunteering &amp; Monitoring</h4><div class="source-tag"><span class="tag tag-vg">VG</span></div><p>IBM Consulting volunteering with clients, alert dashboard for transaction monitoring, and campaign data extraction for reports.</p></div>
-        </div>
-
-        <h4 style="font-size:0.9375rem;font-weight:600;margin-bottom:1rem;color:var(--cds-support-error);">Cluster 6: Operations &amp; Finance (10 gaps)</h4>
-        <div class="gap-grid" style="margin-bottom:1.5rem;">
-          <div class="gap-card"><h4>Cloud Provisioning &amp; Billing</h4><div class="source-tag"><span class="tag tag-of">OF</span></div><p>Annual promo credit requests, PoC account provisioning, promo code application, and charge monitoring.</p></div>
-          <div class="gap-card"><h4>Labor &amp; Expense Management</h4><div class="source-tag"><span class="tag tag-of">OF</span></div><p>Consulting labor claim charge code creation and monitoring, non-travel expense approval, and learning experience procurement.</p></div>
-          <div class="gap-card"><h4>Administrative Overhead</h4><div class="source-tag"><span class="tag tag-of">OF</span></div><p>CSR unified calendar aggregation and governance process for presenting new ideas to leadership.</p></div>
-        </div>
       </div>
 
       <!-- Recommendations -->
       <div class="section">
         <div class="section-header">
-          <h3>Recommendations to Reach 70%</h3>
-          <span class="count">Need +54 processes covered (from 20 to 74 of 105)</span>
+          <h3>Recommendations to Hit 70%</h3>
+          <span class="count">+6 workflows needed</span>
         </div>
-        <ol class="reco-list">
-          <li><div>
-            <strong>New Initiative: SkillsBuild Platform Intelligence Agent (+22 processes &rarr; 40%)</strong>
-            <div class="reco-detail">Automate platform provisioning, partner URL creation, support ticket triage, certificate generation, access control, and SCORM distribution. Addresses the largest gap cluster. Covers bulk registration, credential management, community space setup, catalogue maintenance, and all SB-tagged processes.</div>
-            <div class="reco-impact">+22 processes &rarr; 40% coverage (from 19%)</div>
-          </div></li>
-          <li><div>
-            <strong>New Initiative: Learning Experience Orchestration Agent (+19 processes &rarr; 58%)</strong>
-            <div class="reco-detail">End-to-end GLE lifecycle automation: demand intake, planning, technical setup, promotion, delivery monitoring, evaluation, and content management. Covers the full learning experience pipeline from course selection through final evaluation and content development.</div>
-            <div class="reco-impact">+19 processes &rarr; 58% coverage</div>
-          </div></li>
-          <li><div>
-            <strong>New Initiative: CSR Analytics &amp; Reporting Engine (+14 processes &rarr; 72%)</strong>
-            <div class="reco-detail">Unified reporting platform replacing manual dashboard creation, ad-hoc reporting, engagement analytics, and ESG disclosure compilation. Covers all RA-tagged processes including impact reporting, benchmarking, partner analytics, and university engagement metrics.</div>
-            <div class="reco-impact">+14 processes &rarr; 72% coverage &mdash; this combination reaches 70% target</div>
-          </div></li>
-          <li><div>
-            <strong>New Initiative: CSR Compliance &amp; Security Automation (+11 processes &rarr; 82%)</strong>
-            <div class="reco-detail">Automate InfoSec checks (monthly and quarterly), weekly vulnerability scanning, OSS reviews, DSR processing, client code of conduct reviews, COM115 reviews, and supply chain due diligence. Only grant-specific compliance is currently covered.</div>
-            <div class="reco-impact">+11 processes &rarr; 82% coverage</div>
-          </div></li>
-          <li><div>
-            <strong>New Initiative: Employee Impact &amp; Volunteering Agent (+9 processes &rarr; 91%)</strong>
-            <div class="reco-detail">Automate volunteer event sourcing, scheduling, communication, Goodera integration, campaign reporting, and gala/sponsorship management. Separate from grant lifecycle but significant operational overhead.</div>
-            <div class="reco-impact">+9 processes &rarr; 91% coverage</div>
-          </div></li>
+        <ol style="line-height:1.7;color:var(--cds-text-secondary);">
+          <li><strong>Add a Learning Experience Orchestration initiative</strong> &mdash; would absorb #3, #4, #7, #8 (4 workflows in one initiative). Single largest leverage point.</li>
+          <li><strong>Add a Content Lifecycle initiative</strong> covering authoring, translation, and global localization &mdash; absorbs #9, #10. High AI leverage on translation alone.</li>
+          <li><strong>Add a CSR Reporting &amp; Insights initiative</strong> &mdash; absorbs #11, #12, and feeds #15. Closes the analytics gap.</li>
+          <li>Volunteerism (#14) and Geos &amp; Markets promotion (#13) are smaller pillars but each warrant a thin dedicated initiative.</li>
         </ol>
-        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-success);padding:1rem;margin-top:1rem;">
-          <strong style="font-size:0.875rem;">Fastest path to 70%:</strong>
-          <span style="font-size:0.875rem;color:var(--cds-text-secondary);"> Three new initiatives (SkillsBuild Platform Intelligence + Learning Experience Orchestration + CSR Analytics &amp; Reporting Engine) cover +55 gap processes, bringing CSR from 19% to 72% &mdash; just over the 70% target. The first two alone reach 58%, so the analytics initiative is critical to crossing the threshold.</span>
-        </div>
       </div>
-
-      <!-- Initiative Coverage Depth -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Initiative Coverage Depth</h3>
-          <span class="count">Process count per initiative</span>
-        </div>
-        <table>
-          <thead><tr><th>Initiative</th><th>ID</th><th>Mapped</th><th>HIGH</th><th>MEDIUM</th><th>Key Processes</th></tr></thead>
-          <tbody>
-            <tr><td class="process-name">Grant Lifecycle Orchestrator Agent</td><td>CSR-CSR-10</td><td>20</td><td>11</td><td>9</td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partnership Lifecycle, Open+ Onboarding, Versaic Data Sync, Impact Accelerator Reviews, Agreement Processes, Compliance Testing, Forecast, Steering Committee</td></tr>
-          </tbody>
-        </table>
-      </div>
-
     </div>
   </section>
 
 <script>
-function filterTableCSR(filter, el) {
-  const rows = document.querySelectorAll('#csr-mapping-table tbody tr');
+function filterTableCSR(filter, btn) {
   const tabs = document.querySelectorAll('#csr-filter-bar .filter-tab');
   tabs.forEach(t => t.classList.remove('active'));
-  if (el) el.classList.add('active');
+  btn.classList.add('active');
+  const rows = document.querySelectorAll('#csr-mapping-table tbody tr');
   rows.forEach(row => {
-    const sub = row.dataset.sub || '';
-    const status = row.dataset.status || '';
-    if (filter === 'all') row.style.display = '';
-    else if (filter === 'mapped') row.style.display = status === 'mapped' ? '' : 'none';
-    else if (filter === 'gap') row.style.display = status === 'gap' ? '' : 'none';
-    else if (filter === 'gp') row.style.display = sub === 'gp' ? '' : 'none';
-    else if (filter === 'sb') row.style.display = sub === 'sb' ? '' : 'none';
-    else if (filter === 'lx') row.style.display = sub === 'lx' ? '' : 'none';
-    else if (filter === 'ra') row.style.display = sub === 'ra' ? '' : 'none';
-    else if (filter === 'cs') row.style.display = sub === 'cs' ? '' : 'none';
-    else if (filter === 'vg') row.style.display = sub === 'vg' ? '' : 'none';
-    else if (filter === 'of') row.style.display = sub === 'of' ? '' : 'none';
+    if (filter === 'all') { row.style.display = ''; return; }
+    row.style.display = (row.getAttribute('data-status') === filter) ? '' : 'none';
   });
 }
 </script>

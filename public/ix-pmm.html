@@ -1,0 +1,215 @@
+  <section id="pmm-domain" class="domain-divider">
+    <div class="domain-header">
+      <h2>PMM Workflow Mapping</h2>
+      <p>Mapping the 15 IBM PMM core workflows (Software, Infrastructure, Consulting) to the 4 PMM Blueprint initiatives in the 43-workflow master deck</p>
+    </div>
+
+    <div class="content">
+      <!-- Dashboard -->
+      <div class="dashboard">
+        <div class="dash-card neutral">
+          <div class="label">Core Workflows</div>
+          <div class="value">15</div>
+          <div class="detail">Defined for the PMM domain</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Blueprint Initiatives</div>
+          <div class="value">4</div>
+          <div class="detail">PMM initiatives in master deck</div>
+        </div>
+        <div class="dash-card target-hit">
+          <div class="label">Covered Workflows</div>
+          <div class="value">10</div>
+          <div class="detail">6 fully + 4 partial (0.5 credit)</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Gap Workflows</div>
+          <div class="value">5</div>
+          <div class="detail">No matching AI initiative yet</div>
+        </div>
+        <div class="dash-card target-miss">
+          <div class="label">Coverage Rate</div>
+          <div class="value">53%</div>
+          <div class="detail">Target: 70% &mdash; shortfall of 17 pts</div>
+        </div>
+        <div class="dash-card neutral">
+          <div class="label">Needed to Hit 70%</div>
+          <div class="value">+2</div>
+          <div class="detail">2 more workflows needed to hit 70%</div>
+        </div>
+      </div>
+
+      <!-- Coverage bar -->
+      <div class="coverage-bar-container">
+        <h3>Coverage vs. 70% Agentification Target</h3>
+        <div class="coverage-bar-track">
+          <div class="coverage-bar-fill below" style="width: 53%;"></div>
+          <div class="target-marker" style="left: 70%;"></div>
+        </div>
+        <div class="coverage-label">
+          <span>0%</span>
+          <span>6 fully + 4 partial of 15 workflows (53%)</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- Blueprint Initiatives Overview -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Blueprint Initiatives</h3>
+          <span class="count">4 PMM initiatives</span>
+        </div>
+        <div class="initiative-grid">
+          <div class="initiative-card">
+            <h4>Foundation for PMM Research</h4>
+            <div class="id">PMM-PMM-01</div>
+            <div class="desc">Builds the underlying research and intelligence layer for product marketing — competitive scans, market sizing, persona/ICP refresh, win/loss patterning.</div>
+            <div class="mapped-count">2 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Thought Leadership Creation Engine</h4>
+            <div class="id">PMM-PMM-02</div>
+            <div class="desc">Automates the production of thought leadership content (briefs, reports, narratives) tied to messaging pillars across watsonx, Red Hat, Power, Z, and Consulting.</div>
+            <div class="mapped-count">3 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Client Engagement Insights and Actionable Patterns</h4>
+            <div class="id">PMM-PMM-03</div>
+            <div class="desc">Surfaces patterns from client engagements, sales conversations, and analyst feedback to inform messaging, enablement, and roadmap.</div>
+            <div class="mapped-count">3 workflows mapped</div>
+          </div><div class="initiative-card">
+            <h4>Trigger-Based Content Activation</h4>
+            <div class="id">PMM-PMM-04</div>
+            <div class="desc">Activates targeted content based on signals (analyst report drops, news, intent) and routes it through campaigns, AR, and seller workflows.</div>
+            <div class="mapped-count">2 workflows mapped</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapping Table -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Complete Workflow-to-Initiative Mapping</h3>
+          <span class="count">15 workflows</span>
+        </div>
+        <table id="pmm-mapping-table">
+          <thead>
+            <tr>
+              <th style="width:4%">#</th>
+              <th style="width:22%">Workflow</th>
+              <th style="width:22%">Maps To</th>
+              <th style="width:8%">Confidence</th>
+              <th style="width:8%">Status</th>
+              <th style="width:36%">Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-status="mapped">
+              <td>1</td>
+              <td class="process-name">Market &amp; Competitive Intelligence</td>
+              <td><span class="tag tag-initiative">Foundation for PMM Research</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Foundation for PMM Research directly automates the competitive scanning, analyst monitoring, and market shift detection that this workflow performs across watsonx, Red Hat, Power, Z, Storage, and Consulting.</div></td>
+            </tr><tr data-status="partial">
+              <td>2</td>
+              <td class="process-name">Product Positioning &amp; Messaging</td>
+              <td><span class="tag tag-initiative">Thought Leadership Creation Engine</span></td>
+              <td><span class="tag tag-medium">MED</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Thought Leadership Creation Engine partially covers the messaging house production for portfolio narratives, but does not own the underlying positioning framework or persona-mapped value props.</div></td>
+            </tr><tr data-status="mapped">
+              <td>3</td>
+              <td class="process-name">Buyer &amp; Persona Research</td>
+              <td><span class="tag tag-initiative">Foundation for PMM Research</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Foundation for PMM Research includes the persona/ICP refresh cycle for CIO, CDO, CISO, VP Infra, developers, LOB execs, and Procurement.</div></td>
+            </tr><tr data-status="gap">
+              <td>4</td>
+              <td class="process-name">Portfolio &amp; Pricing Strategy</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No PMM initiative addresses Cloud Pak / watsonx tier / Red Hat sub / hardware bundle / Consulting fee structuring or ELA negotiation support.</div></td>
+            </tr><tr data-status="gap">
+              <td>5</td>
+              <td class="process-name">Product Launch Management</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No initiative covers the Tier 1/2/3 launch orchestration process for watsonx, Red Hat Summit, Power/Z hardware refreshes, or Consulting offering reveals.</div></td>
+            </tr><tr data-status="partial">
+              <td>6</td>
+              <td class="process-name">GTM Planning &amp; Sales Enablement</td>
+              <td><span class="tag tag-initiative">Client Engagement Insights and Actionable Patterns</span></td>
+              <td><span class="tag tag-medium">MED</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Client Engagement Insights and Actionable Patterns feeds the enablement loop (battle cards, ROI calcs) but does not produce the full territory playbook artifacts.</div></td>
+            </tr><tr data-status="mapped">
+              <td>7</td>
+              <td class="process-name">Analyst Relations Coordination</td>
+              <td><span class="tag tag-initiative">Trigger-Based Content Activation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Trigger-Based Content Activation handles inbound analyst report drops; pairs with Corporate Affairs RFI Ninja for the full AR cycle (Gartner, Forrester, IDC briefings and submissions).</div></td>
+            </tr><tr data-status="mapped">
+              <td>8</td>
+              <td class="process-name">Content Strategy &amp; Production</td>
+              <td><span class="tag tag-initiative">Thought Leadership Creation Engine</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Thought Leadership Creation Engine directly produces the briefs, demos, and IBV-aligned thought leadership, in partnership with Content &amp; Creative Studio.</div></td>
+            </tr><tr data-status="mapped">
+              <td>9</td>
+              <td class="process-name">Campaign Development</td>
+              <td><span class="tag tag-initiative">Trigger-Based Content Activation</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Trigger-Based Content Activation translates positioning into integrated campaign activations and ABM plays via 6sense/Demandbase.</div></td>
+            </tr><tr data-status="gap">
+              <td>10</td>
+              <td class="process-name">Customer Evidence &amp; Reference</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No initiative manages customer case study sourcing, IBM Customer Reference Program coordination, logo rights, or Seismic/RFP feeding.</div></td>
+            </tr><tr data-status="partial">
+              <td>11</td>
+              <td class="process-name">Sales Enablement &amp; Training</td>
+              <td><span class="tag tag-initiative">Client Engagement Insights and Actionable Patterns</span></td>
+              <td><span class="tag tag-medium">MED</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Client Engagement Insights informs enablement content but does not run the Sales Academy delivery, monthly seller calls, or certification path management.</div></td>
+            </tr><tr data-status="gap">
+              <td>12</td>
+              <td class="process-name">Win/Loss Analysis</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No initiative runs structured win/loss interviews or synthesizes patterns into quarterly readouts feeding messaging, pricing, and roadmap.</div></td>
+            </tr><tr data-status="mapped">
+              <td>13</td>
+              <td class="process-name">Launch &amp; Campaign Performance</td>
+              <td><span class="tag tag-initiative">Client Engagement Insights and Actionable Patterns</span></td>
+              <td><span class="tag tag-high">HIGH</span></td>
+              <td><span class="tag tag-covered">Covered</span></td>
+              <td><div class="process-detail">Client Engagement Insights and Actionable Patterns surfaces pipeline influence, awareness, and adoption signals across watsonx, Red Hat, and Consulting motions.</div></td>
+            </tr><tr data-status="gap">
+              <td>14</td>
+              <td class="process-name">Product Lifecycle Marketing</td>
+              <td>&mdash;</td>
+              <td><span class="tag tag-gap">GAP</span></td>
+              <td><span class="tag tag-gap">Gap</span></td>
+              <td><div class="process-detail">No initiative manages messaging across Power10→11, Z16→17, Storage refresh, Cloud Pak sunsets, or Red Hat lifecycle alignment.</div></td>
+            </tr><tr data-status="partial">
+              <td>15</td>
+              <td class="process-name">Cross-Pillar Solution Marketing</td>
+              <td><span class="tag tag-initiative">Thought Leadership Creation Engine</span></td>
+              <td><span class="tag tag-low">LOW</span></td>
+              <td><span class="tag tag-partial">Partial</span></td>
+              <td><div class="process-detail">Thought Leadership Creation Engine produces some &#x27;One IBM&#x27; narratives, but the Software + Infra + Consulting integration motion is not fully owned by any current PMM initiative.</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>

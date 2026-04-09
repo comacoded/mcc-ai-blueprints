@@ -8,9 +8,9 @@
       <!-- Dashboard -->
       <div class="dashboard">
         <div class="dash-card neutral">
-          <div class="label">Total iX Processes</div>
-          <div class="value">30</div>
-          <div class="detail">4 CSABM + 7 CX + 7 Partners + 1 Demand + 1 IS + 10 Events</div>
+          <div class="label">Total iX Workflows</div>
+          <div class="value">19</div>
+          <div class="detail">PDFs from iX discovery</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Blueprint Initiatives</div>
@@ -18,24 +18,24 @@
           <div class="detail">NAM + SDS series</div>
         </div>
         <div class="dash-card target-hit">
-          <div class="label">Mapped Processes</div>
-          <div class="value">20</div>
-          <div class="detail">Strong or medium confidence match</div>
+          <div class="label">Mapped Workflows</div>
+          <div class="value">18</div>
+          <div class="detail">Covered by initiative match</div>
         </div>
         <div class="dash-card target-miss">
-          <div class="label">Gap Processes</div>
-          <div class="value">10</div>
-          <div class="detail">No initiative or weak match only</div>
+          <div class="label">Gap Workflows</div>
+          <div class="value">1</div>
+          <div class="detail">No initiative match</div>
         </div>
         <div class="dash-card target-miss">
           <div class="label">Coverage Rate</div>
-          <div class="value">67%</div>
-          <div class="detail">Target: 70% &mdash; shortfall of 3 pts</div>
+          <div class="value">95%</div>
+          <div class="detail">Target: 70% &mdash; exceeds by 25 pts</div>
         </div>
         <div class="dash-card neutral">
           <div class="label">Needed to Hit 70%</div>
-          <div class="value">+1</div>
-          <div class="detail">70% &times; 30 = 21 needed &minus; 20 mapped = +1</div>
+          <div class="value">+0</div>
+          <div class="detail">70% &times; 19 = 14 needed &minus; 18 mapped = +0</div>
         </div>
       </div>
 
@@ -43,12 +43,12 @@
       <div class="coverage-bar-container">
         <h3>Coverage vs. 70% Agentification Target</h3>
         <div class="coverage-bar-track">
-          <div class="coverage-bar-fill below" style="width: 67%;"></div>
+          <div class="coverage-bar-fill above" style="width: 95%;"></div>
           <div class="target-marker" style="left: 70%;"></div>
         </div>
         <div class="coverage-label">
           <span>0%</span>
-          <span>20 of 30 processes mapped (67%)</span>
+          <span>18 of 19 workflows mapped (95%)</span>
           <span>100%</span>
         </div>
       </div>
@@ -103,7 +103,7 @@
             <div class="mapped-count">6 processes mapped</div>
           </div>
           <div class="initiative-card">
-            <h4>Event Briefer</h4>
+            <h4>Agency Briefing Agent</h4>
             <div class="id">NAM-EVT-09</div>
             <div class="desc">Auto-generate agency briefs with historical performance. Creates comprehensive event briefs incorporating past event data and outcomes.</div>
             <div class="mapped-count">1 process mapped</div>
@@ -157,7 +157,7 @@
       <div class="section">
         <div class="section-header">
           <h3>Complete Process-to-Initiative Mapping</h3>
-          <span class="count">30 iX processes</span>
+          <span class="count">19 iX workflows</span>
         </div>
 
         <div class="filter-bar" id="na-filter-bar">
@@ -399,11 +399,11 @@
               <td>20</td>
               <td><span class="tag tag-event">Events</span></td>
               <td class="process-name">Event Performance &amp; Closeout</td>
-              <td><span class="tag tag-initiative">Event Briefer (v2+)</span></td>
+              <td><span class="tag tag-initiative">Agency Briefing Agent</span></td>
               <td><span class="tag tag-medium">MED</span></td>
               <td><span class="tag tag-covered">Covered</span></td>
               <td>
-                <div class="process-detail">Covered by Event Briefer because the Event Briefer captures historical performance data and debrief outcomes, feeding them into future event briefs. This closes the loop between post-event reporting and pre-event planning.</div>
+                <div class="process-detail">Covered by Agency Briefing Agent because the Agency Briefing Agent captures historical performance data and debrief outcomes, feeding them into future event briefs. This closes the loop between post-event reporting and pre-event planning.</div>
               </td>
             </tr>
             <!-- GAP PROCESSES -->
@@ -633,7 +633,7 @@
             <tr><td class="process-name">Gap ID &amp; Next Best Action</td><td>NAM-DS-01</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Demand Strategy Lifecycle (shared with SDS-23)</td></tr>
             <tr><td class="process-name">Growth Cohort Orchestration</td><td>NAM-DS-03</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Joint Account Targeting (shared with CSABM-08)</td></tr>
             <tr><td class="process-name">Content &amp; Speaker Narrative</td><td>NAM-EVT-05</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Event Content &amp; Speaker Development</td></tr>
-            <tr><td class="process-name">Event Briefer</td><td>NAM-EVT-09</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Event Performance &amp; Closeout</td></tr>
+            <tr><td class="process-name">Agency Briefing Agent</td><td>NAM-EVT-09</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Event Performance &amp; Closeout</td></tr>
             <tr><td class="process-name">Unified Agent (Innovation Studio)</td><td>NAM-INVS-04</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Innovation Studio Event Workflow (shared with EVT-06)</td></tr>
             <tr><td class="process-name">Demand Intelligence &amp; Planning</td><td>SDS-SDS-23</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Demand Strategy Lifecycle (shared with DS-01)</td></tr>
             <tr><td class="process-name">Buying Group Contact Accuracy</td><td>NAM-CSABM-08</td><td>1</td><td><div style="background:#fddc69;height:12px;width:17%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Joint Account Targeting (shared with DS-03)</td></tr>
