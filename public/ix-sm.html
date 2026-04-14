@@ -1,464 +1,645 @@
-  <section id="sm-domain" class="domain-divider">
-    <div class="domain-header">
-      <h2>Select Marketing Workflow Mapping</h2>
-      <p>Mapping 20 Select Marketing workflows from 20 iX discovery PDFs to 6 Select Demand Strategy AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
-    </div>
+<section id="sm-domain" class="domain-divider">
+  <div class="domain-header">
+    <h2>Select Marketing Workflow Mapping</h2>
+    <p>Mapping 54 Select Marketing workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
+  </div>
 
-    <div class="content">
-      <!-- Dashboard -->
-      <div class="dashboard">
-        <div class="dash-card neutral">
-          <div class="label">Total iX Workflows</div>
-          <div class="value">20</div>
-          <div class="detail">PDFs from iX discovery</div>
-        </div>
-        <div class="dash-card neutral">
-          <div class="label">Blueprint Initiatives</div>
-          <div class="value">6</div>
-          <div class="detail">SDS-SDS-23 through SDS-SDS-28</div>
-        </div>
-        <div class="dash-card target-hit">
-          <div class="label">Mapped Workflows</div>
-          <div class="value">20</div>
-          <div class="detail">Covered by initiative match</div>
-        </div>
-        <div class="dash-card target-hit">
-          <div class="label">Gap Workflows</div>
-          <div class="value">0</div>
-          <div class="detail">No initiative match</div>
-        </div>
-        <div class="dash-card target-hit">
-          <div class="label">Coverage Rate</div>
-          <div class="value">100%</div>
-          <div class="detail">Target: 70% &mdash; exceeds by 30 pts</div>
-        </div>
-        <div class="dash-card target-hit">
-          <div class="label">Needed to Hit 70%</div>
-          <div class="value">+0</div>
-          <div class="detail">70% &times; 20 = 14 needed &minus; 20 mapped = +0</div>
-        </div>
-      </div>
-
-      <!-- Coverage bar -->
-      <div class="coverage-bar-container">
-        <h3>Coverage vs. 70% Agentification Target</h3>
-        <div class="coverage-bar-track">
-          <div class="coverage-bar-fill above" style="width: 100%;"></div>
-          <div class="target-marker" style="left: 70%;"></div>
-        </div>
-        <div class="coverage-label">
-          <span>0%</span>
-          <span>20 of 20 workflows mapped (100%)</span>
-          <span>100%</span>
-        </div>
-      </div>
-
-      <!-- Blueprint Initiatives Overview -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Blueprint Initiatives</h3>
-          <span class="count">6 Select Demand Strategy initiatives from Master Excel</span>
-        </div>
-        <div class="initiative-grid">
-          <div class="initiative-card">
-            <h4>Co-Marketing Process Automation</h4>
-            <div class="id">SDS-SDS-25</div>
-            <div class="desc">Scalable, auditable co-marketing system of record with accurate revenue ingestion, consistent earnings calculations, real-time partner visibility, and streamlined partner support.</div>
-            <div class="mapped-count">11 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Partner Performance Intelligence</h4>
-            <div class="id">SDS-SDS-24</div>
-            <div class="desc">Holistic, real-time visibility into partner performance by unifying data across systems, surfacing trends and co-visibility across all partner types.</div>
-            <div class="mapped-count">5 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Audience, Content &amp; Journey Orchestration</h4>
-            <div class="id">SDS-SDS-26</div>
-            <div class="desc">Unified workflow combining audience segmentation, journey, and content orchestration. Maps content to buyer-journey stages driven by audience and taxonomy.</div>
-            <div class="mapped-count">2 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Demand Intelligence &amp; Planning</h4>
-            <div class="id">SDS-SDS-23</div>
-            <div class="desc">Combines demand planning with funnel analysis into a single intelligence layer. Monitors pipeline health and marketing performance.</div>
-            <div class="mapped-count">1 process mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>AI Taxonomy Tagging &amp; Metadata Generation</h4>
-            <div class="id">SDS-SDS-27</div>
-            <div class="desc">Analyzes content assets in AEM and auto-generates structured taxonomy tags, metadata classifications, and content attributes.</div>
-            <div class="mapped-count">0 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Chatbot Expansion (Next Agents)</h4>
-            <div class="id">SDS-SDS-28</div>
-            <div class="desc">Adds domain-specific agents (training, checkout, community, contact/support) under a single chat experience across all digital channels.</div>
-            <div class="mapped-count">0 processes mapped</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Full Mapping Table -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Complete Process-to-Initiative Mapping</h3>
-          <span class="count">20 iX workflows</span>
-        </div>
-
-        <div class="filter-bar" id="sm-filter-bar">
-          <button class="filter-tab active" onclick="filterTableSM('all',this)">All (20)</button>
-          <button class="filter-tab" onclick="filterTableSM('mapped',this)">Mapped (19)</button>
-          <button class="filter-tab" onclick="filterTableSM('gap',this)">Gaps (1)</button>
-          <button class="filter-tab" onclick="filterTableSM('comktg',this)">Co-Mktg Ops (10)</button>
-          <button class="filter-tab" onclick="filterTableSM('intel',this)">Partner Intel (5)</button>
-          <button class="filter-tab" onclick="filterTableSM('content',this)">Content &amp; Comms (3)</button>
-          <button class="filter-tab" onclick="filterTableSM('demand',this)">Demand (2)</button>
-        </div>
-
-        <table id="sm-mapping-table">
-          <thead>
-            <tr>
-              <th style="width:3%">#</th>
-              <th style="width:5%">Sub-domain</th>
-              <th style="width:18%">iX Process</th>
-              <th style="width:20%">Maps To</th>
-              <th style="width:7%">Confidence</th>
-              <th style="width:5%">Status</th>
-              <th style="width:42%">Rationale &amp; Process Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Co-Marketing Ops — Mapped -->
-            <tr data-sub="comktg" data-status="mapped">
-              <td>1</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Co-Marketing Budget Forecasting</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because monthly budget forecasting via BOX spreadsheets is exactly the manual, error-prone cycle that the automated co-marketing system of record replaces with real-time budget visibility.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>2</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Budget Strategy &amp; Program Framework</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because program framework design, eligibility criteria, and revenue-based processing are foundational to the co-marketing system of record. The initiative automates governance approvals and MAP requirements that currently require cross-functional meetings.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>3</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Global Co-Marketing Planning Process</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because this is a direct 1:1 match &mdash; IO creation, fund allocation, MAP submission, and approval are the core lifecycle that the co-marketing automation initiative replaces.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>4</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">MAP Intake &amp; Initial Review</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because MAP intake from BPs/VADs with budget, eligibility, and tactic/product rule validation is a core sub-process the co-marketing system of record automates end-to-end.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>5</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">MAP Completeness Validation</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because automated validation of budget limits, partner eligibility, and tactic/product rules with non-compliant flagging is a key capability of the co-marketing system of record.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>6</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Flagged MAP Review &amp; Governance</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because flagged MAP review, exception handling, audit trails, and KPI tracking are within the auditable system of record's governance scope.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>7</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Co-Marketing Budget Distribution &amp; Compliance</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because GEO allocation management, utilization pacing, underspend rebalancing, and compliance dashboards are core capabilities of the co-marketing automation platform.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>8</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Activity Execution Tracking</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because execution progress tracking, deliverable monitoring, and spend updates are part of the automated co-marketing lifecycle from MAP approval through completion.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>9</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Claims Eligibility Validation</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because claims eligibility checks, proof-of-performance review, and approval/rejection with consistent earnings calculations and audit trails are core deliverables of the co-marketing system.</div>
-              </td>
-            </tr>
-            <tr data-sub="comktg" data-status="mapped">
-              <td>10</td>
-              <td><span class="tag tag-comktg">Co-Mktg</span></td>
-              <td class="process-name">Claims Payment Processing</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because payment processing, claim status updates, and partner outcome notifications are the final steps in the co-marketing automation pipeline that the system of record handles end-to-end.</div>
-              </td>
-            </tr>
-            <!-- Partner Intelligence — Mapped -->
-            <tr data-sub="intel" data-status="mapped">
-              <td>11</td>
-              <td><span class="tag tag-intel">Intel</span></td>
-              <td class="process-name">Partner Target List Generation</td>
-              <td><span class="tag tag-initiative">Partner Performance Intelligence Agent</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Partner Performance Intelligence because pulling partner data from PRM/ISC, propensity scoring, and conflict checking to produce ranked target lists is the core use case for the Partner Performance Intelligence agent.</div>
-              </td>
-            </tr>
-            <tr data-sub="intel" data-status="mapped">
-              <td>12</td>
-              <td><span class="tag tag-intel">Intel</span></td>
-              <td class="process-name">Cross-Sell Identification</td>
-              <td><span class="tag tag-initiative">Partner Performance Intelligence Agent</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Partner Performance Intelligence because close-won-triggered cross-sell analysis using vector embeddings, expansion trend detection, and authorization filtering feed directly into the unified partner performance intelligence layer.</div>
-              </td>
-            </tr>
-            <tr data-sub="intel" data-status="mapped">
-              <td>13</td>
-              <td><span class="tag tag-intel">Intel</span></td>
-              <td class="process-name">Tactic/Channel Performance Learnings</td>
-              <td><span class="tag tag-initiative">Partner Performance Intelligence Agent</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Partner Performance Intelligence because ingesting partner opportunity/sales/MAP data, building performance benchmarks, and analyzing tactic-pipeline correlations are core intelligence capabilities the agent automates.</div>
-              </td>
-            </tr>
-            <tr data-sub="intel" data-status="mapped">
-              <td>14</td>
-              <td><span class="tag tag-intel">Intel</span></td>
-              <td class="process-name">Partner Coverage Model Development</td>
-              <td><span class="tag tag-initiative">Partner Performance Intelligence Agent</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Partner Performance Intelligence because monthly VAD reporting on tiering, proficiency, skill gaps, co-marketing utilization, and carrying capacity analysis are all performance intelligence features the agent unifies in real time.</div>
-              </td>
-            </tr>
-            <tr data-sub="intel" data-status="mapped">
-              <td>15</td>
-              <td><span class="tag tag-intel">Intel</span></td>
-              <td class="process-name">Ideal Partner Profile Building</td>
-              <td><span class="tag tag-initiative">Partner Performance Intelligence Agent</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Partner Performance Intelligence because partner segmentation across EPM, CMDP, and Tableau &mdash; from criteria definition through CSV extraction &mdash; is foundational to the partner intelligence layer the agent automates.</div>
-              </td>
-            </tr>
-            <!-- Content & Comms — Mapped + Gap -->
-            <tr data-sub="content" data-status="mapped">
-              <td>16</td>
-              <td><span class="tag tag-content">Content</span></td>
-              <td class="process-name">Partner Content Creation Process</td>
-              <td><span class="tag tag-initiative">Audience, Content &amp; Journey Orchestration</span></td>
-              <td><span class="tag tag-medium">MEDIUM</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Audience, Content and Journey Orchestration because the content pipeline from Workfront brief through Blue Studio production, legal review, and DAM publishing maps to the audience, content, and journey orchestration workflow.</div>
-              </td>
-            </tr>
-            <tr data-sub="content" data-status="mapped">
-              <td>17</td>
-              <td><span class="tag tag-content">Content</span></td>
-              <td class="process-name">Partner Communications &amp; Newsletter</td>
-              <td><span class="tag tag-initiative">Audience, Content &amp; Journey Orchestration</span></td>
-              <td><span class="tag tag-medium">MEDIUM</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Audience, Content and Journey Orchestration because newsletter orchestration via Workfront, Marketo content creation, KNAK testing, and audience segmentation for scheduled delivery falls within the audience and journey orchestration scope.</div>
-              </td>
-            </tr>
-            <tr data-sub="content" data-status="gap">
-              <td>18</td>
-              <td><span class="tag tag-content">Content</span></td>
-              <td class="process-name">Client &amp; Partner Story Creation</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because no initiative addresses the editorial storytelling lifecycle &mdash; Workfront requests, multi-party legal/brand approvals, Blue Studio's 2-month production cycle, and IBM.com publishing with social amplification are all uncovered.</div>
-              </td>
-            </tr>
-            <!-- Demand & Progression — Mapped -->
-            <tr data-sub="demand" data-status="mapped">
-              <td>19</td>
-              <td><span class="tag tag-demand">Demand</span></td>
-              <td class="process-name">Integration of Partners in Demand</td>
-              <td><span class="tag tag-initiative">Co-Marketing Process Automation</span></td>
-              <td><span class="tag tag-medium">MEDIUM</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Co-Marketing Process Automation because partner selection via Airtable intake, IPP scoring, and tactic alignment for IBM campaigns fits within the co-marketing orchestration pipeline and system of record governance.</div>
-              </td>
-            </tr>
-            <tr data-sub="demand" data-status="mapped">
-              <td>20</td>
-              <td><span class="tag tag-demand">Demand</span></td>
-              <td class="process-name">Partner Progression &amp; Lead Pass</td>
-              <td><span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
-              <td><span class="tag tag-medium">MEDIUM</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Demand Intelligence and Planning because weekly pipeline reviews using EPM insights, blocked deal root-cause analysis by Geo, and progression framework updates map directly to the demand intelligence and planning scope.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Gap Analysis -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Gap Analysis</h3>
-          <span class="count">1 uncovered process</span>
-        </div>
-
-        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Gap: Client &amp; Partner Story Creation</h4>
-        <div class="gap-grid" style="margin-bottom: 1.5rem;">
-          <div class="gap-card">
-            <h4>Client &amp; Partner Story Creation</h4>
-            <div class="source-tag"><span class="tag tag-content">Content</span></div>
-            <p>Editorial storytelling workflow: Workfront request, criteria scoring, multi-party background collection, legal/brand approvals, Blue Studio production (avg 2-month cycle), IBM.com publishing, LinkedIn/social amplification, event reuse. No initiative directly addresses the editorial story creation and governance lifecycle.</p>
-          </div>
-        </div>
-        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-info);padding:0.75rem 1rem;font-size:0.8125rem;color:var(--cds-text-secondary);line-height:1.6;">
-          <strong style="color:var(--cds-text-primary);">Note:</strong> This gap could be addressed by extending <strong>SDS-SDS-26</strong> (Audience, Content &amp; Journey Orchestration) to include story creation workflows, or by the <strong>Creative &amp; Content</strong> domain initiatives (CC-CC-19&ndash;22) if story production is classified under that domain.
-        </div>
-      </div>
-
-      <!-- Recommendations -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Recommendations</h3>
-          <span class="count">Domain already exceeds 70% target</span>
-        </div>
-
-        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-success);padding:1rem;margin-bottom:1rem;">
-          <strong style="font-size:0.875rem;color:var(--cds-support-success);">Target exceeded:</strong>
-          <span style="font-size:0.875rem;color:var(--cds-text-secondary);"> Select Marketing achieves 95% coverage (19 of 20 processes mapped) &mdash; the highest coverage of any domain. The co-marketing lifecycle is exceptionally well-addressed by SDS-SDS-25.</span>
-        </div>
-
-        <ol class="reco-list">
-          <li>
-            <div>
-              <strong>Close the final gap: Extend SDS-SDS-26 to cover story creation</strong>
-              <div class="reco-detail">The Client &amp; Partner Story Creation process involves content orchestration with multi-party approvals. Expanding SDS-26's scope to include editorial story workflows would achieve 100% coverage.</div>
-              <div class="reco-impact">+1 process covered &rarr; 100%</div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>Alternative: Classify story creation under Creative &amp; Content domain</strong>
-              <div class="reco-detail">If story production is reclassified to the Creative &amp; Content domain (CC-CC-19&ndash;22), Select Marketing achieves 100% with no changes needed. The story process has stronger affinity with Blue Studio creative workflows than with partner demand operations.</div>
-              <div class="reco-impact">Reclassification &rarr; 100% (19 of 19)</div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>Leverage high coverage for cross-domain lessons</strong>
-              <div class="reco-detail">SDS-SDS-25 covers 11 processes alone &mdash; the highest initiative-to-process density. This initiative's co-marketing automation patterns (budget &rarr; MAP &rarr; execution &rarr; claims) could serve as a template for lifecycle automation in other domains.</div>
-              <div class="reco-impact">Strategic insight: use Select Marketing as the reference model for lifecycle coverage</div>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Initiative Coverage Depth -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Initiative Coverage Depth</h3>
-          <span class="count">Process count per initiative</span>
-        </div>
-        <table>
-          <thead><tr><th>Initiative</th><th>ID</th><th>Mapped</th><th>Depth</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td class="process-name">Co-Marketing Process Automation</td><td>SDS-SDS-25</td><td>11</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Highest: full co-marketing lifecycle (budget, MAP, execution, claims)</td></tr>
-            <tr><td class="process-name">Partner Performance Intelligence</td><td>SDS-SDS-24</td><td>5</td><td><div style="background:#a7f0ba;height:12px;width:45%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Target lists, cross-sell, tactic learnings, coverage model, ideal profile</td></tr>
-            <tr><td class="process-name">Audience, Content &amp; Journey Orchestration</td><td>SDS-SDS-26</td><td>2</td><td><div style="background:#a7f0ba;height:12px;width:18%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partner content creation + newsletter orchestration</td></tr>
-            <tr><td class="process-name">Demand Intelligence &amp; Planning</td><td>SDS-SDS-23</td><td>1</td><td><div style="background:#fddc69;height:12px;width:9%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Partner progression &amp; lead pass (pipeline intelligence)</td></tr>
-            <tr><td class="process-name">AI Taxonomy Tagging &amp; Metadata</td><td>SDS-SDS-27</td><td>0</td><td><div style="background:#ffd7d9;height:12px;width:5%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">No direct match in iX workflows</td></tr>
-            <tr><td class="process-name">Chatbot Expansion</td><td>SDS-SDS-28</td><td>0</td><td><div style="background:#ffd7d9;height:12px;width:5%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">No direct match in iX workflows</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-<style>
-.tag-comktg { background: #d0e2ff; color: #002d9c; }
-.tag-intel { background: #e8daff; color: #491d8b; }
-.tag-content { background: #d9fbfb; color: #004144; }
-.tag-demand { background: #ffd6e8; color: #740937; }
-</style>
-
+  <div class="content">
+    <div class="dashboard">
+  <div class="dash-card neutral">
+    <div class="label">Total Workflows</div>
+    <div class="value">54</div>
+    <div class="detail">Counted with duplicates (per workshop source)</div>
+  </div>
+  <div class="dash-card neutral">
+    <div class="label">Blueprint Initiatives</div>
+    <div class="value">11</div>
+    <div class="detail">Of 41 in the prioritized set</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">Mapped Workflows</div>
+    <div class="value">54</div>
+    <div class="detail">HIGH or MED confidence</div>
+  </div>
+  <div class="dash-card target-miss">
+    <div class="label">Gap Workflows</div>
+    <div class="value">0</div>
+    <div class="detail">No matching initiative</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">Coverage Rate</div>
+    <div class="value">100%</div>
+    <div class="detail">Target: 70% &mdash; exceeds by 30 pts</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">vs. 70% Target</div>
+    <div class="value">+16</div>
+    <div class="detail">16 workflows above the 70% target</div>
+  </div>
+</div>
+    <div class="coverage-bar-container">
+  <h3>Coverage vs. 70% Agentification Target</h3>
+  <div class="coverage-bar-track">
+    <div class="coverage-bar-fill above" style="width: 100%;"></div>
+    <div class="target-marker" style="left: 70%;"></div>
+  </div>
+  <div class="coverage-label">
+    <span>0%</span>
+    <span>54 of 54 workflows mapped (100%)</span>
+    <span>100%</span>
+  </div>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Blueprint Initiatives Mapped in this Domain</h3>
+    <span class="count">11 of 41 initiatives touched</span>
+  </div>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+  <h4>Co-Marketing Process Auto</h4>
+  <div class="id">#26 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Co-marketing automation delivering a scalable, auditable system of record with accurate revenue ingestion, consistent earnings calculations, real-time partner visibility, and streamlined partner support.</div>
+  <div class="mapped-count">28 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Growth Cohort &amp; Buying-Group Orchestration</h4>
+  <div class="id">#25 &middot; Named Account Marketing</div>
+  <div class="desc">Scores named accounts against propensity, install base, intent, lead scoring, and buying-group engagement to identify/prioritize growth cohorts.</div>
+  <div class="mapped-count">17 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Partner Performance Intelligence</h4>
+  <div class="id">#17 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Holistic, real-time visibility into partner performance by unifying data across systems; surfaces trends and co-visibility across resellers, ISVs, build partners, MSPs.</div>
+  <div class="mapped-count">13 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Demand Intelligence &amp; Planning</h4>
+  <div class="id">#16 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Combines demand planning with funnel analysis into a single intelligence layer across 50+ funnel KPIs spanning EPM, ISC, Marketo, and partner systems.</div>
+  <div class="mapped-count">8 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Client Engagement Insights</h4>
+  <div class="id">#18 &middot; Product Marketing</div>
+  <div class="desc">Continuously analyzes cross-channel engagement — content consumption paths, asset performance by persona/industry, campaign response patterns, sales feedback (SalesLoft, ISC, Gong).</div>
+  <div class="mapped-count">7 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Audience/Content/Journey Orch</h4>
+  <div class="id">#8 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Unified workflow combining audience segmentation, journey, and content orchestration. Maps content to buyer-journey stages via taxonomy.</div>
+  <div class="mapped-count">6 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Content Creation incl Local</h4>
+  <div class="id">#6 &middot; Creative &amp; Content</div>
+  <div class="desc">AI-assisted content production across copywriting, design, video, and inbound — tool-level acceleration for original and derivative asset creation and localization. (Absorbs V2 Content + Paid Media POC.)</div>
+  <div class="mapped-count">3 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Gap ID, RCA &amp; NBA</h4>
+  <div class="id">#12 &middot; Named Account Marketing</div>
+  <div class="desc">Monitors pipeline health, marketing performance, and metrics across ISC, EPM, and seller feedback — surfaces root-cause shortfalls and next-best-action recommendations.</div>
+  <div class="mapped-count">2 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Trigger-Based Activation</h4>
+  <div class="id">#22 &middot; Corporate Affairs</div>
+  <div class="desc">Monitors newly published analyst reports, thought leadership, and market events to automatically generate and route activation-ready assets and messaging to marketing and sales. (Absorbs PMM&#x27;s Trigger-Based Activation.)</div>
+  <div class="mapped-count">2 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Budgeting and Planning</h4>
+  <div class="id">#24 &middot; Technology &amp; Operations</div>
+  <div class="desc">Develops optimal budgets and financial plans leveraging historical spend and performance — produces recommended budgets and plans with supporting insights.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Chatbot Expansion (Next Agents)</h4>
+  <div class="id">#40 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Adds domain-specific agents (training, checkout, community, contact/support) under a single chat experience across all digital channels, including SMS.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div>
+  </div>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Complete Workflow-to-Initiative Mapping</h3>
+    <span class="count">54 workflows</span>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-tab active" onclick="filterTableSM('all',this)">All (54)</button><button class="filter-tab" onclick="filterTableSM('mapped',this)">Mapped (54)</button><button class="filter-tab" onclick="filterTableSM('gap',this)">Gaps (0)</button><button class="filter-tab" onclick="filterTableSM('sub-0',this)">Ecosystem (52)</button><button class="filter-tab" onclick="filterTableSM('sub-1',this)">Web (1)</button><button class="filter-tab" onclick="filterTableSM('sub-2',this)">Demand (1)</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:4%">#</th>
+        <th style="width:10%">Sub-function</th>
+        <th style="width:22%">Workflow</th>
+        <th style="width:22%">Maps To</th>
+        <th style="width:7%">Conf.</th>
+        <th style="width:7%">Status</th>
+        <th style="width:28%">Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-status="mapped" data-sub="sub-0">
+  <td>1</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Select Client Targeting Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Demand Intelligence together handle select client targeting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>2</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers global co-marketing planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>3</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">MyDigital Marketing Process &amp; PMKs</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Auto + Partner Performance Intel cover MyDigital PMK flows.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>4</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>5</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Cross Sell &amp; Up Sell Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort identifies cross/up opportunities; Client Engagement Insights measures execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>6</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Tactic Channel Use Case</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Auto + Audience Orchestration cover tactic-channel execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>7</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Tactic Channel Use Case</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Auto + Audience Orchestration cover tactic-channel execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>8</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Select Client Targeting Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Demand Intelligence cover select-account targeting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>9</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Client &amp; Partner Stories</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation handles story production; Client Engagement Insights measures lift.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>10</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>11</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>12</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Cross Sell &amp; Up Sell Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Client Engagement Insights cover cross/up motions.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>13</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Communications Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Trigger-Based Activation</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing + Trigger-Based Activation cover partner comms; bespoke newsletters remain manual.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>14</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Coverage Model Development</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intelligence models coverage across partner types.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>15</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Cross Sell &amp; Up Sell Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Client Engagement Insights cover cross/up motions.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>16</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Content Process</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation + Co-Marketing Auto cover partner content; governance vs. content production split adds friction.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>17</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Ideal Partner Profile</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort together score and shape the IPP.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>18</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Ideal Partner Profile</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort together score and shape the IPP.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>19</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Content Process</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation + Co-Marketing Auto cover partner content.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>20</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers global planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>21</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Tactic Channel Use Case</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing + Audience Orchestration cover tactic-channel.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>22</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Budget Management</td>
+  <td><span class="tag tag-initiative">Budgeting and Planning</span> <span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Budgeting and Planning + Co-Marketing Process Auto together manage co-marketing budgets.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>23</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Select Client Targeting Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Demand Intelligence handle select targeting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>24</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Cross Sell &amp; Up Sell Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Client Engagement Insights cover cross/up motions.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>25</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Ideal Partner Profile</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort shape the IPP.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>26</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers global planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>27</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Tactic Channel Use Case</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing + Audience Orchestration cover tactic-channel.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>28</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Ideal Partner Profile</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort shape the IPP.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>29</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>30</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Select Client Targeting Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Demand Intelligence handle select targeting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>31</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Integration into Demand</td>
+  <td><span class="tag tag-initiative">Demand Intelligence &amp; Planning</span> <span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Demand Intelligence + Partner Performance Intel integrate partner data into demand motion.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>32</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Progression &amp; Lead Pass</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Gap ID, RCA &amp; NBA</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel tracks progression; Gap ID recommends next best action.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>33</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>34</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Cross Sell &amp; Up Sell Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Client Engagement Insights cover cross/up motions.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>35</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto directly covers global planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>36</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Performance Intelligence</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel is the core initiative.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>37</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Integration into Demand</td>
+  <td><span class="tag tag-initiative">Demand Intelligence &amp; Planning</span> <span class="tag tag-initiative">Partner Performance Intelligence</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Demand Intelligence + Partner Performance Intel cover partner→demand integration.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>38</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Tactic Channel Use Case</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing + Audience Orchestration cover tactic-channel execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>39</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Ideal Partner Profile</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort shape the IPP.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>40</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers global planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>41</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>42</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers global planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>43</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Cross Sell &amp; Up Sell Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Client Engagement Insights cover cross/up motions.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>44</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Select Client Targeting Use Case</td>
+  <td><span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span> <span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Growth Cohort + Demand Intelligence handle select targeting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>45</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Ideal Partner Profile</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort shape the IPP.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>46</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>47</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Communications Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span> <span class="tag tag-initiative">Trigger-Based Activation</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing + Trigger-Based Activation cover partner comms; bespoke newsletters remain manual.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>48</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Global Co-Marketing Planning Process</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers global planning.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>49</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Partner Progression &amp; Lead Pass</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Gap ID, RCA &amp; NBA</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Gap ID cover progression/lead-pass.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>50</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>51</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>52</td>
+  <td><span class="tag tag-sub">Ecosystem</span></td>
+  <td class="process-name">Co-Marketing Execution in Geo</td>
+  <td><span class="tag tag-initiative">Co-Marketing Process Auto</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Co-Marketing Process Auto covers geo execution.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>53</td>
+  <td><span class="tag tag-sub">Web</span></td>
+  <td class="process-name">Intake</td>
+  <td><span class="tag tag-initiative">Chatbot Expansion (Next Agents)</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Chatbot Expansion + Audience Orchestration support digital intake; specialized web intake flows not fully owned.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-2">
+  <td>54</td>
+  <td><span class="tag tag-sub">Demand</span></td>
+  <td class="process-name">Intake &amp; Data Acquisition</td>
+  <td><span class="tag tag-initiative">Demand Intelligence &amp; Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Demand Intelligence &amp; Planning covers intake and data acquisition in the Select demand motion.</div></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+    
+  </div>
+</section>
 <script>
-function filterTableSM(filter, el) {
-  const rows = document.querySelectorAll('#sm-mapping-table tbody tr');
-  const tabs = document.querySelectorAll('#sm-filter-bar .filter-tab');
-  tabs.forEach(t => t.classList.remove('active'));
-  if (el) el.classList.add('active');
-  rows.forEach(row => {
-    const sub = row.dataset.sub || '';
-    const status = row.dataset.status || '';
-    if (filter === 'all') row.style.display = '';
-    else if (filter === 'mapped') row.style.display = status === 'mapped' ? '' : 'none';
-    else if (filter === 'gap') row.style.display = status === 'gap' ? '' : 'none';
-    else if (filter === 'comktg') row.style.display = sub === 'comktg' ? '' : 'none';
-    else if (filter === 'intel') row.style.display = sub === 'intel' ? '' : 'none';
-    else if (filter === 'content') row.style.display = sub === 'content' ? '' : 'none';
-    else if (filter === 'demand') row.style.display = sub === 'demand' ? '' : 'none';
+function filterTableSM(filter, btn) {
+  const section = document.getElementById('sm-domain');
+  if (!section) return;
+  section.querySelectorAll('.filter-bar .filter-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  section.querySelectorAll('tbody tr').forEach(row => {
+    const status = row.getAttribute('data-status');
+    const sub = row.getAttribute('data-sub');
+    let show = true;
+    if (filter === 'all') show = true;
+    else if (['mapped','partial','gap'].includes(filter)) show = (status === filter);
+    else show = (sub === filter);
+    row.style.display = show ? '' : 'none';
   });
 }
 </script>

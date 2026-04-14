@@ -1,154 +1,418 @@
-  <section id="csr-domain" class="domain-divider">
-    <div class="domain-header">
-      <h2>CSR Workflow Mapping &mdash; v3 (Trimmed)</h2>
-      <p>Curated subset of 15 high-leverage workflows (down from 105 iX-discovered processes) mapped to the single existing CSR Blueprint initiative. Aligned to the 8-bucket normalization from the colleague tear-down.</p>
-    </div>
+<section id="csr-domain" class="domain-divider">
+  <div class="domain-header">
+    <h2>CSR Workflow Mapping</h2>
+    <p>Mapping 27 CSR workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
+  </div>
 
-    <div class="content">
-      <!-- Dashboard -->
-      <div class="dashboard">
-        <div class="dash-card neutral">
-          <div class="label">Total iX Workflows</div>
-          <div class="value">15</div>
-          <div class="detail">v3 trim from 105 (86% reduction)</div>
-        </div>
-        <div class="dash-card neutral">
-          <div class="label">Blueprint Initiatives</div>
-          <div class="value">1</div>
-          <div class="detail">CSR-CSR-10 (Grant Lifecycle Orchestrator)</div>
-        </div>
-        <div class="dash-card target-miss">
-          <div class="label">Mapped Workflows</div>
-          <div class="value">5</div>
-          <div class="detail">Grant + partner lifecycle steps</div>
-        </div>
-        <div class="dash-card target-miss">
-          <div class="label">Gap Workflows</div>
-          <div class="value">10</div>
-          <div class="detail">LX, content, reporting, volunteerism, impact</div>
-        </div>
-        <div class="dash-card target-miss">
-          <div class="label">Coverage Rate</div>
-          <div class="value">33%</div>
-          <div class="detail">Target: 70% &mdash; shortfall of 37 pts</div>
-        </div>
-        <div class="dash-card neutral">
-          <div class="label">Needed to Hit 70%</div>
-          <div class="value">+6</div>
-          <div class="detail">70% &times; 15 = 11 needed &minus; 5 mapped = +6</div>
-        </div>
-      </div>
-
-      <!-- Coverage bar -->
-      <div class="coverage-bar-container">
-        <h3>Coverage vs. 70% Agentification Target</h3>
-        <div class="coverage-bar-track">
-          <div class="coverage-bar-fill below" style="width: 33%;"></div>
-          <div class="target-marker" style="left: 70%;"></div>
-        </div>
-        <div class="coverage-label">
-          <span>0%</span>
-          <span>5 of 15 workflows mapped (33%)</span>
-          <span>100%</span>
-        </div>
-      </div>
-
-      <!-- Why v3 -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Why v3 trim</h3>
-          <span class="count">105 &rarr; 15</span>
-        </div>
-        <ul style="line-height:1.6;color:var(--cds-text-secondary);">
-          <li><strong>Removes noise.</strong> The 105-process iX list bundled together core program workflows (grants, partner lifecycle, learning experiences) with low-leverage admin (vulnerability scans, charge-code creation, COM115 reviews, SCORM settings). The v3 trim keeps only the workflows that actually move the agentification needle.</li>
-          <li><strong>Aligned to colleague's 8-bucket normalization.</strong> v3 preserves 7 of 8 buckets: <em>IBM SkillsBuild</em> (11), <em>Geos &amp; Markets</em>, <em>Giving &amp; Volunteerism</em>, <em>Grants Execution</em>, <em>Responsible Business</em>. Intentionally drops the <em>Marketing</em> (logo request) and <em>Platforms &amp; Technology</em> (site maintenance) buckets.</li>
-          <li><strong>Exposes the real gap.</strong> Coverage drops from an inflated 60% (where the denominator was padded by low-value admin) to an honest <strong>33%</strong>. The remaining 10 gaps now point clearly at the initiatives CSR is missing: LX orchestration, content lifecycle, reporting/insights, volunteerism, and impact disclosure.</li>
-        </ul>
-      </div>
-
-      <!-- Initiatives Overview -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Blueprint Initiatives</h3>
-          <span class="count">1 CSR initiative</span>
-        </div>
-        <div class="initiative-grid">
-          <div class="initiative-card">
-            <h4>Grant Lifecycle Orchestrator Agent</h4>
-            <div class="id">CSR-CSR-10</div>
-            <div class="desc">Manages the end-to-end grant lifecycle from partner identification and onboarding through intake, compliance, milestones, payments, and reporting. Automates compliance checks across BVD, DPL, Salesforce, RCI (currently 40-50% admin effort).</div>
-            <div class="mapped-count">5 of 15 v3 workflows mapped</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Full Mapping Table -->
-      <div class="section">
-        <div class="section-header">
-          <h3>v3 Trim &mdash; 15 Workflows</h3>
-          <span class="count">15 workflows</span>
-        </div>
-        <div class="filter-bar" id="csr-filter-bar">
-          <button class="filter-tab active" onclick="filterTableCSR('all',this)">All (15)</button>
-          <button class="filter-tab" onclick="filterTableCSR('mapped',this)">Mapped (5)</button>
-          <button class="filter-tab" onclick="filterTableCSR('gap',this)">Gaps (10)</button>
-        </div>
-        <table id="csr-mapping-table">
-          <thead>
-            <tr>
-              <th style="width:3%">#</th>
-              <th style="width:22%">iX Workflow</th>
-              <th style="width:22%">Bucket &rarr; Sub-grouping</th>
-              <th style="width:14%">Maps To</th>
-              <th style="width:7%">Status</th>
-              <th style="width:32%">Rationale</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-status="mapped"><td>1</td><td class="process-name">Automated Grant Qualification in Versaic</td><td>Grants Execution &rarr; validation &amp; approval</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">Direct: automated qualification in Versaic is the core function the Grant Lifecycle Orchestrator agent automates.</div></td></tr>
-            <tr data-status="mapped"><td>2</td><td class="process-name">SkillsBuild Partnership/Opportunity Lifecycle</td><td>SkillsBuild &rarr; partner: ident &amp; plan</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">End-to-end partner spine &mdash; the lifecycle the agent orchestrates.</div></td></tr>
-            <tr data-status="gap"><td>3</td><td class="process-name">LX Receive &amp; Qualify Demand</td><td>SkillsBuild &rarr; partner: ident &amp; plan</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">No initiative covers LX intake / demand qualification. New LX Orchestration initiative needed.</div></td></tr>
-            <tr data-status="gap"><td>4</td><td class="process-name">LX Planning</td><td>SkillsBuild &rarr; partner: ident &amp; plan</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">LX scoping and planning steps fall outside grant lifecycle scope.</div></td></tr>
-            <tr data-status="mapped"><td>5</td><td class="process-name">Partner Onboarding</td><td>SkillsBuild &rarr; partner: onboarding</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">Onboarding step is part of the grant lifecycle orchestration.</div></td></tr>
-            <tr data-status="mapped"><td>6</td><td class="process-name">Program Partner Update &amp; Mgmt</td><td>SkillsBuild &rarr; partner active: program mgmt</td><td><span class="tag tag-initiative">CSR-CSR-10</span></td><td><span class="tag tag-covered">Mapped</span></td><td><div class="process-detail">Steady-state partner ops touched by Versaic-Airtable-Monday data sync.</div></td></tr>
-            <tr data-status="gap"><td>7</td><td class="process-name">LX Learner Promotion &amp; Registration</td><td>SkillsBuild &rarr; partner active: engagement</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Highest-volume learner-touch step. No engagement initiative exists.</div></td></tr>
-            <tr data-status="gap"><td>8</td><td class="process-name">LX Final Evaluation</td><td>SkillsBuild &rarr; partner active: feedback</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Closes the LX loop and feeds reporting. Needs an LX feedback initiative.</div></td></tr>
-            <tr data-status="gap"><td>9</td><td class="process-name">SkillsBuild Content Development</td><td>SkillsBuild &rarr; content</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Source of all learning IP. Needs a content lifecycle initiative.</div></td></tr>
-            <tr data-status="gap"><td>10</td><td class="process-name">Content Translation</td><td>SkillsBuild &rarr; content</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Global scale multiplier with very high AI leverage &mdash; major missed initiative.</div></td></tr>
-            <tr data-status="gap"><td>11</td><td class="process-name">Data Insights &amp; Consumption Report</td><td>SkillsBuild &rarr; partner active: reporting</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Quarterly executive artifact. Needs a reporting/analytics initiative.</div></td></tr>
-            <tr data-status="gap"><td>12</td><td class="process-name">Partner Reports</td><td>SkillsBuild &rarr; partner active: reporting</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Recurring per-partner deliverable, no reporting initiative covers it.</div></td></tr>
-            <tr data-status="gap"><td>13</td><td class="process-name">GLE / Webinar Promotion Process &nbsp;&#9733;</td><td>Geos &amp; Markets &rarr; promote / invite</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Added in v3 to preserve Geos &amp; Markets bucket. 30 people involved &mdash; high manual lift.</div></td></tr>
-            <tr data-status="gap"><td>14</td><td class="process-name">Giving &amp; Volunteerism Overall</td><td>Giving &amp; Volunteerism &rarr; run and comms</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Anchors the volunteerism pillar. Needs a dedicated initiative.</div></td></tr>
-            <tr data-status="gap"><td>15</td><td class="process-name">Impact Disclosure Creation</td><td>Responsible Business &rarr; review &gt; report</td><td>&mdash;</td><td><span class="tag tag-gap">Gap</span></td><td><div class="process-detail">Board-level reporting artifact. Needs an impact reporting initiative.</div></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Recommendations -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Recommendations to Hit 70%</h3>
-          <span class="count">+6 workflows needed</span>
-        </div>
-        <ol style="line-height:1.7;color:var(--cds-text-secondary);">
-          <li><strong>Add a Learning Experience Orchestration initiative</strong> &mdash; would absorb #3, #4, #7, #8 (4 workflows in one initiative). Single largest leverage point.</li>
-          <li><strong>Add a Content Lifecycle initiative</strong> covering authoring, translation, and global localization &mdash; absorbs #9, #10. High AI leverage on translation alone.</li>
-          <li><strong>Add a CSR Reporting &amp; Insights initiative</strong> &mdash; absorbs #11, #12, and feeds #15. Closes the analytics gap.</li>
-          <li>Volunteerism (#14) and Geos &amp; Markets promotion (#13) are smaller pillars but each warrant a thin dedicated initiative.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
+  <div class="content">
+    <div class="dashboard">
+  <div class="dash-card neutral">
+    <div class="label">Total Workflows</div>
+    <div class="value">27</div>
+    <div class="detail">Counted with duplicates (per workshop source)</div>
+  </div>
+  <div class="dash-card neutral">
+    <div class="label">Blueprint Initiatives</div>
+    <div class="value">13</div>
+    <div class="detail">Of 41 in the prioritized set</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">Mapped Workflows</div>
+    <div class="value">17</div>
+    <div class="detail">HIGH or MED confidence</div>
+  </div>
+  <div class="dash-card target-miss">
+    <div class="label">Gap Workflows</div>
+    <div class="value">10</div>
+    <div class="detail">No matching initiative</div>
+  </div>
+  <div class="dash-card target-miss">
+    <div class="label">Coverage Rate</div>
+    <div class="value">63%</div>
+    <div class="detail">Target: 70% &mdash; shortfall of 7 pts</div>
+  </div>
+  <div class="dash-card neutral">
+    <div class="label">Needed to Hit 70%</div>
+    <div class="value">+2</div>
+    <div class="detail">2 more workflows needed to hit 70%</div>
+  </div>
+</div>
+    <div class="coverage-bar-container">
+  <h3>Coverage vs. 70% Agentification Target</h3>
+  <div class="coverage-bar-track">
+    <div class="coverage-bar-fill below" style="width: 63%;"></div>
+    <div class="target-marker" style="left: 70%;"></div>
+  </div>
+  <div class="coverage-label">
+    <span>0%</span>
+    <span>17 of 27 workflows mapped (63%)</span>
+    <span>100%</span>
+  </div>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Blueprint Initiatives Mapped in this Domain</h3>
+    <span class="count">13 of 41 initiatives touched</span>
+  </div>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+  <h4>AdHoc Reporting &amp; Data</h4>
+  <div class="id">#15 &middot; MMAPI</div>
+  <div class="desc">Enables proactive and reactive insight generation via optimized queries and guided self-service analytics; delivers role-specific recommendations and structured outputs.</div>
+  <div class="mapped-count">5 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Trigger-Based Activation</h4>
+  <div class="id">#22 &middot; Corporate Affairs</div>
+  <div class="desc">Monitors newly published analyst reports, thought leadership, and market events to automatically generate and route activation-ready assets and messaging to marketing and sales. (Absorbs PMM&#x27;s Trigger-Based Activation.)</div>
+  <div class="mapped-count">4 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Content Creation incl Local</h4>
+  <div class="id">#6 &middot; Creative &amp; Content</div>
+  <div class="desc">AI-assisted content production across copywriting, design, video, and inbound — tool-level acceleration for original and derivative asset creation and localization. (Absorbs V2 Content + Paid Media POC.)</div>
+  <div class="mapped-count">3 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Audience/Content/Journey Orch</h4>
+  <div class="id">#8 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Unified workflow combining audience segmentation, journey, and content orchestration. Maps content to buyer-journey stages via taxonomy.</div>
+  <div class="mapped-count">3 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Event Strategy &amp; Workflow Orchestration</h4>
+  <div class="id">#13 &middot; Named Account Marketing</div>
+  <div class="desc">Guides event requesters through the end-to-end event lifecycle with standardized workflows, automated control points, compliance checks, and go/no-go calls informed by historical EPM performance.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Resource &amp; Capacity Planning</h4>
+  <div class="id">#14 &middot; Creative &amp; Content</div>
+  <div class="desc">Queries Workfront to match incoming project skill-set requirements against available internal team capacity and agency capabilities — surfaces insource-vs-procure decisions.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Partner Performance Intelligence</h4>
+  <div class="id">#17 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Holistic, real-time visibility into partner performance by unifying data across systems; surfaces trends and co-visibility across resellers, ISVs, build partners, MSPs.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Client Engagement Insights</h4>
+  <div class="id">#18 &middot; Product Marketing</div>
+  <div class="desc">Continuously analyzes cross-channel engagement — content consumption paths, asset performance by persona/industry, campaign response patterns, sales feedback (SalesLoft, ISC, Gong).</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Budgeting and Planning</h4>
+  <div class="id">#24 &middot; Technology &amp; Operations</div>
+  <div class="desc">Develops optimal budgets and financial plans leveraging historical spend and performance — produces recommended budgets and plans with supporting insights.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Growth Cohort &amp; Buying-Group Orchestration</h4>
+  <div class="id">#25 &middot; Named Account Marketing</div>
+  <div class="desc">Scores named accounts against propensity, install base, intent, lead scoring, and buying-group engagement to identify/prioritize growth cohorts.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>TL Creation Engine</h4>
+  <div class="id">#30 &middot; Product Marketing</div>
+  <div class="desc">Orchestrates end-to-end thought-leadership lifecycle from expert insight capture through POV qualification, narrative development, and cross-IBM stakeholder review.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Social Media Advocacy</h4>
+  <div class="id">#35 &middot; Corporate Affairs</div>
+  <div class="desc">Monitors IBM&#x27;s priority media in Meltwater, matches coverage to relevant executives, and generates personalized LinkedIn content tailored to each executive&#x27;s voice.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Scenario Planning</h4>
+  <div class="id">#36 &middot; Technology &amp; Operations</div>
+  <div class="desc">Models financial and operational scenarios to deliver real-time insights and eliminate manual spreadsheet modeling — supports faster investment planning and risk mitigation.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div>
+  </div>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Complete Workflow-to-Initiative Mapping</h3>
+    <span class="count">27 workflows</span>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-tab active" onclick="filterTableCSR('all',this)">All (27)</button><button class="filter-tab" onclick="filterTableCSR('mapped',this)">Mapped (17)</button><button class="filter-tab" onclick="filterTableCSR('gap',this)">Gaps (10)</button><button class="filter-tab" onclick="filterTableCSR('sub-0',this)">Geos and Markets (3)</button><button class="filter-tab" onclick="filterTableCSR('sub-1',this)">Giving and Volunteerism (4)</button><button class="filter-tab" onclick="filterTableCSR('sub-2',this)">Grants Execution (2)</button><button class="filter-tab" onclick="filterTableCSR('sub-3',this)">IBM SkillsBuild (9)</button><button class="filter-tab" onclick="filterTableCSR('sub-4',this)">Marketing (1)</button><button class="filter-tab" onclick="filterTableCSR('sub-5',this)">Platforms and Technology (2)</button><button class="filter-tab" onclick="filterTableCSR('sub-6',this)">Responsible Business (6)</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:4%">#</th>
+        <th style="width:10%">Sub-function</th>
+        <th style="width:22%">Workflow</th>
+        <th style="width:22%">Maps To</th>
+        <th style="width:7%">Conf.</th>
+        <th style="width:7%">Status</th>
+        <th style="width:28%">Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-status="mapped" data-sub="sub-0">
+  <td>1</td>
+  <td><span class="tag tag-sub">Geos and Markets</span></td>
+  <td class="process-name">planning</td>
+  <td><span class="tag tag-initiative">Budgeting and Planning</span> <span class="tag tag-initiative">Scenario Planning</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Budgeting and Planning + Scenario Planning partially cover CSR market planning; CSR-specific impact targets add complexity.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>2</td>
+  <td><span class="tag tag-sub">Geos and Markets</span></td>
+  <td class="process-name">promote / invite</td>
+  <td><span class="tag tag-initiative">Audience/Content/Journey Orch</span> <span class="tag tag-initiative">Trigger-Based Activation</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Audience Orchestration + Trigger-Based Activation cover promotion cadences; CSR event-promotion specifics remain bespoke.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>3</td>
+  <td><span class="tag tag-sub">Geos and Markets</span></td>
+  <td class="process-name">reporting</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data covers geo-market CSR reporting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>4</td>
+  <td><span class="tag tag-sub">Giving and Volunteerism</span></td>
+  <td class="process-name">create campaign (giving/volunteer)</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation + Audience Orchestration cover campaign creation; volunteerism-specific flows remain partial.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>5</td>
+  <td><span class="tag tag-sub">Giving and Volunteerism</span></td>
+  <td class="process-name">engage</td>
+  <td><span class="tag tag-initiative">Trigger-Based Activation</span> <span class="tag tag-initiative">Social Media Advocacy</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Trigger-Based Activation + Social Media Advocacy drive engagement; CSR audience nuance not fully captured.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>6</td>
+  <td><span class="tag tag-sub">Giving and Volunteerism</span></td>
+  <td class="process-name">reporting</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data covers volunteerism reporting.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-1">
+  <td>7</td>
+  <td><span class="tag tag-sub">Giving and Volunteerism</span></td>
+  <td class="process-name">run and comms</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative owns CSR run-of-show coordination or internal comms cadence for giving campaigns.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-2">
+  <td>8</td>
+  <td><span class="tag tag-sub">Grants Execution</span></td>
+  <td class="process-name">grant partner : compliance</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative in the 41 covers grant compliance (previously CSR-CSR-10 Grant Lifecycle — dropped from the prioritized set).</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-2">
+  <td>9</td>
+  <td><span class="tag tag-sub">Grants Execution</span></td>
+  <td class="process-name">grant partner : request validation &amp; approval</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative covers grant validation and approval (previously CSR-CSR-10 — dropped).</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-3">
+  <td>10</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">content create/upd/transl/integrate</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation incl Local covers SkillsBuild content authoring, updates, and translation.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-3">
+  <td>11</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">exit partnership</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative covers partnership-exit workflows (offboarding, content sunset, data return).</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-3">
+  <td>12</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">partner : ident and plan</td>
+  <td><span class="tag tag-initiative">Partner Performance Intelligence</span> <span class="tag tag-initiative">Growth Cohort &amp; Buying-Group Orchestration</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Partner Performance Intel + Growth Cohort partially cover partner identification; SkillsBuild has nonprofit-specific criteria.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-3">
+  <td>13</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">partner : onboarding</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative owns nonprofit/education partner onboarding orchestration.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-3">
+  <td>14</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">partner active: compliance</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative manages ongoing nonprofit compliance tracking.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-3">
+  <td>15</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">partner active: feedback</td>
+  <td><span class="tag tag-initiative">Client Engagement Insights</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Client Engagement Insights partially covers partner feedback loops; CSR-specific NPS not modeled.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-3">
+  <td>16</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">partner active: engagement</td>
+  <td><span class="tag tag-initiative">Trigger-Based Activation</span> <span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Trigger-Based Activation + Audience Orchestration drive engagement; partner-specific cadences remain bespoke.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-3">
+  <td>17</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">partner active: reporting</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data covers partner reporting.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-3">
+  <td>18</td>
+  <td><span class="tag tag-sub">IBM SkillsBuild</span></td>
+  <td class="process-name">sharing SB content on 3rd party platforms</td>
+  <td><span class="tag tag-initiative">Trigger-Based Activation</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Trigger-Based Activation supports syndication; third-party platform specifics (LinkedIn Learning, Coursera) add complexity.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-4">
+  <td>19</td>
+  <td><span class="tag tag-sub">Marketing</span></td>
+  <td class="process-name">Logo request</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative owns logo-request ticketing or brand-kit distribution workflow.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-5">
+  <td>20</td>
+  <td><span class="tag tag-sub">Platforms and Technology</span></td>
+  <td class="process-name">Compliance</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative addresses CSR platform compliance (data, accessibility, regulatory).</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-5">
+  <td>21</td>
+  <td><span class="tag tag-sub">Platforms and Technology</span></td>
+  <td class="process-name">SkillBuild site maintenance</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative covers ongoing SkillsBuild site content and infrastructure maintenance.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-6">
+  <td>22</td>
+  <td><span class="tag tag-sub">Responsible Business</span></td>
+  <td class="process-name">project execution</td>
+  <td><span class="tag tag-initiative">Resource &amp; Capacity Planning</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Resource &amp; Capacity Planning covers execution-capacity matching but responsible-business project ops add nuance.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-6">
+  <td>23</td>
+  <td><span class="tag tag-sub">Responsible Business</span></td>
+  <td class="process-name">project monitoring</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data provides monitoring/dashboard layer.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-6">
+  <td>24</td>
+  <td><span class="tag tag-sub">Responsible Business</span></td>
+  <td class="process-name">project proposals</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">TL Creation Engine</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation + TL Creation Engine partial coverage for proposal writing; RFP-style grant proposals need tailoring.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-6">
+  <td>25</td>
+  <td><span class="tag tag-sub">Responsible Business</span></td>
+  <td class="process-name">Request</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative covers the CSR request intake and triage workflow.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-6">
+  <td>26</td>
+  <td><span class="tag tag-sub">Responsible Business</span></td>
+  <td class="process-name">request for volunteers at event</td>
+  <td><span class="tag tag-initiative">Event Strategy &amp; Workflow Orchestration</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Event Strategy &amp; Workflow Orch partially covers volunteer-event requests; CSR-specific volunteer systems adjacent.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-6">
+  <td>27</td>
+  <td><span class="tag tag-sub">Responsible Business</span></td>
+  <td class="process-name">Review &gt; report</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data covers the review/report synthesis loop.</div></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Gap Analysis</h3>
+    <span class="count">10 workflows have no matching initiative</span>
+  </div>
+  <div class="gap-grid"><div class="gap-cluster"><h4>Giving and Volunteerism (1)</h4><ul><li><strong>run and comms</strong> &mdash; No initiative owns CSR run-of-show coordination or internal comms cadence for giving campaigns.</li></ul></div><div class="gap-cluster"><h4>Grants Execution (2)</h4><ul><li><strong>grant partner : compliance</strong> &mdash; No initiative in the 41 covers grant compliance (previously CSR-CSR-10 Grant Lifecycle — dropped from the prioritized set).</li><li><strong>grant partner : request validation &amp; approval</strong> &mdash; No initiative covers grant validation and approval (previously CSR-CSR-10 — dropped).</li></ul></div><div class="gap-cluster"><h4>IBM SkillsBuild (3)</h4><ul><li><strong>exit partnership</strong> &mdash; No initiative covers partnership-exit workflows (offboarding, content sunset, data return).</li><li><strong>partner : onboarding</strong> &mdash; No initiative owns nonprofit/education partner onboarding orchestration.</li><li><strong>partner active: compliance</strong> &mdash; No initiative manages ongoing nonprofit compliance tracking.</li></ul></div><div class="gap-cluster"><h4>Marketing (1)</h4><ul><li><strong>Logo request</strong> &mdash; No initiative owns logo-request ticketing or brand-kit distribution workflow.</li></ul></div><div class="gap-cluster"><h4>Platforms and Technology (2)</h4><ul><li><strong>Compliance</strong> &mdash; No initiative addresses CSR platform compliance (data, accessibility, regulatory).</li><li><strong>SkillBuild site maintenance</strong> &mdash; No initiative covers ongoing SkillsBuild site content and infrastructure maintenance.</li></ul></div><div class="gap-cluster"><h4>Responsible Business (1)</h4><ul><li><strong>Request</strong> &mdash; No initiative covers the CSR request intake and triage workflow.</li></ul></div></div>
+</div>
+  </div>
+</section>
 <script>
 function filterTableCSR(filter, btn) {
-  const tabs = document.querySelectorAll('#csr-filter-bar .filter-tab');
-  tabs.forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  const rows = document.querySelectorAll('#csr-mapping-table tbody tr');
-  rows.forEach(row => {
-    if (filter === 'all') { row.style.display = ''; return; }
-    row.style.display = (row.getAttribute('data-status') === filter) ? '' : 'none';
+  const section = document.getElementById('csr-domain');
+  if (!section) return;
+  section.querySelectorAll('.filter-bar .filter-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  section.querySelectorAll('tbody tr').forEach(row => {
+    const status = row.getAttribute('data-status');
+    const sub = row.getAttribute('data-sub');
+    let show = true;
+    if (filter === 'all') show = true;
+    else if (['mapped','partial','gap'].includes(filter)) show = (status === filter);
+    else show = (sub === filter);
+    row.style.display = show ? '' : 'none';
   });
 }
 </script>

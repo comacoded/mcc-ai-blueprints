@@ -1,660 +1,471 @@
-  <section id="mmapi-domain" class="domain-divider">
-    <div class="domain-header">
-      <h2>MMAPI Workflow Mapping</h2>
-      <p>Mapping MMAPI domain workflows from iX discovery (Analytics, Paid Media, Governance, Finance PDFs) to 6 AI Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target</p>
-    </div>
+<section id="mmapi-domain" class="domain-divider">
+  <div class="domain-header">
+    <h2>MMAPI Workflow Mapping</h2>
+    <p>Mapping 34 MMAPI workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
+  </div>
 
-    <div class="content">
-      <!-- Dashboard -->
-      <div class="dashboard">
-        <div class="dash-card neutral">
-          <div class="label">Total iX Workflows</div>
-          <div class="value">30</div>
-          <div class="detail">PDFs from iX discovery</div>
-        </div>
-        <div class="dash-card neutral">
-          <div class="label">Blueprint Initiatives</div>
-          <div class="value">6</div>
-          <div class="detail">6 MMAPI initiatives (MA-MMAPI-30 shared with Creative &amp; Content)</div>
-        </div>
-        <div class="dash-card target-hit">
-          <div class="label">Mapped Workflows</div>
-          <div class="value">19</div>
-          <div class="detail">Covered by initiative match</div>
-        </div>
-        <div class="dash-card target-miss">
-          <div class="label">Gap Workflows</div>
-          <div class="value">11</div>
-          <div class="detail">No initiative match</div>
-        </div>
-        <div class="dash-card target-miss">
-          <div class="label">Coverage Rate</div>
-          <div class="value">63%</div>
-          <div class="detail">Target: 70% &mdash; shortfall of 7 pts</div>
-        </div>
-        <div class="dash-card neutral">
-          <div class="label">Needed to Hit 70%</div>
-          <div class="value">+2</div>
-          <div class="detail">70% &times; 30 = 21 needed &minus; 19 mapped = +2</div>
-        </div>
-      </div>
-
-      <!-- Coverage bar -->
-      <div class="coverage-bar-container">
-        <h3>Coverage vs. 70% Agentification Target</h3>
-        <div class="coverage-bar-track">
-          <div class="coverage-bar-fill below" style="width: 63%;"></div>
-          <div class="target-marker" style="left: 70%;"></div>
-        </div>
-        <div class="coverage-label">
-          <span>0%</span>
-          <span>19 of 30 workflows mapped (63%)</span>
-          <span>100%</span>
-        </div>
-      </div>
-
-      <!-- Blueprint Initiatives Overview -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Blueprint Initiatives</h3>
-          <span class="count">6 MMAPI initiatives from Master Excel</span>
-        </div>
-        <div class="initiative-grid">
-          <div class="initiative-card">
-            <h4>AdHoc Reporting &amp; Data Interrogation</h4>
-            <div class="id">MA-MMAPI-29</div>
-            <div class="desc">Proactive/reactive insights, guided self-service analytics. Enables stakeholders to interrogate data through natural language queries and automated reporting pipelines.</div>
-            <div class="mapped-count">6 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Ad Ops &amp; Creative/Content Trafficking (Adobe POC)</h4>
-            <div class="id">MA-MMAPI-31</div>
-            <div class="desc">Migrate from home-grown ad tech to automated standard systems. Streamlines creative trafficking through Monday.com, DAM, AMAL, Magic!/Ruby/Sapphire deployment.</div>
-            <div class="mapped-count">7 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Response Optimization across Channels</h4>
-            <div class="id">MA-MMAPI-32</div>
-            <div class="desc">Maximize ROI from demand gen across SEM, LinkedIn, Content Syndication. Uses intent signals and expected value modeling for channel optimization.</div>
-            <div class="mapped-count">4 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Workflow Automation Thought Leadership to Marketo</h4>
-            <div class="id">MA-MMAPI-33</div>
-            <div class="desc">Automate activation of thought leadership content through Marketo. Connects content creation pipeline to marketing automation.</div>
-            <div class="mapped-count">0 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Content &amp; Forms Creation &amp; QA + Dynamic Content Optimization</h4>
-            <div class="id">MA-MMAPI-34</div>
-            <div class="desc">Adaptive, context-aware content creation with automated QA. Dynamic content optimization based on audience and channel signals.</div>
-            <div class="mapped-count">0 processes mapped</div>
-          </div>
-          <div class="initiative-card">
-            <h4>Data Anomaly Investigation &amp; Data Quality Issue Detection</h4>
-            <div class="id">MA-MMAPI-35</div>
-            <div class="desc">Automates data ingestion, cleansing, anomaly detection, and root cause analysis. Ensures data integrity across measurement pipelines.</div>
-            <div class="mapped-count">1 process mapped</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Full Mapping Table -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Complete Process-to-Initiative Mapping</h3>
-          <span class="count">30 iX workflows</span>
-        </div>
-
-        <div class="filter-bar" id="mmapi-filter-bar">
-          <button class="filter-tab active" onclick="filterTableMMAPI('all',this)">All (32)</button>
-          <button class="filter-tab" onclick="filterTableMMAPI('mapped',this)">Mapped (18)</button>
-          <button class="filter-tab" onclick="filterTableMMAPI('gap',this)">Gaps (14)</button>
-          <button class="filter-tab" onclick="filterTableMMAPI('analytics',this)">Analytics (6)</button>
-          <button class="filter-tab" onclick="filterTableMMAPI('pm',this)">Paid Media (18)</button>
-          <button class="filter-tab" onclick="filterTableMMAPI('gov',this)">Governance (5)</button>
-          <button class="filter-tab" onclick="filterTableMMAPI('finance',this)">Finance (3)</button>
-        </div>
-
-        <table id="mmapi-mapping-table">
-          <thead>
-            <tr>
-              <th style="width:3%">#</th>
-              <th style="width:5%">Sub-domain</th>
-              <th style="width:18%">iX Process</th>
-              <th style="width:20%">Maps To</th>
-              <th style="width:7%">Confidence</th>
-              <th style="width:5%">Status</th>
-              <th style="width:42%">Rationale &amp; Process Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- MAPPED PROCESSES -->
-            <tr data-sub="analytics" data-status="mapped">
-              <td>1</td>
-              <td><span class="tag tag-analytics">Analytics</span></td>
-              <td class="process-name">Weekly Reporting &amp; Insights Generation</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation because weekly dashboard refreshes, performance summaries, and anomaly flags are core to the proactive reporting scope. The initiative's automated reporting pipelines directly replace this manual cycle.</div>
-              </td>
-            </tr>
-            <tr data-sub="analytics" data-status="mapped">
-              <td>2</td>
-              <td><span class="tag tag-analytics">Analytics</span></td>
-              <td class="process-name">Ad-hoc Analytics &amp; Data Deep Dives</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation because natural-language query-to-report is the initiative's guided self-service analytics capability. Stakeholder deep dives move from analyst-dependent to LLM-driven interrogation.</div>
-              </td>
-            </tr>
-            <tr data-sub="analytics" data-status="mapped">
-              <td>3</td>
-              <td><span class="tag tag-analytics">Analytics</span></td>
-              <td class="process-name">Data Science &mdash; Model Building &amp; Pipelines</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation because ETL pipelines, data cleaning, and model building feed the data interrogation layer. The initiative automates upstream data preparation that analysts currently do manually.</div>
-              </td>
-            </tr>
-            <tr data-sub="analytics" data-status="mapped">
-              <td>4</td>
-              <td><span class="tag tag-analytics">Analytics</span></td>
-              <td class="process-name">Named Accounts Integrated Insights Assets</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation because multi-phase dashboard development and integrated insights assets for named accounts fall within the initiative's proactive reporting scope. Account-level analytics is a natural extension of the data interrogation platform.</div>
-              </td>
-            </tr>
-            <tr data-sub="analytics" data-status="mapped">
-              <td>5</td>
-              <td><span class="tag tag-analytics">Analytics</span></td>
-              <td class="process-name">Brand Insights, Corporate Reputation &amp; Testing</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation because brand health surveys and Tableau dashboard generation are reactive insight workflows. The initiative's automated reporting pipelines can ingest survey data and surface brand reputation trends proactively.</div>
-              </td>
-            </tr>
-            <tr data-sub="analytics" data-status="mapped">
-              <td>6</td>
-              <td><span class="tag tag-analytics">Analytics</span></td>
-              <td class="process-name">Named Accounts Analytics &amp; Insights</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation because propensity models and TAP360 analytics are advanced data interrogation workflows. The initiative's self-service layer enables stakeholders to query account-level signals without analyst intervention.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>7</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Audience Strategy &amp; Activation</td>
-              <td><span class="tag tag-initiative">Response Optimization Across Channels</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Response Optimization because audience segmentation and targeting directly feed the initiative's cross-channel response optimization. Intent signals and expected value modeling depend on refined audience strategy as input.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>8</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Activation &mdash; Paid Search</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because OneSearch intake, agency build, and geo replication are ad ops activation workflows. The Adobe POC migration replaces home-grown tooling with standardized trafficking through Monday.com and AMAL.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>9</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Paid Search</td>
-              <td><span class="tag tag-initiative">Response Optimization Across Channels</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Response Optimization because SEM is one of the three explicitly named channels (SEM, LinkedIn, Content Syndication) in the response optimization initiative. Tactical planning feeds directly into ROI maximization.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>10</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Content Syndication</td>
-              <td><span class="tag tag-initiative">Response Optimization Across Channels</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Response Optimization because Content Syndication is explicitly named as a core demand gen channel in the initiative. Planning decisions here directly inform the expected value modeling and channel mix optimization.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>11</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Creative Activation &mdash; Content Syndication</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because the full Monday.com &rarr; DAM &rarr; AMAL &rarr; Magic!/Ruby/Sapphire trafficking pipeline is the initiative's core automation target. This is the canonical ad ops workflow the Adobe POC is designed to standardize.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>12</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Creative Activation &mdash; Custom Content Programs</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because DCO companion banner trafficking follows the same Monday.com &rarr; DAM &rarr; deployment pipeline. The initiative's standardized ad ops tooling handles custom content programs alongside standard display.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>13</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Creative Activation &mdash; Display</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because DCO trafficking and Magic! deployment are the initiative's primary automation targets. Default rate monitoring and creative rotation also fall within the ad ops standardization scope.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>14</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Creative Activation &mdash; Out of Home</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because OOH creative trafficking, though simpler than digital, still flows through the agency coordination and deployment pipeline. The initiative covers all creative activation channels including offline.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>15</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Creative Activation &mdash; Paid Social</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because Magic! deployment, assignment sheet generation, and campaign code swaps are core creative trafficking tasks. The Adobe POC directly automates these handoffs between agency and platform.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>16</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Creative Activation &mdash; Print</td>
-              <td><span class="tag tag-initiative">Adobe POC Scaling: Ad Ops &amp; Creative/Content Trafficking</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad Ops and Creative/Content Trafficking because print trafficking via Ruby is part of the creative deployment toolchain being standardized. Though lower volume than digital, it uses the same intake and QA pipeline.</div>
-              </td>
-            </tr>
-            <tr data-sub="gov" data-status="mapped">
-              <td>17</td>
-              <td><span class="tag tag-gov">Governance</span></td>
-              <td class="process-name">Data Integrity (Datorama QA)</td>
-              <td><span class="tag tag-initiative">Anomaly Investigation and Data Quality Issue Detection</span></td>
-              <td><span class="tag tag-high">HIGH</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Data Anomaly Investigation because Datorama taxonomy QA and data governance checks are exactly the data quality issue detection the initiative targets. Automated anomaly detection replaces manual Datorama validation.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="mapped">
-              <td>18</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Measurement &amp; Optimization</td>
-              <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data Interrogation (Proactive and Reactive)</span> <span class="tag tag-initiative">Response Optimization Across Channels</span></td>
-              <td><span class="tag tag-medium">MED</span></td>
-              <td><span class="tag tag-covered">Covered</span></td>
-              <td>
-                <div class="process-detail">Covered by Ad-hoc Reporting and Data Interrogation and Response Optimization because post-launch performance monitoring feeds into ad-hoc reporting, while EPM checks and optimization recommendations drive cross-channel response optimization. Both initiatives share this workflow.</div>
-              </td>
-            </tr>
-            <!-- GAP PROCESSES -->
-            <tr data-sub="pm" data-status="gap">
-              <td>19</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Audio</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because no initiative covers media planning or strategy for any channel. Audio planning workflows (budget allocation, vendor selection, audience targeting) sit entirely outside the six MMAPI initiatives.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>20</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Custom Content Programs</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because the initiatives cover creative trafficking (Ad Ops and Creative/Content Trafficking) but not the upstream planning decisions for custom content programs. Budget allocation, publisher selection, and program scoping have no initiative owner.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>21</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Display</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because Ad Ops and Creative/Content Trafficking covers display creative activation but not the tactical planning layer. Channel mix decisions, flight scheduling, and budget pacing for display have no initiative coverage.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>22</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Out of Home</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because OOH tactical planning (venue selection, market prioritization, flight timing) is not covered by any initiative. Ad Ops and Creative/Content Trafficking handles OOH creative activation only.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>23</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Paid Social</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because paid social tactical planning (platform selection, audience targeting, budget allocation across LinkedIn/Meta) has no initiative. Response Optimization covers LinkedIn optimization but not the upstream planning process.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>24</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Channel Tactical Planning &mdash; Video</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because video channel tactical planning (pre-roll/mid-roll allocation, CTV targeting, frequency capping) is not addressed by any initiative. Like other channel planning processes, only activation is covered.</div>
-              </td>
-            </tr>
-            <tr data-sub="gov" data-status="gap">
-              <td>25</td>
-              <td><span class="tag tag-gov">Governance</span></td>
-              <td class="process-name">Adtech Platform Supplier Management</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because vendor evaluation, business case development, and Technology Review Board approvals are procurement/governance workflows with no initiative coverage. The adtech supplier lifecycle sits outside all six MMAPI initiatives.</div>
-              </td>
-            </tr>
-            <tr data-sub="gov" data-status="gap">
-              <td>26</td>
-              <td><span class="tag tag-gov">Governance</span></td>
-              <td class="process-name">Adtech Platform Tools Management</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because in-house tool management (AMAL, DCO bug fixes, enhancement requests, feature roadmaps) is a platform engineering function. Ad Ops and Creative/Content Trafficking uses these tools but does not cover their development or maintenance lifecycle.</div>
-              </td>
-            </tr>
-            <tr data-sub="gov" data-status="gap">
-              <td>27</td>
-              <td><span class="tag tag-gov">Governance</span></td>
-              <td class="process-name">Brand Safety Standards</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because GARM framework enforcement, DoubleVerify monitoring, risk tier classification, and incident response are compliance workflows with no initiative owner. Brand safety governance is entirely absent from the blueprint.</div>
-              </td>
-            </tr>
-            <tr data-sub="finance" data-status="gap">
-              <td>28</td>
-              <td><span class="tag tag-finance">Finance</span></td>
-              <td class="process-name">Media PO &amp; Reconciliation</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because PO setup, agency invoicing, IPVN reconciliation, and Delta Team verification are financial operations workflows. No initiative addresses media spend reconciliation or procurement automation.</div>
-              </td>
-            </tr>
-            <tr data-sub="finance" data-status="gap">
-              <td>29</td>
-              <td><span class="tag tag-finance">Finance</span></td>
-              <td class="process-name">Retainer PO &amp; Reconciliation</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because SOW review, staff plan validation, procurement workflows, and quarterly FTE reporting are financial governance processes. Like media PO reconciliation, retainer management has no initiative coverage.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>30</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Strategic Planning (Base)</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because annual media strategy, Media Brief development, and agency briefing are strategic planning workflows. The initiatives cover optimization and activation but not the upstream strategy layer that drives them.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>31</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Strategic Planning &mdash; Out of Home</td>
-              <td>&mdash;</td>
-              <td><span class="tag tag-gap">GAP</span></td>
-              <td><span class="tag tag-gap">Gap</span></td>
-              <td>
-                <div class="process-detail">Gap because OOH strategic planning (market selection, venue strategy, seasonal timing) is a specialized variant of base strategic planning. Like the base process, no initiative covers media strategy formulation.</div>
-              </td>
-            </tr>
-            <tr data-sub="pm" data-status="gap">
-              <td>32</td>
-              <td><span class="tag tag-pm">Paid Media</span></td>
-              <td class="process-name">Strategic Planning &mdash; Paid Search</td>
-              <td><span class="tag tag-initiative">Response Optimization Across Channels</span></td>
-              <td><span class="tag tag-low">LOW</span></td>
-              <td><span class="tag tag-partial">Partial</span></td>
-              <td>
-                <div class="process-detail">Gap because Response Optimization covers SEM response optimization but not the broader strategic planning scope. Keyword strategy, budget forecasting, and competitive positioning sit upstream of the optimization the initiative addresses.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Gap Analysis -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Gap Analysis</h3>
-          <span class="count">14 uncovered processes clustered into 4 themes</span>
-        </div>
-
-        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 1: Media Planning &amp; Strategy (7 processes)</h4>
-        <div class="gap-grid" style="margin-bottom: 1.5rem;">
-          <div class="gap-card">
-            <h4>Channel Tactical Planning &mdash; Audio</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Audio channel planning. Core media planning workflow not covered by any initiative.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Channel Tactical Planning &mdash; Custom Content Programs</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Custom content program planning. Planning scope not in any initiative.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Channel Tactical Planning &mdash; Display</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Display channel tactical planning.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Channel Tactical Planning &mdash; Out of Home</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>OOH channel tactical planning.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Channel Tactical Planning &mdash; Paid Social</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Paid social channel tactical planning.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Channel Tactical Planning &mdash; Video</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Video channel tactical planning.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Strategic Planning (Base)</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Annual strategy, Media Brief development, agency briefing.</p>
-          </div>
-        </div>
-
-        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 2: Governance &amp; Compliance (3 processes)</h4>
-        <div class="gap-grid" style="margin-bottom: 1.5rem;">
-          <div class="gap-card">
-            <h4>Adtech Platform Supplier Management</h4>
-            <div class="source-tag"><span class="tag tag-gov">Governance</span></div>
-            <p>Vendor evaluation, business case, Technology Review Board. Vendor lifecycle.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Adtech Platform Tools Management</h4>
-            <div class="source-tag"><span class="tag tag-gov">Governance</span></div>
-            <p>In-house tool bug/enhancement/feature management (AMAL, DCO, etc.)</p>
-          </div>
-          <div class="gap-card">
-            <h4>Brand Safety Standards</h4>
-            <div class="source-tag"><span class="tag tag-gov">Governance</span></div>
-            <p>GARM framework, risk tiers, DoubleVerify monitoring, incident response.</p>
-          </div>
-        </div>
-
-        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 3: Financial Operations (2 processes)</h4>
-        <div class="gap-grid" style="margin-bottom: 1.5rem;">
-          <div class="gap-card">
-            <h4>Media PO &amp; Reconciliation</h4>
-            <div class="source-tag"><span class="tag tag-finance">Finance</span></div>
-            <p>PO setup, agency invoicing, IPVN, Delta Team verification.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Retainer PO &amp; Reconciliation</h4>
-            <div class="source-tag"><span class="tag tag-finance">Finance</span></div>
-            <p>SOW review, staff plans, procurement, quarterly FTE reports.</p>
-          </div>
-        </div>
-
-        <h4 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; color: var(--cds-support-error);">Cluster 4: Strategic Planning Variants (2 processes)</h4>
-        <div class="gap-grid" style="margin-bottom: 1.5rem;">
-          <div class="gap-card">
-            <h4>Strategic Planning &mdash; Out of Home</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>OOH-specific strategic planning variant.</p>
-          </div>
-          <div class="gap-card">
-            <h4>Strategic Planning &mdash; Paid Search</h4>
-            <div class="source-tag"><span class="tag tag-pm">Paid Media</span></div>
-            <p>Paid Search strategy has some overlap with SEM optimization but planning scope is broader. Partial coverage only.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Recommendations -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Recommendations to Reach 70%</h3>
-          <span class="count">3 options to close the 14-point gap</span>
-        </div>
-
-        <ol class="reco-list">
-          <li>
-            <div>
-              <strong>New Initiative: Media Planning &amp; Strategy Orchestration Agent</strong>
-              <div class="reco-detail">Automate channel tactical planning workflows: partner scoring, RFP management, plan creation, Camphouse entry, ATB approvals. Covers 7 gap processes.</div>
-              <div class="reco-impact">+7 processes covered &rarr; 78% (exceeds target)</div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>Expand Data Anomaly Investigation (Data Quality) to cover Brand Safety monitoring</strong>
-              <div class="reco-detail">Brand safety's data-driven monitoring fits the anomaly detection pattern. Extends existing initiative rather than creating a new one.</div>
-              <div class="reco-impact">+1 process covered &rarr; 59%</div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>Alternative: New "Media Governance &amp; Compliance Agent"</strong>
-              <div class="reco-detail">Covers adtech supplier management, tools management, brand safety. Combined with Option 1 covers 10 gap processes.</div>
-              <div class="reco-impact">+3 processes covered &rarr; 66%. Combined with Option 1 &rarr; 84%</div>
-            </div>
-          </li>
-        </ol>
-        <div style="background:var(--cds-layer-01);border:1px solid var(--cds-border-subtle);border-left:3px solid var(--cds-support-success);padding:1rem;margin-top:1rem;">
-          <strong style="font-size:0.875rem;">Fastest path to 70%:</strong>
-          <span style="font-size:0.875rem;color:var(--cds-text-secondary);"> Option 1 alone (Media Planning &amp; Strategy Agent) covers +7 gap processes, bringing MMAPI from 56% to 78% &mdash; exceeds target.</span>
-        </div>
-      </div>
-
-      <!-- Initiative Coverage Depth -->
-      <div class="section">
-        <div class="section-header">
-          <h3>Initiative Coverage Depth</h3>
-          <span class="count">Process count per initiative</span>
-        </div>
-        <table>
-          <thead><tr><th>Initiative</th><th>ID</th><th>Mapped</th><th>Depth</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td class="process-name">Ad Ops &amp; Trafficking</td><td>MA-MMAPI-31</td><td>7</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Highest: CS, Custom Content, Display, OOH, Paid Social, Print, Paid Search activation</td></tr>
-            <tr><td class="process-name">Reporting &amp; Data Interrogation</td><td>MA-MMAPI-29</td><td>7</td><td><div style="background:#a7f0ba;height:12px;width:100%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">6 direct analytics + 1 shared with MMAPI-32 (Measurement)</td></tr>
-            <tr><td class="process-name">Response Optimization</td><td>MA-MMAPI-32</td><td>4</td><td><div style="background:#a7f0ba;height:12px;width:57%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Audience Strategy, Paid Search Planning, CS Planning + 1 shared + 1 partial</td></tr>
-            <tr><td class="process-name">Data Anomaly &amp; Quality</td><td>MA-MMAPI-35</td><td>1</td><td><div style="background:#fddc69;height:12px;width:14%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">Data Integrity (Datorama QA)</td></tr>
-            <tr><td class="process-name">Marketo Automation</td><td>MA-MMAPI-33</td><td>0</td><td><div style="background:#ffd7d9;height:12px;width:5%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">No direct match in iX workflows</td></tr>
-            <tr><td class="process-name">Content &amp; Forms QA</td><td>MA-MMAPI-34</td><td>0</td><td><div style="background:#ffd7d9;height:12px;width:5%;border-radius:2px;"></div></td><td style="font-size:0.8125rem;color:var(--cds-text-secondary);">No direct match in iX workflows</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
+  <div class="content">
+    <div class="dashboard">
+  <div class="dash-card neutral">
+    <div class="label">Total Workflows</div>
+    <div class="value">34</div>
+    <div class="detail">Counted with duplicates (per workshop source)</div>
+  </div>
+  <div class="dash-card neutral">
+    <div class="label">Blueprint Initiatives</div>
+    <div class="value">11</div>
+    <div class="detail">Of 41 in the prioritized set</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">Mapped Workflows</div>
+    <div class="value">30</div>
+    <div class="detail">HIGH or MED confidence</div>
+  </div>
+  <div class="dash-card target-miss">
+    <div class="label">Gap Workflows</div>
+    <div class="value">4</div>
+    <div class="detail">No matching initiative</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">Coverage Rate</div>
+    <div class="value">88%</div>
+    <div class="detail">Target: 70% &mdash; exceeds by 18 pts</div>
+  </div>
+  <div class="dash-card target-hit">
+    <div class="label">vs. 70% Target</div>
+    <div class="value">+6</div>
+    <div class="detail">6 workflows above the 70% target</div>
+  </div>
+</div>
+    <div class="coverage-bar-container">
+  <h3>Coverage vs. 70% Agentification Target</h3>
+  <div class="coverage-bar-track">
+    <div class="coverage-bar-fill above" style="width: 88%;"></div>
+    <div class="target-marker" style="left: 70%;"></div>
+  </div>
+  <div class="coverage-label">
+    <span>0%</span>
+    <span>30 of 34 workflows mapped (88%)</span>
+    <span>100%</span>
+  </div>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Blueprint Initiatives Mapped in this Domain</h3>
+    <span class="count">11 of 41 initiatives touched</span>
+  </div>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+  <h4>Ad Ops / Adobe PDC Staging</h4>
+  <div class="id">#1 &middot; MMAPI</div>
+  <div class="desc">Migrates end-to-end ad execution from home-grown tech to standard automated systems that integrate both IBM tech and agency platforms (Adobe POC Scaling).</div>
+  <div class="mapped-count">8 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Response Optimization</h4>
+  <div class="id">#38 &middot; MMAPI</div>
+  <div class="desc">Maximizes return on investment from demand-gen activity across SEM, LinkedIn, and content syndication. Ingests performance and intent signals to determine expected value.</div>
+  <div class="mapped-count">7 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>AdHoc Reporting &amp; Data</h4>
+  <div class="id">#15 &middot; MMAPI</div>
+  <div class="desc">Enables proactive and reactive insight generation via optimized queries and guided self-service analytics; delivers role-specific recommendations and structured outputs.</div>
+  <div class="mapped-count">6 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Content Creation incl Local</h4>
+  <div class="id">#6 &middot; Creative &amp; Content</div>
+  <div class="desc">AI-assisted content production across copywriting, design, video, and inbound — tool-level acceleration for original and derivative asset creation and localization. (Absorbs V2 Content + Paid Media POC.)</div>
+  <div class="mapped-count">4 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>GenStudio Content &amp; Creative</h4>
+  <div class="id">#9 &middot; Creative &amp; Content</div>
+  <div class="desc">Expands GenStudio POC to all supported ad formats and channels; generates channel-specific creative derivatives with automated brand/legal QA. (Merged GenStudio MMAPI + C&amp;C.)</div>
+  <div class="mapped-count">4 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Budgeting and Planning</h4>
+  <div class="id">#24 &middot; Technology &amp; Operations</div>
+  <div class="desc">Develops optimal budgets and financial plans leveraging historical spend and performance — produces recommended budgets and plans with supporting insights.</div>
+  <div class="mapped-count">4 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Spend &amp; Performance Data Fdn</h4>
+  <div class="id">#3 &middot; Technology &amp; Operations</div>
+  <div class="desc">Automates PO data entry by ingesting SOW, quote, or contract data and provides intelligent allocation guidance across tactics and quarters; correlates spend with outcomes.</div>
+  <div class="mapped-count">2 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Audience/Content/Journey Orch</h4>
+  <div class="id">#8 &middot; Select Account &amp; Digital Demand</div>
+  <div class="desc">Unified workflow combining audience segmentation, journey, and content orchestration. Maps content to buyer-journey stages via taxonomy.</div>
+  <div class="mapped-count">2 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Gap ID, RCA &amp; NBA</h4>
+  <div class="id">#12 &middot; Named Account Marketing</div>
+  <div class="desc">Monitors pipeline health, marketing performance, and metrics across ISC, EPM, and seller feedback — surfaces root-cause shortfalls and next-best-action recommendations.</div>
+  <div class="mapped-count">2 workflows mapped</div>
+</div><div class="initiative-card">
+  <h4>Data Anomaly &amp; DQ (CDO)</h4>
+  <div class="id">#27 &middot; MMAPI</div>
+  <div class="desc">Automates multi-source data ingestion, cleansing, and real-time anomaly detection; investigates whether anomalies are quality issues or true signals and delivers dashboards and RCA.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
+  <h4>Scenario Planning</h4>
+  <div class="id">#36 &middot; Technology &amp; Operations</div>
+  <div class="desc">Models financial and operational scenarios to deliver real-time insights and eliminate manual spreadsheet modeling — supports faster investment planning and risk mitigation.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div>
+  </div>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Complete Workflow-to-Initiative Mapping</h3>
+    <span class="count">34 workflows</span>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-tab active" onclick="filterTableMMAPI('all',this)">All (34)</button><button class="filter-tab" onclick="filterTableMMAPI('mapped',this)">Mapped (30)</button><button class="filter-tab" onclick="filterTableMMAPI('gap',this)">Gaps (4)</button><button class="filter-tab" onclick="filterTableMMAPI('sub-0',this)">Paid Media (29)</button><button class="filter-tab" onclick="filterTableMMAPI('sub-1',this)">Analytics (5)</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:4%">#</th>
+        <th style="width:10%">Sub-function</th>
+        <th style="width:22%">Workflow</th>
+        <th style="width:22%">Maps To</th>
+        <th style="width:7%">Conf.</th>
+        <th style="width:7%">Status</th>
+        <th style="width:28%">Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-status="mapped" data-sub="sub-0">
+  <td>1</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Retainer PO &amp; reconciliation</td>
+  <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Spend and Performance Data Foundation automates retainer PO ingestion and reconciliation.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>2</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Media PO &amp; reconciliation</td>
+  <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Spend and Performance Data Foundation covers media PO lifecycle reconciliation.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>3</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Strategic planning</td>
+  <td><span class="tag tag-initiative">Budgeting and Planning</span> <span class="tag tag-initiative">Scenario Planning</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Budgeting and Planning handles media strategic plans; Scenario Planning supports allocation what-ifs.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>4</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Strategic planning / SP Out of Home</td>
+  <td><span class="tag tag-initiative">Budgeting and Planning</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Budgeting and Planning covers OOH allocation; the OOH-specific vendor landscape adds nuance.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>5</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Strategic planning / SP Paid Search</td>
+  <td><span class="tag tag-initiative">Budgeting and Planning</span> <span class="tag tag-initiative">Response Optimization</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Budgeting and Planning handles budget; Response Optimization tunes SEM performance at channel level.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>6</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Audio</td>
+  <td><span class="tag tag-initiative">Budgeting and Planning</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Budgeting and Planning partial; audio tactical levers (podcast vs streaming) not owned.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>7</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Display</td>
+  <td><span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span> <span class="tag tag-initiative">Response Optimization</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Ad Ops handles display trafficking; Response Optimization tunes display performance.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>8</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Video</td>
+  <td><span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Ad Ops covers video trafficking via the Adobe PDC scaling scope.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>9</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Paid search</td>
+  <td><span class="tag tag-initiative">Response Optimization</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Response Optimization is the core SEM optimization initiative.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>10</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Paid social</td>
+  <td><span class="tag tag-initiative">Response Optimization</span> <span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Response Optimization covers LinkedIn optimization; Ad Ops handles trafficking.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>11</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Out of Home</td>
+  <td><span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Ad Ops extends to OOH trafficking in the Adobe scope but OOH ops retain manual steps.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>12</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Custom Content Programs</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">Response Optimization</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation supports bespoke program assets; Response Optimization tracks performance.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>13</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Content Syndication</td>
+  <td><span class="tag tag-initiative">Response Optimization</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Response Optimization is scoped explicitly for content syndication.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-0">
+  <td>14</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel tactical planning / SP Print</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative owns print tactical planning — adjacent to Ad Ops but print has specialized vendors/timelines.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>15</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Audience strategy</td>
+  <td><span class="tag tag-initiative">Audience/Content/Journey Orch</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Audience/Content/Journey Orchestration directly covers audience strategy across paid media.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>16</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Audience activation</td>
+  <td><span class="tag tag-initiative">Audience/Content/Journey Orch</span> <span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Audience Orchestration activates; Ad Ops traffics to platforms.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>17</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Creative activation / SP Display</td>
+  <td><span class="tag tag-initiative">GenStudio Content &amp; Creative</span> <span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">GenStudio produces display creative; Ad Ops traffics activation.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>18</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Creative activation / SP Out of Home</td>
+  <td><span class="tag tag-initiative">GenStudio Content &amp; Creative</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">GenStudio expands to OOH formats, but OOH print/billboard specs aren&#x27;t fully supported yet.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>19</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Creative activation / SP Custom content programs</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span> <span class="tag tag-initiative">GenStudio Content &amp; Creative</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation handles bespoke assets; GenStudio covers template-driven formats.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>20</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Creative activation / SP Content Syndication</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation incl Local covers syndication asset derivatives.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>21</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Creative activation / SP Print</td>
+  <td><span class="tag tag-initiative">Content Creation incl Local</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Content Creation covers print-ready derivatives but print-specific QA still manual.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>22</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Creative activation / SP Paid Social</td>
+  <td><span class="tag tag-initiative">GenStudio Content &amp; Creative</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">GenStudio directly covers paid-social creative activation.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>23</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Channel activation paid search</td>
+  <td><span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Ad Ops covers SEM channel activation via Adobe PDC staging.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>24</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Measurement &amp; optimization (different scheduling points for each monitoring in one process)</td>
+  <td><span class="tag tag-initiative">Response Optimization</span> <span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Response Optimization is the core channel optimization initiative; AdHoc Reporting supports ad-hoc measurement.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>25</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Governance processes / SP Data integrity</td>
+  <td><span class="tag tag-initiative">Data Anomaly &amp; DQ (CDO)</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Data Anomaly &amp; DQ (CDO) directly addresses media data integrity and quality detection.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-0">
+  <td>26</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Governance processes / SP Media supplier lifecycle management</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative manages supplier lifecycle (onboarding, audits, offboarding) for media vendors.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-0">
+  <td>27</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Governance processes / SP Brand safety standards</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative owns brand-safety standards enforcement across DSPs and publishers.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-0">
+  <td>28</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Governance processes / SP Adtech platform supplier management</td>
+  <td>&mdash;</td>
+  <td><span class="tag tag-gap">GAP</span></td>
+  <td><span class="tag tag-gap">Gap</span></td>
+  <td><div class="process-detail">No initiative addresses adtech platform vendor management and contract governance.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-0">
+  <td>29</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Governance processes / SP Adtech platform tools management</td>
+  <td><span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Ad Ops scope implies tool management, but explicit tooling governance workflow isn&#x27;t scoped.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>30</td>
+  <td><span class="tag tag-sub">Analytics</span></td>
+  <td class="process-name">High level flow</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data is the reporting foundation; the &#x27;high level flow&#x27; workflow is more of a meta-process.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>31</td>
+  <td><span class="tag tag-sub">Analytics</span></td>
+  <td class="process-name">Weekly Reporting and Insights</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting &amp; Data directly covers weekly insights generation.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>32</td>
+  <td><span class="tag tag-sub">Analytics</span></td>
+  <td class="process-name">Named Account Insights Assets</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span> <span class="tag tag-initiative">Gap ID, RCA &amp; NBA</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting + Gap ID/RCA/NBA together cover named-account insight delivery.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>33</td>
+  <td><span class="tag tag-sub">Analytics</span></td>
+  <td class="process-name">Brand Insights &amp; Testing</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
+  <td><span class="tag tag-medium">MED</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting supports brand insight queries; longitudinal brand lift testing methodology not explicit.</div></td>
+</tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>34</td>
+  <td><span class="tag tag-sub">Analytics</span></td>
+  <td class="process-name">Named Account Analytics &amp; Insights</td>
+  <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span> <span class="tag tag-initiative">Gap ID, RCA &amp; NBA</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">AdHoc Reporting + Gap ID/RCA/NBA cover named-account analytics delivery.</div></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+    <div class="section">
+  <div class="section-header">
+    <h3>Gap Analysis</h3>
+    <span class="count">4 workflows have no matching initiative</span>
+  </div>
+  <div class="gap-grid"><div class="gap-cluster"><h4>Paid Media (4)</h4><ul><li><strong>Channel tactical planning / SP Print</strong> &mdash; No initiative owns print tactical planning — adjacent to Ad Ops but print has specialized vendors/timelines.</li><li><strong>Governance processes / SP Media supplier lifecycle management</strong> &mdash; No initiative manages supplier lifecycle (onboarding, audits, offboarding) for media vendors.</li><li><strong>Governance processes / SP Brand safety standards</strong> &mdash; No initiative owns brand-safety standards enforcement across DSPs and publishers.</li><li><strong>Governance processes / SP Adtech platform supplier management</strong> &mdash; No initiative addresses adtech platform vendor management and contract governance.</li></ul></div></div>
+</div>
+  </div>
+</section>
 <script>
-function filterTableMMAPI(filter, el) {
-  const rows = document.querySelectorAll('#mmapi-mapping-table tbody tr');
-  const tabs = document.querySelectorAll('#mmapi-filter-bar .filter-tab');
-  tabs.forEach(t => t.classList.remove('active'));
-  if (el) el.classList.add('active');
-  rows.forEach(row => {
-    const sub = row.dataset.sub || '';
-    const status = row.dataset.status || '';
-    if (filter === 'all') row.style.display = '';
-    else if (filter === 'mapped') row.style.display = status === 'mapped' ? '' : 'none';
-    else if (filter === 'gap') row.style.display = status === 'gap' ? '' : 'none';
-    else if (filter === 'analytics') row.style.display = sub === 'analytics' ? '' : 'none';
-    else if (filter === 'pm') row.style.display = sub === 'pm' ? '' : 'none';
-    else if (filter === 'gov') row.style.display = sub === 'gov' ? '' : 'none';
-    else if (filter === 'finance') row.style.display = sub === 'finance' ? '' : 'none';
+function filterTableMMAPI(filter, btn) {
+  const section = document.getElementById('mmapi-domain');
+  if (!section) return;
+  section.querySelectorAll('.filter-bar .filter-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  section.querySelectorAll('tbody tr').forEach(row => {
+    const status = row.getAttribute('data-status');
+    const sub = row.getAttribute('data-sub');
+    let show = true;
+    if (filter === 'all') show = true;
+    else if (['mapped','partial','gap'].includes(filter)) show = (status === filter);
+    else show = (sub === filter);
+    row.style.display = show ? '' : 'none';
   });
 }
 </script>

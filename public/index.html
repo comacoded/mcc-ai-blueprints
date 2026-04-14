@@ -1045,6 +1045,17 @@
   .page-ix .tag-inv { background: #e8daff; color: #31135e; }
   .page-ix .tag-both { background: #e0e0e0; color: #393939; }
   .page-ix .tag-initiative { background: #d0e2ff; color: #002d9c; font-size: 0.6875rem; padding: 1px 6px; }
+  .page-ix .tag-sub { background: #f4f4f4; color: #525252; font-size: 0.6875rem; padding: 1px 6px; border: 1px solid #e0e0e0; }
+  .page-ix .gap-cluster {
+    background: var(--cds-layer-01);
+    border: 1px solid var(--cds-border-subtle);
+    border-left: 3px solid var(--cds-support-error);
+    padding: 1rem;
+  }
+  .page-ix .gap-cluster h4 { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cds-support-error); }
+  .page-ix .gap-cluster ul { list-style: disc inside; padding-left: 0; }
+  .page-ix .gap-cluster li { font-size: 0.8125rem; color: var(--cds-text-secondary); line-height: 1.5; margin-bottom: 0.5rem; }
+  .page-ix .gap-cluster strong { color: var(--cds-text-primary); }
   .page-ix .tag-sm { background: #9ef0f0; color: #004144; }
   .page-ix .tag-iec { background: #e8daff; color: #31135e; }
   .page-ix .tag-ic { background: #d0e2ff; color: #002d9c; }
@@ -2603,27 +2614,27 @@
   <a href="#" data-page="ix-combined" class="active">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
-    <span class="nav-meta">68%</span>
+    <span class="nav-meta">87%</span>
   </a>
   <a href="#" data-page="ix-to">
-    <span class="nav-dot" style="background:#009d9a"></span>
+    <span class="nav-dot" style="background:#24a148"></span>
     T&amp;O
-    <span class="nav-meta">100%</span>
+    <span class="nav-meta">81%</span>
   </a>
   <a href="#" data-page="ix-ca">
-    <span class="nav-dot" style="background:#da1e28"></span>
+    <span class="nav-dot" style="background:#24a148"></span>
     Corporate Affairs
-    <span class="nav-meta">57%</span>
+    <span class="nav-meta">82%</span>
   </a>
   <a href="#" data-page="ix-mmapi">
-    <span class="nav-dot" style="background:#8a3ffc"></span>
+    <span class="nav-dot" style="background:#24a148"></span>
     MMAPI
-    <span class="nav-meta">63%</span>
+    <span class="nav-meta">88%</span>
   </a>
   <a href="#" data-page="ix-na">
-    <span class="nav-dot" style="background:#f1c21b"></span>
+    <span class="nav-dot" style="background:#24a148"></span>
     Named Account
-    <span class="nav-meta">95%</span>
+    <span class="nav-meta">91%</span>
   </a>
   <a href="#" data-page="ix-sm">
     <span class="nav-dot" style="background:#24a148"></span>
@@ -2633,12 +2644,22 @@
   <a href="#" data-page="ix-csr">
     <span class="nav-dot" style="background:#da1e28"></span>
     CSR
-    <span class="nav-meta">33%</span>
+    <span class="nav-meta">63%</span>
   </a>
   <a href="#" data-page="ix-cc">
     <span class="nav-dot" style="background:#24a148"></span>
     Content &amp; Creative
     <span class="nav-meta">100%</span>
+  </a>
+  <a href="#" data-page="ix-pmm">
+    <span class="nav-dot" style="background:#da1e28"></span>
+    PMM
+    <span class="nav-meta">67%</span>
+  </a>
+  <a href="#" data-page="ix-ma">
+    <span class="nav-dot" style="background:#24a148"></span>
+    Marketing &amp; Automation
+    <span class="nav-meta">91%</span>
   </a>
 </nav>
 
@@ -2691,6 +2712,8 @@
   <div class="page page-ix" id="page-ix-sm"></div>
   <div class="page page-ix" id="page-ix-csr"></div>
   <div class="page page-ix" id="page-ix-cc"></div>
+  <div class="page page-ix" id="page-ix-pmm"></div>
+  <div class="page page-ix" id="page-ix-ma"></div>
 
 </div><!-- end .main -->
 
@@ -2702,7 +2725,7 @@
 
 <!-- ===== SIDEBAR NAVIGATION ===== -->
 <script>
-const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr','ix-cc'];
+const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr','ix-cc','ix-pmm','ix-ma'];
 const ixCache = {};
 
 document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
