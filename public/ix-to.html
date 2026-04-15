@@ -1,14 +1,14 @@
 <section id="to-domain" class="domain-divider">
   <div class="domain-header">
     <h2>T&amp;O Workflow Mapping</h2>
-    <p>Mapping 26 T&amp;O workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
+    <p>Mapping 23 T&amp;O workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
   </div>
 
   <div class="content">
     <div class="dashboard">
   <div class="dash-card neutral">
     <div class="label">Total Workflows</div>
-    <div class="value">26</div>
+    <div class="value">23</div>
     <div class="detail">Counted with duplicates (per workshop source)</div>
   </div>
   <div class="dash-card neutral">
@@ -18,34 +18,34 @@
   </div>
   <div class="dash-card target-hit">
     <div class="label">Mapped Workflows</div>
-    <div class="value">21</div>
+    <div class="value">20</div>
     <div class="detail">HIGH or MED confidence</div>
   </div>
   <div class="dash-card target-miss">
     <div class="label">Gap Workflows</div>
-    <div class="value">5</div>
+    <div class="value">3</div>
     <div class="detail">No matching initiative</div>
   </div>
   <div class="dash-card target-hit">
     <div class="label">Coverage Rate</div>
-    <div class="value">81%</div>
-    <div class="detail">Target: 70% &mdash; exceeds by 11 pts</div>
+    <div class="value">87%</div>
+    <div class="detail">Target: 70% &mdash; exceeds by 17 pts</div>
   </div>
   <div class="dash-card target-hit">
     <div class="label">vs. 70% Target</div>
-    <div class="value">+2</div>
-    <div class="detail">2 workflows above the 70% target</div>
+    <div class="value">+3</div>
+    <div class="detail">3 workflows above the 70% target</div>
   </div>
 </div>
     <div class="coverage-bar-container">
   <h3>Coverage vs. 70% Agentification Target</h3>
   <div class="coverage-bar-track">
-    <div class="coverage-bar-fill above" style="width: 81%;"></div>
+    <div class="coverage-bar-fill above" style="width: 87%;"></div>
     <div class="target-marker" style="left: 70%;"></div>
   </div>
   <div class="coverage-label">
     <span>0%</span>
-    <span>21 of 26 workflows mapped (81%)</span>
+    <span>20 of 23 workflows mapped (87%)</span>
     <span>100%</span>
   </div>
 </div>
@@ -69,7 +69,7 @@
   <h4>HC Optimization &amp; Workforce</h4>
   <div class="id">#41 &middot; Technology &amp; Operations</div>
   <div class="desc">AI-assisted insights to optimize headcount planning and resource allocation — integrates hiring, attrition, and budget data into a single view.</div>
-  <div class="mapped-count">5 workflows mapped</div>
+  <div class="mapped-count">4 workflows mapped</div>
 </div><div class="initiative-card">
   <h4>Scenario Planning</h4>
   <div class="id">#36 &middot; Technology &amp; Operations</div>
@@ -86,10 +86,10 @@
     <div class="section">
   <div class="section-header">
     <h3>Complete Workflow-to-Initiative Mapping</h3>
-    <span class="count">26 workflows</span>
+    <span class="count">23 workflows</span>
   </div>
   <div class="filter-bar">
-    <button class="filter-tab active" onclick="filterTableTO('all',this)">All (26)</button><button class="filter-tab" onclick="filterTableTO('mapped',this)">Mapped (21)</button><button class="filter-tab" onclick="filterTableTO('gap',this)">Gaps (5)</button><button class="filter-tab" onclick="filterTableTO('sub-0',this)">Operations (12)</button><button class="filter-tab" onclick="filterTableTO('sub-1',this)">Operations, Investments (3)</button><button class="filter-tab" onclick="filterTableTO('sub-2',this)">Investments (11)</button>
+    <button class="filter-tab active" onclick="filterTableTO('all',this)">All (23)</button><button class="filter-tab" onclick="filterTableTO('mapped',this)">Mapped (20)</button><button class="filter-tab" onclick="filterTableTO('gap',this)">Gaps (3)</button><button class="filter-tab" onclick="filterTableTO('sub-0',this)">Operations (9)</button><button class="filter-tab" onclick="filterTableTO('sub-1',this)">Operations, Investments (3)</button><button class="filter-tab" onclick="filterTableTO('sub-2',this)">Investments (11)</button>
   </div>
   <table>
     <thead>
@@ -131,14 +131,14 @@
   <td><span class="tag tag-covered">Covered</span></td>
   <td><div class="process-detail">HC Optimization &amp; Workforce Planning covers intern cohort sizing, role mix, and attrition modeling, but the sourcing and interview coordination tooling is not in scope.</div></td>
 </tr>
-<tr data-status="gap" data-sub="sub-0">
+<tr data-status="mapped" data-sub="sub-0">
   <td>4</td>
   <td><span class="tag tag-sub">Operations</span></td>
-  <td class="process-name">FionaMcCorkell</td>
-  <td>&mdash;</td>
-  <td><span class="tag tag-gap">GAP</span></td>
-  <td><span class="tag tag-gap">Gap</span></td>
-  <td><div class="process-detail">Ambiguous workflow title (owner name). No initiative mapped — requires definition.</div></td>
+  <td class="process-name">Workforce Strategy Maintenance</td>
+  <td><span class="tag tag-initiative">HC Optimization &amp; Workforce</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">HC Optimization &amp; Workforce Planning Copilot directly covers the workforce-strategy maintenance cycle by integrating hiring, attrition, and budget data.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-0">
   <td>5</td>
@@ -167,26 +167,8 @@
   <td><span class="tag tag-covered">Covered</span></td>
   <td><div class="process-detail">Budgeting and Planning handles the GEO CMO wishlist review and MCC global approval; Scenario Planning supports what-if ranking but specialized KPI chains make this medium-confidence.</div></td>
 </tr>
-<tr data-status="mapped" data-sub="sub-0">
-  <td>8</td>
-  <td><span class="tag tag-sub">Operations</span></td>
-  <td class="process-name">Org HC Verification process</td>
-  <td><span class="tag tag-initiative">HC Optimization &amp; Workforce</span></td>
-  <td><span class="tag tag-high">HIGH</span></td>
-  <td><span class="tag tag-covered">Covered</span></td>
-  <td><div class="process-detail">HC Optimization &amp; Workforce Planning directly reconciles headcount against hiring plans and budget allocations.</div></td>
-</tr>
-<tr data-status="mapped" data-sub="sub-0">
-  <td>9</td>
-  <td><span class="tag tag-sub">Operations</span></td>
-  <td class="process-name">Job Role Desc review process</td>
-  <td><span class="tag tag-initiative">HC Optimization &amp; Workforce</span></td>
-  <td><span class="tag tag-medium">MED</span></td>
-  <td><span class="tag tag-covered">Covered</span></td>
-  <td><div class="process-detail">HC Optimization &amp; Workforce Planning covers role/skill profiling; the JD-writing and approval loop is adjacent but not owned by the initiative.</div></td>
-</tr>
 <tr data-status="gap" data-sub="sub-0">
-  <td>10</td>
+  <td>8</td>
   <td><span class="tag tag-sub">Operations</span></td>
   <td class="process-name">New Hire Onboarding</td>
   <td>&mdash;</td>
@@ -195,7 +177,7 @@
   <td><div class="process-detail">No initiative covers onboarding orchestration (system access, buddy assignment, learning paths). Candidate for a new initiative.</div></td>
 </tr>
 <tr data-status="gap" data-sub="sub-0">
-  <td>11</td>
+  <td>9</td>
   <td><span class="tag tag-sub">Operations</span></td>
   <td class="process-name">Ambassador Program</td>
   <td>&mdash;</td>
@@ -203,17 +185,8 @@
   <td><span class="tag tag-gap">Gap</span></td>
   <td><div class="process-detail">No initiative covers the Ambassador/advocacy program orchestration or measurement.</div></td>
 </tr>
-<tr data-status="gap" data-sub="sub-0">
-  <td>12</td>
-  <td><span class="tag tag-sub">Operations</span></td>
-  <td class="process-name">Qtrly Recog Cycle</td>
-  <td>&mdash;</td>
-  <td><span class="tag tag-gap">GAP</span></td>
-  <td><span class="tag tag-gap">Gap</span></td>
-  <td><div class="process-detail">No initiative addresses quarterly recognition cycles (nominations, approvals, awards tracking).</div></td>
-</tr>
 <tr data-status="mapped" data-sub="sub-1">
-  <td>13</td>
+  <td>10</td>
   <td><span class="tag tag-sub">Operations, Investments</span></td>
   <td class="process-name">Hiring Process</td>
   <td><span class="tag tag-initiative">HC Optimization &amp; Workforce</span></td>
@@ -221,8 +194,17 @@
   <td><span class="tag tag-covered">Covered</span></td>
   <td><div class="process-detail">HC Optimization &amp; Workforce Planning Copilot covers the end-to-end hiring decisions (role mix, headcount optimization, budget alignment).</div></td>
 </tr>
+<tr data-status="mapped" data-sub="sub-1">
+  <td>11</td>
+  <td><span class="tag tag-sub">Operations, Investments</span></td>
+  <td class="process-name">Procurement Process</td>
+  <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span> <span class="tag tag-initiative">Tech Capability Intake</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Spend and Performance Data Foundation automates the procurement data layer; Tech Capability Intake routes capability requests through governance.</div></td>
+</tr>
 <tr data-status="mapped" data-sub="sub-0">
-  <td>14</td>
+  <td>12</td>
   <td><span class="tag tag-sub">Operations</span></td>
   <td class="process-name">Fall Plan</td>
   <td><span class="tag tag-initiative">Budgeting and Planning</span> <span class="tag tag-initiative">Scenario Planning</span></td>
@@ -231,7 +213,7 @@
   <td><div class="process-detail">Budgeting and Planning handles the annual Fall planning cycle; Scenario Planning adds priority-setting modeling.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>15</td>
+  <td>13</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Budget Management M1+M2</td>
   <td><span class="tag tag-initiative">Budgeting and Planning</span></td>
@@ -240,7 +222,7 @@
   <td><div class="process-detail">Budgeting and Planning directly addresses the spring plan, Q1 budget, and quarterly adjustment cycles.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>16</td>
+  <td>14</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Budget Management M3</td>
   <td><span class="tag tag-initiative">Budgeting and Planning</span></td>
@@ -249,7 +231,7 @@
   <td><div class="process-detail">Same budget lifecycle as M1+M2, extended into Month 3 — covered by Budgeting and Planning.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>17</td>
+  <td>15</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Quarter Closing</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span> <span class="tag tag-initiative">Budgeting and Planning</span></td>
@@ -258,7 +240,7 @@
   <td><div class="process-detail">Spend and Performance Data Foundation reconciles actuals; Budgeting and Planning integrates close into forward planning.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>18</td>
+  <td>16</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Travel Process</td>
   <td><span class="tag tag-initiative">Budgeting and Planning</span></td>
@@ -267,7 +249,7 @@
   <td><div class="process-detail">Budgeting and Planning partially covers travel-spend tracking; the booking/expense workflow itself is not in scope.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>19</td>
+  <td>17</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">CapEx</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span> <span class="tag tag-initiative">Budgeting and Planning</span></td>
@@ -276,7 +258,7 @@
   <td><div class="process-detail">Spend and Performance Data Foundation ingests CapEx SOWs; Budgeting and Planning manages allocation.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>20</td>
+  <td>18</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Wimbledon</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
@@ -285,7 +267,7 @@
   <td><div class="process-detail">Spend and Performance Data Foundation tracks sponsorship spend and performance outcomes, but Wimbledon has specialized contractual structures.</div></td>
 </tr>
 <tr data-status="gap" data-sub="sub-2">
-  <td>21</td>
+  <td>19</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Tax</td>
   <td>&mdash;</td>
@@ -294,7 +276,7 @@
   <td><div class="process-detail">No initiative addresses tax planning/compliance workflows. Specialized finance domain.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>22</td>
+  <td>20</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Canada Sports</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
@@ -303,7 +285,7 @@
   <td><div class="process-detail">Spend and Performance Data Foundation covers sports sponsorship spend tracking; activation specifics require custom handling.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>23</td>
+  <td>21</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">PO-Set-up</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
@@ -312,7 +294,7 @@
   <td><div class="process-detail">Spend and Performance Data Foundation directly automates SOW ingestion, IPA request creation, and BETH/Ariba line item management.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>24</td>
+  <td>22</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">Invoice Raising</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
@@ -321,7 +303,7 @@
   <td><div class="process-detail">Spend and Performance Data Foundation&#x27;s data validation covers PO amount matching and invoice reconciliation.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-2">
-  <td>25</td>
+  <td>23</td>
   <td><span class="tag tag-sub">Investments</span></td>
   <td class="process-name">APU</td>
   <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span></td>
@@ -329,24 +311,15 @@
   <td><span class="tag tag-covered">Covered</span></td>
   <td><div class="process-detail">Spend and Performance Data Foundation handles APU (Authorized Procurement Unit) setup as part of its PO automation scope.</div></td>
 </tr>
-<tr data-status="mapped" data-sub="sub-1">
-  <td>26</td>
-  <td><span class="tag tag-sub">Operations, Investments</span></td>
-  <td class="process-name">Procurement Process</td>
-  <td><span class="tag tag-initiative">Spend &amp; Performance Data Fdn</span> <span class="tag tag-initiative">Tech Capability Intake</span></td>
-  <td><span class="tag tag-high">HIGH</span></td>
-  <td><span class="tag tag-covered">Covered</span></td>
-  <td><div class="process-detail">Spend and Performance Data Foundation automates the procurement data layer; Tech Capability Intake routes capability requests through governance.</div></td>
-</tr>
     </tbody>
   </table>
 </div>
     <div class="section">
   <div class="section-header">
     <h3>Gap Analysis</h3>
-    <span class="count">5 workflows have no matching initiative</span>
+    <span class="count">3 workflows have no matching initiative</span>
   </div>
-  <div class="gap-grid"><div class="gap-cluster"><h4>Operations (4)</h4><ul><li><strong>FionaMcCorkell</strong> &mdash; Ambiguous workflow title (owner name). No initiative mapped — requires definition.</li><li><strong>New Hire Onboarding</strong> &mdash; No initiative covers onboarding orchestration (system access, buddy assignment, learning paths). Candidate for a new initiative.</li><li><strong>Ambassador Program</strong> &mdash; No initiative covers the Ambassador/advocacy program orchestration or measurement.</li><li><strong>Qtrly Recog Cycle</strong> &mdash; No initiative addresses quarterly recognition cycles (nominations, approvals, awards tracking).</li></ul></div><div class="gap-cluster"><h4>Investments (1)</h4><ul><li><strong>Tax</strong> &mdash; No initiative addresses tax planning/compliance workflows. Specialized finance domain.</li></ul></div></div>
+  <div class="gap-grid"><div class="gap-cluster"><h4>Operations (2)</h4><ul><li><strong>New Hire Onboarding</strong> &mdash; No initiative covers onboarding orchestration (system access, buddy assignment, learning paths). Candidate for a new initiative.</li><li><strong>Ambassador Program</strong> &mdash; No initiative covers the Ambassador/advocacy program orchestration or measurement.</li></ul></div><div class="gap-cluster"><h4>Investments (1)</h4><ul><li><strong>Tax</strong> &mdash; No initiative addresses tax planning/compliance workflows. Specialized finance domain.</li></ul></div></div>
 </div>
   </div>
 </section>

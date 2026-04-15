@@ -1,24 +1,24 @@
 <section id="mmapi-domain" class="domain-divider">
   <div class="domain-header">
     <h2>MMAPI Workflow Mapping</h2>
-    <p>Mapping 34 MMAPI workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
+    <p>Mapping 35 MMAPI workflows to the 41 consolidated Blueprint initiatives &mdash; measuring coverage against JA's 70% agentification target (counted with duplicates per workshop teardown).</p>
   </div>
 
   <div class="content">
     <div class="dashboard">
   <div class="dash-card neutral">
     <div class="label">Total Workflows</div>
-    <div class="value">34</div>
+    <div class="value">35</div>
     <div class="detail">Counted with duplicates (per workshop source)</div>
   </div>
   <div class="dash-card neutral">
     <div class="label">Blueprint Initiatives</div>
-    <div class="value">11</div>
+    <div class="value">12</div>
     <div class="detail">Of 41 in the prioritized set</div>
   </div>
   <div class="dash-card target-hit">
     <div class="label">Mapped Workflows</div>
-    <div class="value">30</div>
+    <div class="value">31</div>
     <div class="detail">HIGH or MED confidence</div>
   </div>
   <div class="dash-card target-miss">
@@ -28,8 +28,8 @@
   </div>
   <div class="dash-card target-hit">
     <div class="label">Coverage Rate</div>
-    <div class="value">88%</div>
-    <div class="detail">Target: 70% &mdash; exceeds by 18 pts</div>
+    <div class="value">89%</div>
+    <div class="detail">Target: 70% &mdash; exceeds by 19 pts</div>
   </div>
   <div class="dash-card target-hit">
     <div class="label">vs. 70% Target</div>
@@ -40,19 +40,19 @@
     <div class="coverage-bar-container">
   <h3>Coverage vs. 70% Agentification Target</h3>
   <div class="coverage-bar-track">
-    <div class="coverage-bar-fill above" style="width: 88%;"></div>
+    <div class="coverage-bar-fill above" style="width: 89%;"></div>
     <div class="target-marker" style="left: 70%;"></div>
   </div>
   <div class="coverage-label">
     <span>0%</span>
-    <span>30 of 34 workflows mapped (88%)</span>
+    <span>31 of 35 workflows mapped (89%)</span>
     <span>100%</span>
   </div>
 </div>
     <div class="section">
   <div class="section-header">
     <h3>Blueprint Initiatives Mapped in this Domain</h3>
-    <span class="count">11 of 41 initiatives touched</span>
+    <span class="count">12 of 41 initiatives touched</span>
   </div>
   <div class="initiative-grid">
     <div class="initiative-card">
@@ -64,7 +64,7 @@
   <h4>Response Optimization</h4>
   <div class="id">#38 &middot; MMAPI</div>
   <div class="desc">Maximizes return on investment from demand-gen activity across SEM, LinkedIn, and content syndication. Ingests performance and intent signals to determine expected value.</div>
-  <div class="mapped-count">7 workflows mapped</div>
+  <div class="mapped-count">8 workflows mapped</div>
 </div><div class="initiative-card">
   <h4>AdHoc Reporting &amp; Data</h4>
   <div class="id">#15 &middot; MMAPI</div>
@@ -101,6 +101,11 @@
   <div class="desc">Monitors pipeline health, marketing performance, and metrics across ISC, EPM, and seller feedback — surfaces root-cause shortfalls and next-best-action recommendations.</div>
   <div class="mapped-count">2 workflows mapped</div>
 </div><div class="initiative-card">
+  <h4>Buying Group Contact (CDO)</h4>
+  <div class="id">#5 &middot; Named Account Marketing</div>
+  <div class="desc">Enriches buying group contacts via ISC, ZoomInfo, Cognism, Lusha, and LinkedIn; flags decay, parent/child mis-mappings, and missing roles across the named-account C-suite.</div>
+  <div class="mapped-count">1 workflow mapped</div>
+</div><div class="initiative-card">
   <h4>Data Anomaly &amp; DQ (CDO)</h4>
   <div class="id">#27 &middot; MMAPI</div>
   <div class="desc">Automates multi-source data ingestion, cleansing, and real-time anomaly detection; investigates whether anomalies are quality issues or true signals and delivers dashboards and RCA.</div>
@@ -116,10 +121,10 @@
     <div class="section">
   <div class="section-header">
     <h3>Complete Workflow-to-Initiative Mapping</h3>
-    <span class="count">34 workflows</span>
+    <span class="count">35 workflows</span>
   </div>
   <div class="filter-bar">
-    <button class="filter-tab active" onclick="filterTableMMAPI('all',this)">All (34)</button><button class="filter-tab" onclick="filterTableMMAPI('mapped',this)">Mapped (30)</button><button class="filter-tab" onclick="filterTableMMAPI('gap',this)">Gaps (4)</button><button class="filter-tab" onclick="filterTableMMAPI('sub-0',this)">Paid Media (29)</button><button class="filter-tab" onclick="filterTableMMAPI('sub-1',this)">Analytics (5)</button>
+    <button class="filter-tab active" onclick="filterTableMMAPI('all',this)">All (35)</button><button class="filter-tab" onclick="filterTableMMAPI('mapped',this)">Mapped (31)</button><button class="filter-tab" onclick="filterTableMMAPI('gap',this)">Gaps (4)</button><button class="filter-tab" onclick="filterTableMMAPI('sub-0',this)">Paid Media (30)</button><button class="filter-tab" onclick="filterTableMMAPI('sub-1',this)">Analytics (5)</button>
   </div>
   <table>
     <thead>
@@ -359,8 +364,17 @@
   <td><span class="tag tag-covered">Covered</span></td>
   <td><div class="process-detail">Data Anomaly &amp; DQ (CDO) directly addresses media data integrity and quality detection.</div></td>
 </tr>
-<tr data-status="gap" data-sub="sub-0">
+<tr data-status="mapped" data-sub="sub-0">
   <td>26</td>
+  <td><span class="tag tag-sub">Paid Media</span></td>
+  <td class="process-name">Governance processes / SP Lead gen media response handling</td>
+  <td><span class="tag tag-initiative">Response Optimization</span> <span class="tag tag-initiative">Buying Group Contact (CDO)</span></td>
+  <td><span class="tag tag-high">HIGH</span></td>
+  <td><span class="tag tag-covered">Covered</span></td>
+  <td><div class="process-detail">Response Optimization tunes lead-gen media performance; Buying Group Contact (CDO) handles the downstream lead-record integrity.</div></td>
+</tr>
+<tr data-status="gap" data-sub="sub-0">
+  <td>27</td>
   <td><span class="tag tag-sub">Paid Media</span></td>
   <td class="process-name">Governance processes / SP Media supplier lifecycle management</td>
   <td>&mdash;</td>
@@ -369,7 +383,7 @@
   <td><div class="process-detail">No initiative manages supplier lifecycle (onboarding, audits, offboarding) for media vendors.</div></td>
 </tr>
 <tr data-status="gap" data-sub="sub-0">
-  <td>27</td>
+  <td>28</td>
   <td><span class="tag tag-sub">Paid Media</span></td>
   <td class="process-name">Governance processes / SP Brand safety standards</td>
   <td>&mdash;</td>
@@ -378,7 +392,7 @@
   <td><div class="process-detail">No initiative owns brand-safety standards enforcement across DSPs and publishers.</div></td>
 </tr>
 <tr data-status="gap" data-sub="sub-0">
-  <td>28</td>
+  <td>29</td>
   <td><span class="tag tag-sub">Paid Media</span></td>
   <td class="process-name">Governance processes / SP Adtech platform supplier management</td>
   <td>&mdash;</td>
@@ -387,7 +401,7 @@
   <td><div class="process-detail">No initiative addresses adtech platform vendor management and contract governance.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-0">
-  <td>29</td>
+  <td>30</td>
   <td><span class="tag tag-sub">Paid Media</span></td>
   <td class="process-name">Governance processes / SP Adtech platform tools management</td>
   <td><span class="tag tag-initiative">Ad Ops / Adobe PDC Staging</span></td>
@@ -396,7 +410,7 @@
   <td><div class="process-detail">Ad Ops scope implies tool management, but explicit tooling governance workflow isn&#x27;t scoped.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-1">
-  <td>30</td>
+  <td>31</td>
   <td><span class="tag tag-sub">Analytics</span></td>
   <td class="process-name">High level flow</td>
   <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
@@ -405,7 +419,7 @@
   <td><div class="process-detail">AdHoc Reporting &amp; Data is the reporting foundation; the &#x27;high level flow&#x27; workflow is more of a meta-process.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-1">
-  <td>31</td>
+  <td>32</td>
   <td><span class="tag tag-sub">Analytics</span></td>
   <td class="process-name">Weekly Reporting and Insights</td>
   <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
@@ -414,7 +428,7 @@
   <td><div class="process-detail">AdHoc Reporting &amp; Data directly covers weekly insights generation.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-1">
-  <td>32</td>
+  <td>33</td>
   <td><span class="tag tag-sub">Analytics</span></td>
   <td class="process-name">Named Account Insights Assets</td>
   <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span> <span class="tag tag-initiative">Gap ID, RCA &amp; NBA</span></td>
@@ -423,7 +437,7 @@
   <td><div class="process-detail">AdHoc Reporting + Gap ID/RCA/NBA together cover named-account insight delivery.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-1">
-  <td>33</td>
+  <td>34</td>
   <td><span class="tag tag-sub">Analytics</span></td>
   <td class="process-name">Brand Insights &amp; Testing</td>
   <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span></td>
@@ -432,7 +446,7 @@
   <td><div class="process-detail">AdHoc Reporting supports brand insight queries; longitudinal brand lift testing methodology not explicit.</div></td>
 </tr>
 <tr data-status="mapped" data-sub="sub-1">
-  <td>34</td>
+  <td>35</td>
   <td><span class="tag tag-sub">Analytics</span></td>
   <td class="process-name">Named Account Analytics &amp; Insights</td>
   <td><span class="tag tag-initiative">AdHoc Reporting &amp; Data</span> <span class="tag tag-initiative">Gap ID, RCA &amp; NBA</span></td>
