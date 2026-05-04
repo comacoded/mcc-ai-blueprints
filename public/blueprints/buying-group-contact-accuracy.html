@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Buying Group Contact Accuracy | MCC Workflow Blueprint</title>
+<title>Buying Group Contact Accuracy | MCC Process Blueprint</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -147,24 +147,24 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
       <h1>Buying Group Contact Accuracy</h1>
       <div class="meta">
         <span class="badge">C-Suite &amp; ABM</span>
-        <span>Workflow Blueprint</span>
+        <span>Process Blueprint</span>
       </div>
     </div>
-    <div style="font-size:12px;color:var(--blue-20);text-align:right;">MCC Workflow Blueprint<br/>IBM Confidential</div>
+    <div style="font-size:12px;color:var(--blue-20);text-align:right;">MCC Process Blueprint<br/>IBM Confidential</div>
   </div>
 </header>
 
-<nav class="section-nav"><a href="../playbooks.html" class="home-link">All Blueprints</a><a href="#overview" class="active">Overview</a><a href="#downstream-impact">Downstream Impact</a><a href="#stakeholders">Stakeholders</a><a href="#workflow">Workflow</a><a href="#plan">4-Week Plan</a><a href="#sources">Data Sources</a><a href="#risks">Risks &amp; KPIs</a></nav>
+<nav class="section-nav"><a href="../playbooks.html" class="home-link">All Blueprints</a><a href="#overview" class="active">Overview</a><a href="#downstream-impact">Downstream Impact</a><a href="#stakeholders">Stakeholders</a><a href="#workflow">Process</a><a href="#plan">4-Week Plan</a><a href="#sources">Data Sources</a><a href="#risks">Risks &amp; KPIs</a></nav>
 
 <main>
-  <section id="overview"><h2><span class="num">1</span> Workflow Overview</h2>
+  <section id="overview"><h2><span class="num">1</span> Process Overview</h2>
     <div class="body">
       <p>Maps the full C-suite and buying group landscape per account (parent and child entities) leveraging ISC and 3rd-party sources. Produces continuously validated contact records across complete buying groups, identifies whitespace, and alerts on movement of client and former IBM executives in and out of accounts.</p>
       <div class="overview"><div class="cell"><div class="label">Primary Outcome</div><div class="value">Continuously validated buying group records per account</div></div><div class="cell"><div class="label">Scale</div><div class="value"><strong>2,200</strong> accounts, 8+ CXO roles per account</div></div><div class="cell"><div class="label">Time Savings Target</div><div class="value"><strong>60 to 80%</strong> efficiency gain over current AI tooling (~30-40% accuracy)</div></div><div class="cell"><div class="label">Future Reusability</div><div class="value"><strong>VERY HIGH.</strong> Competitive displacement, alumni network, M&amp;A restructuring</div></div></div>
     </div></section>
   <section id="downstream-impact"><h2><span class="num">DI</span> Downstream Impact Diagram</h2>
     <div class="body">
-      <p>How <strong>Buying Group Contact Accuracy</strong> connects out to downstream processes and stakeholder groups across the MCC initiative map. Lines fan from the foundational initiative to each affected workflow.</p>
+      <p>How <strong>Buying Group Contact Accuracy</strong> connects out to downstream processes and stakeholder groups across the MCC initiative map. Lines fan from the foundational initiative to each affected process.</p>
       <div class="mcc-diagram-wrap">
         <svg class="mcc-diagram impact-diagram" viewBox="0 0 1800 1100" xmlns="http://www.w3.org/2000/svg" role="img">
 <rect width="1800" height="1100" fill="#f4f4f4"/>
@@ -246,7 +246,7 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
 
   <section id="stakeholders"><h2><span class="num">2</span> Prospective Stakeholder Diagram</h2>
     <div class="body">
-      <p>Lean tree hierarchy. One accountable executive sponsor, one to two accountable workflow owners, with one to two responsible leads beneath. Roles only, no names.</p>
+      <p>Lean tree hierarchy. One accountable executive sponsor, one to two accountable process owners, with one to two responsible leads beneath. Roles only, no names.</p>
       <div class="stakeholder-svg-wrap"><svg viewBox="0 0 1080 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stakeholder hierarchy">
 <defs><style>
 .conn{stroke:#a8a8a8;stroke-width:1.5;fill:none}
@@ -270,11 +270,11 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
 <g><rect x="305" y="170" width="200" height="60" fill="#0043ce"/>
 <text x="405.0" y="188" class="node-label">Director of Revenue</text>
 <text x="405.0" y="204" class="node-label">Operations</text>
-<text x="405.0" y="222" class="node-sub">Workflow Owner</text>
+<text x="405.0" y="222" class="node-sub">Process Owner</text>
 </g>
 <g><rect x="755" y="170" width="200" height="60" fill="#0043ce"/>
 <text x="855.0" y="194" class="node-label">Director of ABM</text>
-<text x="855.0" y="212" class="node-sub">Workflow Owner</text>
+<text x="855.0" y="212" class="node-sub">Process Owner</text>
 </g>
 <g><rect x="205" y="320" width="200" height="60" fill="#fff" stroke="#0043ce" stroke-width="2"/>
 <text x="305.0" y="344" class="node-label" style="fill:#001d6c;">Rev Tech Lead</text>
@@ -290,15 +290,15 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
 <text x="955.0" y="362" class="node-sub-dark">Build lead</text></g>
 </svg></div>
       <table class="stakeholder-table">
-        <thead><tr><th style="width:24%;">Role</th><th style="width:14%;">RACI</th><th>Responsibility on this workflow</th></tr></thead>
-        <tbody><tr><td><span class="role-tag acc">A</span> VP / CMO Marketing</td><td>Accountable</td><td>Sponsors investment, signs off on cohort, approves business case.</td></tr><tr><td><span class="role-tag acc">A</span> Director of Revenue Operations</td><td>Accountable</td><td>Workflow owner. Owns CXO record accuracy across the rev tech stack.</td></tr><tr><td><span class="role-tag acc">A</span> Director of ABM</td><td>Accountable</td><td>Co-owner. Ensures buying group coverage drives ABM execution at named accounts.</td></tr><tr><td><span class="role-tag resp">R</span> Rev Tech Lead</td><td>Responsible</td><td>Integrates ZoomInfo, LinkedIn, D&amp;B, Cognism with ISC; manages licensing scope.</td></tr><tr><td><span class="role-tag resp">R</span> Data Engineering Lead</td><td>Responsible</td><td>Builds entity resolution across parent/child hierarchies and matching/dedup logic.</td></tr><tr><td><span class="role-tag resp">R</span> CDO Liaison</td><td>Responsible</td><td>Owns privacy review (GDPR, CCPA), contact lifecycle, governance cleanup cycles.</td></tr><tr><td><span class="role-tag resp">R</span> Solution Architect</td><td>Responsible</td><td>Owns end to end architecture and seller notification surface.</td></tr></tbody>
+        <thead><tr><th style="width:24%;">Role</th><th style="width:14%;">RACI</th><th>Responsibility on this process</th></tr></thead>
+        <tbody><tr><td><span class="role-tag acc">A</span> VP / CMO Marketing</td><td>Accountable</td><td>Sponsors investment, signs off on cohort, approves business case.</td></tr><tr><td><span class="role-tag acc">A</span> Director of Revenue Operations</td><td>Accountable</td><td>Process owner. Owns CXO record accuracy across the rev tech stack.</td></tr><tr><td><span class="role-tag acc">A</span> Director of ABM</td><td>Accountable</td><td>Co-owner. Ensures buying group coverage drives ABM execution at named accounts.</td></tr><tr><td><span class="role-tag resp">R</span> Rev Tech Lead</td><td>Responsible</td><td>Integrates ZoomInfo, LinkedIn, D&amp;B, Cognism with ISC; manages licensing scope.</td></tr><tr><td><span class="role-tag resp">R</span> Data Engineering Lead</td><td>Responsible</td><td>Builds entity resolution across parent/child hierarchies and matching/dedup logic.</td></tr><tr><td><span class="role-tag resp">R</span> CDO Liaison</td><td>Responsible</td><td>Owns privacy review (GDPR, CCPA), contact lifecycle, governance cleanup cycles.</td></tr><tr><td><span class="role-tag resp">R</span> Solution Architect</td><td>Responsible</td><td>Owns end to end architecture and seller notification surface.</td></tr></tbody>
       </table>
     </div></section>
 
-  <section id="workflow"><h2><span class="num">3</span> End to End Workflow</h2>
+  <section id="workflow"><h2><span class="num">3</span> End to End Process</h2>
     <div class="body">
-      <p>Closed loop workflow. Signals from source systems flow through the AI stages and feed back into upstream models.</p>
-      <div class="workflow-wrap"><svg viewBox="0 0 1280 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="End to end workflow">
+      <p>Closed loop process. Signals from source systems flow through the AI stages and feed back into upstream models.</p>
+      <div class="workflow-wrap"><svg viewBox="0 0 1280 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="End to end process">
 <defs>
 <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0f62fe"/></marker>
 <marker id="arrowfb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d02670"/></marker>
@@ -315,7 +315,7 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
 .feedback-line{fill:none;stroke:#d02670;stroke-width:2;stroke-dasharray:5 4;marker-end:url(#arrowfb)}
 </style></defs>
 <text x="20" y="40" class="layer-label">Source Systems</text>
-<text x="20" y="200" class="layer-label">AI Workflow Stages</text>
+<text x="20" y="200" class="layer-label">AI Process Stages</text>
 <text x="20" y="380" class="layer-label">Delivery Channels</text>
 <rect x="40.0" y="55" width="110" height="34" class="source-rect"/>
 <text x="95.0" y="76" class="source-text" text-anchor="middle">ISC</text>
@@ -401,7 +401,7 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
     <div class="body">
       <p>Compressed 4-week plan. Outcome targets: net-new initiative designs, full requirements documentation (business rules, data and tech dependencies, role implications, governance), and a prioritized V1 capability backlog.</p>
       <div class="overview" style="grid-template-columns:repeat(3,1fr);margin-bottom:24px;">
-        <div class="cell"><div class="label">Net-New Initiative Designs</div><div class="value">Reimagined ways of working and new workflows, not just optimizing what works today.</div></div>
+        <div class="cell"><div class="label">Net-New Initiative Designs</div><div class="value">Reimagined ways of working and new processes, not just optimizing what works today.</div></div>
         <div class="cell"><div class="label">Full Requirements Documentation</div><div class="value">Business rules, data and technology dependencies, potential role implications, and governance.</div></div>
         <div class="cell"><div class="label">Prioritized V1 Capabilities</div><div class="value">Sequenced backlog with defined V1 scope per initiative: what to build first, what to phase.</div></div>
       </div>
@@ -410,7 +410,7 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
 
   <section id="sources"><h2><span class="num">5</span> Data Sources Repository</h2>
     <div class="body">
-      <div class="data-flow-summary">Source systems feed the workflow. Each is categorized by type and which stage consumes it. Candidate vendors and tools are listed alongside as enrichment and generation layers.</div>
+      <div class="data-flow-summary">Source systems feed the process. Each is categorized by type and which stage consumes it. Candidate vendors and tools are listed alongside as enrichment and generation layers.</div>
       <h3>Internal Source Systems</h3>
       <div class="source-grid"><div class="source-card"><h4>ISC</h4><span class="source-type">CRM Core</span><p class="source-desc">Source of truth for account relationships and contact records.</p><div class="source-meta"><div><strong>Owner:</strong> ISC Platform Team</div><div><strong>Used in:</strong> Map, Sync</div></div></div><div class="source-card"><h4>ZoomInfo / Cognism / Lusha</h4><span class="source-type">Contact Enrichment</span><p class="source-desc">External contact and firmographic enrichment for buying group identification.</p><div class="source-meta"><div><strong>Owner:</strong> Rev Tech</div><div><strong>Used in:</strong> Map, Validate, Enrich</div></div></div><div class="source-card"><h4>LinkedIn Sales Navigator</h4><span class="source-type">Professional Graph</span><p class="source-desc">Title, role changes, executive movement signals.</p><div class="source-meta"><div><strong>Owner:</strong> Sales Enablement</div><div><strong>Used in:</strong> Validate, Track</div></div></div><div class="source-card"><h4>D&amp;B</h4><span class="source-type">Firmographic / Hierarchy</span><p class="source-desc">Parent/child account hierarchy and corporate structure.</p><div class="source-meta"><div><strong>Owner:</strong> Rev Tech</div><div><strong>Used in:</strong> Map</div></div></div><div class="source-card"><h4>Real-Time CDP</h4><span class="source-type">Activation Layer</span><p class="source-desc">Downstream destination for validated buying group records.</p><div class="source-meta"><div><strong>Owner:</strong> Adobe / Marketing Ops</div><div><strong>Used in:</strong> Sync</div></div></div></div>
       <h3 style="margin-top:32px;">Candidate Vendor / Tool Layer</h3>
@@ -428,7 +428,7 @@ footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-si
 
 <footer>
   <div>IBM Consulting | (c) 2026 IBM Corporation | MCC &amp; IBM Confidential</div>
-  <div>Buying Group Contact Accuracy | Workflow Blueprint</div>
+  <div>Buying Group Contact Accuracy | Process Blueprint</div>
 </footer>
 
 <script>
