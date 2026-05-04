@@ -2605,12 +2605,12 @@
 <!-- Top Header -->
 <div class="top-header">
   <span class="logo"><span class="prefix">IBM</span> MCC AI Blueprints</span>
-  <span class="page-title">Workflow Analysis & Comparison</span>
+  <span class="page-title">Process Analysis & Comparison</span>
 </div>
 
 <!-- Left Sidebar -->
 <nav class="sidebar">
-  <div class="sidebar-section-label">iX Workflow Mapping</div>
+  <div class="sidebar-section-label">iX Process Mapping</div>
   <a href="#" data-page="ix-combined" class="active">
     <span class="nav-dot" style="background:#0f62fe"></span>
     Combined View
@@ -3419,8 +3419,8 @@ const WORKFLOWS = [
   },
   {
     "domain": "MMAPI",
-    "name": "Workflow Automation From Thought Leadership to Marketo Activation",
-    "shortName": "Workflow Automation From Thought Le...",
+    "name": "Process Automation From Thought Leadership to Marketo Activation",
+    "shortName": "Process Automation From Thought Le...",
     "bizImpact": 3,
     "feasibility": 1,
     "feasibilityLabel": "LOW",
@@ -3702,8 +3702,8 @@ const WORKFLOWS = [
   },
   {
     "domain": "Named Account Marketing",
-    "name": "Event Strategy & Workflow Orchestration",
-    "shortName": "Event Strategy & Workflow Orchestra...",
+    "name": "Event Strategy & Process Orchestration",
+    "shortName": "Event Strategy & Process Orchestra...",
     "bizImpact": 4,
     "feasibility": 2,
     "feasibilityLabel": "MEDIUM",
@@ -4703,7 +4703,7 @@ function showModal(a, b, m) {
 
   document.getElementById('bp-modal').innerHTML = `
     <button class="close-btn" onclick="closeModal()">&times;</button>
-    <h3>Workflow Comparison</h3>
+    <h3>Process Comparison</h3>
     <div class="comparison-grid">
       <div class="comparison-card">
         <h4><span class="domain-badge" style="background:${cA}"></span>${a.domain}</h4>
@@ -4828,7 +4828,7 @@ function showRankingBreakdown(w, rank) {
 
   const compositeQuality = qualityLabel(w.composite, 5);
 
-  // Build a conversational synopsis grounded in this workflow's specific attributes
+  // Build a conversational synopsis grounded in this process's specific attributes
   function buildSynopsis(w, rank, dims) {
     const sorted = [...dims].sort((a, b) => b.score - a.score);
     const top = sorted[0], second = sorted[1], weakest = sorted[sorted.length - 1];
@@ -4844,24 +4844,24 @@ function showRankingBreakdown(w, rank) {
       if (w.bizImpact >= 4 && w.techFeasScore >= 3) {
         parts.push(`This lands at #${rank+1} for a straightforward reason: high business impact (${w.bizImpact}/5) and the tech is ready to go. ${w.techs.length > 0 ? `The stack — ${techList} — is already running across MCC, so there's no greenfield buildout here.` : 'The infrastructure is already in place.'}`);
       } else if (w.bizImpact >= 4) {
-        parts.push(`At #${rank+1}, this is one of the highest-impact workflows in the portfolio (${w.bizImpact}/5). ${w.dataReadiness === 'HIGH' ? 'The data is accessible and ready, which means an agent could start delivering value without months of pipeline work.' : w.dataReadiness === 'MEDIUM' ? `The data situation is workable — core sources like ${dataList} are accessible, though some pipeline work is still needed.` : 'The data foundations need some investment, but the business case more than justifies it.'}`);
+        parts.push(`At #${rank+1}, this is one of the highest-impact processes in the portfolio (${w.bizImpact}/5). ${w.dataReadiness === 'HIGH' ? 'The data is accessible and ready, which means an agent could start delivering value without months of pipeline work.' : w.dataReadiness === 'MEDIUM' ? `The data situation is workable — core sources like ${dataList} are accessible, though some pipeline work is still needed.` : 'The data foundations need some investment, but the business case more than justifies it.'}`);
       } else {
         parts.push(`#${rank+1} here is driven by technical readiness — it scores ${w.techFeasScore.toFixed(1)}/5 on feasibility. ${w.deployment === 'Production candidate' ? 'This is already a production candidate,' : w.deployment === 'Pilot candidate' ? 'It\'s ready for a pilot,' : 'The path to deployment is clear,'} and ${w.complexity} complexity means it won't bog down the team.`);
       }
     } else if (rank < 10) {
       if (w.techNorm >= 2 || w.dataNorm >= 2) {
         const overlapCount = (w.techOverlaps || []).length;
-        parts.push(`At #${rank+1}, this one is a platform play. It shares ${w.techs.length > 0 ? `infrastructure (${techList})` : 'data pipelines'} with ${overlapCount > 0 ? overlapCount + ' other workflows' : 'several other initiatives'}, so the integration work you do here pays dividends across the portfolio.`);
+        parts.push(`At #${rank+1}, this one is a platform play. It shares ${w.techs.length > 0 ? `infrastructure (${techList})` : 'data pipelines'} with ${overlapCount > 0 ? overlapCount + ' other processes' : 'several other initiatives'}, so the integration work you do here pays dividends across the portfolio.`);
       } else if (w.extensionScore >= 3) {
         parts.push(`#${rank+1} reflects strong long-term potential — ${growthPct}% growth and ${prodPct}% productivity scores. ${w.agentMode === 'Analyze / Recommend' ? 'As an advisory copilot, it runs with minimal approval overhead.' : w.agentMode === 'Draft' ? 'It drafts for human review, so the risk stays low while throughput goes up.' : w.agentMode === 'Execute with Approval' ? 'Human approval gates keep it controlled while still meaningfully automating the work.' : 'The agent mode supports real automation from day one.'}`);
       } else {
-        parts.push(`At #${rank+1}, this workflow has a solid all-around profile: ${w.bizImpact}/5 impact, ${w.feasibilityLabel} feasibility, ${w.dataReadiness || 'moderate'} data readiness${w.techs.length > 0 ? ', running on ' + techList : ''}. No single dimension is carrying the score — it's consistently strong.`);
+        parts.push(`At #${rank+1}, this process has a solid all-around profile: ${w.bizImpact}/5 impact, ${w.feasibilityLabel} feasibility, ${w.dataReadiness || 'moderate'} data readiness${w.techs.length > 0 ? ', running on ' + techList : ''}. No single dimension is carrying the score — it's consistently strong.`);
       }
     } else {
       if (w.bizImpact >= 4) {
         parts.push(`This has real business value (${w.bizImpact}/5 impact), but it sits at #${rank+1} because ${weakest.label.toLowerCase()} is a bottleneck at just ${weakest.score.toFixed(1)}/5. ${w.entityClarity === 'Fragmented' ? 'The entity model needs alignment work before an agent can operate reliably here.' : w.deployment === 'POC only' ? 'It\'s limited to POC until some foundational dependencies get resolved.' : 'A few prerequisites need to land first before this becomes a good candidate.'}`);
       } else {
-        parts.push(`At #${rank+1}, this is a ${w.wave || 'later-wave'} workflow. ${w.dataReadiness === 'LOW' ? 'Data readiness is the main blocker — ' : `${weakest.label} at ${weakest.score.toFixed(1)}/5 is holding it back, and `}the business impact (${w.bizImpact}/5) suggests sequencing it after higher-priority work. ${w.techs.length > 0 ? `The tech (${techList}) is viable` : 'Technical requirements are manageable'}, so this is more about timing than capability.`);
+        parts.push(`At #${rank+1}, this is a ${w.wave || 'later-wave'} process. ${w.dataReadiness === 'LOW' ? 'Data readiness is the main blocker — ' : `${weakest.label} at ${weakest.score.toFixed(1)}/5 is holding it back, and `}the business impact (${w.bizImpact}/5) suggests sequencing it after higher-priority work. ${w.techs.length > 0 ? `The tech (${techList}) is viable` : 'Technical requirements are manageable'}, so this is more about timing than capability.`);
       }
     }
 
@@ -4871,9 +4871,9 @@ function showRankingBreakdown(w, rank) {
     } else if (w.extensionScore >= 4) {
       parts.push(`Worth noting: this isn't a one-and-done efficiency gain. With ${growthPct}% growth and ${prodPct}% productivity potential, the value compounds as the agent matures.`);
     } else if (w.bizImpact >= 5) {
-      parts.push(`At 5/5 business impact, this is one of the highest-value workflows in the entire portfolio.`);
+      parts.push(`At 5/5 business impact, this is one of the highest-value processes in the entire portfolio.`);
     } else if (w.agentMode === 'Execute Autonomously') {
-      parts.push(`This is one of the few workflows scoped for full autonomous execution — more upfront design work for controls, but significantly less human effort once it's running.`);
+      parts.push(`This is one of the few processes scoped for full autonomous execution — more upfront design work for controls, but significantly less human effort once it's running.`);
     } else if (w.dataSensitivity === 'PI' || w.dataSensitivity === 'SPI / Restricted') {
       parts.push(`One thing to flag: this handles ${w.dataSensitivity} data, so expect restricted logging requirements and additional approval gates that will affect the timeline.`);
     } else if (w.techs.length >= 5) {
@@ -4994,7 +4994,7 @@ function renderRankings() {
 
   // Compute composite scores
   RANKED_DATA = WORKFLOWS.map((w, idx) => {
-    // Tech overlap: sum of overlaps with all other workflows
+    // Tech overlap: sum of overlaps with all other processes
     let techSum = 0, dataSum = 0;
     const techOverlaps = [], dataOverlaps = [];
     WORKFLOWS.forEach((other, j) => {
@@ -5055,14 +5055,14 @@ function renderRankings() {
 
   let html = `
     <div class="panel-header">
-      <h2>Best Workflows to Start With</h2>
+      <h2>Best Processes to Start With</h2>
       <p>Composite ranking across 6 dimensions. Tech Feasibility (25%) incorporates platform readiness, data readiness, deployment suitability, foundation dependencies, and operational risk from the consulting classifier assessment.
       <strong>Click any row</strong> to see the full scoring breakdown with equations.</p>
     </div>
     <div class="legend">
       <div class="legend-item legend-has-tip"><div class="legend-swatch" style="background:#ff832b"></div>Tech Feasibility (25%)
         <div class="legend-tip">
-          <strong>Why 25%:</strong> Largest weight because it directly measures whether the workflow can actually be built today. Combines 5 consulting-assessed dimensions:
+          <strong>Why 25%:</strong> Largest weight because it directly measures whether the process can actually be built today. Combines 5 consulting-assessed dimensions:
           <ul>
             <li><strong>Platform Readiness (25%)</strong> — Is the current stack sufficient (Native), does it need extension (Extend), new builds (Build), or a vendor decision (Commercial Review)?</li>
             <li><strong>Data Readiness (25%)</strong> — Is the required data available (HIGH), partially fragmented (MEDIUM), or unknown/unavailable (LOW)?</li>
@@ -5081,27 +5081,27 @@ function renderRankings() {
       </div>
       <div class="legend-item legend-has-tip"><div class="legend-swatch" style="background:var(--carbon-green-50)"></div>Biz Impact (20%)
         <div class="legend-tip">
-          <strong>Why 20%:</strong> Second-highest weight. Business impact directly measures the value returned if this workflow is built — revenue protection, time savings, strategic alignment. Raw 1–5 score from the blueprint assessment, used as-is.
+          <strong>Why 20%:</strong> Second-highest weight. Business impact directly measures the value returned if this process is built — revenue protection, time savings, strategic alignment. Raw 1–5 score from the blueprint assessment, used as-is.
           <br><em>Source: Business Impact Score (MCC_AI_Blueprints_Master.xlsx)</em>
         </div>
       </div>
       <div class="legend-item legend-has-tip"><div class="legend-swatch" style="background:var(--carbon-teal-60)"></div>Tech Overlap (12%)
         <div class="legend-tip">
-          <strong>Why 12%:</strong> Measures how much technology infrastructure this workflow shares with all 42 others (Jaccard similarity). Higher overlap = building this first creates reusable platform components (APIs, orchestration layers, vendor integrations) that accelerate other workflows. Lower weight than impact/feasibility because it's an efficiency multiplier, not a standalone value signal.
-          <br><strong>Calculation:</strong> Sum of pairwise Jaccard overlap scores across all workflows, normalized to 0–5.
+          <strong>Why 12%:</strong> Measures how much technology infrastructure this process shares with all 42 others (Jaccard similarity). Higher overlap = building this first creates reusable platform components (APIs, orchestration layers, vendor integrations) that accelerate other processes. Lower weight than impact/feasibility because it's an efficiency multiplier, not a standalone value signal.
+          <br><strong>Calculation:</strong> Sum of pairwise Jaccard overlap scores across all processes, normalized to 0–5.
           <br><em>Source: System/Integration Requirements + Candidate Vendors (MCC_AI_Blueprints_Master.xlsx)</em>
         </div>
       </div>
       <div class="legend-item legend-has-tip"><div class="legend-swatch" style="background:var(--carbon-purple-60)"></div>Data Overlap (12%)
         <div class="legend-tip">
-          <strong>Why 12%:</strong> Same logic as Tech Overlap but for data pipelines. Workflows that share data sources (ISC, EPM, Marketo, Real-Time CDP, etc.) benefit from shared ingestion, transformation, and governance work. Weighted equally with Tech Overlap because data pipelines and tech stacks are equally reusable foundations.
-          <br><strong>Calculation:</strong> Sum of pairwise Jaccard overlap scores for data sources across all workflows, normalized to 0–5.
+          <strong>Why 12%:</strong> Same logic as Tech Overlap but for data pipelines. Processes that share data sources (ISC, EPM, Marketo, Real-Time CDP, etc.) benefit from shared ingestion, transformation, and governance work. Weighted equally with Tech Overlap because data pipelines and tech stacks are equally reusable foundations.
+          <br><strong>Calculation:</strong> Sum of pairwise Jaccard overlap scores for data sources across all processes, normalized to 0–5.
           <br><em>Source: Data Sources column (MCC_AI_Blueprints_Master.xlsx)</em>
         </div>
       </div>
       <div class="legend-item legend-has-tip"><div class="legend-swatch" style="background:var(--carbon-magenta-60)"></div>Extensions (16%)
         <div class="legend-tip">
-          <strong>Why 16%:</strong> Measures future growth and productivity potential. Workflows that score high here are force-multipliers — investing now compounds into more use cases later. Average of two Harvey Ball scores (each 0–100%):
+          <strong>Why 16%:</strong> Measures future growth and productivity potential. Processes that score high here are force-multipliers — investing now compounds into more use cases later. Average of two Harvey Ball scores (each 0–100%):
           <ul>
             <li><strong>Growth Impact</strong> — Revenue/pipeline acceleration potential</li>
             <li><strong>Productivity Impact</strong> — Team time reclaimed / efficiency gains</li>
@@ -5156,7 +5156,7 @@ function renderRankings() {
   // Top by feasibility + impact
   const byFeasImpact = [...WORKFLOWS].sort((a, b) => (b.feasibility * 2 + b.bizImpact) - (a.feasibility * 2 + a.bizImpact)).slice(0, 8);
   html += renderRankingCard('Highest Feasibility + Impact', byFeasImpact, w => `F:${w.feasibilityLabel} I:${w.bizImpact}`, 'var(--carbon-blue-60)',
-    'Workflows that are both highly feasible and have strong business impact. Best candidates for quick wins.',
+    'Processes that are both highly feasible and have strong business impact. Best candidates for quick wins.',
     w => ((w.feasibility / 3 * 5) + w.bizImpact) / 2);
 
   // Top by tech overlap (most shared tech)
@@ -5166,7 +5166,7 @@ function renderRankings() {
     return { ...w, techTotal: sum };
   }).sort((a, b) => b.techTotal - a.techTotal).slice(0, 8);
   html += renderRankingCard('Highest Tech Stack Overlap', techRanked, w => `${w.techTotal} shared`, 'var(--carbon-teal-60)',
-    'Workflows that share the most technology with others. Building these first maximizes infrastructure reuse.',
+    'Processes that share the most technology with others. Building these first maximizes infrastructure reuse.',
     w => w.techTotal / ((WORKFLOWS.length - 1) * 5) * 5);
 
   // Top by data overlap
@@ -5176,13 +5176,13 @@ function renderRankings() {
     return { ...w, dataTotal: sum };
   }).sort((a, b) => b.dataTotal - a.dataTotal).slice(0, 8);
   html += renderRankingCard('Highest Data Source Overlap', dataRanked, w => `${w.dataTotal} shared`, 'var(--carbon-purple-60)',
-    'Workflows that share the most data sources with others. Data pipelines built here serve the most downstream workflows.',
+    'Processes that share the most data sources with others. Data pipelines built here serve the most downstream processes.',
     w => w.dataTotal / ((WORKFLOWS.length - 1) * 5) * 5);
 
   // Top by future extensions
   const byExt = [...WORKFLOWS].sort((a, b) => (b.harveyGrowth + b.harveyProductivity) - (a.harveyGrowth + a.harveyProductivity)).slice(0, 8);
   html += renderRankingCard('Strongest Future Extensions', byExt, w => `G:${pct(w.harveyGrowth)} P:${pct(w.harveyProductivity)}`, 'var(--carbon-magenta-60)',
-    'Workflows with the highest growth and productivity extension potential. Investment here compounds across the portfolio.',
+    'Processes with the highest growth and productivity extension potential. Investment here compounds across the portfolio.',
     w => ((w.harveyGrowth + w.harveyProductivity) / 2) * 5);
 
   html += '</div>';
@@ -5226,7 +5226,7 @@ function renderToolOverlap() {
   const toolMap = {};
   WORKFLOWS.forEach((w, idx) => {
     w.techs.forEach(t => {
-      if (!toolMap[t]) toolMap[t] = { count: 0, workflows: [], domains: {} };
+      if (!toolMap[t]) toolMap[t] = { count: 0, processes: [], domains: {} };
       toolMap[t].count++;
       toolMap[t].workflows.push(idx);
       toolMap[t].domains[w.domain] = (toolMap[t].domains[w.domain] || 0) + 1;
@@ -5245,7 +5245,7 @@ function renderToolOverlap() {
     entry.color = DOMAIN_COLORS[entry.dominantDomain] || '#525252';
   });
 
-  // Sort workflows by domain for matrix columns
+  // Sort processes by domain for matrix columns
   const domainOrder = Object.keys(DOMAIN_COLORS);
   const sortedWfIndices = WORKFLOWS.map((w, i) => i).sort((a, b) => {
     const da = domainOrder.indexOf(WORKFLOWS[a].domain);
@@ -5276,29 +5276,29 @@ function renderToolOverlap() {
   let html = `
     <div class="panel-header">
       <h2>Tool Overlap Explorer</h2>
-      <p>Tool-centric view across all ${WORKFLOWS.length} workflows. The bar chart shows which tools are most prevalent. The matrix below reveals exactly which workflows share each tool. <strong>Click any tool or workflow</strong> to explore connections.</p>
+      <p>Tool-centric view across all ${WORKFLOWS.length} processes. The bar chart shows which tools are most prevalent. The matrix below reveals exactly which processes share each tool. <strong>Click any tool or process</strong> to explore connections.</p>
     </div>
 
     <div class="tool-summary">
       <div class="tool-summary-card" style="border-color:var(--carbon-blue-60)">
         <div class="tsc-value">${totalTools}</div>
         <div class="tsc-label">Unique Tools</div>
-        <div class="tsc-sub">Across all workflows</div>
+        <div class="tsc-sub">Across all processes</div>
       </div>
       <div class="tool-summary-card" style="border-color:var(--carbon-green-50)">
         <div class="tsc-value">${sharedTools}</div>
         <div class="tsc-label">Shared Tools</div>
-        <div class="tsc-sub">Used by 2+ workflows</div>
+        <div class="tsc-sub">Used by 2+ processes</div>
       </div>
       <div class="tool-summary-card" style="border-color:#ff832b">
         <div class="tsc-value">${avgPerWf}</div>
-        <div class="tsc-label">Avg Tools / Workflow</div>
-        <div class="tsc-sub">${singletonTools} tools unique to one workflow</div>
+        <div class="tsc-label">Avg Tools / Process</div>
+        <div class="tsc-sub">${singletonTools} tools unique to one process</div>
       </div>
       <div class="tool-summary-card" style="border-color:var(--carbon-purple-60)">
         <div class="tsc-value" style="font-size:18px;padding-top:4px">${topTool}</div>
         <div class="tsc-label">Most Prevalent Tool</div>
-        <div class="tsc-sub">Used by ${maxCount} workflows</div>
+        <div class="tsc-sub">Used by ${maxCount} processes</div>
       </div>
     </div>
 
@@ -5326,7 +5326,7 @@ function renderToolOverlap() {
       </div>
     </div>
 
-    <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;color:var(--text-primary)">Tool × Workflow Matrix</h3>
+    <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;color:var(--text-primary)">Tool × Process Matrix</h3>
     <div class="tool-matrix-wrap">
       <table class="tool-matrix-table">
         <thead><tr>
@@ -5404,7 +5404,7 @@ function renderToolOverlap() {
       const dc = DOMAIN_COLORS[w.domain] || '#525252';
       return `<span class="detail-chip"><span class="domain-badge" style="background:${dc}"></span>${w.shortName}</span>`;
     });
-    detailBar.innerHTML = `<strong>${toolName}</strong> is used by <strong>${entry.count}</strong> workflow${entry.count > 1 ? 's' : ''}:
+    detailBar.innerHTML = `<strong>${toolName}</strong> is used by <strong>${entry.count}</strong> process${entry.count > 1 ? 's' : ''}:
       <div class="detail-chips">${wfNames.join('')}</div>`;
     detailBar.classList.add('visible');
   }
@@ -5419,7 +5419,7 @@ function renderToolOverlap() {
     // Highlight matrix column
     table.querySelectorAll(`[data-wf-idx="${wfIdx}"]`).forEach(el => el.classList.add('wf-highlight'));
 
-    // Dim rows that don't include this workflow
+    // Dim rows that don't include this process
     matrixRows.forEach(r => {
       if (techSet.has(r.dataset.tool)) {
         r.classList.add('tool-highlight');
@@ -5524,7 +5524,7 @@ function renderToolOverlap() {
 
 renderHeatmap('panel-feasibility', feasibilityScore,
   'Feasibility Comparison',
-  'Compares feasibility level, business impact alignment, complexity, and data readiness between workflow pairs. Higher scores = more similar implementation profiles.',
+  'Compares feasibility level, business impact alignment, complexity, and data readiness between process pairs. Higher scores = more similar implementation profiles.',
   feasibilityDetail
 );
 
@@ -5544,7 +5544,7 @@ renderHeatmap('panel-tech',
 renderHeatmap('panel-data',
   (a, b) => dataOverlap(a, b),
   'Data Source Overlap',
-  'Jaccard similarity of data sources. Higher overlap = shared data pipelines. Building one workflow\'s data foundation accelerates others.',
+  'Jaccard similarity of data sources. Higher overlap = shared data pipelines. Building one process\'s data foundation accelerates others.',
   dataDetail
 );
 

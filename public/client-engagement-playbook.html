@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Client Engagement Playbook | MCC Process Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-100: #001141;
+    --blue-90:  #001d6c;
+    --blue-80:  #002d9c;
+    --blue-70:  #0043ce;
+    --blue-60:  #0f62fe;
+    --blue-50:  #4589ff;
+    --blue-40:  #78a9ff;
+    --blue-20:  #c6dbfe;
+    --blue-10:  #edf5ff;
+    --teal-60:  #007d79;
+    --teal-50:  #009d9a;
+    --teal-20:  #9ef0f0;
+    --magenta-60: #d02670;
+    --purple-60: #8a3ffc;
+    --yellow-30: #f1c21b;
+    --green-50: #24a148;
+    --gray-100: #161616;
+    --gray-90:  #262626;
+    --gray-80:  #393939;
+    --gray-70:  #525252;
+    --gray-60:  #6f6f6f;
+    --gray-50:  #8d8d8d;
+    --gray-40:  #a8a8a8;
+    --gray-30:  #c6c6c6;
+    --gray-20:  #e0e0e0;
+    --gray-10:  #f4f4f4;
+    --white:    #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gray-10);
+    color: var(--gray-100);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  code, .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  /* ========== Header ========== */
+  header.app-header {
+    background: var(--blue-100);
+    color: var(--white);
+    padding: 24px 48px;
+    border-bottom: 4px solid var(--blue-60);
+  }
+  .app-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .app-header .meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--blue-20);
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gray-90);
+    color: var(--white);
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .badge.feasibility { background: var(--yellow-30); color: var(--gray-100); }
+  .badge.impact { background: var(--green-50); color: var(--white); }
+
+  /* ========== Sub Nav ========== */
+  nav.section-nav {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-20);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+    z-index: 50;
+    overflow-x: auto;
+  }
+  nav.section-nav a {
+    padding: 16px 20px;
+    color: var(--gray-70);
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  nav.section-nav a:hover { color: var(--blue-70); background: var(--gray-10); }
+  nav.section-nav a.active {
+    color: var(--blue-70);
+    border-bottom-color: var(--blue-70);
+    font-weight: 500;
+  }
+
+  /* ========== Layout ========== */
+  main { padding: 48px; max-width: 1400px; margin: 0 auto; }
+
+  section {
+    background: var(--white);
+    margin-bottom: 32px;
+    border: 1px solid var(--gray-20);
+  }
+  section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gray-100);
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--gray-20);
+    background: var(--gray-10);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  section h2 .num {
+    background: var(--blue-70);
+    color: var(--white);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  section .body { padding: 32px; }
+  section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-70);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  section p { color: var(--gray-80); margin-bottom: 16px; }
+
+  /* ========== Overview Grid ========== */
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--gray-20);
+    border: 1px solid var(--gray-20);
+  }
+  .overview .cell {
+    background: var(--white);
+    padding: 20px;
+  }
+  .overview .label {
+    font-size: 11px;
+    color: var(--gray-60);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .overview .value {
+    font-size: 14px;
+    color: var(--gray-100);
+  }
+  .overview .value strong { color: var(--blue-80); }
+
+  .about-author {
+    background: var(--gray-10);
+    border-left: 4px solid var(--blue-70);
+    padding: 24px 28px;
+    margin-top: 8px;
+  }
+  .about-author-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray-60);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .about-author-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--blue-80);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .about-author-bio {
+    font-size: 14px;
+    color: var(--gray-80);
+    line-height: 1.55;
+    max-width: 820px;
+  }
+
+  /* ========== Stakeholder Diagram ========== */
+  .stakeholder-svg-wrap {
+    background: var(--gray-10);
+    padding: 24px;
+    border: 1px solid var(--gray-20);
+    overflow-x: auto;
+  }
+  .stakeholder-svg-wrap svg {
+    display: block;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .stakeholder-table {
+    margin-top: 24px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .stakeholder-table th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--gray-90);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stakeholder-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gray-20);
+    vertical-align: top;
+  }
+  .stakeholder-table tr:hover td { background: var(--blue-10); }
+  .role-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--white);
+    margin-right: 4px;
+  }
+  .role-tag.acc { background: var(--blue-100); }
+  .role-tag.resp { background: var(--blue-70); }
+
+  /* ========== Workflow Diagram ========== */
+  .workflow-wrap {
+    background: var(--gray-10);
+    padding: 32px 24px;
+    border: 1px solid var(--gray-20);
+    overflow-x: auto;
+  }
+  .workflow-wrap svg {
+    display: block;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: auto;
+  }
+  .workflow-stages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .stage-card {
+    background: var(--white);
+    border: 1px solid var(--gray-20);
+    border-top: 4px solid var(--blue-70);
+    padding: 20px;
+  }
+  .stage-card .num-badge {
+    display: inline-block;
+    background: var(--blue-70);
+    color: var(--white);
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 12px;
+  }
+  .stage-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--blue-80);
+    letter-spacing: 0.02em;
+  }
+  .stage-card p {
+    font-size: 13px;
+    color: var(--gray-80);
+    line-height: 1.45;
+  }
+
+  /* ========== Project Plan ========== */
+  .timeline {
+    border-left: 2px solid var(--blue-70);
+    margin-left: 12px;
+    padding-left: 0;
+  }
+  .phase {
+    position: relative;
+    padding: 16px 0 16px 32px;
+    border-bottom: 1px solid var(--gray-20);
+  }
+  .phase:last-child { border-bottom: none; }
+  .phase::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    background: var(--blue-70);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+  }
+  .phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .phase-header h4 {
+    font-size: 16px;
+    color: var(--gray-100);
+    font-weight: 600;
+  }
+  .phase-meta {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-60);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .phase-meta span {
+    background: var(--gray-10);
+    padding: 3px 8px;
+    border: 1px solid var(--gray-20);
+  }
+  .phase ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+  .phase ul li {
+    font-size: 13px;
+    color: var(--gray-80);
+    padding: 4px 0 4px 18px;
+    position: relative;
+  }
+  .phase ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 1px;
+    background: var(--gray-50);
+  }
+
+  .gantt {
+    margin-top: 24px;
+    border: 1px solid var(--gray-20);
+    overflow-x: auto;
+  }
+  .gantt-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border-bottom: 1px solid var(--gray-20);
+    font-size: 12px;
+  }
+  .gantt-row:last-child { border-bottom: none; }
+  .gantt-row.header {
+    background: var(--gray-90);
+    color: var(--white);
+    font-weight: 500;
+  }
+  .gantt-row.header .gantt-label { color: var(--white); }
+  .gantt-label {
+    padding: 12px 16px;
+    border-right: 1px solid var(--gray-20);
+    color: var(--gray-100);
+    font-weight: 500;
+  }
+  .gantt-grid {
+    display: grid;
+    grid-template-columns: repeat(28, 1fr);
+    position: relative;
+  }
+  .gantt-grid .week {
+    border-right: 1px solid var(--gray-20);
+    padding: 8px 4px;
+    text-align: center;
+    color: var(--gray-60);
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .gantt-grid .week:nth-child(4n) { background: var(--gray-10); }
+  .gantt-bar {
+    position: absolute;
+    top: 8px;
+    height: 20px;
+    background: var(--blue-70);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0 8px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .gantt-bar.p0 { background: var(--gray-70); }
+  .gantt-bar.p1 { background: var(--blue-80); }
+  .gantt-bar.p2 { background: var(--blue-70); }
+  .gantt-bar.p3 { background: var(--purple-60); }
+  .gantt-bar.p4 { background: var(--teal-60); }
+  .gantt-bar.p5 { background: var(--magenta-60); }
+  .gantt-bar.p6 { background: var(--green-50); }
+
+  /* ========== 4-Week Plan Grid ========== */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--gray-20);
+    border: 1px solid var(--gray-20);
+  }
+  .week-col {
+    background: var(--white);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .week-header {
+    background: var(--gray-10);
+    padding: 16px 18px;
+    border-bottom: 3px solid var(--blue-70);
+  }
+  .week-header .week-num {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-100);
+    letter-spacing: -0.01em;
+  }
+  .week-header .week-title {
+    font-size: 12px;
+    color: var(--gray-70);
+    margin-top: 2px;
+  }
+  .week-section {
+    padding: 16px 18px;
+  }
+  .week-section h5 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-70);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--gray-20);
+  }
+  .week-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .week-section ul li {
+    font-size: 12px;
+    color: var(--gray-80);
+    padding: 4px 0 4px 14px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .week-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--blue-70);
+  }
+  .cm-kickoff {
+    background: var(--blue-70);
+    color: var(--white);
+    text-align: center;
+    padding: 14px;
+    margin-top: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* ========== Data Sources ========== */
+  .source-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .source-card {
+    background: var(--white);
+    border: 1px solid var(--gray-20);
+    padding: 20px;
+    border-left: 4px solid var(--teal-60);
+    transition: border-color 0.15s ease;
+  }
+  .source-card:hover { border-left-color: var(--blue-70); }
+  .source-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gray-100);
+    margin-bottom: 4px;
+  }
+  .source-card .source-type {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--teal-60);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .source-card .source-desc {
+    font-size: 13px;
+    color: var(--gray-80);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .source-card .source-meta {
+    border-top: 1px solid var(--gray-20);
+    padding-top: 12px;
+    font-size: 11px;
+    color: var(--gray-60);
+    display: grid;
+    gap: 4px;
+  }
+  .source-card .source-meta strong {
+    color: var(--gray-80);
+    font-weight: 500;
+    display: inline-block;
+    min-width: 80px;
+  }
+  .source-card.vendor { border-left-color: var(--purple-60); }
+  .source-card.vendor .source-type { color: var(--purple-60); }
+
+  .data-flow-summary {
+    background: var(--blue-10);
+    border-left: 4px solid var(--blue-70);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--gray-90);
+  }
+
+  /* ========== Risks / KPIs ========== */
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .panel {
+    background: var(--gray-10);
+    border-left: 4px solid var(--blue-70);
+    padding: 16px 20px;
+  }
+  .panel.risk { border-left-color: var(--yellow-30); }
+  .panel h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-100);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .panel ul { list-style: none; padding: 0; }
+  .panel ul li {
+    padding: 6px 0 6px 16px;
+    position: relative;
+    font-size: 13px;
+    color: var(--gray-80);
+  }
+  .panel ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    background: var(--blue-70);
+  }
+  .panel.risk ul li::before { background: var(--yellow-30); }
+
+  footer {
+    background: var(--blue-100);
+    color: var(--blue-20);
+    padding: 24px 48px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .overview, .twocol { grid-template-columns: 1fr 1fr; }
+    .workflow-stages, .week-grid { grid-template-columns: 1fr 1fr; }
+    main { padding: 24px; }
+    nav.section-nav, header.app-header, footer { padding-left: 24px; padding-right: 24px; }
+  }
+  @media (max-width: 600px) {
+    .overview, .twocol, .workflow-stages, .week-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+
+
+<style>
+  .mcc-diagram-wrap {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .mcc-diagram {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .mcc-diagram-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #6f6f6f;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+    <div>
+      <h1>Client Engagement Playbook</h1>
+      <div class="meta">
+        <span class="badge">C-Suite &amp; ABM</span>
+        <span>Process Blueprint</span>
+      </div>
+    </div>
+    <div style="font-size:12px; color:var(--blue-20); text-align:right;">
+      MCC Process Blueprint<br/>
+      IBM Confidential
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav">
+  <a href="#overview" class="active">Overview</a><a href="#downstream-impact">Downstream Impact</a>
+  <a href="#stakeholders">Stakeholders</a>
+  <a href="#workflow">End to End Process</a>
+  <a href="#plan">4-Week Plan</a>
+  <a href="#sources">Data Sources</a>
+  <a href="#risks">Risks &amp; KPIs</a>
+</nav>
+
+<main>
+
+  <!-- ========== OVERVIEW ========== -->
+  <section id="overview">
+    <h2><span class="num">1</span> Process Overview</h2>
+    <div class="body">
+      <p>
+        A dynamic, living account intelligence layer that aggregates internal and external signals
+        (intent, firmographics, technology footprint, engagement history, pipeline status, buying group
+        composition) and generates role-specific engagement guidance for any stakeholder at any moment.
+        Replaces static, manually built playbooks with AI-generated guidance that auto-refreshes as
+        signals change. Targets ABM at scale across 2,200+ named accounts.
+      </p>
+      <div class="about-author">
+        <div class="about-author-label">About the Author</div>
+        <h3 class="about-author-name">Nick Coma</h3>
+        <p class="about-author-bio">
+          Outside of work I am a new father, which is the best and most exhausting role I have ever taken on.
+          I spend my free time bouldering at the local gym, playing video games when the baby is asleep,
+          and tinkering with new tech and AI tools. I just finished writing my first fantasy novel, which has
+          been a long-running side project finally pushed across the finish line.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="downstream-impact"><h2><span class="num">DI</span> Downstream Impact Diagram</h2>
+    <div class="body">
+      <p>How <strong>Client Engagement Playbook</strong> connects out to downstream processes and stakeholder groups across the MCC initiative map. Lines fan from the foundational initiative to each affected process.</p>
+      <div class="mcc-diagram-wrap">
+        <svg class="mcc-diagram impact-diagram" viewBox="0 0 1800 1100" xmlns="http://www.w3.org/2000/svg" role="img">
+<rect width="1800" height="1100" fill="#f4f4f4"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 188.5, 700.0 188.5" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 247.0, 700.0 247.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 299.0, 700.0 299.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 351.0, 700.0 351.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 403.0, 700.0 403.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 455.0, 700.0 455.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 507.0, 700.0 507.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 559.0, 700.0 559.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 611.0, 700.0 611.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 663.0, 700.0 663.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 715.0, 700.0 715.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 188.5, 1050.0 188.5" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 247.0, 1050.0 247.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 299.0, 1050.0 299.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 351.0, 1050.0 351.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 188.5, 1400.0 188.5" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 247.0, 1400.0 247.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 299.0, 1400.0 299.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 351.0, 1400.0 351.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<rect x="0" y="0" width="1800" height="110" fill="#ffffff" stroke="#e0e0e0" stroke-width="0"/>
+<line x1="0" y1="110" x2="1800" y2="110" stroke="#e0e0e0" stroke-width="1"/>
+<text x="48" y="40" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="#6f6f6f" letter-spacing="1.2">MCC FOUNDATIONAL INITIATIVES</text>
+<text x="48" y="76" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="500" fill="#161616">#10 Client Engagement Playbook</text>
+<rect x="60" y="410" width="380" height="236" fill="#001141"/>
+<text x="88" y="449" font-family="IBM Plex Mono, monospace" font-size="10" fill="#a6c8ff" letter-spacing="1.2">FOUNDATIONAL INITIATIVE</text>
+<text x="88" y="515" font-family="IBM Plex Sans, sans-serif" font-size="56" font-weight="300" fill="#ffffff">#10</text>
+<text x="88" y="555" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="500" fill="#ffffff">Client Engagement Playbook</text>
+<text x="88" y="615" font-family="IBM Plex Mono, monospace" font-size="10" fill="#a6c8ff" letter-spacing="1.2">DOMAIN: C-SUITE &amp; ABM</text>
+<rect x="700" y="170" width="260" height="37" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="170" width="4" height="37" fill="#0f62fe"/>
+<text x="716" y="192" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">NAMED ACCOUNT / ABM</text>
+<rect x="700" y="225" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="225" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="251" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">C-Suite and ABM (master)</text>
+<rect x="700" y="277" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="277" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="303" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience (Client Voice) v1</text>
+<rect x="700" y="329" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="329" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="355" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience (Client Voice) v2</text>
+<rect x="700" y="381" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="381" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="407" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience (Client Voice) v3</text>
+<rect x="700" y="433" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="433" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="459" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience – Matchmaking</text>
+<rect x="700" y="485" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="485" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="511" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience – Stories</text>
+<rect x="700" y="537" width="279" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="537" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="563" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience – Liaise w/ Account Teams</text>
+<rect x="700" y="589" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="589" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="615" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Client Experience – Chaitali Processes</text>
+<rect x="700" y="641" width="330" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="641" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="667" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">MCC Named Acc. Mark. AS-IS – Innovation Studio GBE</text>
+<rect x="700" y="693" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="693" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="719" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Demand – High Level Process</text>
+<rect x="1050" y="170" width="260" height="37" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="170" width="4" height="37" fill="#0f62fe"/>
+<text x="1066" y="192" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">EXECUTIVE &amp; STAKEHOLDER</text>
+<rect x="1050" y="225" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="225" width="4" height="44" fill="#0f62fe"/>
+<text x="1066" y="251" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Executive Comms Prep</text>
+<rect x="1050" y="277" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="277" width="4" height="44" fill="#0f62fe"/>
+<text x="1066" y="303" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">CEO Office Hours</text>
+<rect x="1050" y="329" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="329" width="4" height="44" fill="#0f62fe"/>
+<text x="1066" y="355" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Define mgmt system for budgets/MDF</text>
+<rect x="1400" y="170" width="260" height="37" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="170" width="4" height="37" fill="#0f62fe"/>
+<text x="1416" y="192" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">ECOSYSTEM SIGNAL</text>
+<rect x="1400" y="225" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="225" width="4" height="44" fill="#0f62fe"/>
+<text x="1416" y="251" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Strategic &amp; Service Partners – Estelle A.</text>
+<rect x="1400" y="277" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="277" width="4" height="44" fill="#0f62fe"/>
+<text x="1416" y="303" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Workshop Event Marketing Process</text>
+<rect x="1400" y="329" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="329" width="4" height="44" fill="#0f62fe"/>
+<text x="1416" y="355" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Ideal Partner Profile – Ashley Davis</text>
+</svg>
+        <div class="mcc-diagram-caption">Source: MCC Foundational Initiatives — Downstream Impact</div>
+      </div>
+    </div></section>
+
+
+
+  <!-- ========== STAKEHOLDERS ========== -->
+  <section id="stakeholders">
+    <h2><span class="num">2</span> Prospective Stakeholder Diagram</h2>
+    <div class="body">
+      <p>
+        Lean tree hierarchy. One accountable executive sponsor at the top, two accountable process
+        owners, with one to two responsible leads beneath each. Roles only, no names.
+      </p>
+
+      <div class="stakeholder-svg-wrap">
+        <svg viewBox="0 0 1080 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stakeholder hierarchy">
+          <defs>
+            <style>
+              .conn { stroke: #a8a8a8; stroke-width: 1.5; fill: none; }
+              .node-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; fill: #ffffff; font-weight: 600; text-anchor: middle; }
+              .node-sub { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; fill: #c6dbfe; text-anchor: middle; }
+              .node-sub-dark { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; fill: #525252; text-anchor: middle; }
+              .tier-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; fill: #6f6f6f; text-transform: uppercase; letter-spacing: 0.06em; }
+            </style>
+          </defs>
+
+          <!-- Tier labels (left side, with reserved gutter) -->
+          <text x="20" y="75" class="tier-label">Accountable Sponsor</text>
+          <text x="20" y="205" class="tier-label">Accountable Owners</text>
+          <text x="20" y="355" class="tier-label">Responsible Leads</text>
+
+          <!-- Connector lines -->
+          <line x1="630" y1="80" x2="405" y2="170" class="conn"/>
+          <line x1="630" y1="80" x2="855" y2="170" class="conn"/>
+          <line x1="405" y1="220" x2="305" y2="320" class="conn"/>
+          <line x1="405" y1="220" x2="505" y2="320" class="conn"/>
+          <line x1="855" y1="220" x2="755" y2="320" class="conn"/>
+          <line x1="855" y1="220" x2="955" y2="320" class="conn"/>
+
+          <!-- Tier 1: Executive Sponsor -->
+          <g>
+            <rect x="530" y="40" width="200" height="60" fill="#001141"/>
+            <text x="630" y="64" class="node-label" style="font-size:13px;">VP / CMO Marketing</text>
+            <text x="630" y="82" class="node-sub">Executive Sponsor</text>
+          </g>
+
+          <!-- Tier 2: Two Accountable Owners -->
+          <g>
+            <rect x="305" y="170" width="200" height="60" fill="#0043ce"/>
+            <text x="405" y="194" class="node-label">Director of ABM Strategy</text>
+            <text x="405" y="212" class="node-sub">Process Owner</text>
+          </g>
+          <g>
+            <rect x="755" y="170" width="200" height="60" fill="#0043ce"/>
+            <text x="855" y="188" class="node-label">Director of</text>
+            <text x="855" y="204" class="node-label">Field Marketing</text>
+            <text x="855" y="222" class="node-sub">Process Owner</text>
+          </g>
+
+          <!-- Tier 3: Responsible Leads (1-2 per owner) -->
+          <g>
+            <rect x="205" y="320" width="200" height="60" fill="#ffffff" stroke="#0043ce" stroke-width="2"/>
+            <text x="305" y="344" class="node-label" style="fill:#001d6c;">Solution Architect</text>
+            <text x="305" y="362" class="node-sub-dark">Build &amp; integration lead</text>
+          </g>
+          <g>
+            <rect x="405" y="320" width="200" height="60" fill="#ffffff" stroke="#0043ce" stroke-width="2"/>
+            <text x="505" y="344" class="node-label" style="fill:#001d6c;">Data Engineering Lead</text>
+            <text x="505" y="362" class="node-sub-dark">Intelligence graph</text>
+          </g>
+          <g>
+            <rect x="655" y="320" width="200" height="60" fill="#ffffff" stroke="#0043ce" stroke-width="2"/>
+            <text x="755" y="344" class="node-label" style="fill:#001d6c;">ML / AI Engineer</text>
+            <text x="755" y="362" class="node-sub-dark">Authoring engine</text>
+          </g>
+          <g>
+            <rect x="855" y="320" width="200" height="60" fill="#ffffff" stroke="#0043ce" stroke-width="2"/>
+            <text x="955" y="344" class="node-label" style="fill:#001d6c;">Product Designer</text>
+            <text x="955" y="362" class="node-sub-dark">Delivery surfaces</text>
+          </g>
+        </svg>
+      </div>
+
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th style="width:24%;">Role</th>
+            <th style="width:14%;">RACI</th>
+            <th>Responsibility on this process</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="role-tag acc">A</span> VP / CMO Marketing</td><td>Accountable</td><td>Sponsors investment, signs off on scope and cohort selection, approves business case.</td></tr>
+          <tr><td><span class="role-tag acc">A</span> Director of ABM Strategy</td><td>Accountable</td><td>Process owner. Defines playbook content model, stakeholder coverage, and pilot cohort.</td></tr>
+          <tr><td><span class="role-tag acc">A</span> Director of Field Marketing</td><td>Accountable</td><td>Co-process owner. Defines field use cases, drives adoption across FM org (~160 users).</td></tr>
+          <tr><td><span class="role-tag resp">R</span> Solution Architect</td><td>Responsible</td><td>Owns end to end architecture, integration design, build sequencing across pods.</td></tr>
+          <tr><td><span class="role-tag resp">R</span> Data Engineering Lead</td><td>Responsible</td><td>Builds account intelligence graph, entity resolution, signal ingestion pipelines.</td></tr>
+          <tr><td><span class="role-tag resp">R</span> ML / AI Engineer</td><td>Responsible</td><td>Builds AI authoring engine, prompt design, evaluation, feedback loop.</td></tr>
+          <tr><td><span class="role-tag resp">R</span> Product Designer</td><td>Responsible</td><td>Designs playbook UI in ISC dashboards, SalesLoft and Slack surfaces, feedback capture.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== WORKFLOW ========== -->
+  <section id="workflow">
+    <h2><span class="num">3</span> End to End Process</h2>
+    <div class="body">
+      <p>
+        Five stage closed loop. Signals flow in from source systems, are resolved into a unified
+        account intelligence graph, transformed into role-specific playbooks by the AI authoring engine,
+        delivered through stakeholder channels, and continuously refined by adoption and outcome data.
+      </p>
+
+      <div class="workflow-wrap">
+        <svg viewBox="0 0 1280 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="End to end process">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="#0f62fe"/>
+            </marker>
+            <marker id="arrowfb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="#d02670"/>
+            </marker>
+            <style>
+              .stage-rect { fill: #ffffff; stroke: #0043ce; stroke-width: 2; }
+              .stage-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; fill: #0043ce; }
+              .stage-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; font-weight: 700; fill: #001d6c; }
+              .stage-body { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: #393939; }
+              .source-rect { fill: #007d79; stroke: #004144; stroke-width: 1; }
+              .source-text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: #ffffff; font-weight: 500; }
+              .channel-rect { fill: #d02670; stroke: #740937; stroke-width: 1; }
+              .layer-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; font-weight: 600; fill: #525252; text-transform: uppercase; letter-spacing: 0.06em; }
+              .arrow-line { fill: none; stroke: #0f62fe; stroke-width: 2; marker-end: url(#arrow); }
+              .feedback-line { fill: none; stroke: #d02670; stroke-width: 2; stroke-dasharray: 5 4; marker-end: url(#arrowfb); }
+            </style>
+          </defs>
+
+          <!-- Layer labels -->
+          <text x="20" y="40" class="layer-label">Source Systems</text>
+          <text x="20" y="200" class="layer-label">AI Process Stages</text>
+          <text x="20" y="380" class="layer-label">Delivery Channels</text>
+
+          <!-- Source systems (top) -->
+          <g>
+            <rect x="40"  y="55" width="100" height="34" class="source-rect"/>
+            <text x="90"  y="76" class="source-text" text-anchor="middle">ISC</text>
+            <rect x="155" y="55" width="100" height="34" class="source-rect"/>
+            <text x="205" y="76" class="source-text" text-anchor="middle">TAP 360</text>
+            <rect x="270" y="55" width="100" height="34" class="source-rect"/>
+            <text x="320" y="76" class="source-text" text-anchor="middle">People.ai</text>
+            <rect x="385" y="55" width="100" height="34" class="source-rect"/>
+            <text x="435" y="76" class="source-text" text-anchor="middle">Marketo</text>
+            <rect x="500" y="55" width="100" height="34" class="source-rect"/>
+            <text x="550" y="76" class="source-text" text-anchor="middle">Gong</text>
+            <rect x="615" y="55" width="100" height="34" class="source-rect"/>
+            <text x="665" y="76" class="source-text" text-anchor="middle">SalesLoft</text>
+            <rect x="730" y="55" width="100" height="34" class="source-rect"/>
+            <text x="780" y="76" class="source-text" text-anchor="middle">Seismic</text>
+            <rect x="845" y="55" width="100" height="34" class="source-rect"/>
+            <text x="895" y="76" class="source-text" text-anchor="middle">Lighthouse</text>
+            <rect x="960" y="55" width="100" height="34" class="source-rect"/>
+            <text x="1010" y="76" class="source-text" text-anchor="middle">W3 Box</text>
+            <rect x="1075" y="55" width="100" height="34" class="source-rect"/>
+            <text x="1125" y="76" class="source-text" text-anchor="middle">EPM</text>
+          </g>
+
+          <!-- Stage 1: INGEST -->
+          <g>
+            <rect x="40" y="180" width="200" height="120" class="stage-rect"/>
+            <text x="55" y="205" class="stage-num">01</text>
+            <text x="55" y="227" class="stage-title">INGEST</text>
+            <text x="55" y="250" class="stage-body">Aggregate intent, pipeline,</text>
+            <text x="55" y="265" class="stage-body">engagement, firmographic,</text>
+            <text x="55" y="280" class="stage-body">technographic feeds into</text>
+            <text x="55" y="295" class="stage-body">unified data layer</text>
+          </g>
+
+          <!-- Stage 2: PROFILE -->
+          <g>
+            <rect x="280" y="180" width="200" height="120" class="stage-rect"/>
+            <text x="295" y="205" class="stage-num">02</text>
+            <text x="295" y="227" class="stage-title">PROFILE</text>
+            <text x="295" y="250" class="stage-body">Build account profiles,</text>
+            <text x="295" y="265" class="stage-body">score buying group maturity,</text>
+            <text x="295" y="280" class="stage-body">map stakeholder roles,</text>
+            <text x="295" y="295" class="stage-body">track engagement velocity</text>
+          </g>
+
+          <!-- Stage 3: GENERATE -->
+          <g>
+            <rect x="520" y="180" width="200" height="120" class="stage-rect" style="fill:#edf5ff;"/>
+            <text x="535" y="205" class="stage-num">03</text>
+            <text x="535" y="227" class="stage-title">GENERATE</text>
+            <text x="535" y="250" class="stage-body">Role-specific playbooks:</text>
+            <text x="535" y="265" class="stage-body">content sequences, talk</text>
+            <text x="535" y="280" class="stage-body">tracks, NBA guidance per</text>
+            <text x="535" y="295" class="stage-body">buying stage</text>
+          </g>
+
+          <!-- Stage 4: DISTRIBUTE -->
+          <g>
+            <rect x="760" y="180" width="200" height="120" class="stage-rect"/>
+            <text x="775" y="205" class="stage-num">04</text>
+            <text x="775" y="227" class="stage-title">DISTRIBUTE</text>
+            <text x="775" y="250" class="stage-body">Deliver to sales, field</text>
+            <text x="775" y="265" class="stage-body">marketing, ABM via ISC,</text>
+            <text x="775" y="280" class="stage-body">SalesLoft cadences, Slack;</text>
+            <text x="775" y="295" class="stage-body">auto-refresh on signal change</text>
+          </g>
+
+          <!-- Stage 5: LEARN -->
+          <g>
+            <rect x="1000" y="180" width="200" height="120" class="stage-rect"/>
+            <text x="1015" y="205" class="stage-num">05</text>
+            <text x="1015" y="227" class="stage-title">LEARN</text>
+            <text x="1015" y="250" class="stage-body">Track adoption,</text>
+            <text x="1015" y="265" class="stage-body">conversion, deal outcomes;</text>
+            <text x="1015" y="280" class="stage-body">refine recommendations</text>
+            <text x="1015" y="295" class="stage-body">via feedback loop</text>
+          </g>
+
+          <!-- Forward arrows between stages -->
+          <line x1="240" y1="240" x2="280" y2="240" class="arrow-line"/>
+          <line x1="480" y1="240" x2="520" y2="240" class="arrow-line"/>
+          <line x1="720" y1="240" x2="760" y2="240" class="arrow-line"/>
+          <line x1="960" y1="240" x2="1000" y2="240" class="arrow-line"/>
+
+          <!-- Source -> Ingest arrows -->
+          <line x1="90"   y1="89" x2="120" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="205"  y1="89" x2="135" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="320"  y1="89" x2="150" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="435"  y1="89" x2="165" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="550"  y1="89" x2="180" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="665"  y1="89" x2="195" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="780"  y1="89" x2="210" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="895"  y1="89" x2="220" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="1010" y1="89" x2="225" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="1125" y1="89" x2="230" y2="180" class="arrow-line" style="stroke-width:1.5;"/>
+
+          <!-- Delivery channels (bottom) -->
+          <g>
+            <rect x="180" y="395" width="160" height="34" class="channel-rect"/>
+            <text x="260" y="416" class="source-text" text-anchor="middle">ISC Dashboards</text>
+            <rect x="370" y="395" width="160" height="34" class="channel-rect"/>
+            <text x="450" y="416" class="source-text" text-anchor="middle">Salesforce Account View</text>
+            <rect x="560" y="395" width="160" height="34" class="channel-rect"/>
+            <text x="640" y="416" class="source-text" text-anchor="middle">SalesLoft Cadences</text>
+            <rect x="750" y="395" width="160" height="34" class="channel-rect"/>
+            <text x="830" y="416" class="source-text" text-anchor="middle">Gong Call Prep</text>
+            <rect x="940" y="395" width="160" height="34" class="channel-rect"/>
+            <text x="1020" y="416" class="source-text" text-anchor="middle">Slack Alerts</text>
+          </g>
+
+          <!-- Distribute -> channels -->
+          <line x1="860" y1="300" x2="260" y2="395" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="860" y1="300" x2="450" y2="395" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="860" y1="300" x2="640" y2="395" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="860" y1="300" x2="830" y2="395" class="arrow-line" style="stroke-width:1.5;"/>
+          <line x1="860" y1="300" x2="1020" y2="395" class="arrow-line" style="stroke-width:1.5;"/>
+
+          <!-- Feedback loop: LEARN back to PROFILE / INGEST -->
+          <path d="M 1100 300 Q 1100 360 700 360 Q 300 360 140 300" class="feedback-line"/>
+          <text x="640" y="354" style="font-family:'IBM Plex Sans'; font-size:11px; fill:#d02670; font-weight:600;" text-anchor="middle">Feedback loop: outcomes refine intelligence graph and authoring</text>
+        </svg>
+      </div>
+
+      <div class="workflow-stages">
+        <div class="stage-card">
+          <span class="num-badge">01</span>
+          <h4>INGEST</h4>
+          <p>Continuously aggregates intent signals, ISC pipeline / win-loss / partner data, Gong and SalesLoft call intelligence, Marketo engagement, and firmographic / technographic feeds into a unified account intelligence graph.</p>
+        </div>
+        <div class="stage-card">
+          <span class="num-badge">02</span>
+          <h4>PROFILE</h4>
+          <p>Builds and maintains living account profiles. Scores buying group maturity, maps stakeholder roles, identifies whitespace, tracks engagement velocity across the buying committee.</p>
+        </div>
+        <div class="stage-card">
+          <span class="num-badge">03</span>
+          <h4>GENERATE</h4>
+          <p>Produces role-specific playbooks per account or cohort: recommended content sequences, event invitations, talk tracks, competitive positioning, next-best-action guidance tailored to each stakeholder buying stage.</p>
+        </div>
+        <div class="stage-card">
+          <span class="num-badge">04</span>
+          <h4>DISTRIBUTE</h4>
+          <p>Delivers playbooks to sales, field marketing, and ABM teams through ISC dashboards, SalesLoft cadences, and Slack alerts. Auto-refreshes as underlying signals change.</p>
+        </div>
+        <div class="stage-card">
+          <span class="num-badge">05</span>
+          <h4>LEARN</h4>
+          <p>Tracks playbook adoption, downstream conversion, and deal outcomes. Feeds results back into the intelligence model to continuously refine recommendations and surface what actually moves deals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECT PLAN ========== -->
+  <section id="plan">
+    <h2><span class="num">4</span> 4-Week Co-Design Phase</h2>
+    <div class="body">
+      <p>
+        Compressed 4-week plan aligned to what was sold through. Outcome targets: net-new initiative
+        designs (reimagined ways of working), full requirements documentation (business rules, data
+        and tech dependencies, role implications, governance), and a prioritized V1 capability backlog
+        per initiative. Phase closes with Change Management kick-off.
+      </p>
+
+      <div class="overview" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 24px;">
+        <div class="cell">
+          <div class="label">Net-New Initiative Designs</div>
+          <div class="value">Reimagined ways of working and new processes, not just optimizing what works today.</div>
+        </div>
+        <div class="cell">
+          <div class="label">Full Requirements Documentation</div>
+          <div class="value">Business rules, data and technology dependencies, potential role implications, and governance.</div>
+        </div>
+        <div class="cell">
+          <div class="label">Prioritized V1 Capabilities</div>
+          <div class="value">Sequenced backlog with defined V1 scope per initiative: what to build first, what to phase.</div>
+        </div>
+      </div>
+
+      <div class="week-grid">
+        <div class="week-col">
+          <div class="week-header">
+            <div class="week-num">Week 1</div>
+            <div class="week-title">Reimagine</div>
+          </div>
+          <div class="week-section">
+            <h5>Activities</h5>
+            <ul>
+              <li>Pain point validation with Field Marketing, ABM, Demand Strategy, and Sales Enablement</li>
+              <li>Identify reimagination vs optimization opportunities for the playbook process</li>
+              <li>Set strategic framing and guardrails (cohort scope, role coverage, AI ethics)</li>
+            </ul>
+          </div>
+          <div class="week-section">
+            <h5>Deliverables</h5>
+            <ul>
+              <li>Data source map (ISC, TAP 360, People.ai, Marketo, Gong, SalesLoft, Seismic, Lighthouse, W3 Box, EPM)</li>
+              <li>Pain points tracked against current manual playbook assembly</li>
+              <li>Current state mapped with future state solution</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="week-col">
+          <div class="week-header">
+            <div class="week-num">Week 2</div>
+            <div class="week-title">Data and Tech Feasibility</div>
+          </div>
+          <div class="week-section">
+            <h5>Activities</h5>
+            <ul>
+              <li>Architecture feasibility solidified for the account intelligence graph and authoring engine</li>
+              <li>Data sources clarified and tech / tools identified for future state (entity resolution, RAG, vendor short list)</li>
+              <li>Finalize data, platform, and access needs with CIO</li>
+            </ul>
+          </div>
+          <div class="week-section">
+            <h5>Deliverables</h5>
+            <ul>
+              <li>Draft reimagined initiative designs per initiative</li>
+              <li>Initial architecture requirements (graph, authoring, distribution, feedback loop)</li>
+              <li>Requirements documentation (business rules, data and tech dependencies, governance)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="week-col">
+          <div class="week-header">
+            <div class="week-num">Week 3</div>
+            <div class="week-title">Prioritization and Sequencing</div>
+          </div>
+          <div class="week-section">
+            <h5>Activities</h5>
+            <ul>
+              <li>Validate designs with functional leaders and process owners (ABM, FM, Demand Strategy, Sales Enablement)</li>
+              <li>Prioritization stakeholder sign-off on initiatives and capability sequencing</li>
+              <li>Requirements for V1 scope finalized (role coverage, distribution channels, KPIs)</li>
+            </ul>
+          </div>
+          <div class="week-section">
+            <h5>Deliverables</h5>
+            <ul>
+              <li>Initial role impact assessment by domain (FM, DS, Sales, ABM, Enablement)</li>
+              <li>Sequenced capabilities to reach final state (Ingest, Profile, Generate, Distribute, Learn)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="week-col">
+          <div class="week-header">
+            <div class="week-num">Week 4</div>
+            <div class="week-title">Finalize</div>
+          </div>
+          <div class="week-section">
+            <h5>Activities</h5>
+            <ul>
+              <li>Sequence V1 functionality / capabilities per initiative (graph, authoring, ISC delivery first)</li>
+              <li>Align on build-first vs phase vs defer (People.ai treated as Horizon 2)</li>
+              <li>Final architecture sign-off with CIO</li>
+            </ul>
+          </div>
+          <div class="week-section">
+            <h5>Deliverables</h5>
+            <ul>
+              <li>V1 scope definition with acceptance criteria</li>
+              <li>Architecture blueprint for build phase</li>
+              <li>Sequenced V1 backlog per initiative</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== DATA SOURCES ========== -->
+  <section id="sources">
+    <h2><span class="num">5</span> Data Sources Repository</h2>
+    <div class="body">
+      <div class="data-flow-summary">
+        Ten primary source systems feed the account intelligence graph. Each is categorized by signal type
+        (Pipeline, Engagement, Conversation, Content, People / Activity, Firmographic / Technographic).
+        Candidate AI vendors sit alongside as enrichment and generation layers.
+      </div>
+
+      <h3>Internal Source Systems</h3>
+      <div class="source-grid">
+        <div class="source-card">
+          <h4>ISC</h4>
+          <span class="source-type">Pipeline / CRM Core</span>
+          <p class="source-desc">Pipeline, win/loss, partner data. Source of truth for opportunity and account state. Also the primary delivery surface for playbooks.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Pipeline, opportunity, partner</div>
+            <div><strong>Owner:</strong> ISC Platform Team</div>
+            <div><strong>Refresh:</strong> Real time</div>
+            <div><strong>Used in:</strong> Ingest, Distribute</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>TAP 360</h4>
+          <span class="source-type">Account Intelligence</span>
+          <p class="source-desc">360-degree account view feeding firmographic and engagement signals. Primary feed for account profile assembly.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Account context, firmographic</div>
+            <div><strong>Owner:</strong> Account Intelligence Team</div>
+            <div><strong>Refresh:</strong> Daily</div>
+            <div><strong>Used in:</strong> Ingest, Profile</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>People.ai</h4>
+          <span class="source-type">Activity Capture</span>
+          <p class="source-desc">Captures email, meeting, and call activity. Feeds buying group composition and engagement velocity. Treated as Horizon 2 input.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Activity, buying group</div>
+            <div><strong>Owner:</strong> RevOps</div>
+            <div><strong>Refresh:</strong> Daily</div>
+            <div><strong>Used in:</strong> Profile (Horizon 2)</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>Marketo</h4>
+          <span class="source-type">Marketing Engagement</span>
+          <p class="source-desc">Campaign engagement: opens, clicks, form fills, MQLs, journey membership. Primary engagement velocity signal.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Engagement, MQL</div>
+            <div><strong>Owner:</strong> Marketing Ops</div>
+            <div><strong>Refresh:</strong> Hourly</div>
+            <div><strong>Used in:</strong> Ingest, Profile</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>Gong</h4>
+          <span class="source-type">Conversation Intelligence</span>
+          <p class="source-desc">Call transcripts, deal warning signals, competitive mentions. Feeds talk track and competitive positioning generation.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Conversation, competitive</div>
+            <div><strong>Owner:</strong> Sales Ops</div>
+            <div><strong>Refresh:</strong> Real time per call</div>
+            <div><strong>Used in:</strong> Ingest, Generate, Distribute</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>SalesLoft</h4>
+          <span class="source-type">Sales Cadence</span>
+          <p class="source-desc">Cadence engagement, outbound activity, response data. Also the primary delivery channel for seller-facing playbooks.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Cadence, outbound</div>
+            <div><strong>Owner:</strong> Sales Ops</div>
+            <div><strong>Refresh:</strong> Real time</div>
+            <div><strong>Used in:</strong> Ingest, Distribute</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>Seismic</h4>
+          <span class="source-type">Content Repository</span>
+          <p class="source-desc">Approved sales and marketing content. Source for playbook content sequence recommendations.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Content assets</div>
+            <div><strong>Owner:</strong> Sales Enablement</div>
+            <div><strong>Refresh:</strong> On publish</div>
+            <div><strong>Used in:</strong> Generate</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>Lighthouse</h4>
+          <span class="source-type">Knowledge Graph</span>
+          <p class="source-desc">IBM Knowledge Graph for grounded factual content, product positioning, and competitive context.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Knowledge, structured facts</div>
+            <div><strong>Owner:</strong> Knowledge Eng</div>
+            <div><strong>Refresh:</strong> Continuous</div>
+            <div><strong>Used in:</strong> Generate</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>W3 Box</h4>
+          <span class="source-type">Document Repository</span>
+          <p class="source-desc">Internal document store. Source for unstructured assets, account research files, prior playbooks for reference.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Documents</div>
+            <div><strong>Owner:</strong> IBM IT</div>
+            <div><strong>Refresh:</strong> On change</div>
+            <div><strong>Used in:</strong> Ingest, Generate</div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <h4>EPM</h4>
+          <span class="source-type">Planning / Performance</span>
+          <p class="source-desc">Enterprise Performance Management. Targets, quotas, account assignments, financial context.</p>
+          <div class="source-meta">
+            <div><strong>Signal type:</strong> Targets, quota, assignments</div>
+            <div><strong>Owner:</strong> Finance / RevOps</div>
+            <div><strong>Refresh:</strong> Quarterly + ad hoc</div>
+            <div><strong>Used in:</strong> Profile, Generate</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:32px;">Candidate Vendor / Tool Layer</h3>
+      <div class="source-grid">
+        <div class="source-card vendor">
+          <h4>Buyer Insights</h4>
+          <span class="source-type">Buying Group Intelligence</span>
+          <p class="source-desc">Buying group composition, role mapping, stakeholder identification.</p>
+          <div class="source-meta">
+            <div><strong>Layer:</strong> Enrichment</div>
+            <div><strong>Used in:</strong> Profile</div>
+          </div>
+        </div>
+        <div class="source-card vendor">
+          <h4>6Sense / Demandbase</h4>
+          <span class="source-type">Account Intelligence + Intent</span>
+          <p class="source-desc">Account intelligence, intent scoring, buying group identification, technographic data.</p>
+          <div class="source-meta">
+            <div><strong>Layer:</strong> Enrichment</div>
+            <div><strong>Used in:</strong> Ingest, Profile</div>
+          </div>
+        </div>
+        <div class="source-card vendor">
+          <h4>Writer</h4>
+          <span class="source-type">Generative AI</span>
+          <p class="source-desc">AI-generated playbook content, grounded in account intelligence graph via Knowledge Graph integration.</p>
+          <div class="source-meta">
+            <div><strong>Layer:</strong> Generation</div>
+            <div><strong>Used in:</strong> Generate</div>
+          </div>
+        </div>
+        <div class="source-card vendor">
+          <h4>Salesforce</h4>
+          <span class="source-type">CRM Delivery</span>
+          <p class="source-desc">Account dashboards, opportunity context, custom objects for playbook delivery surface.</p>
+          <div class="source-meta">
+            <div><strong>Layer:</strong> Delivery</div>
+            <div><strong>Used in:</strong> Distribute</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RISKS & KPIs ========== -->
+  <section id="risks">
+    <h2><span class="num">6</span> Risks, Dependencies, and KPIs</h2>
+    <div class="body">
+      <div class="twocol">
+        <div class="panel risk">
+          <h4>Open Risks &amp; Dependencies</h4>
+          <ul>
+            <li>Buying group composition incomplete in ISC for many accounts. Requires enrichment and validation before role-specific guidance is trustworthy.</li>
+            <li>People.ai integration must be treated as Horizon 2 input, not a V1 dependency, to avoid blocking pilot.</li>
+            <li>Account intelligence graph requires entity resolution across all sources; not yet operating at scale.</li>
+            <li>Vendor selection between 6Sense and Demandbase is open.</li>
+            <li>AI ethics, privacy, and brand voice review on generated content.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h4>KPIs</h4>
+          <ul>
+            <li>Playbooks generated per quarter</li>
+            <li>Playbook assembly time (target: 50 to 70% reduction vs baseline)</li>
+            <li>Adoption rate among target FMs and DSs</li>
+            <li>Next-best-action acceptance rate</li>
+            <li>Deal lifecycle velocity (lead-to-opportunity, opportunity-to-close)</li>
+            <li>Signal freshness (time from source change to playbook refresh)</li>
+            <li>Quality / factuality score on generated content</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>IBM Consulting | (c) 2026 IBM Corporation | MCC &amp; IBM Confidential</div>
+  <div>Client Engagement Playbook | Process Blueprint</div>
+</footer>
+
+<script>
+  // Section nav active state on scroll
+  const links = document.querySelectorAll('nav.section-nav a');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+  function update() {
+    const y = window.scrollY + 120;
+    let active = 0;
+    sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
+    links.forEach((l, i) => l.classList.toggle('active', i === active));
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+</script>
+
+</body>
+</html>

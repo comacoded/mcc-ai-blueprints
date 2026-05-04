@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Strategic Planning and Source of Truth (MRD plus Campaign Briefs) | MCC Workflow Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-100:#001141; --blue-90:#001d6c; --blue-80:#002d9c; --blue-70:#0043ce;
+  --blue-60:#0f62fe; --blue-50:#4589ff; --blue-40:#78a9ff; --blue-20:#c6dbfe; --blue-10:#edf5ff;
+  --teal-60:#007d79; --teal-50:#009d9a; --teal-20:#9ef0f0;
+  --magenta-60:#d02670; --purple-60:#8a3ffc; --yellow-30:#f1c21b; --green-50:#24a148;
+  --gray-100:#161616; --gray-90:#262626; --gray-80:#393939; --gray-70:#525252;
+  --gray-60:#6f6f6f; --gray-50:#8d8d8d; --gray-40:#a8a8a8; --gray-30:#c6c6c6;
+  --gray-20:#e0e0e0; --gray-10:#f4f4f4; --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--gray-10);color:var(--gray-100);line-height:1.5;-webkit-font-smoothing:antialiased}
+code,.mono{font-family:'IBM Plex Mono',monospace}
+
+header.app-header{background:var(--blue-100);color:var(--white);padding:24px 48px;border-bottom:4px solid var(--blue-60)}
+.app-header h1{font-size:28px;font-weight:600;letter-spacing:-0.01em}
+.app-header .meta{display:flex;gap:16px;align-items:center;margin-top:8px;font-size:13px;color:var(--blue-20);flex-wrap:wrap}
+.badge{display:inline-block;background:var(--gray-90);color:var(--white);padding:4px 10px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase}
+.badge.feasibility-high{background:var(--green-50);color:var(--white)}
+.badge.feasibility-medium{background:var(--yellow-30);color:var(--gray-100)}
+.badge.feasibility-low{background:var(--magenta-60);color:var(--white)}
+.badge.impact{background:var(--green-50);color:var(--white)}
+
+nav.section-nav{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--gray-20);padding:0 48px;display:flex;gap:0;z-index:50;overflow-x:auto}
+nav.section-nav a{padding:16px 20px;color:var(--gray-70);font-size:14px;font-weight:400;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s ease}
+nav.section-nav a:hover{color:var(--blue-70);background:var(--gray-10)}
+nav.section-nav a.active{color:var(--blue-70);border-bottom-color:var(--blue-70);font-weight:500}
+nav.section-nav .home-link{margin-right:auto;padding:16px 20px;color:var(--gray-60);font-size:13px;text-decoration:none;border-right:1px solid var(--gray-20)}
+nav.section-nav .home-link:hover{color:var(--blue-70)}
+
+main{padding:48px;max-width:1400px;margin:0 auto}
+section{background:var(--white);margin-bottom:32px;border:1px solid var(--gray-20)}
+section h2{font-size:20px;font-weight:600;color:var(--gray-100);padding:20px 32px;border-bottom:1px solid var(--gray-20);background:var(--gray-10);display:flex;align-items:center;gap:12px}
+section h2 .num{background:var(--blue-70);color:var(--white);width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;font-family:'IBM Plex Mono',monospace}
+section .body{padding:32px}
+section h3{font-size:14px;font-weight:600;color:var(--gray-70);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:12px}
+section p{color:var(--gray-80);margin-bottom:16px}
+
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-20);border:1px solid var(--gray-20)}
+.overview .cell{background:var(--white);padding:20px}
+.overview .label{font-size:11px;color:var(--gray-60);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;font-weight:500}
+.overview .value{font-size:14px;color:var(--gray-100)}
+.overview .value strong{color:var(--blue-80)}
+
+.stakeholder-svg-wrap{background:var(--gray-10);padding:24px;border:1px solid var(--gray-20);overflow-x:auto}
+.stakeholder-svg-wrap svg{display:block;width:100%;max-width:1080px;margin:0 auto;height:auto}
+.stakeholder-table{margin-top:24px;width:100%;border-collapse:collapse;font-size:13px}
+.stakeholder-table th{text-align:left;padding:10px 14px;background:var(--gray-90);color:var(--white);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:0.04em}
+.stakeholder-table td{padding:10px 14px;border-bottom:1px solid var(--gray-20);vertical-align:top}
+.stakeholder-table tr:hover td{background:var(--blue-10)}
+.role-tag{display:inline-block;padding:3px 8px;font-size:11px;font-weight:500;color:var(--white);margin-right:4px}
+.role-tag.acc{background:var(--blue-100)}
+.role-tag.resp{background:var(--blue-70)}
+
+.workflow-wrap{background:var(--gray-10);padding:32px 24px;border:1px solid var(--gray-20);overflow-x:auto}
+.workflow-wrap svg{display:block;width:100%;max-width:1280px;margin:0 auto;height:auto}
+.workflow-stages{display:grid;gap:16px;margin-top:32px}
+.stage-card{background:var(--white);border:1px solid var(--gray-20);border-top:4px solid var(--blue-70);padding:20px}
+.stage-card .num-badge{display:inline-block;background:var(--blue-70);color:var(--white);width:24px;height:24px;text-align:center;line-height:24px;font-size:12px;font-family:'IBM Plex Mono',monospace;margin-bottom:12px}
+.stage-card h4{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--blue-80);letter-spacing:0.02em}
+.stage-card p{font-size:13px;color:var(--gray-80);line-height:1.45}
+
+.week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-20);border:1px solid var(--gray-20)}
+.week-col{background:var(--white);padding:0;display:flex;flex-direction:column}
+.week-header{background:var(--gray-10);padding:16px 18px;border-bottom:3px solid var(--blue-70)}
+.week-header .week-num{font-size:18px;font-weight:600;color:var(--gray-100);letter-spacing:-0.01em}
+.week-header .week-title{font-size:12px;color:var(--gray-70);margin-top:2px}
+.week-section{padding:16px 18px}
+.week-section h5{font-size:12px;font-weight:600;color:var(--blue-70);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--gray-20)}
+.week-section ul{list-style:none;padding:0;margin:0}
+.week-section ul li{font-size:12px;color:var(--gray-80);padding:4px 0 4px 14px;position:relative;line-height:1.45}
+.week-section ul li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--blue-70)}
+
+.source-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.source-card{background:var(--white);border:1px solid var(--gray-20);padding:20px;border-left:4px solid var(--teal-60);transition:border-color 0.15s ease}
+.source-card:hover{border-left-color:var(--blue-70)}
+.source-card h4{font-size:15px;font-weight:600;color:var(--gray-100);margin-bottom:4px}
+.source-card .source-type{display:inline-block;font-size:10px;font-weight:500;color:var(--teal-60);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+.source-card .source-desc{font-size:13px;color:var(--gray-80);margin-bottom:12px;line-height:1.5}
+.source-card .source-meta{border-top:1px solid var(--gray-20);padding-top:12px;font-size:11px;color:var(--gray-60);display:grid;gap:4px}
+.source-card .source-meta strong{color:var(--gray-80);font-weight:500;display:inline-block;min-width:80px}
+.source-card.vendor{border-left-color:var(--purple-60)}
+.source-card.vendor .source-type{color:var(--purple-60)}
+
+.data-flow-summary{background:var(--blue-10);border-left:4px solid var(--blue-70);padding:16px 20px;margin-bottom:24px;font-size:14px;color:var(--gray-90)}
+
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--gray-10);border-left:4px solid var(--blue-70);padding:16px 20px}
+.panel.risk{border-left-color:var(--yellow-30)}
+.panel h4{font-size:13px;font-weight:600;color:var(--gray-100);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em}
+.panel ul{list-style:none;padding:0}
+.panel ul li{padding:6px 0 6px 16px;position:relative;font-size:13px;color:var(--gray-80)}
+.panel ul li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;background:var(--blue-70)}
+.panel.risk ul li::before{background:var(--yellow-30)}
+
+footer{background:var(--blue-100);color:var(--blue-20);padding:24px 48px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+
+@media (max-width:900px){
+  .overview,.twocol{grid-template-columns:1fr 1fr}
+  .week-grid{grid-template-columns:1fr 1fr}
+  main{padding:24px}
+  nav.section-nav,header.app-header,footer{padding-left:24px;padding-right:24px}
+}
+@media (max-width:600px){
+  .overview,.twocol,.week-grid{grid-template-columns:1fr}
+}
+</style>
+
+
+
+<style>
+  .mcc-diagram-wrap {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .mcc-diagram {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .mcc-diagram-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #6f6f6f;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+    <div>
+      <h1>Strategic Planning and Source of Truth (MRD plus Campaign Briefs)</h1>
+      <div class="meta">
+        <span class="badge">Content &amp; Creative</span>
+        <span>Workflow Blueprint</span>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--blue-20);text-align:right;">MCC Workflow Blueprint<br/>IBM Confidential</div>
+  </div>
+</header>
+
+<nav class="section-nav"><a href="../playbooks.html" class="home-link">All Blueprints</a><a href="#overview" class="active">Overview</a><a href="#downstream-impact">Downstream Impact</a><a href="#stakeholders">Stakeholders</a><a href="#workflow">Workflow</a><a href="#plan">4-Week Plan</a><a href="#sources">Data Sources</a><a href="#risks">Risks &amp; KPIs</a></nav>
+
+<main>
+  <section id="overview"><h2><span class="num">1</span> Workflow Overview</h2>
+    <div class="body">
+      <p>Centralizes positioning, competitive intelligence, market research, and campaign performance into a governed, queryable platform for content strategists and copywriters. Produces validated campaign MRDs and campaign briefs with automated quality scoring, replacing the multi-revision cycles between C&amp;C and requesting teams that delay every downstream creative workflow.</p>
+      <div class="overview"><div class="cell"><div class="label">Primary Outcome</div><div class="value">Single governed gateway for messaging, MRDs, and briefs</div></div><div class="cell"><div class="label">Scale</div><div class="value"><strong>~60 to 70</strong> content strategists plus PMM, FM, DS</div></div><div class="cell"><div class="label">Time Savings Target</div><div class="value"><strong>50 to 60%</strong> efficiency gain on research and brief development</div></div><div class="cell"><div class="label">Future Reusability</div><div class="value"><strong>HIGH.</strong> PMM, field marketing, demand strategy, events</div></div></div>
+    </div></section>
+  <section id="downstream-impact"><h2><span class="num">DI</span> Downstream Impact Diagram</h2>
+    <div class="body">
+      <p>How <strong>Strategic Planning & Source of Truth</strong> connects out to downstream processes and stakeholder groups across the MCC initiative map. Lines fan from the foundational initiative to each affected workflow.</p>
+      <div class="mcc-diagram-wrap">
+        <svg class="mcc-diagram impact-diagram" viewBox="0 0 1800 1100" xmlns="http://www.w3.org/2000/svg" role="img">
+<rect width="1800" height="1100" fill="#f4f4f4"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 188.5, 700.0 188.5" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 247.0, 700.0 247.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 299.0, 700.0 299.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 351.0, 700.0 351.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 570.0 528.0, 570.0 403.0, 700.0 403.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 188.5, 1050.0 188.5" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 247.0, 1050.0 247.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 299.0, 1050.0 299.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 745.0 528.0, 745.0 351.0, 1050.0 351.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 188.5, 1400.0 188.5" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 247.0, 1400.0 247.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 299.0, 1400.0 299.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<path d="M 440.0 528.0 C 920.0 528.0, 920.0 351.0, 1400.0 351.0" stroke="#c6c6c6" stroke-width="1" fill="none"/>
+<rect x="0" y="0" width="1800" height="110" fill="#ffffff" stroke="#e0e0e0" stroke-width="0"/>
+<line x1="0" y1="110" x2="1800" y2="110" stroke="#e0e0e0" stroke-width="1"/>
+<text x="48" y="40" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="#6f6f6f" letter-spacing="1.2">MCC FOUNDATIONAL INITIATIVES</text>
+<text x="48" y="76" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="500" fill="#161616">#7 Strategic Planning &amp; Source of Truth</text>
+<rect x="60" y="410" width="380" height="236" fill="#001141"/>
+<text x="88" y="449" font-family="IBM Plex Mono, monospace" font-size="10" fill="#a6c8ff" letter-spacing="1.2">FOUNDATIONAL INITIATIVE</text>
+<text x="88" y="515" font-family="IBM Plex Sans, sans-serif" font-size="56" font-weight="300" fill="#ffffff">#7</text>
+<text x="88" y="555" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="500" fill="#ffffff">Strategic Planning &amp; Source of Truth</text>
+<text x="88" y="615" font-family="IBM Plex Mono, monospace" font-size="10" fill="#a6c8ff" letter-spacing="1.2">DOMAIN: CONTENT &amp; CREATIVE</text>
+<rect x="700" y="170" width="260" height="37" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="170" width="4" height="37" fill="#0f62fe"/>
+<text x="716" y="192" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">CONTENT &amp; CREATIVE</text>
+<rect x="700" y="225" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="225" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="251" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">CSC E2E Process Flow</text>
+<rect x="700" y="277" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="277" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="303" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Brand Marketing – all</text>
+<rect x="700" y="329" width="268" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="329" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="355" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">MCC Corporate Affairs AS-IS – Int. Comms</text>
+<rect x="700" y="381" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="700" y="381" width="4" height="44" fill="#0f62fe"/>
+<text x="716" y="407" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Newsletter + w3 Pages</text>
+<rect x="1050" y="170" width="260" height="37" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="170" width="4" height="37" fill="#0f62fe"/>
+<text x="1066" y="192" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">MEDIA STRATEGIC PLANNING</text>
+<rect x="1050" y="225" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="225" width="4" height="44" fill="#0f62fe"/>
+<text x="1066" y="251" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Paid Media – Strategic planning (master)</text>
+<rect x="1050" y="277" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="277" width="4" height="44" fill="#0f62fe"/>
+<text x="1066" y="303" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Strategic planning – Out of Home</text>
+<rect x="1050" y="329" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1050" y="329" width="4" height="44" fill="#0f62fe"/>
+<text x="1066" y="355" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Strategic planning – Paid Search</text>
+<rect x="1400" y="170" width="260" height="37" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="170" width="4" height="37" fill="#0f62fe"/>
+<text x="1416" y="192" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">ABM + PARTNER CONTENT</text>
+<rect x="1400" y="225" width="330" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="225" width="4" height="44" fill="#0f62fe"/>
+<text x="1416" y="251" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">MCC Named Acc. Mark. AS-IS – Innovation Studio GBE</text>
+<rect x="1400" y="277" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="277" width="4" height="44" fill="#0f62fe"/>
+<text x="1416" y="303" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Workshop Event Marketing Workflow</text>
+<rect x="1400" y="329" width="260" height="44" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="1400" y="329" width="4" height="44" fill="#0f62fe"/>
+<text x="1416" y="355" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#161616">Nicole Castro – Partner Content Process</text>
+</svg>
+        <div class="mcc-diagram-caption">Source: MCC Foundational Initiatives — Downstream Impact</div>
+      </div>
+    </div></section>
+
+
+
+  <section id="stakeholders"><h2><span class="num">2</span> Prospective Stakeholder Diagram</h2>
+    <div class="body">
+      <p>Lean tree hierarchy. One accountable executive sponsor, one to two accountable workflow owners, with one to two responsible leads beneath. Roles only, no names.</p>
+      <div class="stakeholder-svg-wrap"><svg viewBox="0 0 1080 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stakeholder hierarchy">
+<defs><style>
+.conn{stroke:#a8a8a8;stroke-width:1.5;fill:none}
+.node-label{font-family:'IBM Plex Sans',sans-serif;font-size:12px;fill:#fff;font-weight:600;text-anchor:middle}
+.node-sub{font-family:'IBM Plex Sans',sans-serif;font-size:10px;fill:#c6dbfe;text-anchor:middle}
+.node-sub-dark{font-family:'IBM Plex Sans',sans-serif;font-size:10px;fill:#525252;text-anchor:middle}
+.tier-label{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#6f6f6f;text-transform:uppercase;letter-spacing:0.06em}
+</style></defs>
+<text x="20" y="75" class="tier-label">Accountable Sponsor</text>
+<text x="20" y="205" class="tier-label">Accountable Owners</text>
+<text x="20" y="355" class="tier-label">Responsible Leads</text>
+<line x1="630.0" y1="80" x2="630.0" y2="170" class="conn"/>
+<line x1="630.0" y1="220" x2="305.0" y2="320" class="conn"/>
+<line x1="630.0" y1="220" x2="505.0" y2="320" class="conn"/>
+<line x1="630.0" y1="220" x2="755.0" y2="320" class="conn"/>
+<line x1="630.0" y1="220" x2="955.0" y2="320" class="conn"/>
+<g><rect x="530" y="40" width="200" height="60" fill="#001141"/>
+<text x="630.0" y="64" class="node-label" style="font-size:13px;">VP / CMO Marketing</text>
+<text x="630.0" y="82" class="node-sub">Executive Sponsor</text></g>
+<g><rect x="530" y="170" width="200" height="60" fill="#0043ce"/>
+<text x="630.0" y="188" class="node-label">Director of Content and</text>
+<text x="630.0" y="204" class="node-label">Creative</text>
+<text x="630.0" y="222" class="node-sub">Workflow Owner</text>
+</g>
+<g><rect x="205" y="320" width="200" height="60" fill="#fff" stroke="#0043ce" stroke-width="2"/>
+<text x="305.0" y="344" class="node-label" style="fill:#001d6c;">Strategist Platform Lead</text>
+<text x="305.0" y="362" class="node-sub-dark">Query interface</text></g>
+<g><rect x="405" y="320" width="200" height="60" fill="#fff" stroke="#0043ce" stroke-width="2"/>
+<text x="505.0" y="344" class="node-label" style="fill:#001d6c;">Knowledge Engineering Lead</text>
+<text x="505.0" y="362" class="node-sub-dark">Aggregation layer</text></g>
+<g><rect x="655" y="320" width="200" height="60" fill="#fff" stroke="#0043ce" stroke-width="2"/>
+<text x="755.0" y="344" class="node-label" style="fill:#001d6c;">ML / AI Engineer</text>
+<text x="755.0" y="362" class="node-sub-dark">Generation and validation</text></g>
+<g><rect x="855" y="320" width="200" height="60" fill="#fff" stroke="#0043ce" stroke-width="2"/>
+<text x="955.0" y="344" class="node-label" style="fill:#001d6c;">Product Designer</text>
+<text x="955.0" y="362" class="node-sub-dark">Strategist UX</text></g>
+</svg></div>
+      <table class="stakeholder-table">
+        <thead><tr><th style="width:24%;">Role</th><th style="width:14%;">RACI</th><th>Responsibility on this workflow</th></tr></thead>
+        <tbody><tr><td><span class="role-tag acc">A</span> VP / CMO Marketing</td><td>Accountable</td><td>Sponsors investment, signs off on platform scope and gateway design.</td></tr><tr><td><span class="role-tag acc">A</span> Director of Content and Creative</td><td>Accountable</td><td>Workflow owner. Owns the gateway, brief quality, and downstream adoption.</td></tr><tr><td><span class="role-tag resp">R</span> Strategist Platform Lead</td><td>Responsible</td><td>Builds the strategist query interface and prompt/methodology library.</td></tr><tr><td><span class="role-tag resp">R</span> Knowledge Engineering Lead</td><td>Responsible</td><td>Builds the unified ingestion layer across Seismic, MRDs, RevTech, external sources.</td></tr><tr><td><span class="role-tag resp">R</span> ML / AI Engineer</td><td>Responsible</td><td>Builds messaging generation, synthetic audience validation, and learn loop.</td></tr><tr><td><span class="role-tag resp">R</span> Product Designer</td><td>Responsible</td><td>Designs the strategist playground UX and downstream API consumer surfaces.</td></tr></tbody>
+      </table>
+    </div></section>
+
+  <section id="workflow"><h2><span class="num">3</span> End to End Workflow</h2>
+    <div class="body">
+      <p>Closed loop workflow. Signals from source systems flow through the AI stages and feed back into upstream models.</p>
+      <div class="workflow-wrap"><svg viewBox="0 0 1280 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="End to end workflow">
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0f62fe"/></marker>
+<marker id="arrowfb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d02670"/></marker>
+<style>
+.stage-rect{fill:#fff;stroke:#0043ce;stroke-width:2}
+.stage-num{font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#0043ce}
+.stage-title{font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:700;fill:#001d6c}
+.stage-body{font-family:'IBM Plex Sans',sans-serif;font-size:10.5px;fill:#393939}
+.source-rect{fill:#007d79;stroke:#004144;stroke-width:1}
+.source-text{font-family:'IBM Plex Sans',sans-serif;font-size:11px;fill:#fff;font-weight:500}
+.channel-rect{fill:#d02670;stroke:#740937;stroke-width:1}
+.layer-label{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;fill:#525252;text-transform:uppercase;letter-spacing:0.06em}
+.arrow-line{fill:none;stroke:#0f62fe;stroke-width:2;marker-end:url(#arrow)}
+.feedback-line{fill:none;stroke:#d02670;stroke-width:2;stroke-dasharray:5 4;marker-end:url(#arrowfb)}
+</style></defs>
+<text x="20" y="40" class="layer-label">Source Systems</text>
+<text x="20" y="200" class="layer-label">AI Workflow Stages</text>
+<text x="20" y="380" class="layer-label">Delivery Channels</text>
+<rect x="40.0" y="55" width="110" height="34" class="source-rect"/>
+<text x="95.0" y="76" class="source-text" text-anchor="middle">Seismic</text>
+<rect x="258.0" y="55" width="110" height="34" class="source-rect"/>
+<text x="313.0" y="76" class="source-text" text-anchor="middle">MRDs / Personas</text>
+<rect x="476.0" y="55" width="110" height="34" class="source-rect"/>
+<text x="531.0" y="76" class="source-text" text-anchor="middle">RevTech / AEP</text>
+<rect x="694.0" y="55" width="110" height="34" class="source-rect"/>
+<text x="749.0" y="76" class="source-text" text-anchor="middle">Brand &amp; Legal</text>
+<rect x="912.0" y="55" width="110" height="34" class="source-rect"/>
+<text x="967.0" y="76" class="source-text" text-anchor="middle">ibm.com</text>
+<rect x="1130.0" y="55" width="110" height="34" class="source-rect"/>
+<text x="1185.0" y="76" class="source-text" text-anchor="middle">External Market</text>
+<g><rect x="40.0" y="180" width="166.66666666666666" height="120" class="stage-rect"/>
+<text x="55.0" y="205" class="stage-num">01</text>
+<text x="55.0" y="227" class="stage-title">AGGREGATE</text>
+<text x="55.0" y="250" class="stage-body">Ingest internal sources</text>
+<text x="55.0" y="265" class="stage-body">(Seismic, MRDs, brand,</text>
+<text x="55.0" y="280" class="stage-body">RevTech) and external</text>
+<text x="55.0" y="295" class="stage-body">into governed gateway</text>
+</g>
+<g><rect x="246.66666666666666" y="180" width="166.66666666666666" height="120" class="stage-rect"/>
+<text x="261.66666666666663" y="205" class="stage-num">02</text>
+<text x="261.66666666666663" y="227" class="stage-title">ANALYZE</text>
+<text x="261.66666666666663" y="250" class="stage-body">Surface audience insights,</text>
+<text x="261.66666666666663" y="265" class="stage-body">competitive positioning,</text>
+<text x="261.66666666666663" y="280" class="stage-body">campaign performance via</text>
+<text x="261.66666666666663" y="295" class="stage-body">strategist query</text>
+</g>
+<g><rect x="453.3333333333333" y="180" width="166.66666666666666" height="120" class="stage-rect"/>
+<text x="468.3333333333333" y="205" class="stage-num">03</text>
+<text x="468.3333333333333" y="227" class="stage-title">GENERATE</text>
+<text x="468.3333333333333" y="250" class="stage-body">AI-assisted messaging and</text>
+<text x="468.3333333333333" y="265" class="stage-body">brief drafting grounded</text>
+<text x="468.3333333333333" y="280" class="stage-body">in the unified layer with</text>
+<text x="468.3333333333333" y="295" class="stage-body">reusable prompts</text>
+</g>
+<g><rect x="660.0" y="180" width="166.66666666666666" height="120" class="stage-rect" style="fill:#edf5ff;"/>
+<text x="675.0" y="205" class="stage-num">04</text>
+<text x="675.0" y="227" class="stage-title">VALIDATE</text>
+<text x="675.0" y="250" class="stage-body">Synthetic audience testing</text>
+<text x="675.0" y="265" class="stage-body">of messaging against</text>
+<text x="675.0" y="280" class="stage-body">audience models before</text>
+<text x="675.0" y="295" class="stage-body">campaign spend</text>
+</g>
+<g><rect x="866.6666666666666" y="180" width="166.66666666666666" height="120" class="stage-rect"/>
+<text x="881.6666666666666" y="205" class="stage-num">05</text>
+<text x="881.6666666666666" y="227" class="stage-title">LEARN</text>
+<text x="881.6666666666666" y="250" class="stage-body">Capture campaign</text>
+<text x="881.6666666666666" y="265" class="stage-body">performance and org</text>
+<text x="881.6666666666666" y="280" class="stage-body">intelligence in feedback</text>
+<text x="881.6666666666666" y="295" class="stage-body">loop</text>
+</g>
+<g><rect x="1073.3333333333333" y="180" width="166.66666666666666" height="120" class="stage-rect"/>
+<text x="1088.3333333333333" y="205" class="stage-num">06</text>
+<text x="1088.3333333333333" y="227" class="stage-title">ENABLE</text>
+<text x="1088.3333333333333" y="250" class="stage-body">Expose layer via API</text>
+<text x="1088.3333333333333" y="265" class="stage-body">to downstream tools so</text>
+<text x="1088.3333333333333" y="280" class="stage-body">they can access validated</text>
+<text x="1088.3333333333333" y="295" class="stage-body">messaging and audience</text>
+</g>
+<line x1="206.66666666666666" y1="240.0" x2="246.66666666666666" y2="240.0" class="arrow-line"/>
+<line x1="413.3333333333333" y1="240.0" x2="453.3333333333333" y2="240.0" class="arrow-line"/>
+<line x1="620.0" y1="240.0" x2="660.0" y2="240.0" class="arrow-line"/>
+<line x1="826.6666666666666" y1="240.0" x2="866.6666666666666" y2="240.0" class="arrow-line"/>
+<line x1="1033.3333333333333" y1="240.0" x2="1073.3333333333333" y2="240.0" class="arrow-line"/>
+<line x1="95.0" y1="89" x2="123.33333333333333" y2="180" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="313.0" y1="89" x2="123.33333333333333" y2="180" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="531.0" y1="89" x2="123.33333333333333" y2="180" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="749.0" y1="89" x2="123.33333333333333" y2="180" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="967.0" y1="89" x2="123.33333333333333" y2="180" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="1185.0" y1="89" x2="123.33333333333333" y2="180" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<rect x="40.0" y="395" width="160" height="34" class="channel-rect"/>
+<text x="120.0" y="416" class="source-text" text-anchor="middle">Gen Studio</text>
+<rect x="386.66666666666663" y="395" width="160" height="34" class="channel-rect"/>
+<text x="466.66666666666663" y="416" class="source-text" text-anchor="middle">Execution Teams</text>
+<rect x="733.3333333333333" y="395" width="160" height="34" class="channel-rect"/>
+<text x="813.3333333333333" y="416" class="source-text" text-anchor="middle">Self-Serve Creators</text>
+<rect x="1080.0" y="395" width="160" height="34" class="channel-rect"/>
+<text x="1160.0" y="416" class="source-text" text-anchor="middle">Field Marketing</text>
+<line x1="1156.6666666666665" y1="300" x2="120.0" y2="395" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="1156.6666666666665" y1="300" x2="466.66666666666663" y2="395" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="1156.6666666666665" y1="300" x2="813.3333333333333" y2="395" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<line x1="1156.6666666666665" y1="300" x2="1160.0" y2="395" class="arrow-line" style="stroke-width:1.2;opacity:0.6;"/>
+<path d="M 1215.0 300 Q 1215.0 360 700 360 Q 300 360 65.0 300" class="feedback-line"/>
+<text x="640" y="354" style="font-family:IBM Plex Sans;font-size:11px;fill:#d02670;font-weight:600;" text-anchor="middle">Feedback loop refines upstream stages</text>
+</svg></div>
+      <div class="workflow-stages" style="grid-template-columns: repeat(5, 1fr);"><div class="stage-card"><span class="num-badge">01</span><h4>AGGREGATE</h4><p>Ingest and unify internal sources (Seismic, MRDs, brand/legal guidelines, RevTech/AEP) and external sources (competitive intelligence, market research) into a governed gateway with automated refresh.</p></div><div class="stage-card"><span class="num-badge">02</span><h4>ANALYZE</h4><p>Surface audience insights by segment (industry, persona, product), competitive positioning, and historical campaign performance on demand through a strategist query interface.</p></div><div class="stage-card"><span class="num-badge">03</span><h4>GENERATE</h4><p>AI-assisted messaging development and campaign brief drafting grounded in the unified layer, with a reusable prompt and methodology library capturing what works.</p></div><div class="stage-card"><span class="num-badge">04</span><h4>VALIDATE</h4><p>Synthetic audience testing of messaging against audience models before committing campaign spend, addressing the $2M-campaign-without-$20K-testing gap.</p></div><div class="stage-card"><span class="num-badge">05</span><h4>LEARN</h4><p>Capture campaign performance and organizational intelligence in a feedback loop, building collective knowledge rather than losing it to individual memory.</p></div><div class="stage-card"><span class="num-badge">06</span><h4>ENABLE</h4><p>Expose the layer via API and connectors so downstream tools (Gen Studio, execution teams, self-serve creation) can access validated messaging and audience.</p></div></div>
+    </div></section>
+
+  <section id="plan"><h2><span class="num">4</span> 4-Week Co-Design Phase</h2>
+    <div class="body">
+      <p>Compressed 4-week plan. Outcome targets: net-new initiative designs, full requirements documentation (business rules, data and tech dependencies, role implications, governance), and a prioritized V1 capability backlog.</p>
+      <div class="overview" style="grid-template-columns:repeat(3,1fr);margin-bottom:24px;">
+        <div class="cell"><div class="label">Net-New Initiative Designs</div><div class="value">Reimagined ways of working and new workflows, not just optimizing what works today.</div></div>
+        <div class="cell"><div class="label">Full Requirements Documentation</div><div class="value">Business rules, data and technology dependencies, potential role implications, and governance.</div></div>
+        <div class="cell"><div class="label">Prioritized V1 Capabilities</div><div class="value">Sequenced backlog with defined V1 scope per initiative: what to build first, what to phase.</div></div>
+      </div>
+      <div class="week-grid"><div class="week-col"><div class="week-header"><div class="week-num">Week 1</div><div class="week-title">Reimagine</div></div><div class="week-section"><h5>Activities</h5><ul><li>Pain point validation with C&amp;C, PMM, Demand Strategy, Field Marketing, Copywriters, Social</li><li>Identify reimagination vs optimization opportunities for the strategist gateway and brief automation</li><li>Set strategic framing and guardrails (scope, role coverage, AI ethics)</li></ul></div><div class="week-section"><h5>Deliverables</h5><ul><li>Data source map (Seismic, MRDs, RevTech/AEP, Brand and Legal, ibm.com, External market providers)</li><li>Pain points tracked against current state</li><li>Current state mapped with future state solution</li></ul></div></div><div class="week-col"><div class="week-header"><div class="week-num">Week 2</div><div class="week-title">Data and Tech Feasibility</div></div><div class="week-section"><h5>Activities</h5><ul><li>Architecture feasibility solidified</li><li>Data sources clarified and tech / tools identified for future state</li><li>Finalize data, platform, and access needs with CIO</li></ul></div><div class="week-section"><h5>Deliverables</h5><ul><li>Draft reimagined initiative designs per initiative</li><li>Initial architecture requirements</li><li>Requirements documentation (business rules, data and tech dependencies, governance)</li></ul></div></div><div class="week-col"><div class="week-header"><div class="week-num">Week 3</div><div class="week-title">Prioritization and Sequencing</div></div><div class="week-section"><h5>Activities</h5><ul><li>Validate designs with functional leaders and process owners (C&amp;C, PMM, Demand Strategy, Field Marketing, Copywriters, Social)</li><li>Prioritization stakeholder sign-off on initiatives and capability sequencing</li><li>Requirements for V1 scope finalized</li></ul></div><div class="week-section"><h5>Deliverables</h5><ul><li>Initial role impact assessment by domain</li><li>Sequenced capabilities to reach final state</li></ul></div></div><div class="week-col"><div class="week-header"><div class="week-num">Week 4</div><div class="week-title">Finalize</div></div><div class="week-section"><h5>Activities</h5><ul><li>Sequence V1 functionality / capabilities per initiative</li><li>Align on build-first vs phase vs defer</li><li>Final architecture sign-off with CIO</li></ul></div><div class="week-section"><h5>Deliverables</h5><ul><li>V1 scope definition with acceptance criteria</li><li>Architecture blueprint for build phase</li><li>Sequenced V1 backlog per initiative</li></ul></div></div></div>
+    </div></section>
+
+  <section id="sources"><h2><span class="num">5</span> Data Sources Repository</h2>
+    <div class="body">
+      <div class="data-flow-summary">Source systems feed the workflow. Each is categorized by type and which stage consumes it. Candidate vendors and tools are listed alongside as enrichment and generation layers.</div>
+      <h3>Internal Source Systems</h3>
+      <div class="source-grid"><div class="source-card"><h4>Seismic</h4><span class="source-type">Content Repository</span><p class="source-desc">Product messaging, sales enablement, competitive narratives.</p><div class="source-meta"><div><strong>Owner:</strong> Sales Enablement</div><div><strong>Used in:</strong> Aggregate</div></div></div><div class="source-card"><h4>MRDs / Persona Foundations</h4><span class="source-type">Product Source</span><p class="source-desc">Product info, audience definitions.</p><div class="source-meta"><div><strong>Owner:</strong> PMM</div><div><strong>Used in:</strong> Aggregate, Generate</div></div></div><div class="source-card"><h4>RevTech / AEP</h4><span class="source-type">Engagement Data</span><p class="source-desc">Client engagement patterns, propensity, audience behavior.</p><div class="source-meta"><div><strong>Owner:</strong> Rev Tech</div><div><strong>Used in:</strong> Analyze</div></div></div><div class="source-card"><h4>Brand and Legal Guidelines</h4><span class="source-type">Governance</span><p class="source-desc">Approved brand voice, legal constraints, in progress with Gen Studio POC.</p><div class="source-meta"><div><strong>Owner:</strong> Brand / Legal</div><div><strong>Used in:</strong> Generate, Validate</div></div></div><div class="source-card"><h4>ibm.com / Public Sources</h4><span class="source-type">External</span><p class="source-desc">Public-facing product info, competitive intelligence.</p><div class="source-meta"><div><strong>Owner:</strong> Web Team</div><div><strong>Used in:</strong> Aggregate</div></div></div><div class="source-card"><h4>External Market Research</h4><span class="source-type">External</span><p class="source-desc">Gartner, Forrester, IDC, custom research, automated refresh needed.</p><div class="source-meta"><div><strong>Owner:</strong> Research / Intel</div><div><strong>Used in:</strong> Aggregate</div></div></div></div>
+      <h3 style="margin-top:32px;">Candidate Vendor / Tool Layer</h3>
+      <div class="source-grid"><div class="source-card vendor"><h4>Gen Studio (Adobe)</h4><span class="source-type">Content Creation</span><p class="source-desc">Content creation and templating, V2 expansion.</p><div class="source-meta"><div><strong>Layer:</strong> Generation</div></div></div><div class="source-card vendor"><h4>Writer / Typeface</h4><span class="source-type">Generative</span><p class="source-desc">Brand-grounded text generation candidates.</p><div class="source-meta"><div><strong>Layer:</strong> Generation</div></div></div><div class="source-card vendor"><h4>Anthropic / Claude</h4><span class="source-type">LLM</span><p class="source-desc">General-purpose generation and reasoning model.</p><div class="source-meta"><div><strong>Layer:</strong> Generation</div></div></div></div>
+    </div></section>
+
+  <section id="risks"><h2><span class="num">6</span> Risks, Dependencies, and KPIs</h2>
+    <div class="body">
+      <div class="twocol">
+        <div class="panel risk"><h4>Open Risks &amp; Dependencies</h4><ul><li>Many foundational elements exist (Seismic content indexed, MRDs/personas built, brand guidelines in progress, RevTech/AEP providing audience), but a gateway with governed access has not been built.</li><li>Internal integration (client engagement patterns) is harder than external (public competitive).</li><li>Complete data source inventory needed before build.</li><li>Baseline hours must be measured for ROI.</li><li>Centralized location for non-IBM owned data sources is unresolved.</li></ul></div>
+        <div class="panel"><h4>KPIs</h4><ul><li>Reduction in hours per messaging or research cycle (baseline TBD)</li><li>Percent of strategists using platform as primary research tool</li><li>Message consistency score across campaigns (methodology TBD)</li><li>Quality score of the brief</li><li>Whether the brief we are getting is understood</li><li>Number of revisions per brief</li></ul></div>
+      </div>
+    </div></section>
+</main>
+
+<footer>
+  <div>IBM Consulting | (c) 2026 IBM Corporation | MCC &amp; IBM Confidential</div>
+  <div>Strategic Planning and Source of Truth (MRD plus Campaign Briefs) | Workflow Blueprint</div>
+</footer>
+
+<script>
+const links=document.querySelectorAll('nav.section-nav a:not(.home-link)');
+const sections=Array.from(links).map(a=>document.querySelector(a.getAttribute('href')));
+function update(){const y=window.scrollY+120;let active=0;sections.forEach((s,i)=>{if(s&&s.offsetTop<=y)active=i;});links.forEach((l,i)=>l.classList.toggle('active',i===active));}
+window.addEventListener('scroll',update,{passive:true});update();
+</script>
+</body>
+</html>
