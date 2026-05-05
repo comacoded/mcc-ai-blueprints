@@ -1046,6 +1046,8 @@
   .page-ix .tag-both { background: #e0e0e0; color: #393939; }
   .page-ix .tag-initiative { background: #d0e2ff; color: #002d9c; font-size: 0.6875rem; padding: 1px 6px; }
   .page-ix .tag-sub { background: #f4f4f4; color: #525252; font-size: 0.6875rem; padding: 1px 6px; border: 1px solid #e0e0e0; }
+  .page-ix .tag-final { background: #0f62fe; color: #ffffff; font-size: 0.6875rem; padding: 1px 6px; font-weight: 600; }
+  .page-ix .tag-initiative-bold { background: #0043ce; color: #ffffff; font-size: 0.6875rem; padding: 1px 6px; font-weight: 600; }
   .page-ix .gap-cluster {
     background: var(--cds-layer-01);
     border: 1px solid var(--cds-border-subtle);
@@ -2661,6 +2663,14 @@
     Marketing &amp; Automation
     <span class="nav-meta">91%</span>
   </a>
+
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section-label">Idea Catalog</div>
+  <a href="#" data-page="initiative-catalog">
+    <span class="nav-dot" style="background:#0f62fe"></span>
+    130 Ideas &rarr; 41 Initiatives
+    <span class="nav-meta">91%</span>
+  </a>
 </nav>
 
 <!-- Main Content -->
@@ -2714,6 +2724,7 @@
   <div class="page page-ix" id="page-ix-cc"></div>
   <div class="page page-ix" id="page-ix-pmm"></div>
   <div class="page page-ix" id="page-ix-ma"></div>
+  <div class="page page-ix" id="page-initiative-catalog"></div>
 
 </div><!-- end .main -->
 
@@ -2725,7 +2736,7 @@
 
 <!-- ===== SIDEBAR NAVIGATION ===== -->
 <script>
-const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr','ix-cc','ix-pmm','ix-ma'];
+const ixPages = ['ix-combined','ix-to','ix-ca','ix-mmapi','ix-na','ix-sm','ix-csr','ix-cc','ix-pmm','ix-ma','initiative-catalog'];
 const ixCache = {};
 
 document.querySelectorAll('.sidebar a[data-page]').forEach(link => {
